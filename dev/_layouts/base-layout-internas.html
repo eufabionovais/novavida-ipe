@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+			@import(estilos)
+			<title>Ipê | Nova Vida TI</title>
+		</head>
+		<body>
+			<div class="main__wrapper">
+				@component(sidebar)
+				@endcomponent
+
+				<main class="main__content">
+
+					@import(header-internas)
+
+					<div class="sub-header">
+
+						@component(lead-slider)
+						@endcomponent
+
+						@component(botoes-auxiliares)
+						@endcomponent
+
+					</div>
+
+					@attach(lead)
+
+					@attach(main)
+
+			</main>
+		</div>
+		@import(scripts)
+	</body>
+</html>

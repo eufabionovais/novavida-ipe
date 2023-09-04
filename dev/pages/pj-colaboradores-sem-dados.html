@@ -1,0 +1,58 @@
+@layout(base-layout-internas)
+
+@section(title, Pessoa física - Pessoas ligadas)
+
+@section(lead)
+  @component(lead-selecionado-colaboradores-pj-sem-dados)
+  @endcomponent
+@endsection
+
+@section(main)
+
+<div class="content-line__wrapper">
+
+  <div class="row">
+
+    <div class="col-12">
+      <div class="societies-item">
+        <div class="content-card">
+          <header class="content-card__header">
+            <div class="content-card__header__title">
+              <span class="rounded-icon" medium color="purple">
+                <span class="material-symbols-outlined filled">
+                  account_circle
+                </span>
+              </span>
+              <div>
+              Colaboradores no LinkedIn
+              </div>
+            </div>
+
+            <div class="form-control-wrapper form-control-search">
+              <input type="text" placeholder="Filtrar por nome" class="form-control">
+              <button class="search-button">
+                <span class="material-symbols-outlined">
+                search
+                </span> 
+              </button>                 
+            </div>
+          </header>
+          <div class="content-card__body">                
+            @component(sem-dados)
+            @endcomponent
+          </div>
+        </div>
+      </div>
+    </div>
+    
+ 
+    
+
+  </div>
+
+
+
+
+</div>
+
+@endsection

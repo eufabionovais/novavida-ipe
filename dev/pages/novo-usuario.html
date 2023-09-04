@@ -1,0 +1,100 @@
+@layout(base-layout-full-width) 
+
+@section(title, Novo usuário)
+
+@section(main)
+<div class="content-line__wrapper">		
+
+  <div class="row">
+    <div class="mb-5 col-12 d-flex align-items-center ">
+      <a href="usuarios.html" class="btn btn-outline-primary btn-page-back">
+
+      <span class="material-symbols-outlined">
+      chevron_left
+      </span>
+
+      </a>
+      <h1 class="m-0 page-title">Novo usuário</h1>
+    </div>
+  </div>
+  <!-- / Row -->
+
+  <div class="mb-5 row">
+    
+    <div class="col-12 col-lg-5">
+      <h2 class="content-block-title">
+      <span class="rounded-icon" medium color="purple">
+        <span class="material-symbols-outlined filled">
+          folder_shared
+        </span>
+      </span>	
+      Insira os dados do usuário</h2>
+    </div>
+    <div class="col-12 col-lg-7">
+        <div class="row">
+          <div class="mb-4 col-6">											
+            <input type="text" class="form-control form-control-lg" placeholder="Nome *">
+          </div>
+          <div class="mb-4 col-6">											
+            <input type="text" class="form-control form-control-lg" placeholder="E-mail *">
+          </div>		
+          <div class="mb-4 col-12">											
+            <input type="text" class="form-control form-control-lg" placeholder="Login *">
+          </div>
+          <div class="col-md-6">											
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" checked id="itemAtivo">
+              <label class="form-check-label" for="itemAtivo">Cadastrar com status <span class="highlight">ativo</span></label>												
+            </div>												
+          </div>
+          <div class="col-md-6">											
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" checked id="acessoMultiplo">
+              <label class="form-check-label" for="acessoMultiplo">Acesso múltiplo</label>												
+            </div>												
+          </div>										
+                        
+        </div>								
+    </div>
+
+  </div>
+  <!-- / Row -->
+
+
+  <div class="row">
+
+    <div class="col-12 col-lg-5">
+      <h2 class="content-block-title">
+      <span class="rounded-icon" medium color="purple">
+        <span class="material-symbols-outlined filled">
+          key
+        </span>
+      </span>	
+      Cadastrar senha</h2>
+    </div>
+    <div class="col-md-7">
+
+    <div class="row">
+      <div class="mb-4 col-6">					
+        <div class="password-wrapper">							
+          <input type="password" class="form-control form-control-lg" placeholder="Senha">
+        </div>
+      </div>
+      <div class="mb-4 col-6">			
+        <div class="password-wrapper">									
+          <input type="password" class="form-control form-control-lg" placeholder="Confirmar senha">
+        </div>
+      </div>		
+      <div class="mb-4 col-12">											
+        <input type="number" class="form-control form-control-lg" placeholder="Vencimento de senha (em dias)">
+      </div>
+      <div class="mt-lg-5 col-12 text--right">
+        <button class="btn btn-primary">Cadastrar usuário</button>
+      </div>																		
+        </div>									
+    </div>
+
+  </div>
+  <!-- / Row -->	
+</div>
+@endsection

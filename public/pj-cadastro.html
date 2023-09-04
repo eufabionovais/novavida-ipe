@@ -1,0 +1,1501 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..200,0..1,-50..200" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+<link rel="stylesheet" href="assets/vendor/slick/slick.css">
+<link rel="stylesheet" href="assets/vendor/slick/slick-theme.css">
+<link rel="stylesheet" href="assets/css/app-congonhas-styles.css">
+<link rel="stylesheet" href="assets/css/mapa-dados.css">
+			<title>Ipê | Nova Vida TI</title>
+		</head>
+		<body>
+			<div class="main__wrapper">
+				<!-- Sidebar -->  
+<aside class="sidebar">
+  <header class="sidebar__header d-flex justify-content-between align-items-center">
+        <a href="dashboard.html">
+          <img src="assets/img/logo-nova-vida.png" alt="Nova Vida - Congonhas" class="logo-open">
+          <img src="assets/img/logo-nova-vida-mini.png" alt="Nova Vida - Congonhas" class="logo-collapsed">
+        </a>
+    <button class="btn btn-link menu__toggle" data-toggle-menu="true">
+      <span class="material-symbols-outlined">
+        menu_open
+      </span>            
+    </button>
+  </header>
+  <div class="sidebar__content">
+    <nav class="main-nav">
+        <ul class="main-nav__list">
+          <li class="main-nav__item">
+            <a class="main-nav__link" href="pf-cadastro.html">
+              <span class="material-symbols-outlined filled">
+                contact_page
+              </span>                      
+                <span class="main-nav__link-text">Cadastro</span>
+            </a>
+          </li>
+          <li class="main-nav__item">
+            <a class="main-nav__link" href="pf-persona.html">
+              <span class="material-symbols-outlined filled">
+                groups
+              </span>  
+              <span class="main-nav__link-text">Persona</span>
+            </a>
+          </li>
+          <li class="main-nav__item">
+            <a class="main-nav__link" href="pf-sociedades.html">
+              <span class="material-symbols-outlined filled">
+                contact_page
+              </span>   
+              <span class="main-nav__link-text">Sociedades</span>
+            </a>
+          </li>
+          <li class="main-nav__item">
+              <a class="main-nav__link" href="pf-empresas-ligadas.html">
+                <span class="material-symbols-outlined filled">
+                  location_city
+                </span>     
+                <span class="main-nav__link-text">Empresas Ligadas</span>
+              </a>
+          </li>
+          <li class="main-nav__item">
+              <a class="main-nav__link" href="pf-pessoas-ligadas.html">
+              <span class="material-symbols-outlined filled">
+                  diversity_3
+                </span>                           
+                <span class="main-nav__link-text">Pessoas Ligadas</span>
+              </a>
+          </li>
+          <li class="main-nav__item">
+            <a class="main-nav__link" href="pf-perfil-consumo.html">
+            <span class="material-symbols-outlined filled">
+                  area_chart
+              </span>        
+              <span class="main-nav__link-text">Perfil de Consumo</span>
+            </a>
+          </li>                  
+          <li class="main-nav__item">
+            <a class="main-nav__link" href="pf-perfil-socio-demografico.html">
+                <span class="material-symbols-outlined filled">
+                  request_quote
+                </span>        
+                <span class="main-nav__link-text">Perfil sócio-demográfico</span>
+            </a>
+          </li>
+          <li class="main-nav__item">
+              <a class="main-nav__link" href="arvore-grafica.html">
+                <span class="material-symbols-outlined filled">
+                  account_tree
+                </span>  
+                <span class="main-nav__link-text">Árvore gráfica</span>
+              </a>
+          </li>
+
+          <li class="main-nav__item">
+            <a class="main-nav__link" href="pf-contatos-ruins.html">
+              <span class="material-symbols-outlined filled">
+                  phone_missed
+              </span>  
+              <span class="main-nav__link-text">Contatos ruins</span>
+            </a>
+          </li>
+          <li class="main-nav__item">
+            <a class="main-nav__link" href="pf-obito.html">
+              <span class="material-symbols-outlined filled">
+                  vital_signs
+              </span>  
+              <span class="main-nav__link-text">Óbito</span>
+            </a>
+          </li>                  
+          <li class="main-nav__item">
+            <a class="main-nav__link" href="pf-situacao-cadastral.html">
+                <span class="material-symbols-outlined filled">
+                  verified
+                </span>  
+                <span class="main-nav__link-text">Situação cadastral</span>
+            </a>
+          </li>
+          <li class="main-nav__item">
+            <a class="main-nav__link" href="pf-inadimplencia.html">
+                <span class="material-symbols-outlined filled">
+                  credit_card_off
+                </span>  
+                <span class="main-nav__link-text">Inadimplência</span>
+            </a>
+          </li>
+          <li class="main-nav__item"><a class="main-nav__link" href="compliance.html">
+              <span class="material-symbols-outlined filled">
+                  balance
+              </span>  
+              <span class="main-nav__link-text">Compliance</span>
+            </a>
+          </li>
+        </ul>
+    </nav>
+  </div>
+</aside>
+<!-- // Sidebar -->
+
+				<main class="main__content">
+
+					<!-- Header -->
+<header class="main-header main-header--inner-page">
+  <div class="main-header__inner container-fluid d-flex justify-content-between">
+
+    <a href="dashboard.html" class="logo">
+        <img src="assets/img/logo-nova-vida.png" alt="Nova Vida TI">
+    </a>   
+
+       
+    <div class="search__wrapper--inner-page">
+        <!-- Busca -->
+<form action="pf-cadastro.html" type="post">
+  <div div class="search__fields">
+    <input type="text" class="form-control search__field" placeholder="Digite o CPF ou CNPJ" data-mask='cpf-cnpj'>
+    <div class="btn-group">
+      <button id="btnGoal" type="button" class="btn btn-secondary dropdown-toggle btn--goal" data-bs-toggle="dropdown" aria-expanded="false">
+        Objetivo
+      </button>
+      <dl class="dropdown-menu dropdown-menu-end goals-list">
+        <div class="goal-item">
+          <dt>Confirmação de identidade</dt>
+          <dd>Utilização do dado pessoal para combate à fraude, visando a identificação correta ou confirmação de identidade.</dd>
+        </div>
+        <div class="goal-item">
+          <dt>Ciclo de crédito</dt>
+          <dd>Utilização do dado pessoal para o ciclo de proteção ao crédito, incluindo cobrança, verificação de situação financeira e a correta identificação.</dd>
+        </div>
+        <div class="goal-item">
+          <dt>Execução de contrato</dt>
+          <dd>Utilização do dado pessoal para a devida atualização ou execução de contrato, de procedimentos preliminares relacionados ao contrato do qual seja parte o titular, a pedido do titular dos dados.</dd>
+        </div>
+        <div class="goal-item">
+          <dt>Legítimo interesse</dt>
+          <dd>Utilização do dado pessoal para atender aos interesses legítimos do controlador ou de terceiro, atendendo e cumprindo com direitos e liberdades fundamentais do titular que exijam a proteção dos dados pessoais. </dd>
+        </div>
+      </dl>
+    </div>
+    <button type="button" class="btn btn-secondary"  data-bs-toggle="modal" data-bs-target="#advancedSearch">
+      <span class="material-symbols-outlined">
+          tune
+      </span>              
+    </button>
+    <button class="btn btn-primary" type="submit">
+    <span class="material-symbols-outlined">
+          search
+      </span>                
+    </button>
+  </div>
+</form>
+<!-- // Busca -->
+
+
+    </div>    
+      
+      <ul class="gap-2 d-flex align-items-center">
+          <li>
+              <!-- Notificações -->
+<div class="btn-group">
+  <button type="button" class="btn btn--notifications" data-bs-toggle="dropdown" aria-expanded="false">
+      <span class="material-symbols-outlined filled">
+          notifications
+      </span>
+      <span class="notification__alert"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end notifications-list">
+      <li>Notificação 1</li>
+      <li>Notificação 2</li>
+      <li>Notificação 3</li>
+      <li>Notificação 4</li>
+  </ul>
+</div>
+<!-- // Notificações -->
+          </li>
+          <li>
+              <!-- User menu -->
+<div class="btn-group">
+  <button type="button" class="btn user__wrapper">
+      <span class="user__avatar">
+          <img src="assets/img/usuarios/usuario-avatar.png" alt="Nome do Usuário">
+      </span>
+      <span class="user__info">
+          <span class="user__name">Alexandre Novais</span>
+          <span class="user__score">Pré: 500 de 1.000</span>
+      </span>
+  </button>
+  <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+      <span class="visually-hidden">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end user-dropdown-menu">
+      <li>
+          <a class="dropdown-item" href="meus-dados.html">
+              <span class="icon material-symbols-outlined">
+                  badge
+              </span>
+              Meus dados
+          </a>
+      </li>
+      <li>
+          <a class="dropdown-item" href="relatorios.html">
+              <span class="material-symbols-outlined icon">
+                  bar_chart
+              </span>    
+              Relatórios
+          </a>
+      </li>
+      <li>
+          <a class="dropdown-item" href="recarga.html">
+              <span class="material-symbols-outlined icon">
+                  youtube_searched_for
+              </span>    
+          Recarga
+          </a>
+      </li>
+      <li>
+        <a class="dropdown-item" href="mapa-dados.html">
+            <span class="material-symbols-outlined icon">
+                analytics
+            </span>    
+            Mapa de Dados
+        </a>
+    </li>       
+      <li>
+          <a class="dropdown-item" href="usuarios.html">
+              <span class="material-symbols-outlined icon">
+                  group
+              </span>        
+              Usuários
+          </a>
+      </li>
+      <li>
+          <a class="dropdown-item" href="index.html">
+              <span class="material-symbols-outlined icon">
+                  logout
+              </span>        
+              Sair
+          </a>
+      </li>
+      <li><hr class="dropdown-divider"></li>
+      <li>
+          <div class="text-item">
+              <div class="text-item__label">Meu IP:</div>
+              <div class="text-item__content">192.168.0.1</div>
+          </div>
+      </li>
+  </ul>
+</div>
+<!-- // User menu -->
+          </li>     
+          <li>
+              <!-- Menu de aplicativos -->
+<button type="button" class="btn btn-primary btn--apps" data-bs-toggle="dropdown" aria-expanded="false">
+  <span class="material-symbols-outlined">
+      apps
+  </span>                        
+</button>
+
+<ul class="dropdown-menu dropdown-menu-end apps-dropdown-menu">
+  <li>
+      <a class="dropdown-item" href="#">
+          <div class="text-item">
+              <div class="text-item__title">Ipê</div>
+              <div class="text-item__detail">Enriquecimento em Lote</div>
+          </div>
+      </a>
+  </li>
+  <li><hr class="dropdown-divider"></li>
+  <li>
+      <a class="dropdown-item" href="docs.html">
+          <div class="text-item">
+              <div class="text-item__title">NVCheck </div>
+              <div class="text-item__detail">API de Consultas</div>
+          </div>
+      </a>
+  </li>
+ 
+</ul>
+<!-- // Menu de aplicativos -->
+          </li>                
+      </ul>
+  </div>
+</header>
+<!-- // Header -->
+
+
+
+
+					<div class="sub-header">
+
+						<div class="leads-slider__wrapper">
+	<ul>
+		<li>
+			<a href="pf-cadastro.html">
+			<div class="lead">
+				<div class="lead__icon">
+					<span class="material-symbols-outlined">
+						accessibility
+					</span>
+				</div>
+				<div class="lead__info">
+					<p class="lead__name">Nome da Pessoa</p>
+					<p class="lead__document">384.234.567-03</p>
+				</div>
+			</div>
+			</a>
+		</li>
+		<li>
+			<a href="pf-cadastro.html">
+			<div class="lead">
+				<div class="lead__icon">
+					<span class="material-symbols-outlined filled">
+						apartment
+					</span>
+				</div>
+				<div class="lead__info">
+					<p class="lead__name">Nome da Empresa</p>
+					<p class="lead__document">384.234.567-03</p>
+				</div>
+			</div>
+			</a>
+		</li>
+		<li>
+		<a href="pf-cadastro.html">
+			<div class="lead">
+				<div class="lead__icon">
+					<span class="material-symbols-outlined">
+						accessibility
+					</span>
+				</div>
+				<div class="lead__info">
+					<p class="lead__name">Nome da Pessoa</p>
+					<p class="lead__document">384.234.567-03</p>
+				</div>
+			</div>
+		</a>
+		</li>
+		<li>
+			<a href="pf-cadastro.html">
+			<div class="lead">
+				<div class="lead__icon">
+					<span class="material-symbols-outlined">
+						accessibility
+					</span>
+				</div>
+				<div class="lead__info">
+					<p class="lead__name">Nome da Pessoa</p>
+					<p class="lead__document">384.234.567-03</p>
+				</div>
+			</div>
+			</a>
+		</li>
+		<li>
+			<a href="pf-cadastro.html">
+			<div class="lead">
+				<div class="lead__icon">
+					<span class="material-symbols-outlined">
+						accessibility
+					</span>
+				</div>
+				<div class="lead__info">
+					<p class="lead__name">Nome da Pessoa</p>
+					<p class="lead__document">384.234.567-03</p>
+				</div>
+			</div>
+			</a>
+		</li>
+		<li>
+			<a href="pf-cadastro.html">
+			<div class="lead">
+				<div class="lead__icon">
+					<span class="material-symbols-outlined filled">
+						apartment
+					</span>
+				</div>
+				<div class="lead__info">
+					<p class="lead__name">Nome da Empresa</p>
+					<p class="lead__document">384.234.567-03</p>
+				</div>
+			</div>
+			</a>
+		</li>
+		<li>
+		<a href="pf-cadastro.html">
+			<div class="lead">
+				<div class="lead__icon">
+					<span class="material-symbols-outlined">
+						accessibility
+					</span>
+				</div>
+				<div class="lead__info">
+					<p class="lead__name">Nome da Pessoa</p>
+					<p class="lead__document">384.234.567-03</p>
+				</div>
+			</div>
+		</a>
+		</li>
+		<li>
+			<a href="pf-cadastro.html">
+			<div class="lead">
+				<div class="lead__icon">
+					<span class="material-symbols-outlined">
+						accessibility
+					</span>
+				</div>
+				<div class="lead__info">
+					<p class="lead__name">Nome da Pessoa</p>
+					<p class="lead__document">384.234.567-03</p>
+				</div>
+			</div>
+			</a>
+		</li>									
+	</ul>
+</div>
+
+
+						<!-- Botões auxiliares -->
+<div class="auxiliary-buttons">
+	<button class="btn btn-outline-primary btn--save">
+		<span class="material-symbols-outlined filled">
+			save
+		</span>
+	</button>
+	<button class="btn btn-outline-primary btn--print">
+		<span class="material-symbols-outlined filled">
+			print
+		</span>
+	</button>
+</div>
+<!-- // Botões auxiliares -->
+
+					</div>
+
+					
+  <!-- Breadcrumb -->
+<div class="breadcrumb__wrapper">
+	<ul class="breadcrumb__list">
+		<li class="breadcrumb__item has--icon">
+			<span  class="material-symbols-outlined filled">
+				contact_page
+			</span>
+			<a href="#" class="breadcrumb__link">
+				Cadastro
+			</a>
+		</li>
+		<li class="breadcrumb__item breadcrumb__item--disabled">
+			<span>Persona</span>
+		</li>
+	</ul>
+</div>
+<!-- // Breadcrumb -->
+
+
+<div class="lead-selected__wrapper">
+  <div class="lead-selected-info">
+      <p class="lead-selected__name">
+          <img src="assets/img/icone-cadastro-empresa.png" alt="">
+      Post Digital Comunicação Criativa
+      </p>
+      <ul class="lead-selected-info__details">
+          <li class="lead-selected__document">
+  CNPJ <span class="lead-selected__document__number">12.123.123/0001-12</span>
+              
+          </li>
+          <li class="lead-selected__gender">
+  Matriz / Filial <span class="gender">Matriz</span>
+          </li>
+          <li class="lead-selected__document">
+  I.E <span class="lead-selected__document__number">Nada consta</span>
+          </li>
+      </ul>
+
+  </div>
+  <div class="lead-selected__additional-wrapper">
+      <div class="lead-selected__additional-info" variant="blue">
+          <div class="icon">
+              <span class="material-symbols-outlined filled">local_atm</span>
+          </div>
+          <div class="info">
+              <span class="label">Porte</span>
+              <p>
+                  <a href="#" class="text">Micro Empresa</a>
+              </p>
+          </div>
+      </div>
+      <div class="lead-selected__additional-info" variant="green">
+          <div class="icon">
+              <span class="material-symbols-outlined filled">done</span>
+          </div>
+          <div class="info">
+              <span class="label">Situação Cadastral</span>
+              <p>
+                  <a href="#" class="text has--icon">Ativa</a>
+              </p>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="lead-selected__complementary-info">
+  <ul class="info-list">
+      <li>
+          <span class="label">Data de abertura</span>
+          <p class="text">02/07/2021</p>
+      </li>
+      <li>
+          <span class="label">Quantidade de funcionários</span>
+          <p class="text d-flex align-items-center">
+              <a href="#">100 colaboradores </a>
+              <span class="material-symbols-outlined text--blue-300 icon icon-small">chevron_right</span>
+          </p>
+      </li>
+      <li class="no-border">
+          <span class="label">Site</span>
+          <p class="text  d-flex align-items-center gap-1"><a href="http://www.postdigital.cc">www.postdigital.cc</a>        
+          <span class="material-symbols-outlined text--blue-300 icon icon-small ml-2">open_in_new</span></p>
+      </li>
+
+  </ul>
+</div>
+
+
+
+					
+
+<div class="content-line__wrapper">
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="stats__header">
+        <div class="stats__item">
+          <div class="stats__icon">
+            <span class="rounded-icon" large color="medium-purple">
+              <span class="material-symbols-outlined filled">
+                              monetization_on
+              </span>
+            </span>
+          </div>
+          <div class="stats__title">Faturamento</div>
+          <div class="stats__data">6MM</div>
+        </div>
+
+        <div class="stats__item">
+          <div class="stats__icon">
+            <span class="rounded-icon" large color="medium-purple">
+              <span class="material-symbols-outlined filled">
+                              calendar_today
+              </span>
+            </span>
+          </div>
+          <div class="stats__title">Idade</div>
+          <div class="stats__data">3 anos</div>
+        </div>		
+        
+        <div class="stats__item">
+          <div class="stats__icon">
+            <span class="rounded-icon" large color="medium-purple">
+              <span class="material-symbols-outlined filled">
+                              apartment
+              </span>
+            </span>
+          </div>
+          <div class="stats__title">Filiais</div>
+          <div class="stats__data">0</div>
+        </div>		
+        
+        <div class="stats__item">
+          <div class="stats__icon">
+            <span class="rounded-icon" large color="medium-purple">
+              <span class="material-symbols-outlined filled">
+                              area_chart
+              </span>
+            </span>
+          </div>
+          <div class="stats__title">Setor Censitário</div>
+          <div class="stats__data">R$ 11MM</div>
+        </div>		
+        
+        <div class="stats__item">
+          <div class="stats__icon">
+            <span class="rounded-icon" large color="medium-purple">
+              <span class="material-symbols-outlined filled">
+                              handshake
+              </span>
+            </span>
+          </div>
+          <div class="stats__title">Sócios</div>
+          <div class="stats__data">3</div>
+        </div>		
+        
+        <div class="stats__item">
+          <div class="stats__icon">
+            <span class="rounded-icon" large color="medium-purple">
+              <span class="material-symbols-outlined filled">
+              account_balance
+              </span>
+            </span>
+          </div>
+          <div class="stats__title">Impostos</div>
+          <div class="stats__data">Sem apontamento</div>
+        </div>											
+
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="company__info">
+        <div class="row">
+          <div class="col-12 col-lg-7">
+            <ul class="company__info__list">
+              <li class="text-item text-item-inline">
+                <div class="text-item__label">Nome fantasia</div>
+                <div class="text-item__content">***********</div>
+              </li>
+              <li class="text-item text-item-inline">
+                <div class="text-item__label">Natureza Jurídica</div>
+                <div class="text-item__content">2062 - Sociedade Empresaria LTDA</div>
+              </li>
+              <li class="text-item text-item-inline">
+                <div class="text-item__label">Capital social</div>
+                <div class="text-item__content">R$ 60MM</div>
+              </li>
+              <li class="text-item text-item-inline">
+                <div class="text-item__label">Qtd. Funcioários Presumidos</div>
+                <div class="text-item__content">0</div>
+              </li>	
+              <li class="text-item text-item-inline">
+                <div class="text-item__label">Qtd. Funcioários Presumidos do Grupo</div>
+                <div class="text-item__content">Sem informação</div>
+              </li>
+              <li class="text-item text-item-inline">
+                <div class="text-item__label">Faturamento presumido</div>
+                <div class="text-item__content">R$ 7MM</div>
+              </li>		
+              <li class="text-item text-item-inline">
+                <div class="text-item__label">Faturamento Presumido do Grupo</div>
+                <div class="text-item__content">Sem informações</div>
+              </li>										
+            </ul>
+          </div>
+          <div class="col-12 col-lg-5">
+            <h2 class="content-block-title mb-4">
+            <span class="rounded-icon" medium color="purple">
+              <span class="material-symbols-outlined filled">
+                business_center
+              </span>
+            </span>														
+              CNAES
+            </h2>
+            <ul class="cnaes-list">
+              <li class="text-item text-item-inline">
+                <div class="text-item__content">66.13-0-00</div>
+                <div class="text-item__content">Administração de cartões de crédito</div>
+              </li>
+              <li class="text-item text-item-inline">
+                <div class="text-item__content">66.13-0-00</div>
+                <div class="text-item__content">Administração de cartões de crédito</div>
+              </li>
+              <li class="text-item text-item-inline">
+                <div class="text-item__content">66.13-0-00</div>
+                <div class="text-item__content">Administração de cartões de crédito</div>
+              </li>																												
+            </ul>
+
+            <hr>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="row">
+
+
+
+
+    <div class="mb-4 col-12 col-lg-6 mb-lg-0">
+      <div class="content-card">
+        <header class="content-card__header">
+          <div class="content-card__header__title">
+            <span class="rounded-icon" medium color="purple">
+              <span class="material-symbols-outlined filled">
+                call
+              </span>
+            </span> Telefones fixos
+          </div>
+
+          <div class="content-card__header__detail">
+            Mobilidade cadastral: <b>alta</b>
+          </div>
+        </header>
+        <div class="content-card__body">
+          <div class="table__wrapper">
+            <table class="table">
+              <tr>
+                <td>
+                  <div class="text-item">
+                    <p class="text-item__title">(11) 96955-8202</p>
+                    <span class="text-item__detail">
+                    Vivo
+                    </span>
+                  </div>
+                </td>
+                <td class="text--right">
+                  <button class="btn btn-link btn-like">
+                    <span class="material-symbols-outlined filled icon">
+                      thumb_up
+                    </span>
+                  </button>
+                  <button class="btn btn-link btn-unlike">
+                    <span class="material-symbols-outlined filled icon">
+                      thumb_down
+                    </span>
+                  </button>
+                  <button class="btn btn-link btn-person-details">
+                    <span class="material-symbols-outlined filled icon">
+                        person_search
+                    </span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="text-item">
+                    <p class="text-item__title">(11) 96955-8202</p>
+                    <span class="text-item__detail">
+                    Vivo
+                    </span>
+                  </div>
+                </td>
+                <td class="text--right">
+                  <button class="btn btn-link btn-like">
+                    <span class="material-symbols-outlined filled icon">
+                      thumb_up
+                    </span>
+                  </button>
+                  <button class="btn btn-link btn-unlike">
+                    <span class="material-symbols-outlined filled icon">
+                      thumb_down
+                    </span>
+                  </button>
+                  <button class="btn btn-link btn-person-details">
+                    <span class="material-symbols-outlined filled icon">
+                        person_search
+                    </span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="text-item">
+                    <p class="text-item__title">(11) 96955-8202</p>
+                    <span class="text-item__detail">
+                    Vivo
+                    </span>
+                  </div>
+                </td>
+                <td class="text--right">
+                  <button class="btn btn-link btn-like">
+                    <span class="material-symbols-outlined filled icon">
+                      thumb_up
+                    </span>
+                  </button>
+                  <button class="btn btn-link btn-unlike">
+                    <span class="material-symbols-outlined filled icon">
+                      thumb_down
+                    </span>
+                  </button>
+                  <button class="btn btn-link btn-person-details">
+                    <span class="material-symbols-outlined filled icon">
+                        person_search
+                    </span>
+                  </button>
+                </td>
+              </tr>
+
+
+            </table>
+            <footer class="content-card__body">
+              <button class="btn btn-link btn-all-registers">ver todos <span class="rounded-icon" small color="blue">5</span>
+              </button>
+            </footer>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="mb-4 col-12 col-lg-6 mb-lg-0">
+      <div class="content-card">
+        <header class="content-card__header">
+          <div class="content-card__header__title">
+            <span class="rounded-icon" medium color="purple">
+              <span class="material-symbols-outlined filled">
+                ad_units
+              </span>
+            </span> Celulares
+          </div>
+
+          <div class="content-card__header__detail">
+            Mobilidade cadastral: <b>alta</b>
+          </div>
+        </header>
+        <div class="content-card__body">
+          <div class="table__wrapper">
+            <table class="table">
+              <tr>
+                <td>
+                  <div class="text-item">
+                    <p class="text-item__title">(11) 96955-8202  <a href="#" class="badge badge-green">Whatsapp</a>
+                      <a href="#" class="badge badge-purple">Procon</a>
+                    </p>
+                    <span class="text-item__detail">
+                    Vivo
+                    </span>
+                  </div>
+                </td>
+                <td class="text--right">
+                  <button class="btn btn-link btn-like">
+                    <span class="material-symbols-outlined filled icon">
+                      thumb_up
+                    </span>
+                  </button>
+                  <button class="btn btn-link btn-unlike">
+                    <span class="material-symbols-outlined filled icon">
+                      thumb_down
+                    </span>
+                  </button>
+                  <button class="btn btn-link btn-person-details">
+                    <span class="material-symbols-outlined filled icon">
+                        person_search
+                    </span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="text-item">
+                    <p class="text-item__title">(11) 96955-8202</p>
+                    <span class="text-item__detail">
+                    Vivo
+                    </span>
+                  </div>
+                </td>
+                <td class="text--right">
+                  <button class="btn btn-link btn-like">
+                    <span class="material-symbols-outlined filled icon">
+                      thumb_up
+                    </span>
+                  </button>
+                  <button class="btn btn-link btn-unlike">
+                    <span class="material-symbols-outlined filled icon">
+                      thumb_down
+                    </span>
+                  </button>
+                  <button class="btn btn-link btn-person-details">
+                    <span class="material-symbols-outlined filled icon">
+                        person_search
+                    </span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="text-item">
+                    <p class="text-item__title">(11) 96955-8202</p>
+                    <span class="text-item__detail">
+                    Vivo
+                    </span>
+                  </div>
+                </td>
+                <td class="text--right">
+                  <button class="btn btn-link btn-like">
+                    <span class="material-symbols-outlined filled icon">
+                      thumb_up
+                    </span>
+                  </button>
+                  <button class="btn btn-link btn-unlike">
+                    <span class="material-symbols-outlined filled icon">
+                      thumb_down
+                    </span>
+                  </button>
+                  <button class="btn btn-link btn-person-details">
+                    <span class="material-symbols-outlined filled icon">
+                        person_search
+                    </span>
+                  </button>
+                </td>
+              </tr>
+            </table>
+            <footer class="content-card__body">
+              <button class="btn btn-link btn-all-registers">ver todos <span class="rounded-icon" small color="blue">5</span>
+              </button>
+            </footer>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="mb-4 col-12 mb-lg-0">
+      <button class="my-4 btn btn-outline-primary btn-block">Gostaria de adicionar um novo número?</button>
+    </div>
+
+
+    <div class="mb-4 col-12 col-lg-12 mb-lg-0">
+      <div class="content-card">
+        <header class="content-card__header">
+          <div class="content-card__header__title">
+            <span class="rounded-icon" medium color="purple">
+              <span class="material-symbols-outlined filled">
+                location_on
+              </span>
+            </span> Endereços
+          </div>
+        </header>
+        <div class="content-card__body">
+          <div class="table__wrapper">
+            <table class="table">
+              <tr>
+                <td>
+                  <div class="text-item">
+                    <p class="text-item__title">Rua Profº Raul Briquet, 264, casa 1 
+                    </p>
+                    <span class="text-item__detail">
+                    Vila Libanesa - São Paulo / SP - 03193040
+                    </span>
+                  </div>
+                </td>
+                <td class="text--right">
+                  <button class="text-blue-200 btn btn-link">
+                    <span class="material-symbols-outlined filled icon">
+                      query_stats
+                    </span>
+                  </button>
+                  <button class="text-blue-200 btn btn-link">
+                    <span class="material-symbols-outlined filled icon">
+                      cottage
+                    </span>
+                  </button>
+                  <button class="text-blue-200 btn btn-link">
+                    <span class="material-symbols-outlined filled icon">
+                        person_search
+                    </span>
+                  </button>
+                  <button class="text-blue-200 btn btn-link">
+                    <span class="material-symbols-outlined filled icon">
+                        call
+                    </span>
+                  </button>
+                  <button class="text-blue-200 btn btn-link">
+                    <span class="material-symbols-outlined filled icon">
+                        location_on
+                    </span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="text-item">
+                    <p class="text-item__title">Rua Profº Raul Briquet, 264, casa 1 
+                    </p>
+                    <span class="text-item__detail">
+                    Vila Libanesa - São Paulo / SP - 03193040
+                    </span>
+                  </div>
+                </td>
+                <td class="text--right">
+                  <button class="text-blue-200 btn btn-link">
+                    <span class="material-symbols-outlined filled icon">
+                      query_stats
+                    </span>
+                  </button>
+                  <button class="text-blue-200 btn btn-link">
+                    <span class="material-symbols-outlined filled icon">
+                      cottage
+                    </span>
+                  </button>
+                  <button class="text-blue-200 btn btn-link">
+                    <span class="material-symbols-outlined filled icon">
+                        person_search
+                    </span>
+                  </button>
+                  <button class="text-blue-200 btn btn-link">
+                    <span class="material-symbols-outlined filled icon">
+                        call
+                    </span>
+                  </button>
+                  <button class="text-blue-200 btn btn-link">
+                    <span class="material-symbols-outlined filled icon">
+                        location_on
+                    </span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="text-item">
+                    <p class="text-item__title">Rua Profº Raul Briquet, 264, casa 1 
+                    </p>
+                    <span class="text-item__detail">
+                    Vila Libanesa - São Paulo / SP - 03193040
+                    </span>
+                  </div>
+                </td>
+                <td class="text--right">
+                  <button class="text-blue-200 btn btn-link">
+                    <span class="material-symbols-outlined filled icon">
+                      query_stats
+                    </span>
+                  </button>
+                  <button class="text-blue-200 btn btn-link">
+                    <span class="material-symbols-outlined filled icon">
+                      cottage
+                    </span>
+                  </button>
+                  <button class="text-blue-200 btn btn-link">
+                    <span class="material-symbols-outlined filled icon">
+                        person_search
+                    </span>
+                  </button>
+                  <button class="text-blue-200 btn btn-link">
+                    <span class="material-symbols-outlined filled icon">
+                        call
+                    </span>
+                  </button>
+                  <button class="text-blue-200 btn btn-link">
+                    <span class="material-symbols-outlined filled icon">
+                        location_on
+                    </span>
+                  </button>
+                </td>
+              </tr>
+
+            </table>
+            <footer class="content-card__body">
+              <button class="btn btn-link btn-all-registers">ver todos <span class="rounded-icon" small color="blue">5</span>
+              </button>
+            </footer>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-4 mb-4 col-lg-12 mb-lg-0">
+      <div class="content-card">
+        <header class="content-card__header">
+          <div class="content-card__header__title">
+            <span class="rounded-icon" medium color="purple">
+              <span class="material-symbols-outlined filled">
+                mail
+              </span>
+            </span> E-mails
+          </div>
+        </header>
+        <div class="content-card__body">
+          <div class="table__wrapper">
+            <table class="table">
+              <tr>
+                <td>
+                  <div class="text-item">
+                    <p class="text-item__title">andre.cintra@email.com 
+                    </p>
+                    <span class="text-item__detail">
+                    Uso pessoal
+                    </span>
+                  </div>
+                </td>
+                <td class="text--right">
+                  <button class="text-blue-200 btn btn-link">
+                    <span class="material-symbols-outlined filled icon">
+                      mark_email_read
+                    </span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="text-item">
+                    <p class="text-item__title">andre.cintra@email.com 
+                    </p>
+                    <span class="text-item__detail">
+                    Uso pessoal
+                    </span>
+                  </div>
+                </td>
+                <td class="text--right">
+                  <button class="text-blue-200 btn btn-link">
+                    <span class="material-symbols-outlined filled icon">
+                      mark_email_read
+                    </span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="text-item">
+                    <p class="text-item__title">andre.cintra@email.com 
+                    </p>
+                    <span class="text-item__detail">
+                    Uso pessoal
+                    </span>
+                  </div>
+                </td>
+                <td class="text--right">
+                  <button class="text-blue-200 btn btn-link">
+                    <span class="material-symbols-outlined filled icon">
+                      mark_email_read
+                    </span>
+                  </button>
+                </td>
+              </tr>
+
+
+            </table>
+            <footer class="content-card__body">
+              <button class="btn btn-link btn-all-registers">ver todos <span class="rounded-icon" small color="blue">5</span>
+              </button>
+            </footer>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="mt-4 mb-4 col-lg-12 mb-lg-0">
+      <div class="content-card">
+        <header class="content-card__header">
+          <div class="content-card__header__title">
+            <span class="rounded-icon" medium color="purple">
+              <span class="material-symbols-outlined filled">
+                account_balance
+              </span>
+            </span> Impostos
+          </div>
+        </header>
+        <div class="content-card__body">
+          <div class="table__wrapper">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Tipo devedor</th>
+                  <th>UF</th>
+                  <th>Unid. Responsável</th>
+                  <th>Nº Inscrição</th>
+                  <th>Tipo de Situação</th>
+                  <th>Situação</th>
+                  <th>Ajuizado</th>
+                  <th>Valor</th>
+                  <th>Origem</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Negligente</td>
+                  <td>SP</td>
+                  <td>Poupatempo</td>
+                  <td>94935789384</td>
+                  <td>Cheque Devolvido</td>
+                  <td>Em débito</td>
+                  <td>Sim</td>
+                  <td>R$ 1.000</td>
+                  <td>Cheque</td>	
+                </tr>
+                <tr>
+                  <td>Negligente</td>
+                  <td>SP</td>
+                  <td>Poupatempo</td>
+                  <td>94935789384</td>
+                  <td>Cheque Devolvido</td>
+                  <td>Em débito</td>
+                  <td>Sim</td>
+                  <td>R$ 1.000</td>
+                  <td>Cheque</td>	
+                </tr>
+                <tr>
+                  <td>Negligente</td>
+                  <td>SP</td>
+                  <td>Poupatempo</td>
+                  <td>94935789384</td>
+                  <td>Cheque Devolvido</td>
+                  <td>Em débito</td>
+                  <td>Sim</td>
+                  <td>R$ 1.000</td>
+                  <td>Cheque</td>	
+                </tr>
+                <tr>
+                  <td>Negligente</td>
+                  <td>SP</td>
+                  <td>Poupatempo</td>
+                  <td>94935789384</td>
+                  <td>Cheque Devolvido</td>
+                  <td>Em débito</td>
+                  <td>Sim</td>
+                  <td>R$ 1.000</td>
+                  <td>Cheque</td>	
+                </tr>																																													
+              </tbody>							
+            </table>
+            <footer class="content-card__body">
+              <button class="btn btn-link btn-all-registers">ver todos <span class="rounded-icon" small color="blue">5</span>
+              </button>
+            </footer>
+          </div>
+
+        </div>
+      </div>
+    </div>									
+
+
+
+    <div class="mt-4 mb-4 col-12 col-lg-6 mb-lg-0">
+      <div class="content-card">
+        <header class="content-card__header">
+          <div class="content-card__header__title">
+            <span class="rounded-icon" medium color="purple">
+              <span class="material-symbols-outlined filled">
+                restaurant
+              </span>
+            </span> PAT
+          </div>
+        </header>
+        <div class="content-card__body">
+          <div class="pat__wrapper">
+            <div class="text-item text-item-inline">
+              <div class="text-item__label">Número de Inscrição</div>
+              <div class="text-item__content">0</div>
+            </div>
+            <div class="text-item text-item-inline">
+              <div class="text-item__label">Quantidade de trabalhadores</div>
+              <div class="text-item__content">0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>		
+    
+    
+    <div class="mt-4 mb-4 col-12 col-lg-6 mb-lg-0">
+      <div class="content-card">
+        <header class="content-card__header">
+          <div class="content-card__header__title">
+            <span class="rounded-icon" medium color="purple">
+              <span class="material-symbols-outlined filled">
+                ads_click
+              </span>
+            </span> Dados do LinkedIn
+          </div>
+        </header>
+        <div class="content-card__body">
+          <div class="linkedin-info__wrapper">
+            <ul>
+              <li>
+                <div class="text-item">
+                  <div class="text-item__label">Fundado em</div>
+                  <div class="text-item__content">15/02/1989</div>
+                </div>
+              </li>
+              <li>
+                <div class="text-item">
+                  <div class="text-item__label">Tamanho</div>
+                  <div class="text-item__content">Micro</div>
+                </div>
+              </li>
+              <li>
+                <div class="text-item">
+                  <div class="text-item__label">Indústria</div>
+                  <div class="text-item__content">Marketing digital</div>
+                </div>
+              </li>													
+            </ul>
+            <div class="text-item text-item-inline">
+              <div class="text-item__label">Localização</div>
+              <div class="text-item__content">Rua Harmonia, 590, Sala 51, Sumarezinho
+São Paulo, SP, CEP 05.435-000</div>
+            </div>
+            <div class="text-item text-item-inline ">
+              <div class="text-item__label">Site</div>
+              <div class="text-item__content d-flex align-items-center">
+              <a href="http://www.postdigital.cc">www.postdigital.cc</a>
+
+<span class="material-symbols-outlined text--blue-300 icon icon-small ml-2">
+open_in_new
+</span>															
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>										
+
+  </div>
+</div>
+
+</div>
+<!-- / Row -->
+
+
+</div>
+
+
+
+
+			</main>
+		</div>
+		<!-- Modal Busca avançada -->
+<div class="modal fade" id="advancedSearch" tabindex="-1" aria-labelledby="advancedSearchLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="advancedSearchLabel">Pesquisar em</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="">
+          <div class="modal-body">
+              <div class="form-control-icon-wrapper">
+                  <input type="text" class="form-control" placeholder="Nome">
+                  <span class="material-symbols-outlined text--blue-300 icon" title="Orientaçõe sobre nome">
+                  info
+                  </span>                        
+              </div>
+              <input type="date" class="form-control mt-3" placeholder="Data de nascimento ou abertura">
+              <div class="form-control-icon-wrapper">
+                  <input type="text" class="form-control mt-3" placeholder="Endereço">
+                  <span class="material-symbols-outlined  text--blue-300 icon"  title="Orientaçõe sobre endereço">
+                  info
+                  </span>                        
+              </div>
+              <input type="text" class="form-control mt-3" placeholder="Cidade">
+              <input type="text" class="form-control mt-3" placeholder="Estado">
+              <input type="text" class="form-control mt-3" placeholder="Telefone Fixo">
+              <input type="text" class="form-control mt-3" placeholder="Celular">
+              <input type="email" class="form-control mt-3" placeholder="E-mail">
+          </div>
+          <div class="modal-footer">
+          <button type="reset" class="btn btn-secondary btn-sm" >Limpar</button>
+          <button type="submit" class="btn btn-primary">Pesquisar</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div> 
+<!-- // Modal Busca avançada-->
+
+
+
+<!-- Modal Slider Notícias -->      
+<div class="modal fade slider-news-modal" id="sliderNewsModal" tabindex="-1" aria-labelledby="sliderNewsLabel" aria-hidden="true">
+<div class="modal-dialog modal-xl modal-dialog-centered">
+  <div class="modal-content">
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+    <div class="modal-body" id="modalNewsLoader">
+
+      <div class="new-slider__full" id="sliderNewsFull">
+        
+          <!-- Slide -->
+            <div class="news-slider__full-item">
+              <img src="assets/img/novidades/score-de-credito.png"  alt="..." class="">
+              <div>
+                <header class="card-header">
+                  <div class="titles-group">
+                    <p class="card-label">Inteligência artificial</p>
+                    <h3 class="card-title">Descubra o Score de crédito do seu cliente</h3>
+                  </div>
+                </header>
+                <div class="card-body">                  
+                  <div class="card-text-content">
+                    <p>Através de inteligência artificial e modelos estatísticos a Nova Vida criou novas variáveis vão te ajudar a se comunicar melhor com o seu cliente. Descubra o Score Digital e saiba se seu cliente é adepto a canais digitais. Consulte a Propensão de pagamento para identificar pagadores mais ou menos.</p>
+                  </div>
+                  <p class="publish-date">Publicado em 10/02/2023</p>
+                </div>
+              </div>
+            </div>
+        
+        <!-- // Slide -->
+
+        <!-- Slide -->
+          <div class="news-slider__full-item">
+              <img src="assets/img/novidades/score-de-credito-2.png"  alt="..." class="">
+              <div>
+                <header class="card-header">
+                  <div class="titles-group">
+                    <p class="card-label">Inteligência artificial</p>
+                    <h3 class="card-title">Descubra o Score de crédito do seu cliente</h3>
+                  </div>
+                </header>
+                <div class="card-body">                  
+                  <div class="card-text-content">
+                    <p>Através de inteligência artificial e modelos estatísticos a Nova Vida criou novas variáveis vão te ajudar a se comunicar melhor com o seu cliente. Descubra o Score Digital e saiba se seu cliente é adepto a canais digitais. Consulte a Propensão de pagamento para identificar pagadores mais ou menos.</p>
+                  </div>
+                  <p class="publish-date">Publicado em 10/02/2023</p>
+                </div>
+              </div>
+          </div>
+        <!-- // Slide -->
+        
+        <!-- Slide -->
+            <div class="news-slider__full-item">
+              <img src="assets/img/novidades/score-de-credito-3.png"  alt="..." class="">
+              <div>
+                <header class="card-header">
+                  <div class="titles-group">
+                    <p class="card-label">Inteligência artificial</p>
+                    <h3 class="card-title">Descubra o Score de crédito do seu cliente</h3>
+                  </div>
+                </header>
+                <div class="card-body">                  
+                  <div class="card-text-content">
+                    <p>Através de inteligência artificial e modelos estatísticos a Nova Vida criou novas variáveis vão te ajudar a se comunicar melhor com o seu cliente. Descubra o Score Digital e saiba se seu cliente é adepto a canais digitais. Consulte a Propensão de pagamento para identificar pagadores mais ou menos.</p>
+                  </div>
+                  <p class="publish-date">Publicado em 10/02/2023</p>
+                </div>
+              </div>
+            </div>
+        <!-- // Slide -->          
+
+      </div>
+
+      <div class="custom-controls">
+        <div class="custom-controls-inner"></div>
+      </div>
+
+  </div>
+</div>
+</div>
+<!-- // Modal Slider Notícias -->      
+
+
+
+<script src="assets/vendor/jquery/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="assets/vendor/jquery.number/jquery.number.min.js"></script>
+<script src="assets/vendor/credit-card-interactions/assets/flipper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/0.9.0/jquery.mask.min.js" integrity="sha512-oJCa6FS2+zO3EitUSj+xeiEN9UTr+AjqlBZO58OPadb2RfqwxHpjTU8ckIC8F4nKvom7iru2s8Jwdo+Z8zm0Vg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="assets/vendor/jquery.mask/jquery.mask.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="assets/vendor/slick/slick.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="assets/js/mapa-dados.js"></script>
+<script  src="assets/js/app-congonhas.js"></script>
+	</body>
+</html>

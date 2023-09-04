@@ -1,0 +1,44 @@
+@layout(base-layout-internas)
+
+@section(title, Pessoa física - Pessoas ligadas)
+
+@section(lead)
+  @component(lead-selecionado-pj-sem-dados)
+  @endcomponent
+@endsection
+
+@section(main)
+
+<div class="content-line__wrapper">		
+
+  <div class="row gx-0">
+    <div class="col-md-12">
+      <div class="content-card h-100">
+        <header class="content-card__header">
+          <div class="content-card__header__title">
+            <span class="rounded-icon" medium color="purple">
+              <span class="material-symbols-outlined filled">
+                  workspace_premium
+              </span>
+            </span>
+              Escolha um tribunal
+            </div>
+          </header>
+          <div class="content-card__body">
+            @component(sem-dados)
+            @endcomponent
+          </div>
+        </div>
+      </div>
+      
+
+
+
+</div>
+<!-- / Row -->
+
+
+</div>
+
+
+@endsection
