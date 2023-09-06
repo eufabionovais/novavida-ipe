@@ -10908,7 +10908,8 @@ body{
 }
 .main-header{
    background:var(--gray-300);
-   padding-block:22px
+   padding-block:22px;
+   border-bottom: solid 3px #3A7DE8;
 }
 .main-header__logo{
    display:-ms-flexbox;
@@ -11005,14 +11006,13 @@ body{
 }
 .btn--notifications .notification__alert{
    display:block;
-   width:15px;
-   height:15px;
+   width:11px;
+   height:11px;
    background:var(--red-300);
    position:absolute;
    border-radius:50%;
-   border:solid 3px #fff;
-   right:0;
-   top:2px
+   right: -4px;
+   top: 0;
 }
 .btn--apps{
    width:46px;
@@ -12215,6 +12215,35 @@ body{
 .content-block-title [class*='icon']{
    margin-right:10px
 }
+
+.page-header {
+   background: #ECECF8;
+   padding-inline: 40px;
+   padding-block: 25px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.page-header__title {
+   font-family: 'Work Sans';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 22px;
+   line-height: 26px;
+   letter-spacing: -0.3px;
+   color: #303030;
+   margin-bottom: 0;
+   display: flex;
+   flex: 1;
+}
+
+.page-header__buttons {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}
+
 .page-title{
    font-weight:600;
    font-size:30px;
@@ -13442,4 +13471,3 @@ label.error{
    max-width:calc(100vw - 100px);
    padding-bottom:40px
 }
-

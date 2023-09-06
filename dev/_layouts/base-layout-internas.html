@@ -13,19 +13,29 @@
 
 				<main class="main__content">
 
+
+
 					@import(header-internas)
 
-					<div class="sub-header">
+					@component(page-header)
 
-						@component(lead-slider)
-						@endcomponent
+						@slot(page-title)
+							Enriquecimentos recentes
+						@endslot
 
-						@component(botoes-auxiliares)
-						@endcomponent
+						@slot(page-title-buttons)
+							<div class="page-header__buttons">
+								<button class="btn btn-primary">Adicionar</button>
+								<button class="btn btn-link d-flex align-items-center text-decoration-none  pr-0">
+									<span class="material-symbols-outlined icon">
+										more_vert
+									</span> 
+								</button>
+							</div>
+						@endslot
+					@endcomponent
 
-					</div>
 
-					@attach(lead)
 
 					@attach(main)
 

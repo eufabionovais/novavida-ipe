@@ -20,7 +20,7 @@
 			<title>Ipê | Nova Vida TI</title>
 		</head>
 		<body>
-			<div class="main__wrapper">
+			<div class="main__wrapper docs-page">
 				<!-- Sidebar -->  
 <aside class="sidebar">
   <header class="sidebar__header d-flex justify-content-between align-items-center">
@@ -35,56 +35,30 @@
     </button>
   </header>
   <div class="sidebar__content">
-    <nav class="main-nav">
+    <nav class="main-nav main-nav__docs">
         <ul class="main-nav__list">
           <li class="main-nav__item">
-            <a class="main-nav__link" href="pf-cadastro.html">
-              <span class="material-symbols-outlined filled">
-                bar_chart
-              </span>                      
-                <span class="main-nav__link-text">Indicadores gerais</span>
+            <a class="main-nav__link" href="#intro">
+
+                <span class="main-nav__link-text">1. Introdução</span>
             </a>
           </li>
           <li class="main-nav__item">
-            <a class="main-nav__link" href="pf-persona.html">
-              <span class="material-symbols-outlined filled">
-                list
-              </span>  
-              <span class="main-nav__link-text">Enriquecimentos</span>
+            <a class="main-nav__link" href="#autenticacao">
+              <span class="main-nav__link-text">2. Autenticação</span>
             </a>
           </li>
           <li class="main-nav__item">
-            <a class="main-nav__link" href="pf-sociedades.html">
-              <span class="material-symbols-outlined filled">
-                business
-              </span>   
-              <span class="main-nav__link-text">B.I.</span>
+            <a class="main-nav__link" href="#metodos">
+              <span class="main-nav__link-text">3. Métodos NVCheck</span>
             </a>
+            <ul class="main-nav__submenu">
+              <li><a href="#parametros">Parâmetros de entrada</a></li>
+              <li><a href="#corpo">Corpo do envio</a></li>
+              <li><a href="#retorno-pf">Retorno pessoa física</a></li>
+              <li><a href="#retorno-pj">Retorno pessoa jurídica</a></li>
+            </ul>
           </li>
-          <li class="main-nav__item">
-              <a class="main-nav__link" href="pf-empresas-ligadas.html">
-                <span class="material-symbols-outlined filled">
-                  brush
-                </span>     
-                <span class="main-nav__link-text">Layouts</span>
-              </a>
-          </li>
-          <li class="main-nav__item">
-              <a class="main-nav__link" href="pf-pessoas-ligadas.html">
-              <span class="material-symbols-outlined filled">
-                  message
-                </span>                           
-                <span class="main-nav__link-text">Mensagens</span>
-              </a>
-          </li>
-          <li class="main-nav__item">
-            <a class="main-nav__link" href="pf-perfil-consumo.html">
-            <span class="material-symbols-outlined filled">
-                  settings
-              </span>        
-              <span class="main-nav__link-text">Adminstrativos</span>
-            </a>
-          </li>                  
         
         </ul>
     </nav>
@@ -93,8 +67,6 @@
 <!-- // Sidebar -->
 
 				<main class="main__content">
-
-
 
 					<!-- Header -->
 <header class="main-header main-header--inner-page">
@@ -282,355 +254,441 @@
 
 
 
-					<div class="page-header">
-    <h1 class="page-header__title">
-      
-							Enriquecimentos recentes
-						
-    </h1>
-    
-							<div class="page-header__buttons">
-								<button class="btn btn-primary">Adicionar</button>
-								<button class="btn btn-link d-flex align-items-center text-decoration-none  pr-0">
-									<span class="material-symbols-outlined icon">
-										more_vert
-									</span> 
-								</button>
-							</div>
-						
-</div>
-
-
 
 					
 
-<div class="content-line__wrapper">
-  
-  <div class="row">
-    
-    <div class="mb-4 col-12 col-lg-12 mb-lg-0">
-      <div class="content-card">
-        <!-- <header class="content-card__header">
-          <div class="content-card__header__title">
-            <span class="rounded-icon" medium color="purple">
-              <span class="material-symbols-outlined filled">
-                location_on
-              </span>
-            </span> Endereços
-          </div>
-        </header> -->
-        <div class="content-card__body">
-          <div class="table__wrapper">
-            <table class="table">
-              <tr>
-                <th>ID</th>
-                <th>Cliente</th>
-                <th>Entrada</th>
-                <th>Saída</th>
-                <th>Data</th>
-                <th>Ações</th>
-                <th>Status</th>
-              </tr>
-              <tr>
-                <td>
-                  <a href="#">123456</a>
-                </td>
-                <td>
-                  
-                  <div class="text-item">
-                    <p class="text-item__title">Nova Vida 
-                    </p>
-                    <span class="text-item__detail">
-                      Gabriel Nogueira
-                    </span>
-                  </div>
-                </td>
-                <td>
-                  <img src="/assets/img/arrow-left.png" alt="">
-                  7,2mil</td>
-                  <td>
-                    
-                    <img src="/assets/img/arrow-right.png" alt="">
-                    1,4mil
-                    
-                    
-                  </td>
-                  <td>Há 2 horas
-
-                    <div class="table__tooltip">
-                        <dl>
-                          <div class="definition__item">
-                            <dt>Arquivo</dt>
-                            <dd>NV_Import_202307817123.csv</dd>
-                          </div>
-                          <div class="definition__item">
-                            <dt>Entrada</dt>
-                            <dd><b>41.744</b> em 18/07 às 9:32</dd>
-                          </div>                          
-                          <div class="definition__item">
-                            <dt>Saída</dt>
-                            <dd><b>1.318</b> em 18/07 às 9:33</dd>
-                          </div>                             
-                          <div class="definition__item">
-                            <dt>Tempo</dt>
-                            <dd>Enriquecido em <b>< 1 min</b></dd>
-                          </div>                                                                              
-                        </dl>
-
-                    </div>
-                  </td>
-                  <td>
-                    <button class="btn btn-link">
-                      <span class="material-symbols-outlined">
-                        download
-                      </span>
-                    </button>
-                    
-                    <button class="btn btn-link">
-                      <span class="material-symbols-outlined">
-                        more_vert
-                      </span>
-                    </button>
-                  </td>
-                  <td>
-                    <span class="custom-pill" data-type="fail">
-                      <span class="material-symbols-outlined icon">
-                        close
-                      </span>
-                      Com falha
-                    </span>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    <a href="#">123456</a>
-                  </td>
-                  <td>
-                    
-                    <div class="text-item">
-                      <p class="text-item__title">Nova Vida 
-                      </p>
-                      <span class="text-item__detail">
-                        Gabriel Nogueira
-                      </span>
-                    </div>
-                  </td>
-                  <td>
-                    <img src="/assets/img/arrow-left.png" alt="">
-                    7,2mil</td>
-                    <td>
-                      
-                      <img src="/assets/img/arrow-right.png" alt="">
-                      1,4mil
-                      
-                      
-                    </td>
-                    <td>Há 2 horas
-                      <div class="table__tooltip">
-                        <dl>
-                          <div class="definition__item">
-                            <dt>Arquivo</dt>
-                            <dd>NV_Import_202307817123.csv</dd>
-                          </div>
-                          <div class="definition__item">
-                            <dt>Entrada</dt>
-                            <dd><b>41.744</b> em 18/07 às 9:32</dd>
-                          </div>                          
-                          <div class="definition__item">
-                            <dt>Saída</dt>
-                            <dd><b>1.318</b> em 18/07 às 9:33</dd>
-                          </div>                             
-                          <div class="definition__item">
-                            <dt>Tempo</dt>
-                            <dd>Enriquecido em <b>< 1 min</b></dd>
-                          </div>                                                                              
-                        </dl>
-
-                    </div>
-
-                    </td>
-                    <td>
-                      <button class="btn btn-link">
-                        <span class="material-symbols-outlined">
-                          download
-                        </span>
-                      </button>
-                      
-                      <button class="btn btn-link">
-                        <span class="material-symbols-outlined">
-                          more_vert
-                        </span>
-                      </button>
-                    </td>
-                    <td>
-                      <span class="custom-pill" data-type="removed">
-                        <span class="material-symbols-outlined icon">
-                          close
-                        </span>
-                        Removido
-                      </span>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <a href="#">123456</a>
-                    </td>
-                    <td>
-                      
-                      <div class="text-item">
-                        <p class="text-item__title">Nova Vida 
-                        </p>
-                        <span class="text-item__detail">
-                          Gabriel Nogueira
-                        </span>
-                      </div>
-                    </td>
-                    <td>
-                      <img src="/assets/img/arrow-left.png" alt="">
-                      7,2mil</td>
-                      <td>
-                        
-                        <img src="/assets/img/arrow-right.png" alt="">
-                        1,4mil
-                        
-                        
-                      </td>
-                      <td>Há 2 horas
-
-                        <div class="table__tooltip">
-                          <dl>
-                            <div class="definition__item">
-                              <dt>Arquivo</dt>
-                              <dd>NV_Import_202307817123.csv</dd>
-                            </div>
-                            <div class="definition__item">
-                              <dt>Entrada</dt>
-                              <dd><b>41.744</b> em 18/07 às 9:32</dd>
-                            </div>                          
-                            <div class="definition__item">
-                              <dt>Saída</dt>
-                              <dd><b>1.318</b> em 18/07 às 9:33</dd>
-                            </div>                             
-                            <div class="definition__item">
-                              <dt>Tempo</dt>
-                              <dd>Enriquecido em <b>< 1 min</b></dd>
-                            </div>                                                                              
-                          </dl>
-  
-                      </div> 
-                      </td>
-                      <td>
-                        <button class="btn btn-link">
-                          <span class="material-symbols-outlined">
-                            download
-                          </span>
-                        </button>
-                        
-                        <button class="btn btn-link">
-                          <span class="material-symbols-outlined">
-                            more_vert
-                          </span>
-                        </button>
-                      </td>
-                      <td>
-                        <span class="custom-pill" data-type="exported">
-                          <span class="material-symbols-outlined icon">
-                            close
-                          </span>
-                          Exportado
-                        </span>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td>
-                        <a href="#">123456</a>
-                      </td>
-                      <td>
-                        
-                        <div class="text-item">
-                          <p class="text-item__title">Nova Vida 
-                          </p>
-                          <span class="text-item__detail">
-                            Gabriel Nogueira
-                          </span>
-                        </div>
-                      </td>
-                      <td>
-                        <img src="/assets/img/arrow-left.png" alt="">
-                        7,2mil</td>
-                        <td>
-                          
-                          <img src="/assets/img/arrow-right.png" alt="">
-                          1,4mil
-                          
-                          
-                        </td>
-                        <td>Há 2 horas
-
-                          <div class="table__tooltip">
-                            <dl>
-                              <div class="definition__item">
-                                <dt>Arquivo</dt>
-                                <dd>NV_Import_202307817123.csv</dd>
-                              </div>
-                              <div class="definition__item">
-                                <dt>Entrada</dt>
-                                <dd><b>41.744</b> em 18/07 às 9:32</dd>
-                              </div>                          
-                              <div class="definition__item">
-                                <dt>Saída</dt>
-                                <dd><b>1.318</b> em 18/07 às 9:33</dd>
-                              </div>                             
-                              <div class="definition__item">
-                                <dt>Tempo</dt>
-                                <dd>Enriquecido em <b>< 1 min</b></dd>
-                              </div>                                                                              
-                            </dl>
-    
-                        </div>
-                        </td>
-                        <td>
-                          <button class="btn btn-link">
-                            <span class="material-symbols-outlined">
-                              download
-                            </span>
-                          </button>
-                          
-                          <button class="btn btn-link">
-                            <span class="material-symbols-outlined">
-                              more_vert
-                            </span>
-                          </button>
-                        </td>
-                        <td>
-                          <span class="custom-pill" data-type="processed">
-                            <span class="material-symbols-outlined icon">
-                              close
-                            </span>
-                            Processado
-                          </span>
-                        </td>
-                      </tr>
-                
-                
-              </table>
-              
-            </div>
-            
-          </div>
-        </div>
-      </div>
-      
-      
+    <!-- Breadcrumb -->
+    <div class="breadcrumb__wrapper">
+      <ul class="breadcrumb__list">
+        <li class="breadcrumb__item has--icon">
+          <span  class="material-symbols-outlined filled">
+            contact_page
+          </span>
+          <a href="dashboard.html" class="breadcrumb__link">
+            Dashboard
+          </a>
+        </li>
+        <li class="breadcrumb__item breadcrumb__item--disabled">
+          <span>Documentação</span>
+        </li>
+      </ul>
     </div>
-    
-  </div>
-  <!-- / Row -->
-  
-</div>
+    <!-- // Breadcrumb -->    
+
+    <div class="content-line__wrapper">
+
+      <div class="row">
+          <div class="col-12">
+            <div id="intro" class="docs-section">
+              <h1 class="content-block-title">1. Introdução</h1>
+              <p>É um serviço para consumo de dados destinado à utilização por empresas que desejam ter uma
+              integração dos seus sistemas com a nossa solução.</p>
+              <p>Este documento exibe a lista de métodos para solução via WebService. É uma interface que
+              permite às empresas integrarem informações do sistema de forma dinâmica a softwares internos.</p>
+            </div>
+
+            <div id="autenticacao" class="docs-section">
+              <h1 class="content-block-title">2. Autenticação</h1>
+              <p>Para geração do token, é necessário selecionar o método GERARTOKEN e entrar com as credenciais
+              do usuário e aguardar o retorno (forma texto “Tamanho indefinido”). Depois de gerar o Token,
+              basta apenas colocar a string de retorno no campo Token dos métodos que contém no final o sufixo
+              Tk.</p>
+              <p><b>OBS:</b> Não há necessidade de gerar o Token toda vez que for realizar uma consulta, pois gerado uma
+              vez ele contém validade para a data (24horas) que foi gerado e autoriza a consulta dos métodos
+              correspondentes a sua url (conforme acima).</p><br>
+
+              <p><b>Exemplo gerar TOKEN:</b><br>
+              Link: https://wsnv.novavidati.com.br/wslocalizador.asmx/GerarTokenJson</p>
+
+<p>
+  <pre>
+    <code>
+      {
+          "credencial": {
+              "usuario": "",
+              "senha": "",
+              "cliente": ""
+          }
+      }
+      </code>
+  </pre>
+</p>
+
+            </div>  
+            
+            <div id="metodos" class="docs-section">
+              <h1 class="content-block-title">3. Métodos NVCheck</h1>
+              <p>Método para consulta de dados cadastrais, de contato e dados gerais do documento consultado.</p>
+              <p>Link para consulta: https://wsnv.novavidati.com.br/wslocalizador.asmx/NVCHECKJson</p>
+              <br>
+              <p id="parametros"><b>a) Parâmetros de entrada:</b></p>
+
+  <p>
+    <pre>
+    <code>
+      <b>header</b>
+      Content-Type=application/json
+      Token={token gerado}
+      </code>
+    </pre>
+  </p>              
+
+
+
+
+
+<p id="corpo"><b>b) NVCHECK, no corpo deve ser enviado:</b></p>
+
+<p>
+  <pre>
+    <code>
+      {
+          "nvcheck": {
+              "Documento": "",
+          }
+      }
+      </code>
+  </pre>
+</p>
+
+
+            </div>    
+
+            
+            <div id="retorno-pf" class="docs-section">
+              <h1 class="content-block-title">Retorno pessoa física</h1>
+              <p>
+    <pre>
+      <code>
+      {
+      "d": {
+          "CONSULTA": {
+              "CADASTRAIS": {
+                  "CPF": "",
+                  "NOME": "",
+                  "RG": "",
+                  "ORGAOEMISSOR": "",
+                  "NASC": "",
+                  "DIASEMANA": "",
+                  "NOME_MAE": "",
+                  "CPF_MAE": "",
+                  "NASC_MAE": "",
+                  "IDADE": "",
+                  "GERACAO": "",
+                  "SIGNO": "",
+                  "POSSIVELPROFISSAO": "",
+                  "POSSIVELESCOLARIDADE": "",
+                  "PERSONADEMOGRAFICA": "",
+                  "RENDA": "",
+                  "CLASSEECONOMICA": "",
+                  "ESTADOCIVIL": "",
+                  "NACIONALIDADE": "",
+                  "SCORE": "",
+                  "MENSAGEMSCORE": "",
+                  "PERSONACREDITO": "",
+                  "AUXILIOBRASIL": "",
+                  "FLAG_AGLOMERADO_SUBNORMAL": "",
+                  "FONTE_DE_RENDA": "",
+                  "TEMPO_EMPREENDEDOR": "",
+                  "DIVIDAATIVADAUNIAO_FLAG_DAU": ""
+              },
+              "ENDERECOS": [
+                  {
+                      "POSICAO": "",
+                      "TIPO": "",
+                      "TITULO": "",
+                      "LOGRADOURO": "",
+                      "NUMERO": "",
+                      "COMPLEMENTO": "",
+                      "BAIRRO": "",
+                      "CIDADE": "",
+                      "UF": "",
+                      "CEP": "",
+                      "AREARISCO": "",
+                      "LATITUDE": "",
+                      "LONGITUDE": ""
+                  }
+              ],
+              "TELEFONES":  [
+                  {
+                      "POSICAO": "",
+                      "DDD": "",
+                      "TELEFONE":  "",
+                      "ASSINANTE": "",
+                      "TIPO_TELEFONE": "",
+                      "PROCON": "",
+                      "OPERADORA": "",
+                      "FLHOT": "",
+                  },
+                  {
+                      "POSICAO": "",
+                      "DDD": "",
+                      "TELEFONE":  "",
+                      "ASSINANTE": "",
+                      "TIPO_TELEFONE": "",
+                      "PROCON": "",
+                      "OPERADORA": "",
+                      "FLHOT": "",
+
+                  }                
+              ],
+              "EMAILS": [
+                  {
+                      "EMAIL": "",
+                      "POSICAO": "",
+                  }
+              ],
+              "SITUACAOCADASTRAL": {
+                  "DESCRICAO": ""
+              },
+              "PERFILCONSUMO": {
+                  "CONSUMO": "",
+                  "PERSONADIGITAL": "",
+                  "PROPENSAO_PAGAMENTO": "",
+                  "CONSULTADOS_6MESES": "",
+                  "CONSULTADOS_12MESES": "",
+                  "POSSIVEL_APROSENTADO": ""
+              },
+              "CONTATOSRUINS": [
+                  {
+                      "DDD", "",
+                      "TELEFONE": "",
+                      "TIPO": ""
+                  }
+              ],
+              "ULTIMAEMPRESALIGADA": [
+                  {
+                      "CNPJ": "",
+                      "RAZAO": "",
+                      "DT_DESLIGAMENTO": ""
+                  }
+              ],
+              "OBITO": {
+                  "FLOBITO": ""
+              },
+              "PESSOASLIGADAS":  [
+                  {
+                      "CPF": "",
+                      "NOME": "",
+                      "VINCULO": "",
+                      "NASC": ""
+                  },
+                  {
+                      "CPF": "",
+                      "NOME": "",
+                      "VINCULO": "",
+                      "NASC": ""
+                  }                
+              ],
+              "SOCIEDADES": [
+                  {
+                      "CNPJ": "",
+                      "RAZAO": "",
+                      "PARTICIPACAO": "",
+                      "DATA_FUNDACAO": "",
+                      "CNAE": "",
+                      "DESCRICAO_CNAE": "",
+                      "COD_NATJUR": "",
+                      "DES_NATUREZA": "",
+                      "STATUS_RF": ""
+                  },
+                  {
+                      "CNPJ": "",
+                      "RAZAO": "",
+                      "PARTICIPACAO": "",
+                      "DATA_FUNDACAO": "",
+                      "CNAE": "",
+                      "DESCRICAO_CNAE": "",
+                      "COD_NATJUR": "",
+                      "DES_NATUREZA": "",
+                      "STATUS_RF": ""
+                  }                
+              ],
+              "PEP": {
+                  "FLPEP": "",
+                  "MOTIVO": "",
+              },
+              "PEPRELACIONADOS": [
+                  {
+                      "CPF": "",
+                      "NOME": "",
+                      "VINCULO": "",
+                  }
+              ]   
+          }
+      }
+  }
+      </code>
+  </pre>
+</p>
+
+            </div>  
+
+            <div id="retorno-pj" class="docs-section">
+              <h1 class="content-block-title">Retorno pessoa jurídica</h1>
+              <p>
+<pre>
+  <code>
+  {
+    "d": {
+        "CONSULTA": {
+            "CADASTRAIS": {
+                "CNPJ": "",
+                "RAZAO": "",
+                "NOME_FANTASIA": "",
+                "MATRIZ": "",
+                "QTDE_FILIAIS": "",
+                "TOTAL_FILIAIS_ABERTAS_18M": "",
+                "TOTAL_FILIAIS_ABERTAS_12M": "",
+                "TOTAL_FILIAIS_ABERTAS_06M": "",
+                "DATA_ABERTURA": "",
+                "CODNATJUR": "",
+                "DESC_NATJUR": "",
+                "CNAE": "",
+                "DESC_CNAE": "",
+                "ATIVIDADE-ECONOMICA-SECUNDARIA": "",
+                "INSCRICAO_ESTADUAL": "",
+                "PORTE": "",
+                "FATURAMENTOPRESUMIDO": "",
+                "CAPITALSOCIAL": "",
+                "QTDEFUNCIONARIOS": "",
+                "FLAG_DAU": "",
+                "SCORE": "",
+                "MENSAGEMSCORE": "",
+            },
+            "ENDERECOS": [
+                {
+                    "POSICAO": "",
+                    "TIPO": "",
+                    "TITULO": "",
+                    "LOGRADOURO": "",
+                    "NUMERO": "",
+                    "COMPLEMENTO": "",
+                    "BAIRRO": "",
+                    "CIDADE": "",
+                    "UF": "",
+                    "CEP": "",
+                    "AREARISCO": "",
+                    "LATITUDE": "",
+                    "LONGITUDE": ""
+                }
+            ],
+            "TELEFONES":  [
+                {
+                    "POSICAO": "",
+                    "DDD": "",
+                    "TELEFONE":  "",
+                    "ASSINANTE": "",
+                    "TIPO_TELEFONE": "",
+                    "PROCON": "",
+                    "OPERADORA": "",
+                    "FLHOT": "",
+                },
+                {
+                    "POSICAO": "",
+                    "DDD": "",
+                    "TELEFONE":  "",
+                    "ASSINANTE": "",
+                    "TIPO_TELEFONE": "",
+                    "PROCON": "",
+                    "OPERADORA": "",
+                    "FLHOT": "",
+
+                }                
+            ],
+            "EMAILS": [
+                {
+                    "EMAIL": "",
+                    "POSICAO": "",
+                },
+                {
+                    "EMAIL": "",
+                    "POSICAO": "",
+                }                
+            ],
+            "SITUACAOCADASTRAL": {
+                "DESCRICAO": "",
+                "SITUACAO-CADASTRAL-OBSERVACOES": "",
+                "SITUACAO-ESPECIAL": "",
+            }, 
+            "CONTATOSRUINS": [
+                {
+                    "DDD", "",
+                    "TELEFONE": "",
+                    "TIPO": ""
+                }
+            ],
+            "QSA": [
+                {
+                    "QTD_SOCIOS": "",
+                    "QSA": [
+                        {
+                            "NOME": "",
+                            "QUALIFICACAO": "",
+                            "DDD_SOCIO": "",
+                            "CEL_SOCIO": "",
+                            "CNPJ": "",
+                            "RAZAO": "",
+                            "PARTICIPACAO": "",
+                            "DATA_FUNDACAO": "",
+                            "CNAE": "",
+                            "DESC_CNAE": "",
+                            "STATUS_RF": ""
+                        },
+                        {
+                            "NOME": "",
+                            "QUALIFICACAO": "",
+                            "DDD_SOCIO": "",
+                            "CEL_SOCIO": "",
+                            "CNPJ": "",
+                            "RAZAO": "",
+                            "PARTICIPACAO": "",
+                            "DATA_FUNDACAO": "",
+                            "CNAE": "",
+                            "DESC_CNAE": "",
+                            "STATUS_RF": ""
+                        },
+                        {
+                            "NOME": "",
+                            "QUALIFICACAO": "",
+                            "DDD_SOCIO": "",
+                            "CEL_SOCIO": "",
+                            "CNPJ": "",
+                            "RAZAO": "",
+                            "PARTICIPACAO": "",
+                            "DATA_FUNDACAO": "",
+                            "CNAE": "",
+                            "DESC_CNAE": "",
+                            "STATUS_RF": ""
+                        },
+                        {
+                            "NOME": "",
+                            "QUALIFICACAO": "",
+                            "DDD_SOCIO": "",
+                            "CEL_SOCIO": "",
+                            "CNPJ": "",
+                            "RAZAO": "",
+                            "PARTICIPACAO": "",
+                            "DATA_FUNDACAO": "",
+                            "CNAE": "",
+                            "DESC_CNAE": "",
+                            "STATUS_RF": ""
+                        },                                                                        
+                    ]
+                }
+            ]  
+        }
+    }
+}
+</code>
+  </pre>
+</p>
+            </div>              
+
+          </div>
+      </div>
+
+	</div>
 
 
 
