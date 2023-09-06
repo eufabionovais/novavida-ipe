@@ -1,4 +1,5 @@
 $(function () {
+    
 
     // Gerencia Status de visibilidade do menu principal
     $(".main__wrapper").attr("data-collapse", false);
@@ -69,6 +70,95 @@ $(function () {
         }
     });
     // Habilitar máscara para CPF/CNPJ simultâneamente.
+
+
+    if($("#enriquecimentosTbl").length) {
+        let table = new DataTable('#enriquecimentosTbl', {
+            paging: false,
+            searching: false,
+            info: false,
+            columns: [
+                { orderable: false },
+                { orderable: false },
+                { orderable: false },
+                { orderable: false },
+                { orderable: true },
+                { orderable: false },
+                { orderable: false },
+              ]
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     // Habilita carrossel de notícias da home

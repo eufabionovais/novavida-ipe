@@ -2495,7 +2495,8 @@ label.error{
   background: #ECECF8;
   color: var(--cinza);
   position: absolute;
-  transform: translateX(-75%);
+  left: 0;
+  transform: translateX(-50%);
   padding: 16px;
   border-radius: 8px;
   box-shadow: 3px 3px 8px 0 rgba(0,0,0,0.2);
