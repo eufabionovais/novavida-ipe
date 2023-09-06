@@ -18,7 +18,7 @@
         <!-- <header class="content-card__header">
           <div class="content-card__header__title">
             <span class="rounded-icon" medium color="purple">
-              <span class="material-symbols-outlined filled">
+              <span class="material-icons filled">
                 location_on
               </span>
             </span> Endereços
@@ -27,15 +27,18 @@
         <div class="content-card__body">
           <div class="table__wrapper">
             <table class="table">
-              <tr>
-                <th>ID</th>
-                <th>Cliente</th>
-                <th>Entrada</th>
-                <th>Saída</th>
-                <th>Data</th>
-                <th>Ações</th>
-                <th>Status</th>
-              </tr>
+              <thead>
+
+                <tr>
+                  <th>ID</th>
+                  <th>Cliente</th>
+                  <th>Entrada</th>
+                  <th>Saída</th>
+                  <th>Data</th>
+                  <th>&nbsp;</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
               <tr>
                 <td>
                   <a href="#">123456</a>
@@ -60,7 +63,9 @@
                     
                     
                   </td>
-                  <td>Há 2 horas
+                  <td>
+                    <div class="position-relative ">
+                    Há 2 horas
 
                     <div class="table__tooltip">
                         <dl>
@@ -83,23 +88,24 @@
                         </dl>
 
                     </div>
+                  </div>
                   </td>
                   <td>
-                    <button class="btn btn-link">
-                      <span class="material-symbols-outlined">
+                    <button class="btn btn-link btn-hidden">
+                      <span class="material-icons">
                         download
                       </span>
                     </button>
                     
-                    <button class="btn btn-link">
-                      <span class="material-symbols-outlined">
+                    <button class="btn btn-link btn-hidden">
+                      <span class="material-icons">
                         more_vert
                       </span>
                     </button>
                   </td>
                   <td>
                     <span class="custom-pill" data-type="fail">
-                      <span class="material-symbols-outlined icon">
+                      <span class="material-icons icon">
                         close
                       </span>
                       Com falha
@@ -107,7 +113,7 @@
                   </td>
                 </tr>
 
-                <tr>
+                <tr data-loading='false'>
                   <td>
                     <a href="#">123456</a>
                   </td>
@@ -131,7 +137,9 @@
                       
                       
                     </td>
-                    <td>Há 2 horas
+                    <td>
+                      <div class="position-relative">
+                      Há 2 horas
                       <div class="table__tooltip">
                         <dl>
                           <div class="definition__item">
@@ -151,26 +159,27 @@
                             <dd>Enriquecido em <b>< 1 min</b></dd>
                           </div>                                                                              
                         </dl>
+                      </div>
 
                     </div>
 
                     </td>
                     <td>
-                      <button class="btn btn-link">
-                        <span class="material-symbols-outlined">
+                      <button class="btn btn-link btn-hidden">
+                        <span class="material-icons">
                           download
                         </span>
                       </button>
                       
-                      <button class="btn btn-link">
-                        <span class="material-symbols-outlined">
+                      <button class="btn btn-link btn-hidden">
+                        <span class="material-icons">
                           more_vert
                         </span>
                       </button>
                     </td>
                     <td>
                       <span class="custom-pill" data-type="removed">
-                        <span class="material-symbols-outlined icon">
+                        <span class="material-icons icon">
                           close
                         </span>
                         Removido
@@ -202,7 +211,8 @@
                         
                         
                       </td>
-                      <td>Há 2 horas
+                      <td>
+                        <div class="position-relative">Há 2 horas
 
                         <div class="table__tooltip">
                           <dl>
@@ -223,26 +233,27 @@
                               <dd>Enriquecido em <b>< 1 min</b></dd>
                             </div>                                                                              
                           </dl>
+                        </div>
   
                       </div> 
                       </td>
                       <td>
-                        <button class="btn btn-link">
-                          <span class="material-symbols-outlined">
+                        <button class="btn btn-link btn-hidden">
+                          <span class="material-icons">
                             download
                           </span>
                         </button>
                         
-                        <button class="btn btn-link">
-                          <span class="material-symbols-outlined">
+                        <button class="btn btn-link btn-hidden">
+                          <span class="material-icons">
                             more_vert
                           </span>
                         </button>
                       </td>
                       <td>
                         <span class="custom-pill" data-type="exported">
-                          <span class="material-symbols-outlined icon">
-                            close
+                          <span class="material-icons icon">
+                            done
                           </span>
                           Exportado
                         </span>
@@ -273,7 +284,9 @@
                           
                           
                         </td>
-                        <td>Há 2 horas
+                        <td>
+                          <div class="position-relative">
+                          Há 2 horas
 
                           <div class="table__tooltip">
                             <dl>
@@ -294,28 +307,29 @@
                                 <dd>Enriquecido em <b>< 1 min</b></dd>
                               </div>                                                                              
                             </dl>
+                          </div>
     
                         </div>
                         </td>
                         <td>
-                          <button class="btn btn-link">
-                            <span class="material-symbols-outlined">
+                          <button class="btn btn-link btn-hidden">
+                            <span class="material-icons">
                               download
                             </span>
                           </button>
                           
-                          <button class="btn btn-link">
-                            <span class="material-symbols-outlined">
+                          <button class="btn btn-link btn-hidden">
+                            <span class="material-icons">
                               more_vert
                             </span>
                           </button>
                         </td>
                         <td>
                           <span class="custom-pill" data-type="processed">
-                            <span class="material-symbols-outlined icon">
-                              close
-                            </span>
+                            <span class="material-icons icon">done</span>
                             Processado
+
+                            
                           </span>
                         </td>
                       </tr>

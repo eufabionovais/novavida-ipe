@@ -1237,6 +1237,9 @@ body{
 .table th:last-child,.table td:last-child{
   padding-inline-end:24px
 }
+
+
+
 .table td{
   transition:0.4s;
   font-size:14px
@@ -2454,6 +2457,7 @@ label.error{
   --yellow: #FFD977;
   --green: #72F6D3;  
   --preto: #303030;
+  --cinza: #585858;
   --branco: #fff;
 }
 
@@ -2489,19 +2493,22 @@ label.error{
 
 .table__tooltip {
   background: #ECECF8;
+  color: var(--cinza);
   position: absolute;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 310px;
+  transform: translateX(-75%);
   padding: 16px;
   border-radius: 8px;
   box-shadow: 3px 3px 8px 0 rgba(0,0,0,0.2);
-  /* visibility: hidden;
-  opacity: 0; */
+  visibility: hidden;
+  opacity: 0;
   transition: 0.3s;
-  transition-delay: 0.4s;
-  top: 100%;
+  transition-delay: 0.3s;
+  top: calc(100% + 10px);
+  white-space: nowrap;
+  z-index: 1;
+  pointer-events: none;
 }
+
 
 .table__tooltip:before {
   content: "";
@@ -2515,6 +2522,35 @@ label.error{
   left: 50%;
   transform: translateX(-50%);
 }
+
+tbody tr {
+  background: #fff;
+  transition: 0.3s;
+}
+tbody tr:hover {
+  background: #F0F0F0;
+}
+
+
+tbody tr[data-loading='true'],
+tbody tr[data-loading='true']:hover {
+  background: rgb(236,236,248);
+  background: linear-gradient(90deg, rgba(236,236,248,1) 0%, rgba(255,255,255,1) 50%, rgba(236,236,248,1) 100%);
+  background-size: 200% 100%;
+  animation: loadingData 3s linear infinite
+}
+
+
+@keyframes loadingData {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+
 
 tr:hover .table__tooltip{
   visibility: visible;
@@ -2544,3 +2580,10 @@ tr:hover .table__tooltip{
 .definition__item  dd {
   margin-bottom: 0;
 }
+
+
+
+
+
+
+
