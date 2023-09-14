@@ -2459,6 +2459,7 @@ label.error{
   --preto: #303030;
   --cinza: #585858;
   --branco: #fff;
+  --ciano: #92EBFF;
 }
 
 
@@ -2478,13 +2479,15 @@ label.error{
   min-width: 110px;
   color: var(--preto);
   text-transform: uppercase;
+  margin-inline: auto;
 }
 
 
 .custom-pill[data-type="fail"] {background: var(--red); color: var(--branco);}
 .custom-pill[data-type="removed"] {background: var(--yellow); }
 .custom-pill[data-type="exported"] {background: var(--green);}
-.custom-pill[data-type="processed"] {background: var(--green);}
+.custom-pill[data-type="processing"] {background: var(--cinza); color: var(--branco);}
+.custom-pill[data-type="processed"] {background: var(--ciano);}
 
 .custom-pill .icon {
   font-size: 16px;
@@ -2528,6 +2531,8 @@ tbody tr {
   background: #fff;
   transition: 0.3s;
 }
+
+table.dataTable>tbody>tr:hover,
 tbody tr:hover {
   background: #F0F0F0;
 }
@@ -2539,6 +2544,44 @@ tbody tr[data-loading='true']:hover {
   background: linear-gradient(90deg, rgba(236,236,248,1) 0%, rgba(255,255,255,1) 50%, rgba(236,236,248,1) 100%);
   background-size: 200% 100%;
   animation: loadingData 3s linear infinite
+}
+
+.progress-loader {
+  width: 80px;
+  height: 8px;
+  background: #fff;
+  border-radius: 16px;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  
+}
+
+.progress-loader > div {
+  
+    width: 30px;
+    height: 100%;
+    border-radius: 16px;
+    background: var(--green);
+    position: absolute;
+    left: 0;
+    top: 0;
+    
+    animation: loadingProgress linear 1s  infinite;
+    
+  
+}
+
+@keyframes loadingProgress {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 50%;
+  }
+  100% {
+    left: 100%;
+  }  
 }
 
 
