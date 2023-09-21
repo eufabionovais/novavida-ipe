@@ -90,6 +90,11 @@ $(function () {
     }
 
 
+    $(".upload-file__dropzone").dropzone({ url: "/file/post" });
+
+
+
+
 
 
 

@@ -2554,8 +2554,21 @@ tbody tr[data-loading='true']:hover {
   position: relative;
   margin: 0 auto;
   overflow: hidden;
-  
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
 }
+
+tbody tr[data-loading='true'] .btn-hidden {
+  display: none !important;
+}
+
+tbody tr[data-loading='true'] .progress-loader {
+  opacity: 1;
+  visibility: visible;
+}
+
+
 
 .progress-loader > div {
   
@@ -2626,6 +2639,60 @@ tr:hover .table__tooltip{
 }
 
 
+
+.upload-file__wrapper {
+  width: 300px;
+  height: 170px;
+  border: solid 1px #CCCCCC;
+  position: relative;
+  border-radius: 10px;
+  margin-inline: auto;
+}
+
+.upload-file__wrapper .dz-details {
+  padding-top: 24px;
+} 
+
+.upload-file__dropzone {
+  height: 100%;
+  text-align: center;
+}
+
+
+.upload-file__wrapper .dz-preview .dz-image,
+.upload-file__wrapper .dz-preview .dz-size,
+.upload-file__wrapper .dz-preview .dz-error-message,
+.upload-file__wrapper .dz-preview .dz-success-mark,
+.upload-file__wrapper .dz-preview .dz-error-mark {display: none;}
+
+.upload-file__wrapper .dz-filename {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 24px;
+}
+
+.upload-file__wrapper .upload-file__text {
+  font-size: 14px;
+}
+
+.upload-file__content {
+  position: absolute;
+  inset: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  
+}
+
+/* .dz-started .upload-file__text {
+  opacity: 0;
+  font-size: 14px;
+} */
+
+.upload-file__dropzone.dz-started + .upload-file__content .upload-file__text{ opacity: 0;}
 
 
 
