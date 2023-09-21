@@ -2656,6 +2656,7 @@ tr:hover .table__tooltip{
 .upload-file__dropzone {
   height: 100%;
   text-align: center;
+  cursor: pointer;
 }
 
 
@@ -2687,14 +2688,75 @@ tr:hover .table__tooltip{
   
 }
 
-/* .dz-started .upload-file__text {
-  opacity: 0;
-  font-size: 14px;
-} */
-
 .upload-file__dropzone.dz-started + .upload-file__content .upload-file__text{ opacity: 0;}
 
+.btn-icon {
+  max-width: 40px;
+  max-height: 40px;
+  padding: 0;
+  flex: 1;
+  display: flex;
+  width: 100%;
+  min-width: 40px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  min-height: 40px;  
+}
 
 
+/*MODAL */
+.modal-dialog .modal-content {
+  border-radius: 0;
+}
+
+.modal-dialog .modal-header {
+  padding-block: 28px;
+  padding-inline: 32px;
+  background: #ECECF8;
+}
+
+.modal-dialog .modal-title {
+  font-size: 22px;
+  color: #404040;
+}
+
+.modal-dialog .modal-body {
+  padding-inline: 32px;
+  padding-block: 24px;
+}
+
+.modal-dialog .btn-close {
+  padding: 10px;
+  color: #3A7DE8;
+}
+
+.modal-dialog .modal-footer {
+  border: none;
+}
+
+.btn,
+.form-control,
+.form-select {
+  border-radius: 3px !important;
+}
+
+.btn {
+  font-size: 14px !important;
+}
+
+.form-control,
+.form-select {
+  font-size: 14px !important;
+  color: #404040;
+}
+
+.form-control::placeholder {
+  color: #404040;
+}
+
+.btn-secondary {
+  color: #404040;
+}
 
 
