@@ -291,7 +291,7 @@
 
 
 
-					<div class="content-grid__wrapper">
+					<div class="content-grid__wrapper" data-container="content-grid-wrapper">
 
 						<div class="content-grid__content">
 
@@ -493,7 +493,7 @@
 									<h4 class="content-grid__sidebar-title">
 										Detalhes do enriquecimento
 									</h4>
-									<button class="btn btn-link">
+									<button class="btn btn-link px-0"  data-toggle="grid-sidebar">
 										<span class="material-symbols-outlined">
 											close
 											</span>
@@ -509,7 +509,7 @@
 
 								<div class="list-container">
 										<div class="list-key">Usuário</div>
-										<div class="list-value"><b>Jorge Bartz</b></div>
+										<div class="list-value"><b class="text-semibold">Jorge Bartz</b></div>
 										<div class="list-key">Entrada</div>
 										<div class="list-value"><b>41.744</b></div>
 										<div class="list-key">Saída</div>
@@ -521,25 +521,43 @@
 							<hr class="h-divider">
 
 
-							<div class="accordion accordion-flush" id="accordionFlushExample">
+							<div class="accordion accordion-flush accordion-sidebar__details" id="accordionDetails">
 								<div class="accordion-item">
-									<h2 class="accordion-header" id="flush-headingOne">
+									<h2 class="accordion-header" id="accordionDetailsTitle">
 										<button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
 											informações da campanha
 										</button>
 									</h2>
-									<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+									<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="accordionDetailsTitle" data-bs-parent="#accordionDetails">
 										<div class="accordion-body px-0">
 
-											<div class="list-container gap-3">
+											<div class="list-container gap-3 lista__detalhes-campanha">
 												<div class="list-key">Campanha</div>
-												<div class="list-value"><b class="text-semibold">Central de Marketing</b></div>
+												<div class="list-value"><b class="text-semibold">Central de Marketing</b>
+													<button class="btn btn-link btn-sm">
+													<span class="material-symbols-outlined icon">
+														edit
+														</span>
+													</div>
+												</button>
 												<div class="list-key">Processo</div>
 												<div class="list-value"><b class="text-semibold">ENRIQ (2-FIXO 4-MÓVEIS)</b></div>
 												<div class="list-key">Layout entrada</div>
-												<div class="list-value"><b class="text-semibold">Padrão Nova Vida</b></div>
+												<div class="list-value"><b class="text-semibold" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="Padrão Nova Vida">Padrão Nova Vida</b>
+													<button class="btn btn-link btn-sm">
+													<span class="material-symbols-outlined icon">
+														open_in_new
+														</span>
+													</button>
+												</div>
 												<div class="list-key">Layout saída</div>
-												<div class="list-value"><b class="text-semibold">Layout 4 celulares e 2 fixos</b></div>
+												<div class="list-value"><b class="text-semibold" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="Layout 4 celulares e 2 fixos">Layout 4 celulares e 2 fixos</b>
+													<button class="btn btn-link btn-sm">
+														<span class="material-symbols-outlined icon">
+															open_in_new
+															</span>
+														</button>
+												</div>
 										</div>
 
 										</div>
@@ -553,7 +571,27 @@
 
 
 							</div>
-							<footer class="content-grid__sidebar-footer"></footer>
+							<footer class="content-grid__sidebar-footer d-flex justify-content-center gap-4 mt-auto">
+
+										<button class="btn btn-primary btn-icon">
+											<span class="material-icons">
+												download
+											</span>
+										</button>
+
+										<button class="btn btn-secondary text-primary btn-icon">
+											<span class="material-icons">
+												refresh
+											</span>
+										</button>	
+										
+										<button class="btn btn-secondary  text-primary  btn-icon">
+											<span class="material-icons">
+												delete
+											</span>
+										</button>											
+
+							</footer>
 					</div>
 				</div>
 
@@ -688,6 +726,7 @@
 
 
 <script src="assets/vendor/jquery/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="assets/vendor/jquery.number/jquery.number.min.js"></script>
 <script src="assets/vendor/credit-card-interactions/assets/flipper.min.js"></script>

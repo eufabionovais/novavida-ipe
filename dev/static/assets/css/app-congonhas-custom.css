@@ -2769,3 +2769,58 @@ tr:hover .table__tooltip{
 .text-semibold {
   font-weight: 500;
 }
+
+.lista__detalhes-campanha {
+  font-size: 14px;
+}
+.lista__detalhes-campanha .list-value {  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lista__detalhes-campanha .btn {
+  padding: 0;
+}
+
+.lista__detalhes-campanha .list-value b {
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 130px;
+}
+
+.lista__detalhes-campanha .btn .icon {
+  font-size: 18px;
+}
+
+.custom-tooltip {
+  --bs-tooltip-bg: #ECECF8;
+  --bs-tooltip-opacity: 1;
+  --bs-tooltip-color: #404040;
+  --bs-tooltip-padding-x: 12px;
+  --bs-tooltip-padding-y: 16px;
+  --bs-tooltip-max-width: 250px;
+  font-weight: 500;
+}
+
+.accordion-sidebar__details .accordion-button {
+  color: #404040;
+  background: transparent;
+  padding-bottom: 0;
+}
+
+.accordion-sidebar__details .accordion-button::after {
+  content: "\e5c7";
+  font-family: "Material Symbols Outlined";
+  font-size: 40px;
+  background: transparent;
+  line-height: 0.6;
+  transform: none;
+  color: #3A7DE8;
+}
+
+.accordion-sidebar__details .accordion-button.collapsed::after {
+  content: "\e5c5";
+}

@@ -13475,13 +13475,29 @@ label.error{
 
 .content-grid__wrapper {
    display: grid;
+   grid-template-columns: 1fr 0;
+   transition: 0.3s;
+   overflow-x: hidden;
+}
+
+.content-grid__wrapper.opened {
    grid-template-columns: 1fr 320px;
 }
+
+.content-grid__wrapper.opened .content-grid__sidebar {
+   transform: translateX(0);
+}
+
+
 
 .content-grid__sidebar {
    background: #fff;
    padding: 24px;
    box-shadow: -4px 0 12px rgba(0,0,0,0.05);
+   font-size: 14px;
+   display: flex;
+   flex-direction: column;   
+   transform: translateX(200%);
 }
 
 .content-grid__sidebar-header {

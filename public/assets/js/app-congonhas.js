@@ -90,7 +90,28 @@ $(function () {
     }
 
 
-    $(".upload-file__dropzone").dropzone({ url: "/file/post" });
+    if($(".upload-file__dropzone").length) {
+       $(".upload-file__dropzone").dropzone({ url: "/file/post" });
+    }
+
+
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+
+    const contentGridContainer = $("[data-container='content-grid-wrapper']");
+    const gridSidebartoggle = $("[data-toggle='grid-sidebar']");
+
+    $(gridSidebartoggle).on("click", function(e){
+        e.preventDefault();
+        contentGridContainer.removeClass("opened");
+    })
+
+    $("#enriquecimentosTbl").on("click", "a", function(){
+        contentGridContainer.addClass("opened");
+    })
+    
+
 
 
 
