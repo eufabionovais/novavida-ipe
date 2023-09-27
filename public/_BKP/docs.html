@@ -88,37 +88,26 @@
         <!-- Busca -->
 <form action="pf-cadastro.html" type="post">
   <div div class="search__fields">
-    <input type="text" class="form-control search__field" placeholder="Digite o CPF ou CNPJ" data-mask='cpf-cnpj'>
-    <div class="btn-group">
-      <!-- <button id="btnGoal" type="button" class="btn btn-secondary dropdown-toggle btn--goal" data-bs-toggle="dropdown" aria-expanded="false">
-        Objetivo
-      </button>
-      <dl class="dropdown-menu dropdown-menu-end goals-list">
-        <div class="goal-item">
-          <dt>Confirmação de identidade</dt>
-          <dd>Utilização do dado pessoal para combate à fraude, visando a identificação correta ou confirmação de identidade.</dd>
-        </div>
-        <div class="goal-item">
-          <dt>Ciclo de crédito</dt>
-          <dd>Utilização do dado pessoal para o ciclo de proteção ao crédito, incluindo cobrança, verificação de situação financeira e a correta identificação.</dd>
-        </div>
-        <div class="goal-item">
-          <dt>Execução de contrato</dt>
-          <dd>Utilização do dado pessoal para a devida atualização ou execução de contrato, de procedimentos preliminares relacionados ao contrato do qual seja parte o titular, a pedido do titular dos dados.</dd>
-        </div>
-        <div class="goal-item">
-          <dt>Legítimo interesse</dt>
-          <dd>Utilização do dado pessoal para atender aos interesses legítimos do controlador ou de terceiro, atendendo e cumprindo com direitos e liberdades fundamentais do titular que exijam a proteção dos dados pessoais. </dd>
-        </div>
-      </dl> -->
-    </div>
-    <button type="button" class="btn btn-secondary"  data-bs-toggle="modal" data-bs-target="#advancedSearch">
-      <span class="material-icons">
+    <input type="text" class="form-control search__field" placeholder="(Digite um número, cliente ou usuário)" >
+    
+    <button type="button" class="btn btn-secondary btn-toggle-advanced-search" id="toggleAdvancedSearch">
+      <span class="material-icons text-primary icon">
           filter_list
-      </span>              
+      </span>     
+      
+      <div class="custom__tooltip">
+        <div class="list-container filter__status">
+          <div class="list-key">Cliente</div>
+          <div class="list-value"><b>Nova Vida</b></div>
+          <div class="list-key">Status</div>
+          <div class="list-value"><b>Exportando</b></div> 
+          <div class="list-key">Datas</div>
+          <div class="list-value">Últimos <b>30</b> dias</div>                    
+        </div>
+      </div>
     </button>
     <button class="btn btn-secondary" type="submit">
-    <span class="material-icons">
+      <span class="material-icons text-primary">
           search
       </span>                
     </button>

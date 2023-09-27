@@ -14,16 +14,97 @@
   <div class="row">
     
     <div class="mb-4 col-12 col-lg-12 mb-lg-0">
-      <div class="content-card">
-        <!-- <header class="content-card__header">
-          <div class="content-card__header__title">
-            <span class="rounded-icon" medium color="purple">
-              <span class="material-icons filled">
-                location_on
-              </span>
-            </span> Endereços
+      <div class="mb-4" id="filtrosAvancados">
+
+        <div class="row d-flex">
+
+          <div class="col-4 mb-4">
+            <label for="Campanha" class="form-label visually-hidden">Campanha</label>
+            <select class="form-select" aria-label="Campanha" id="Campanha">
+              <option selected>(Todos os clientes)</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
           </div>
-        </header> -->
+          <div class="col-4 mb-4">
+            <label for="Campanha" class="form-label visually-hidden">Campanha</label>
+            <select class="form-select" aria-label="Campanha" id="Campanha">
+              <option selected>(Todos os usuários)</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="col-4 mb-4">
+            <label for="Campanha" class="form-label visually-hidden">Campanha</label>
+            <select class="form-select" aria-label="Campanha" id="Campanha">
+              <option selected>(Todos os status)</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="col-4">
+            <label for="Campanha" class="form-label visually-hidden">Campanha</label>
+            <select class="form-select" aria-label="Campanha" id="Campanha">
+              <option selected>Processo</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>   
+          <div class="col-2">
+            <label for="Campanha" class="form-label visually-hidden">Campanha</label>
+            <select class="form-select" aria-label="Campanha" id="Campanha">
+              <option selected>Últimos 30 dias</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>  
+          <div class="col-2">
+            <label for="Campanha" class="form-label visually-hidden">Campanha</label>
+            <select class="form-select" aria-label="Campanha" id="Campanha">
+              <option selected>Dê</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>  
+          <div class="col-2">
+            <label for="Campanha" class="form-label visually-hidden">Campanha</label>
+            <select class="form-select" aria-label="Campanha" id="Campanha">
+              <option selected>Até</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>        
+          <div class="col d-flex gap-3 align-items-center">
+            <button class="btn btn-primary btn-icon" id="saveFilteredData">
+              <span class="material-icons">
+                done
+              </span>
+            </button>
+            <button class="btn btn-primary btn-icon btn-link text-decoration-none" id="resetFilters">
+              <span class="material-icons text-primary ">
+                close
+              </span>
+            </button> 
+            <button class="btn btn-primary btn-icon  btn-link text-decoration-none">
+              <span class="material-icons text-primary">
+                more_vert
+              </span>
+            </button>                        
+          </div>                                
+      </div>
+
+
+         
+      </div>
+      <div class="content-card">
+
         <div class="content-card__body">
           <div class="table__wrapper">
             <table class="table" id="enriquecimentosTbl">

@@ -110,6 +110,35 @@ $(function () {
     $("#enriquecimentosTbl").on("click", "a", function(){
         contentGridContainer.addClass("opened");
     })
+
+
+    const filtrosAvancados = $("#filtrosAvancados");
+    const toggleFiltersButton = $("#toggleAdvancedSearch");
+
+    filtrosAvancados.hide();
+    toggleFiltersButton.on("click", function(){
+
+        if(!$(this).hasClass("filtered")) {
+
+            $(this).toggleClass("active").toggleClass("btn-primary btn-secondary");
+            $(this).find(".icon").toggleClass("text-primary");
+            filtrosAvancados.slideToggle();
+        } else {
+            $(this).addClass("active filtered");
+            filtrosAvancados.slideDown();
+        }
+
+    })
+
+    $("#saveFilteredData").on("click", function(){
+        toggleFiltersButton.addClass("active filtered");
+        filtrosAvancados.slideUp();
+    })
+
+    $("#resetFilters").on("click", function(){
+        toggleFiltersButton.removeClass("active filtered");
+        filtrosAvancados.slideUp();
+    })
     
 
 
