@@ -132,11 +132,13 @@ $(function () {
 
     $("#saveFilteredData").on("click", function(){
         toggleFiltersButton.addClass("active filtered");
+        toggleFiltersButton.find(".icon").removeClass("text-primary");
         filtrosAvancados.slideUp();
     })
 
     $("#resetFilters").on("click", function(){
-        toggleFiltersButton.removeClass("active filtered");
+        toggleFiltersButton.removeClass("active filtered").removeClass("btn-primary").addClass("btn-secondary");
+        toggleFiltersButton.find(".icon").addClass("text-primary");
         filtrosAvancados.slideUp();
     })
     
