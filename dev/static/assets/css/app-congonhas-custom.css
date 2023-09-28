@@ -2805,6 +2805,10 @@ tr:hover .table__tooltip{
   font-weight: 500;
 }
 
+.text-purple {
+  color: #D0D0EF;
+}
+
 .lista__detalhes-campanha {
   font-size: 14px;
 }
