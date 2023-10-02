@@ -1,0 +1,479 @@
+@layout(base-layout-bi) @section(title, Gráficos | Nova Vida Ipê) 
+
+@section(main)
+
+@import(header-bi)
+
+<div class="content-grid__wrapper" data-container="content-grid-wrapper">
+  <div class="content-grid__content">
+    @component(page-header) 
+      @slot(page-title) 
+      
+      
+      <span class="material-icons icon highlight-purple"> apartment </span>
+      Mega Brasil <span class="material-icons icon highlight-purple"> keyboard_arrow_right </span> <b class="text-semibold">Dados Cadastrais</b>
+      
+      
+      @endslot
+    
+      @slot(page-title-buttons)
+    <div class="page-header__buttons">
+      <button
+        class="btn btn-primary btn-icon"
+      >
+        <span class="material-icons icon highlight-purpe">close</span>
+      </button>
+      
+    </div>
+    @endslot @endcomponent
+
+    <div class="content-line__wrapper">
+      <div class="row">
+        <div class="mb-4 col-12 col-lg-12 mb-lg-0">
+          <!-- Filtros Avançados -->
+          @component(filtros-avancados) @endcomponent
+          <!-- / Filtros Avançados -->
+
+          <div class="content-card">
+            <div class="content-card__body">
+              <div class="table__wrapper">
+                <table class="table" id="estudosTbl">
+                  <thead>
+                    <tr>
+                      <th>Tipo</th>
+                      <th>Nº</th>
+                      <th>Nome</th>
+                      <th>Entrada</th>
+                      <th>Data</th>
+                      <th>&nbsp;</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="material-icons text-purple"> person </span>
+                      </td>
+                      <td>
+                        <a href="#">123456</a>
+                      </td>
+                      <td>
+                        <div class="text-item">
+                          <p class="text-item__title">Nova Vida</p>
+                          <span class="text-item__detail">
+                            Gabriel Nogueira
+                          </span>
+                        </div>
+                      </td>
+                      <td>
+                        <img src="/assets/img/arrow-left.png" alt="" />
+                        1,4mil
+                      </td>
+                      <td>
+                        <div class="position-relative">Há 2 horas</div>
+                      </td>
+                      <td>
+                        <div class="progress-loader">
+                          <div></div>
+                        </div>
+
+                        <button class="btn btn-link btn-hidden">
+                          <span class="material-icons"> bar_chart </span>
+                        </button>
+
+                        <button class="btn btn-link btn-hidden">
+                          <span class="material-icons"> more_vert </span>
+                        </button>
+                      </td>
+                      <td>
+                        <span class="custom-pill" data-type="processed">
+                          <span class="material-icons icon"> done </span>
+                          Processado
+                        </span>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <span class="material-icons text-purple"> person </span>
+                      </td>
+                      <td>
+                        <a href="#">123456</a>
+                      </td>
+                      <td>
+                        <div class="text-item">
+                          <p class="text-item__title">Nova Vida</p>
+                          <span class="text-item__detail">
+                            Gabriel Nogueira
+                          </span>
+                        </div>
+                      </td>
+
+                      <td>
+                        <img src="/assets/img/arrow-left.png" alt="" />
+                        1,4mil
+                      </td>
+                      <td>
+                        <div class="position-relative">Há 2 horas</div>
+                      </td>
+                      <td>
+                        <div class="progress-loader">
+                          <div></div>
+                        </div>
+                        <button class="btn btn-link btn-hidden">
+                          <span class="material-icons"> bar_chart </span>
+                        </button>
+
+                        <button class="btn btn-link btn-hidden">
+                          <span class="material-icons"> more_vert </span>
+                        </button>
+                      </td>
+                      <td>
+                        <span class="custom-pill" data-type="fail">
+                          <span class="material-icons icon"> close </span>
+                          Com falha
+                        </span>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <span class="material-icons text-purple">
+                          apartment
+                        </span>
+                      </td>
+                      <td>
+                        <a href="#">123457</a>
+                      </td>
+                      <td>
+                        <div class="text-item">
+                          <p class="text-item__title">Nova Vida</p>
+                          <span class="text-item__detail">
+                            Gabriel Nogueira
+                          </span>
+                        </div>
+                      </td>
+
+                      <td>
+                        <img src="/assets/img/arrow-left.png" alt="" />
+                        1,4mil
+                      </td>
+                      <td>
+                        <div class="position-relative">Há 2 horas</div>
+                      </td>
+                      <td>
+                        <div class="progress-loader">
+                          <div></div>
+                        </div>
+                        <button class="btn btn-link btn-hidden">
+                          <span class="material-icons"> bar_chart </span>
+                        </button>
+
+                        <button class="btn btn-link btn-hidden">
+                          <span class="material-icons"> more_vert </span>
+                        </button>
+                      </td>
+                      <td>
+                        <span class="custom-pill" data-type="processed">
+                          <span class="material-icons icon"> done </span>
+                          Processado
+                        </span>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <span class="material-icons text-purple">
+                          apartment
+                        </span>
+                      </td>
+                      <td>
+                        <a href="#">123458</a>
+                      </td>
+                      <td>
+                        <div class="text-item">
+                          <p class="text-item__title">Nova Vida</p>
+                          <span class="text-item__detail">
+                            Gabriel Nogueira
+                          </span>
+                        </div>
+                      </td>
+
+                      <td>
+                        <img src="/assets/img/arrow-left.png" alt="" />
+                        1,4mil
+                      </td>
+                      <td>
+                        <div class="position-relative">Há 2 horas</div>
+                      </td>
+                      <td>
+                        <div class="progress-loader">
+                          <div></div>
+                        </div>
+                        <button class="btn btn-link btn-hidden">
+                          <span class="material-icons"> bar_chart </span>
+                        </button>
+
+                        <button class="btn btn-link btn-hidden">
+                          <span class="material-icons"> more_vert </span>
+                        </button>
+                      </td>
+                      <td>
+                        <span class="custom-pill" data-type="processed">
+                          <span class="material-icons icon"> done </span>
+                          Processado
+                        </span>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <span class="material-icons text-purple">
+                          apartment
+                        </span>
+                      </td>
+                      <td>
+                        <a href="#">123459</a>
+                      </td>
+                      <td>
+                        <div class="text-item">
+                          <p class="text-item__title">Nova Vida</p>
+                          <span class="text-item__detail">
+                            Gabriel Nogueira
+                          </span>
+                        </div>
+                      </td>
+
+                      <td>
+                        <img src="/assets/img/arrow-left.png" alt="" />
+                        1,4mil
+                      </td>
+                      <td>
+                        <div class="position-relative">Há 2 horas</div>
+                      </td>
+                      <td>
+                        <div class="progress-loader">
+                          <div></div>
+                        </div>
+                        <button class="btn btn-link btn-hidden">
+                          <span class="material-icons"> bar_chart </span>
+                        </button>
+
+                        <button class="btn btn-link btn-hidden">
+                          <span class="material-icons"> more_vert </span>
+                        </button>
+                      </td>
+                      <td>
+                        <span class="custom-pill" data-type="processed">
+                          <span class="material-icons icon">done</span>
+                          Processado
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / Row -->
+  </div>
+
+  @component(sidebar-detalhes) @slot(sidebar-detalhes-item)
+  <!-- Sidebar Enriquecimento -->
+  <div class="content-grid__sidebar">
+    <header class="content-grid__sidebar-header">
+      <h4 class="content-grid__sidebar-title">Detalhes do estudo</h4>
+      <button class="btn btn-link px-0" data-toggle="grid-sidebar">
+        <span class="material-symbols-outlined"> close </span>
+      </button>
+    </header>
+    <hr class="h-divider" />
+    <div class="content-grid__sidebar-body">
+      <div class="d-flex align-content-center justify-content-between">
+        <p class="mb-0 text-semibold">Nova Vida</p>
+        <p class="mb-0"><span class="highlight-primary">123456</span></p>
+      </div>
+      <hr class="h-divider" />
+      <div class="list-container">
+        <div class="list-key">Usuário</div>
+        <div class="list-value"><b class="text-semibold">Jorge Bartz</b></div>
+        <div class="list-key">Entrada</div>
+        <div class="list-value"><b>41.744</b></div>
+        <div class="list-key">Saída</div>
+        <div class="list-value"><b>1.318</b></div>
+        <div class="list-key">Data</div>
+        <div class="list-value"><b>18/07</b> às <b>9:33</b></div>
+      </div>
+    </div>
+    <footer
+      class="content-grid__sidebar-footer d-flex justify-content-center gap-4 mt-auto"
+    >
+      <button class="btn btn-primary btn-icon">
+        <span class="material-icons"> bar_chart </span>
+      </button>
+      <button class="btn btn-secondary text-primary btn-icon">
+        <span class="material-icons"> download </span>
+      </button>
+    </footer>
+  </div>
+  <!-- / Sidebar Enriquecimento -->
+  @endslot @endcomponent
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Novo enriquecimento
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="row d-flex">
+            <div class="col-6 mb-4">
+              <label for="cliente" class="form-label visually-hidden"
+                >Cliente</label
+              >
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                id="cliente"
+                placeholder="Cliente"
+              />
+            </div>
+            <div class="col-6 mb-4">
+              <label for="usuario" class="form-label visually-hidden"
+                >Usuário</label
+              >
+              <input
+                type="text"
+                id="usuario"
+                class="form-control form-control-lg"
+                placeholder="Usuário"
+              />
+            </div>
+            <div class="col-3 mb-4">
+              <label for="Campanha" class="form-label visually-hidden"
+                >Campanha</label
+              >
+              <select class="form-select" aria-label="Campanha" id="Campanha">
+                <option selected>Campanha</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+            <div class="col-3 mb-4">
+              <label for="subcampanha" class="form-label visually-hidden"
+                >Subcampanha</label
+              >
+              <select
+                class="form-select"
+                aria-label="subcampanha"
+                id="subcampanha"
+              >
+                <option selected>Subcampanha</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+            <div class="col-6 mb-4">
+              <label for="processo" class="form-label visually-hidden"
+                >Processo</label
+              >
+              <select class="form-select" aria-label="processo" id="processo">
+                <option selected>Processo</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+            <div class="col-6 d-flex flex-row gap-2">
+              <label for="layoutEntrada" class="form-label visually-hidden"
+                >Layout de entrada</label
+              >
+              <select
+                class="form-select"
+                aria-label="layoutEntrada"
+                id="layoutEntrada"
+              >
+                <option selected>Layout de entrada</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+              <button
+                class="btn btn-primary d-flex align-items-center btn-icon"
+              >
+                <span class="material-icons icon"> open_in_new </span>
+              </button>
+            </div>
+            <div class="col-6 d-flex flex-row gap-2">
+              <label for="layoutSaida" class="form-label visually-hidden"
+                >Layout de saída</label
+              >
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                id="layoutSaida"
+              >
+                <option selected>Layout de saída</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+              <button
+                class="btn btn-primary d-flex align-items-center btn-icon"
+              >
+                <span class="material-icons icon"> open_in_new </span>
+              </button>
+            </div>
+            <div class="col-12 mx-auto mt-3">
+              <div class="upload-file__wrapper">
+                <div class="upload-file__dropzone"></div>
+                <div class="upload-file__content">
+                  <p class="upload-file__text">
+                    Escolha ou arraste um arquivo aqui
+                  </p>
+                  <img
+                    class="upload-file__image"
+                    src="/assets/img/upload-file.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer d-flex gap-3">
+          <button type="button" class="btn btn-primary">Iniciar job</button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  @endsection
+</div>

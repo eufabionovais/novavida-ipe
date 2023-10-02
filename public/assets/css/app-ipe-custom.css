@@ -369,6 +369,28 @@ body{
   border-radius:5px;
   box-shadow:none
 }
+
+.header__main-area {
+  display: flex;
+  align-items: center;
+}
+
+.header__buttons-area {
+  display: flex;
+  align-items: center;
+}
+
+.header__buttons-area .btn {
+  max-width: 60px;
+}
+
+.header__buttons-area .btn:disabled {
+  opacity: 0.3;
+  border: none;
+  background: none;
+  color: var(--blue-300);
+}
+
 .goals-list{
   min-width:320px;
   background:#FFFFFF;
@@ -2799,6 +2821,10 @@ tr:hover .table__tooltip{
 
 .highlight-primary {
   color: var(--bs-link-color);
+}
+
+.highlight-purple {
+  color: #6B5FC6;
 }
 
 .text-semibold {
