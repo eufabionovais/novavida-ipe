@@ -7,11 +7,13 @@
     "start": "minissg",
     "dev": "minissg --watch"
   },
-	
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "mini-ssg": "^0.2.2"
+  },
+  "devDependencies": {
+    "prettier": "3.0.3"
   }
 }

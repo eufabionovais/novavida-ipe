@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="assets/css/app-ipe-styles.css">
 <link rel="stylesheet" href="assets/css/app-ipe-custom.css">
 <link rel="stylesheet" href="assets/css/mapa-dados.css">
-			<title>Nova Vida Ipê</title>
+			<title>Listagem de estudos | Nova Vida Ipê</title>
 		</head>
 		<body>
 			<div class="main__wrapper">
@@ -275,7 +275,7 @@
     <div class="page-header">
     <h1 class="page-header__title">
       
-    Enriquecimentos recentes 
+    Estudos recentes
     
     </h1>
     
@@ -290,12 +290,12 @@
     
 </div>
     
-    
     <div class="content-line__wrapper">
       
       <div class="row">
         
         <div class="mb-4 col-12 col-lg-12 mb-lg-0">
+          
           
           <!-- Filtros Avançados -->
           <div class="mb-4" id="filtrosAvancados">
@@ -400,14 +400,14 @@
             
             <div class="content-card__body">
               <div class="table__wrapper">
-                <table class="table" id="enriquecimentosTbl">
+                <table class="table" id="estudosTbl">
                   <thead>
                     
                     <tr>
-                      <th>ID</th>
-                      <th>Cliente</th>
+                      <th>Tipo</th>
+                      <th>Nº</th>
+                      <th>Nome</th>
                       <th>Entrada</th>
-                      <th>Saída</th>
                       <th>Data</th>
                       <th>&nbsp;</th>
                       <th>Status</th>
@@ -415,12 +415,16 @@
                   </thead>
                   <tbody>
                     
-                    <tr data-loading="true">
+                    <tr>
+                      <td>
+                        <span class="material-icons text-purple">
+                              person
+                        </span>
+                      </td>
                       <td>
                         <a href="#">123456</a>
                       </td>
                       <td>
-                        
                         <div class="text-item">
                           <p class="text-item__title">Nova Vida 
                           </p>
@@ -430,11 +434,9 @@
                         </div>
                       </td>
                       <td>
-                        <img src="/assets/img/arrow-left.png" alt="">
-                        7,2mil</td>
-                        <td>
+                      
                           
-                          <img src="/assets/img/arrow-right.png" alt="">
+                          <img src="/assets/img/arrow-left.png" alt="">
                           1,4mil
                           
                           
@@ -443,27 +445,7 @@
                           <div class="position-relative ">
                             Há 2 horas
                             
-                            <div class="table__tooltip">
-                              <dl>
-                                <div class="definition__item">
-                                  <dt>Arquivo</dt>
-                                  <dd>NV_Import_202307817123.csv</dd>
-                                </div>
-                                <div class="definition__item">
-                                  <dt>Entrada</dt>
-                                  <dd><b>41.744</b> em 18/07 às 9:32</dd>
-                                </div>                          
-                                <div class="definition__item">
-                                  <dt>Saída</dt>
-                                  <dd><b>1.318</b> em 18/07 às 9:33</dd>
-                                </div>                             
-                                <div class="definition__item">
-                                  <dt>Tempo</dt>
-                                  <dd>Enriquecido em <b>< 1 min</b></dd>
-                                </div>                                                                              
-                              </dl>
-                              
-                            </div>
+                            
                           </div>
                         </td>
                         <td>
@@ -474,7 +456,7 @@
                           
                           <button class="btn btn-link btn-hidden">
                             <span class="material-icons">
-                              download
+                              bar_chart
                             </span>
                           </button>
                           
@@ -485,16 +467,21 @@
                           </button>
                         </td>
                         <td>
-                          <span class="custom-pill" data-type="processing">
+                          <span class="custom-pill" data-type="processed">
                             <span class="material-icons icon">
-                              hourglass_top
+                              done
                             </span>
-                            Processando
+                            Processado
                           </span>
                         </td>
                       </tr>
                       
-                      <tr >
+                      <tr>
+                        <td>
+                          <span class="material-icons  text-purple">
+                              person
+                          </span>
+                        </td>
                         <td>
                           <a href="#">123456</a>
                         </td>
@@ -508,12 +495,11 @@
                             </span>
                           </div>
                         </td>
+
                         <td>
-                          <img src="/assets/img/arrow-left.png" alt="">
-                          7,2mil</td>
-                          <td>
+                        
                             
-                            <img src="/assets/img/arrow-right.png" alt="">
+                            <img src="/assets/img/arrow-left.png" alt="">
                             1,4mil
                             
                             
@@ -522,27 +508,7 @@
                             <div class="position-relative ">
                               Há 2 horas
                               
-                              <div class="table__tooltip">
-                                <dl>
-                                  <div class="definition__item">
-                                    <dt>Arquivo</dt>
-                                    <dd>NV_Import_202307817123.csv</dd>
-                                  </div>
-                                  <div class="definition__item">
-                                    <dt>Entrada</dt>
-                                    <dd><b>41.744</b> em 18/07 às 9:32</dd>
-                                  </div>                          
-                                  <div class="definition__item">
-                                    <dt>Saída</dt>
-                                    <dd><b>1.318</b> em 18/07 às 9:33</dd>
-                                  </div>                             
-                                  <div class="definition__item">
-                                    <dt>Tempo</dt>
-                                    <dd>Enriquecido em <b>< 1 min</b></dd>
-                                  </div>                                                                              
-                                </dl>
-                                
-                              </div>
+                              
                             </div>
                           </td>
                           <td>
@@ -551,7 +517,7 @@
                             </div>
                             <button class="btn btn-link btn-hidden">
                               <span class="material-icons">
-                                download
+                                bar_chart
                               </span>
                             </button>
                             
@@ -571,7 +537,12 @@
                           </td>
                         </tr>
                         
-                        <tr >
+                        <tr>
+                          <td>
+                            <span class="material-icons  text-purple">
+                              apartment
+                          </span>
+                          </td>
                           <td>
                             <a href="#">123457</a>
                           </td>
@@ -585,12 +556,11 @@
                               </span>
                             </div>
                           </td>
+
                           <td>
-                            <img src="/assets/img/arrow-left.png" alt="">
-                            7,2mil</td>
-                            <td>
+                          
                               
-                              <img src="/assets/img/arrow-right.png" alt="">
+                              <img src="/assets/img/arrow-left.png" alt="">
                               1,4mil
                               
                               
@@ -598,26 +568,7 @@
                             <td>
                               <div class="position-relative">
                                 Há 2 horas
-                                <div class="table__tooltip">
-                                  <dl>
-                                    <div class="definition__item">
-                                      <dt>Arquivo</dt>
-                                      <dd>NV_Import_202307817123.csv</dd>
-                                    </div>
-                                    <div class="definition__item">
-                                      <dt>Entrada</dt>
-                                      <dd><b>41.744</b> em 18/07 às 9:32</dd>
-                                    </div>                          
-                                    <div class="definition__item">
-                                      <dt>Saída</dt>
-                                      <dd><b>1.318</b> em 18/07 às 9:33</dd>
-                                    </div>                             
-                                    <div class="definition__item">
-                                      <dt>Tempo</dt>
-                                      <dd>Enriquecido em <b>< 1 min</b></dd>
-                                    </div>                                                                              
-                                  </dl>
-                                </div>
+                                
                                 
                               </div>
                               
@@ -628,7 +579,7 @@
                               </div>
                               <button class="btn btn-link btn-hidden">
                                 <span class="material-icons">
-                                  download
+                                  bar_chart
                                 </span>
                               </button>
                               
@@ -639,16 +590,22 @@
                               </button>
                             </td>
                             <td>
-                              <span class="custom-pill" data-type="removed">
+                              <span class="custom-pill" data-type="processed">
                                 <span class="material-icons icon">
-                                  close
+                                  done
                                 </span>
-                                Removido
+                                Processado
                               </span>
                             </td>
                           </tr>
                           
                           <tr>
+                            
+                            <td>
+                              <span class="material-icons  text-purple">
+                              apartment
+                          </span>
+                            </td>
                             <td>
                               <a href="#">123458</a>
                             </td>
@@ -662,12 +619,11 @@
                                 </span>
                               </div>
                             </td>
+
                             <td>
-                              <img src="/assets/img/arrow-left.png" alt="">
-                              7,2mil</td>
-                              <td>
+                            
                                 
-                                <img src="/assets/img/arrow-right.png" alt="">
+                                <img src="/assets/img/arrow-left.png" alt="">
                                 1,4mil
                                 
                                 
@@ -675,26 +631,7 @@
                               <td>
                                 <div class="position-relative">Há 2 horas
                                   
-                                  <div class="table__tooltip">
-                                    <dl>
-                                      <div class="definition__item">
-                                        <dt>Arquivo</dt>
-                                        <dd>NV_Import_202307817123.csv</dd>
-                                      </div>
-                                      <div class="definition__item">
-                                        <dt>Entrada</dt>
-                                        <dd><b>41.744</b> em 18/07 às 9:32</dd>
-                                      </div>                          
-                                      <div class="definition__item">
-                                        <dt>Saída</dt>
-                                        <dd><b>1.318</b> em 18/07 às 9:33</dd>
-                                      </div>                             
-                                      <div class="definition__item">
-                                        <dt>Tempo</dt>
-                                        <dd>Enriquecido em <b>< 1 min</b></dd>
-                                      </div>                                                                              
-                                    </dl>
-                                  </div>
+
                                   
                                 </div> 
                               </td>
@@ -704,7 +641,7 @@
                                 </div>
                                 <button class="btn btn-link btn-hidden">
                                   <span class="material-icons">
-                                    download
+                                    bar_chart
                                   </span>
                                 </button>
                                 
@@ -715,16 +652,21 @@
                                 </button>
                               </td>
                               <td>
-                                <span class="custom-pill" data-type="exported">
+                                <span class="custom-pill" data-type="processed">
                                   <span class="material-icons icon">
                                     done
                                   </span>
-                                  Exportado
+                                  Processado
                                 </span>
                               </td>
                             </tr>
                             
                             <tr>
+                              <td>
+                                <span class="material-icons  text-purple">
+                              apartment
+                          </span>
+                              </td>
                               <td>
                                 <a href="#">123459</a>
                               </td>
@@ -738,12 +680,11 @@
                                   </span>
                                 </div>
                               </td>
+
                               <td>
-                                <img src="/assets/img/arrow-left.png" alt="">
-                                7,2mil</td>
-                                <td>
+                              
                                   
-                                  <img src="/assets/img/arrow-right.png" alt="">
+                                  <img src="/assets/img/arrow-left.png" alt="">
                                   1,4mil
                                   
                                   
@@ -752,26 +693,6 @@
                                   <div class="position-relative">
                                     Há 2 horas
                                     
-                                    <div class="table__tooltip">
-                                      <dl>
-                                        <div class="definition__item">
-                                          <dt>Arquivo</dt>
-                                          <dd>NV_Import_202307817123.csv</dd>
-                                        </div>
-                                        <div class="definition__item">
-                                          <dt>Entrada</dt>
-                                          <dd><b>41.744</b> em 18/07 às 9:32</dd>
-                                        </div>                          
-                                        <div class="definition__item">
-                                          <dt>Saída</dt>
-                                          <dd><b>1.318</b> em 18/07 às 9:33</dd>
-                                        </div>                             
-                                        <div class="definition__item">
-                                          <dt>Tempo</dt>
-                                          <dd>Enriquecido em <b>< 1 min</b></dd>
-                                        </div>                                                                              
-                                      </dl>
-                                    </div>
                                     
                                   </div>
                                 </td>
@@ -781,7 +702,7 @@
                                   </div>
                                   <button class="btn btn-link btn-hidden">
                                     <span class="material-icons">
-                                      download
+                                      bar_chart
                                     </span>
                                   </button>
                                   
@@ -820,12 +741,13 @@
             </div>
 
 
+
             
                 <!-- Sidebar Enriquecimento -->
                 <div class="content-grid__sidebar">
                   <header class="content-grid__sidebar-header">
                       <h4 class="content-grid__sidebar-title">
-                        Detalhes do enriquecimento
+                        Detalhes do estudo
                       </h4>
                       <button class="btn btn-link px-0"  data-toggle="grid-sidebar">
                         <span class="material-symbols-outlined">
@@ -850,71 +772,23 @@
                         <div class="list-key">Data</div>
                         <div class="list-value"><b>18/07</b> às <b>9:33</b></div>
                     </div>
-                    <hr class="h-divider">
-                    <div class="accordion accordion-flush accordion-sidebar__details" id="accordionDetails">
-                      <div class="accordion-item">
-                        <h2 class="accordion-header" id="accordionDetailsTitle">
-                          <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            informações da campanha
-                          </button>
-                        </h2>
-                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="accordionDetailsTitle" data-bs-parent="#accordionDetails">
-                          <div class="accordion-body px-0">
-
-                            <div class="list-container gap-3 lista__detalhes-campanha">
-                              <div class="list-key">Campanha</div>
-                              <div class="list-value"><b class="text-semibold">Central de Marketing</b>
-                                <button class="btn btn-link btn-sm">
-                                <span class="material-symbols-outlined icon">
-                                  edit
-                                  </span>
-                                </div>
-                              </button>
-                              <div class="list-key">Processo</div>
-                              <div class="list-value"><b class="text-semibold">ENRIQ (2-FIXO 4-MÓVEIS)</b></div>
-                              <div class="list-key">Layout entrada</div>
-                              <div class="list-value"><b class="text-semibold" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="Padrão Nova Vida">Padrão Nova Vida</b>
-                                <button class="btn btn-link btn-sm">
-                                <span class="material-symbols-outlined icon">
-                                  open_in_new
-                                  </span>
-                                </button>
-                              </div>
-                              <div class="list-key">Layout saída</div>
-                              <div class="list-value"><b class="text-semibold" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="Layout 4 celulares e 2 fixos">Layout 4 celulares e 2 fixos</b>
-                                <button class="btn btn-link btn-sm">
-                                  <span class="material-symbols-outlined icon">
-                                    open_in_new
-                                    </span>
-                                  </button>
-                              </div>
-                          </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <hr class="h-divider">
+                  
                   </div>
                   <footer class="content-grid__sidebar-footer d-flex justify-content-center gap-4 mt-auto">
                     <button class="btn btn-primary btn-icon">
                       <span class="material-icons">
-                        download
+                        bar_chart
                       </span>
                     </button>
                     <button class="btn btn-secondary text-primary btn-icon">
                       <span class="material-icons">
-                        refresh
+                        download
                       </span>
                     </button>        
-                    <button class="btn btn-secondary  text-primary  btn-icon">
-                      <span class="material-icons">
-                        delete
-                      </span>
-                    </button>
                   </footer>
                 </div>
                 <!-- / Sidebar Enriquecimento -->
-              
+                          
             
             
             
