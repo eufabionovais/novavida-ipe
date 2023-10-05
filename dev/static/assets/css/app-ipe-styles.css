@@ -10664,6 +10664,11 @@ hr{
 .v-divider{
    border-right:solid 1px #E2E8FC
 }
+
+.h-divider{
+   border-bottom:solid 1px #cccccc
+}
+
 .form-control-icon-wrapper{
    position:relative
 }
@@ -11584,12 +11589,7 @@ body{
    box-shadow:1px 0 7px 0 rgba(0,0,0,0.1);
    z-index:2
 }
-.sidebar .main-nav{
-   z-index:2;
-   max-height:calc(100vh - 65px);
-   overflow:auto;
-   position:fixed
-}
+
 [data-collapse='true'] .sidebar .main-nav{
    width:44px;
    overflow-x:hidden
@@ -13487,8 +13487,14 @@ label.error{
    grid-template-columns: 1fr 320px;
 }
 
+
+
 .content-grid__wrapper.opened .content-grid__sidebar {
    transform: translateX(0);
+}
+
+.content-grid__content {
+   min-width: 0;
 }
 
 

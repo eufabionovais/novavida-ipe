@@ -14,6 +14,7 @@
     "mini-ssg": "^0.2.2"
   },
   "devDependencies": {
-    "prettier": "3.0.3"
+    "prettier": "3.0.3",
+    "purify-css": "^1.2.5"
   }
 }
