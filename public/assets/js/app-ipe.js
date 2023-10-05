@@ -92,6 +92,40 @@ $(function () {
     });
   }
 
+  if ($("#estudosTbl").length) {
+    let table = new DataTable("#estudosTbl", {
+      paging: false,
+      searching: false,
+      info: false,
+      columns: [
+        { orderable: false },
+        { orderable: false },
+        { orderable: false, width: "25%" },
+        { orderable: false },
+        { orderable: true },
+        { orderable: false },
+        { orderable: false, width: "150px", className: "text--center" },
+      ],
+    });
+  }
+
+  if ($("#layoutsTbl").length) {
+    let table = new DataTable("#layoutsTbl", {
+      paging: false,
+      searching: false,
+      info: false,
+      columns: [
+        { orderable: false },
+        { orderable: false },
+        { orderable: false, width: "25%" },
+        { orderable: false },
+        { orderable: true },
+        { orderable: false },
+        { orderable: false, width: "150px", className: "text--center" },
+      ],
+    });
+  }
+
   if ($(".upload-file__dropzone").length) {
     $(".upload-file__dropzone").dropzone({ url: "/file/post" });
   }
@@ -112,6 +146,10 @@ $(function () {
   });
 
   $("#enriquecimentosTbl").on("click", "a", function () {
+    contentGridContainer.addClass("opened");
+  });
+
+  $("#estudosTbl").on("click", "a", function () {
     contentGridContainer.addClass("opened");
   });
 
@@ -150,24 +188,38 @@ $(function () {
     const swiper = new Swiper(swiperElement, {
       speed: 400,
       spaceBetween: 100,
-      navigation: {
-        nextEl: "[data-slider='next']",
-        prevEl: "[data-slider='prev']",
-      },
     });
 
     const swiperInstance = swiperElement.swiper;
 
     console.log("index", swiperInstance.activeIndex);
 
-    // $("[data-slider='prev']").on("click", function () {
+    $("[data-slider='prev']").prop("disabled", true);
 
-    //   swiperInstance.slidePrev();
-    // });
+    $("[data-slider='prev']").on("click", function () {
+      swiperInstance.slidePrev();
+    });
 
-    // $("[data-slider='next']").on("click", function () {
+    $("[data-slider='next']").on("click", function () {
+      swiperInstance.slideNext();
+    });
 
-    //   swiperInstance.slideNext();
-    // });
+    swiperInstance.on("slideChange", function () {
+      const currentIndex = swiperInstance.realIndex;
+      const totalSlides = swiperInstance.slides.length - 1;
+
+      console.log(totalSlides);
+
+      if (currentIndex === 0) {
+        $("[data-slider='prev']").prop("disabled", true);
+      } else {
+        $("[data-slider='prev']").prop("disabled", false);
+      }
+      if (currentIndex >= totalSlides) {
+        $("[data-slider='next']").prop("disabled", true);
+      } else {
+        $("[data-slider='next']").prop("disabled", false);
+      }
+    });
   }
 });

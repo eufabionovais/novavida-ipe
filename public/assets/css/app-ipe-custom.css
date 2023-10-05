@@ -348,6 +348,31 @@ body{
   opacity: 0.5;
 }
 
+.form-control::placeholder {
+  color: #404040;
+  opacity: 0.5;
+}
+
+/* select:valid {
+  color:  blue;
+}
+
+select:invalid { color: red; } */
+
+/* select:not(:valid) {
+  color: green;
+} */
+select:invalid {
+  color: #9f9b9b;
+}
+
+select option:first-child {
+  color: #9f9b9b;
+}
+
+select:invalid option:not(:first-child) {
+  color: black;
+}
 
 
 .search_batch{
@@ -392,6 +417,15 @@ body{
 .header__buttons-area .btn {
   max-width: 60px;
 }
+
+
+
+.header__buttons-area .btn[data-slider='prev']:active,
+.header__buttons-area .btn[data-slider='next']:active {
+  color: var(--bs-btn-active-color) !important;
+}
+
+
 
 .header__buttons-area .btn:disabled {
   opacity: 0.3;
@@ -2485,6 +2519,7 @@ label.error{
 }
 
 
+
 :root {
   --red: #FF6565;
   --yellow: #FFD977;
@@ -2541,7 +2576,7 @@ label.error{
   opacity: 0;
   transition: 0.3s;
   transition-delay: 0.3s;
-  top: calc(100% + 10px);
+  bottom: calc(100% + 10px);
   white-space: nowrap;
   z-index: 1;
   pointer-events: none;
@@ -2553,10 +2588,10 @@ label.error{
   width: 0;
   height: 0;
   border-width: 10px;
-  border-color: transparent transparent #ECECF8 transparent;
+  border-color: #ECECF8 transparent transparent  transparent;
   border-style: solid;
   position: absolute;
-  top: -19px;
+  top: calc(100%);
   left: 50%;
   transform: translateX(-50%);
 }
@@ -2890,6 +2925,16 @@ tr:hover .table__tooltip{
   
 } */
 
+/* .custom-tooltip {
+  background: red;
+} */
+
+
+.custom-tooltip  {
+  opacity: 1;
+  --bs-tooltip-opacity: 1;
+}
+
 .custom-tooltip .tooltip-inner {
   --bs-tooltip-bg: #ECECF8;
   --bs-tooltip-opacity: 1;
@@ -2898,7 +2943,8 @@ tr:hover .table__tooltip{
   --bs-tooltip-padding-y: 16px;
   --bs-tooltip-max-width: 250px;
   font-weight: 400;
-  box-shadow: 0 0 3px 3px rgba(0,0,0,0.1);
+  opacity: 1;
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
 }
 
 .custom-tooltip .tooltip-arrow {
@@ -2910,7 +2956,9 @@ tr:hover .table__tooltip{
 .accordion-sidebar__details .accordion-button {
   color: #404040;
   background: transparent;
+  padding-top: 0;
   padding-bottom: 0;
+  box-shadow: none;
 }
 
 .accordion-sidebar__details .accordion-button::after {
@@ -2925,6 +2973,8 @@ tr:hover .table__tooltip{
 
 .accordion-sidebar__details .accordion-button.collapsed::after {
   content: "\e5c5";
+  margin-left: auto;
+  margin-right: 7px;
 }
 
 
