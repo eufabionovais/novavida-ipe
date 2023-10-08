@@ -6,13 +6,27 @@
     @component(page-header) @slot(page-title) Layouts @endslot
     @slot(page-title-buttons)
     <div class="page-header__buttons">
-      <button
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#novoLayoutDialog"
-      >
-        Adicionar
-      </button>
+      <div class="btn-group" role="group">
+        <button
+          id="btnToggleLayouts"
+          type="button"
+          class="btn btn-primary btn-add-layout dropdown-toggle"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Adicionar
+        </button>
+        <div
+          class="dropdown-menu dropdown-menu-right"
+          aria-labelledby="btnToggleLayouts"
+        >
+          <a class="dropdown-item" href="#">Enriquecimento padrão</a>
+          <a class="dropdown-item" href="#">Enriquecimento distinto</a>
+          <a class="dropdown-item" href="#">Atribuição</a>
+        </div>
+      </div>
+
       <button
         class="btn btn-link d-flex align-items-center text-decoration-none px-1"
       >

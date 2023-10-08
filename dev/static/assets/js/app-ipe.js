@@ -183,6 +183,10 @@ $(function () {
     filtrosAvancados.slideUp();
   });
 
+  if ($(".dropdown-toggle").length) {
+    $(".dropdown-toggle").dropdown();
+  }
+
   const swiperElement = document.querySelector(".swiper");
   if (swiperElement) {
     const swiper = new Swiper(swiperElement, {
