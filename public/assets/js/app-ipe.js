@@ -187,6 +187,24 @@ $(function () {
     $(".dropdown-toggle").dropdown();
   }
 
+  if ($("[data-input-group]").length) {
+    $("[data-input-group]").on("keyup", function () {
+      let value = $(this).val();
+      let valueLength = value.length;
+      if (valueLength > 0) {
+        $(this)
+          .siblings(".input-group-text")
+          .find(".btn")
+          .removeAttr("disabled");
+      } else {
+        $(this)
+          .siblings(".input-group-text")
+          .find(".btn")
+          .attr("disabled", true);
+      }
+    });
+  }
+
   const swiperElement = document.querySelector(".swiper");
   if (swiperElement) {
     const swiper = new Swiper(swiperElement, {

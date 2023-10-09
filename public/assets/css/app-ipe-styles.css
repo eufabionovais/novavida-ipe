@@ -13480,7 +13480,7 @@ label.error{
    grid-template-columns: 1fr 0;
    transition: 0.3s;
    overflow-x: hidden;
-   /* height: calc(100% - 101px); */
+   isolation: isolate;
 }
 
 .content-grid__wrapper.opened {

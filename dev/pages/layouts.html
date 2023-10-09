@@ -17,13 +17,28 @@
         >
           Adicionar
         </button>
-        <div
-          class="dropdown-menu dropdown-menu-right"
-          aria-labelledby="btnToggleLayouts"
-        >
-          <a class="dropdown-item" href="#">Enriquecimento padrão</a>
-          <a class="dropdown-item" href="#">Enriquecimento distinto</a>
-          <a class="dropdown-item" href="#">Atribuição</a>
+        <div class="dropdown-menu" aria-labelledby="btnToggleLayouts">
+          <button
+            class="dropdown-item"
+            data-bs-toggle="modal"
+            data-bs-target="#novoLayoutDialog"
+          >
+            Enriquecimento padrão
+          </button>
+          <button
+            class="dropdown-item"
+            data-bs-toggle="modal"
+            data-bs-target="#novoLayoutDialog"
+          >
+            Enriquecimento distinto
+          </button>
+          <button
+            class="dropdown-item"
+            data-bs-toggle="modal"
+            data-bs-target="#novoLayoutDialog"
+          >
+            Atribuição
+          </button>
         </div>
       </div>
 
@@ -230,285 +245,6 @@
     <!-- / Row -->
   </div>
 
-  @component(sidebar-detalhes) @slot(sidebar-detalhes-item)
-  <!-- Sidebar Enriquecimento -->
-  <!-- <div class="content-grid__sidebar">
-    <header class="content-grid__sidebar-header">
-      <h4 class="content-grid__sidebar-title">Detalhes do estudo</h4>
-      <button class="btn btn-link px-0" data-toggle="grid-sidebar">
-        <span class="material-symbols-outlined"> close </span>
-      </button>
-    </header>
-    <hr class="h-divider" />
-    <div class="content-grid__sidebar-body">
-      <div class="d-flex align-content-center justify-content-between">
-        <p class="mb-0 text-semibold">Nova Vida</p>
-        <p class="mb-0"><span class="highlight-primary">123456</span></p>
-      </div>
-      <hr class="h-divider" />
-      <div class="list-container">
-        <div class="list-key">Usuário</div>
-        <div class="list-value"><b class="text-semibold">Jorge Bartz</b></div>
-        <div class="list-key">Entrada</div>
-        <div class="list-value"><b>41.744</b></div>
-        <div class="list-key">Saída</div>
-        <div class="list-value"><b>1.318</b></div>
-        <div class="list-key">Data</div>
-        <div class="list-value"><b>18/07</b> às <b>9:33</b></div>
-      </div>
-    </div>
-    <footer
-      class="content-grid__sidebar-footer d-flex justify-content-center gap-4 mt-auto"
-    >
-      <button class="btn btn-primary btn-icon">
-        <span class="material-icons"> bar_chart </span>
-      </button>
-      <button
-        class="btn btn-link text-decoration-none btn-icon"
-        data-bs-toggle="tooltip"
-        data-bs-custom-class="custom-tooltip"
-        data-bs-title="Baixar exemplo de layout"
-      >
-        <span class="material-icons"> download </span>
-      </button>
-    </footer>
-  </div> -->
-  <!-- / Sidebar Enriquecimento -->
-  @endslot @endcomponent
-
-  <!-- Modal -->
-  <div
-    class="modal fade show"
-    id="novoLayoutDialog"
-    tabindex="-1"
-    aria-labelledby="novoLayoutDialogLabel"
-    aria-hidden="true"
-  >
-    <div
-      class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl"
-    >
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="novoLayoutDialogLabel">Novo layout</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <div class="row d-flex align-items-center">
-            <div class="col-6 mb-4">
-              <label for="cliente" class="form-label visually-hidden"
-                >Nome</label
-              >
-              <input
-                type="text"
-                class="form-control form-control-lg"
-                id="cliente"
-                placeholder="Cliente"
-              />
-            </div>
-            <div class="col-3 mb-4">
-              <label for="TipoEntidade" class="form-label visually-hidden"
-                >Tipo de entidade</label
-              >
-              <select
-                class="form-select"
-                aria-label="TipoEntidade"
-                id="TipoEntidade"
-              >
-                <option selected>Pessoa jurídica</option>
-                <option value="1">Pessoa física</option>
-              </select>
-            </div>
-            <div class="col-3 mb-4">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" />
-                <label class="form-check-label"> Enriquecimento único </label>
-              </div>
-            </div>
-          </div>
-
-          <div class="row gx-5">
-            <div class="col-4 checkboxes__list checkboxes--entries">
-              <h3 class="checkboxes__title">Atributos de entrada</h3>
-              <label class="checkboxes__label">Campos disponíveis</label>
-              <div class="checkboxes__group">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" />
-                  <label class="form-check-label"> CPF </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" />
-                  <label class="form-check-label"> CNPJ </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" />
-                  <label class="form-check-label"> CPF/CNPJ </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" />
-                  <label class="form-check-label"> Telefone </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" />
-                  <label class="form-check-label"> Email </label>
-                </div>
-              </div>
-            </div>
-            <div class="col-8">
-              <h3 class="checkboxes__title">Atributos de saída</h3>
-
-              <div class="row">
-                <div class="col checkboxes__list">
-                  <div class="row">
-                    <div class="col-12">
-                      <label class="checkboxes__label"
-                        >Campos disponíveis</label
-                      >
-                    </div>
-                  </div>
-                  <div class="checkboxes__group">
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                      />
-                      <label class="form-check-label"> Nome fantasia </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                      />
-                      <label class="form-check-label">
-                        Situação cadastral
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                      />
-                      <label class="form-check-label"> CNAE </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                      />
-                      <label class="form-check-label"> Descrição CNAE </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                      />
-                      <label class="form-check-label">
-                        Natureza da operação
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                      />
-                      <label class="form-check-label"> Razão Social </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                      />
-                      <label class="form-check-label"> CNPJ </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                      />
-                      <label class="form-check-label"> Fundação </label>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="col col-2 d-flex flex-column align-items-center justify-content-center gap-3"
-                >
-                  <button class="btn btn-icon btn-secondary">
-                    <span class="material-icons icon text-primary">
-                      keyboard_double_arrow_right
-                    </span>
-                  </button>
-                  <button class="btn btn-icon btn-secondary" disabled>
-                    <span class="material-icons icon text-primary">
-                      keyboard_arrow_right
-                    </span>
-                  </button>
-                  <button class="btn btn-icon btn-secondary" disabled>
-                    <span class="material-icons icon text-primary">
-                      keyboard_arrow_left
-                    </span>
-                  </button>
-                  <button class="btn btn-icon btn-secondary">
-                    <span class="material-icons icon text-primary">
-                      keyboard_double_arrow_left
-                    </span>
-                  </button>
-                </div>
-                <div class="col checkboxes__list">
-                  <div class="row">
-                    <div class="col-12">
-                      <label class="checkboxes__label"
-                        >Campos para o layout</label
-                      >
-                    </div>
-                  </div>
-                  <div class="checkboxes__group">
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                      />
-                      <label class="form-check-label"> Telefone </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                      />
-                      <label class="form-check-label"> Matriz </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer d-flex gap-3">
-          <button type="button" class="btn btn-primary">Salvar</button>
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
-            Cancelar
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  @endsection
+  @component(sidebar-detalhes) @slot(sidebar-detalhes-item) @endslot
+  @endcomponent @endsection @component(modal-novo-layout) @endcomponent
 </div>
