@@ -205,6 +205,16 @@ $(function () {
     });
   }
 
+  $("#btnConfirmarLayout").on("click", function () {
+    $("#novoLayoutDialog").modal("hide");
+    $("#confirmarLayoutDialog").modal("show");
+  });
+
+  $("#btnVoltarNovoLayout").on("click", function () {
+    $("#confirmarLayoutDialog").modal("hide");
+    $("#novoLayoutDialog").modal("show");
+  });
+
   const swiperElement = document.querySelector(".swiper");
   if (swiperElement) {
     const swiper = new Swiper(swiperElement, {

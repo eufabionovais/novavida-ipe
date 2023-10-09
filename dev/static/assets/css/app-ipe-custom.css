@@ -2839,6 +2839,10 @@ tr:hover .table__tooltip{
   padding-block: 24px;
 }
 
+.modal-dialog .modal-footer {
+  padding-inline: 32px;
+}
+
 .modal-dialog .btn-close {
   padding: 10px;
   color: #3A7DE8;
