@@ -126,6 +126,20 @@ $(function () {
     });
   }
 
+  if ($("#campanhasTbl").length) {
+    let table = new DataTable("#campanhasTbl", {
+      paging: false,
+      searching: false,
+      info: false,
+      columns: [
+        { orderable: false, width: "60%" },
+        { orderable: false },
+        { orderable: false },
+        { orderable: false, width: "200px", className: "text--center" },
+      ],
+    });
+  }
+
   if ($(".upload-file__dropzone").length) {
     $(".upload-file__dropzone").dropzone({ url: "/file/post" });
   }
