@@ -238,8 +238,6 @@ $(function () {
 
     const swiperInstance = swiperElement.swiper;
 
-    console.log("index", swiperInstance.activeIndex);
-
     $("[data-slider='prev']").prop("disabled", true);
 
     $("[data-slider='prev']").on("click", function () {
@@ -253,8 +251,6 @@ $(function () {
     swiperInstance.on("slideChange", function () {
       const currentIndex = swiperInstance.realIndex;
       const totalSlides = swiperInstance.slides.length - 1;
-
-      console.log(totalSlides);
 
       if (currentIndex === 0) {
         $("[data-slider='prev']").prop("disabled", true);
