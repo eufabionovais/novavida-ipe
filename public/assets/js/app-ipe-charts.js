@@ -10,7 +10,15 @@ let optionSituacaoDocumentos = {
     orient: "horizontal",
     left: "center",
     right: "auto",
-    top: 180,
+    top: 190,
+  },
+
+  grid: {
+    top: "5%",
+    left: "5%",
+    right: "5%",
+    bottom: "25%",
+    containLabel: true,
   },
 
   xAxis: {
@@ -80,7 +88,7 @@ let graficoSituacaoDocumentoPF = echarts.init(
   elGraficoSituacaoDocumentoPF,
   null,
   {
-    height: 200,
+    height: 250,
   },
 );
 graficoSituacaoDocumentoPF.setOption(optionSituacaoDocumentos);
@@ -92,16 +100,23 @@ let optionVinculoFamiliarPF = {
     trigger: "item",
   },
   legend: {
-    top: "25%",
+    top: "5%",
     left: "center",
-    // doesn't perfectly work with our tricks, disable it
     selectedMode: false,
+  },
+
+  grid: {
+    top: "5%",
+    left: "5%",
+    right: "5%",
+    bottom: "5%",
+    containLabel: true,
   },
   series: [
     {
-      name: "Access From",
+      name: "",
       type: "pie",
-      radius: ["40%", "70%"],
+      radius: ["30%", "100%"],
       center: ["50%", "70%"],
       // adjust the start angle
       startAngle: 180,
@@ -137,7 +152,7 @@ let optionVinculoFamiliarPF = {
 
 const elGrauVinculo = document.querySelector("#graficoGrauVinculoPF");
 let graficoGrauVinculoPF = echarts.init(elGrauVinculo, null, {
-  height: 200,
+  height: 250,
 });
 graficoGrauVinculoPF.setOption(optionVinculoFamiliarPF);
 /* FIM GRAU VÍNCULO PF */
@@ -150,12 +165,11 @@ const optionFlagsTelefonia = {
       type: "shadow",
     },
   },
-  legend: {},
   grid: {
-    left: "10%",
-    right: "10",
-    bottom: "50%",
-    height: "45%",
+    top: "5%",
+    left: "5%",
+    right: "5%",
+    bottom: "5%",
     containLabel: true,
   },
   xAxis: {
@@ -178,13 +192,14 @@ const optionFlagsTelefonia = {
       type: "bar",
       data: [350456, 123489, 229034, 104970, 131744, 630230],
       barWidth: 25,
+      barHeight: 80,
     },
   ],
 };
 
 const elFlagsTelefoniaPF = document.querySelector("#graficoFlagsTelefoniaPJ");
 let graficoFlagsTelefoniaPF = echarts.init(elFlagsTelefoniaPF, null, {
-  height: 200,
+  height: 250,
 });
 graficoFlagsTelefoniaPF.setOption(optionFlagsTelefonia);
 /* FIM FLAGS ESTRATÉGICAS DE TELEFONIA */
@@ -198,11 +213,20 @@ const optionTelefonesRanking = {
     orient: "horizontal", // Altere a orientação para horizontal
     top: "top", // Posicione a legenda na parte superior
   },
+
+  grid: {
+    top: "5%",
+    left: "5%",
+    right: "5%",
+    bottom: "5%",
+    containLabel: true,
+  },
+
   series: [
     {
-      name: "Access From",
+      name: "",
       type: "pie",
-      radius: "50%",
+      radius: "70%",
       data: [
         { value: 1048, name: "Ranking 1" },
         { value: 735, name: "Ranking 2" },
@@ -227,7 +251,7 @@ let graficoTelefonesRanking = echarts.init(
   document.querySelector("#graficoTelefonesRanking"),
   null,
   {
-    height: 200,
+    height: 250,
   },
 );
 graficoTelefonesRanking.setOption(optionTelefonesRanking);
@@ -242,10 +266,10 @@ const optionPessoaPorEstado = {
     },
   },
   grid: {
-    left: "3%",
-    right: "4%",
-    bottom: "10%",
-    top: "50%", // Reduza o espaço superior para diminuir a altura do gráfico
+    top: "5%",
+    left: "5%",
+    right: "5%",
+    bottom: "5%",
     containLabel: true,
   },
   xAxis: [
@@ -298,7 +322,6 @@ const optionPessoaPorEstado = {
   ],
   series: [
     {
-      name: "Direct",
       type: "bar",
       barWidth: "80%",
       data: [
@@ -315,7 +338,7 @@ let graficoPessoasPorEstado = echarts.init(
   document.querySelector("#graficoPessoasPorEstado"),
   null,
   {
-    height: 200,
+    height: 250,
   },
 );
 graficoPessoasPorEstado.setOption(optionPessoaPorEstado);
@@ -324,12 +347,6 @@ graficoPessoasPorEstado.setOption(optionPessoaPorEstado);
 /* PESSOAS POR REGIÃO */
 
 const optionPessoasPorRegiao = {
-  title: {
-    text: "",
-  },
-  legend: {
-    data: [],
-  },
   radar: {
     // shape: 'circle',
     indicator: [
@@ -339,15 +356,25 @@ const optionPessoasPorRegiao = {
       { name: "Oeste", max: 38000 },
       { name: "Sudeste", max: 52000 },
     ],
+
+    splitArea: {
+      areaStyle: {
+        color: ["#efefef", "#f4f4f4"],
+      },
+    },
+    splitLine: {
+      lineStyle: {
+        color: "rgba(198, 198, 198, 0.4)", // Color of the grid lines
+      },
+    },
   },
   series: [
     {
-      name: "Budget vs spending",
       type: "radar",
+
       data: [
         {
           value: [4200, 3000, 20000, 35000, 50000, 18000],
-          name: "Allocated Budget",
         },
       ],
     },
@@ -358,7 +385,7 @@ let graficoPessoasPorRegiao = echarts.init(
   document.querySelector("#graficoPessoasPorRegiao"),
   null,
   {
-    height: 200,
+    height: 250,
   },
 );
 graficoPessoasPorRegiao.setOption(optionPessoasPorRegiao);
@@ -370,16 +397,23 @@ const optionPessoasPorSexo = {
     trigger: "item",
   },
   legend: {
-    top: "25%",
+    top: "5%",
     left: "center",
     // doesn't perfectly work with our tricks, disable it
     selectedMode: false,
+  },
+  grid: {
+    top: "5%",
+    left: "5%",
+    right: "5%",
+    bottom: "5%",
+    containLabel: true,
   },
   series: [
     {
       name: "Access From",
       type: "pie",
-      radius: ["40%", "70%"],
+      radius: ["30%", "100%"],
       center: ["50%", "70%"],
       // adjust the start angle
       startAngle: 180,
@@ -416,7 +450,7 @@ let graficoPessoasPorSexo = echarts.init(
   document.querySelector("#graficoPessoasPorSexo"),
   null,
   {
-    height: 200,
+    height: 250,
   },
 );
 graficoPessoasPorSexo.setOption(optionPessoasPorSexo);
@@ -427,20 +461,12 @@ const optionPessoasPorGeracao = {
   legend: {
     top: "top",
   },
-  // toolbox: {
-  //   show: true,
-  //   feature: {
-  //     mark: { show: true },
-  //     dataView: { show: true, readOnly: false },
-  //     restore: { show: true },
-  //     saveAsImage: { show: true },
-  //   },
-  // },
+
   series: [
     {
       name: "Persona de geração",
       type: "pie",
-      radius: [50, 150],
+      radius: [50, 90],
       center: ["50%", "50%"],
       roseType: "area",
       itemStyle: {
@@ -465,7 +491,7 @@ let graficoPessoasPorGeracao = echarts.init(
   document.querySelector("#graficoPessoasPorGeracao"),
   null,
   {
-    height: 300,
+    height: 250,
   },
 );
 graficoPessoasPorGeracao.setOption(optionPessoasPorGeracao);
@@ -476,20 +502,25 @@ graficoPessoasPorGeracao.setOption(optionPessoasPorGeracao);
 const optionPersonaDigital = {
   tooltip: {
     trigger: "item",
-    formatter: "{a} <br/>{b} : {c}%",
+    // formatter: "{a} <br/>{b} : {c}%",
+    formatter: "{b} : {c}%",
   },
 
-  legend: {
-    data: [],
-  },
+  // grid: {
+  //   top: "1%",
+  //   left: "1%",
+  //   right: "1%",
+  //   bottom: "1%",
+  //   containLabel: true,
+  // },
   series: [
     {
-      name: "Funnel",
+      name: "",
       type: "funnel",
-      left: "20%",
-      top: 60,
-      bottom: 60,
-      width: "60%",
+      left: "center",
+      top: 10,
+      bottom: 10,
+      width: "80%",
       min: 0,
       max: 100,
       minSize: "0%",
@@ -520,7 +551,7 @@ const optionPersonaDigital = {
         { value: 60, name: "Digital--" },
         { value: 40, name: "Digital-" },
         { value: 20, name: "Digital+-" },
-        { value: 80, name: "Ditital+" },
+        { value: 80, name: "Digital+" },
         { value: 100, name: "Digital++" },
       ],
     },
@@ -531,7 +562,7 @@ let graficoPersonaDigital = echarts.init(
   document.querySelector("#graficoPersonaDigital"),
   null,
   {
-    height: 300,
+    height: 250,
   },
 );
 graficoPersonaDigital.setOption(optionPersonaDigital);
@@ -545,12 +576,19 @@ const optionPersonaCredito = {
       type: "line",
     },
   },
-  legend: {},
+  legend: {
+    orient: "horizontal",
+    left: "center",
+    top: 190,
+    itemGap: 10,
+
+    align: "left",
+  },
   grid: {
-    left: "0%",
-    right: "0%",
-    top: "40%",
-    bottom: "30%",
+    top: "2%",
+    left: "2%",
+    right: "2%",
+    bottom: "25%",
     containLabel: true,
   },
   xAxis: {
@@ -641,7 +679,7 @@ let graficoPersonaCredito = echarts.init(
   document.querySelector("#graficoPersonaCredito"),
   null,
   {
-    height: 300,
+    height: 250,
   },
 );
 graficoPersonaCredito.setOption(optionPersonaCredito);
@@ -655,13 +693,22 @@ const optionPossivelEscolaridade = {
       text: "",
     },
   ],
+
+  grid: {
+    top: "2%",
+    left: "2%",
+    right: "2%",
+    bottom: "2%",
+    containLabel: true,
+  },
   polar: {
-    radius: [10, "100%"], // Reduzi o raio para dar espaço para os rótulos
+    radius: [30, "120%"], // Reduzi o raio para dar espaço para os rótulos
     axisLine: {}, // Define as configurações da linha do eixo como vazias para remover as linhas
     splitLine: {}, // Define as configurações das linhas de divisão como vazias para remover as linhas
   },
   angleAxis: {
-    max: 25000,
+    min: 5,
+    max: 15500,
     startAngle: 180,
     show: false, // Define o eixo angular como oculto para remover as legendas
   },
@@ -679,7 +726,7 @@ const optionPossivelEscolaridade = {
       show: true,
       rotate: 270, // Define o ângulo de rotação para 270 graus
       textStyle: {
-        fontSize: 14, // Tamanho da fonte
+        fontSize: 10, // Tamanho da fonte
       },
     },
   },
@@ -721,7 +768,7 @@ let graficoPossivelEscolaridade = echarts.init(
   document.querySelector("#graficoPossivelEscolaridade"),
   null,
   {
-    height: 300,
+    height: 250,
   },
 );
 graficoPossivelEscolaridade.setOption(optionPossivelEscolaridade);
@@ -730,6 +777,14 @@ graficoPossivelEscolaridade.setOption(optionPossivelEscolaridade);
 /* PERSONA DEMOGRÁFICA */
 
 const optionPersonaDemografica = {
+  grid: {
+    top: "5%",
+    left: "5%",
+    right: "5%",
+    bottom: "5%",
+    containLabel: true,
+    width: "80%",
+  },
   series: [
     {
       type: "treemap",
@@ -923,6 +978,15 @@ const optionPersonaDemografica = {
         show: true, // Habilita o rótulo de dados visíveis
         formatter: "{b}: {c}", // Define o formato do rótulo (nome: valor)
       },
+
+      dataZoom: [
+        {
+          type: "inside",
+          xAxisIndex: [0],
+          yAxisIndex: [0],
+          zoom: false, // Disable zooming
+        },
+      ],
     },
   ],
 };
@@ -931,7 +995,7 @@ let graficoPersonaDemografica = echarts.init(
   document.querySelector("#graficoPersonaDemografica"),
   null,
   {
-    height: 300,
+    height: 250,
   },
 );
 graficoPersonaDemografica.setOption(optionPersonaDemografica);
