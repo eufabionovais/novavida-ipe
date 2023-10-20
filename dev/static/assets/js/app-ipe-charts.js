@@ -1,10 +1,59 @@
+const eChartsGlobalConfig = {
+  color: [
+    "#00D59A",
+    "#3A7DE8",
+    "#93a1c1",
+    "#FFAF26",
+    "#FF6565",
+    "#6456BB",
+    "#68C7AC",
+    "#71A5D5",
+    "#e2db46",
+    "#FFC27D",
+    "#FF8E8E",
+    "#8E77D4",
+    "#9BD9C4",
+    "#8CB3E6",
+    "#E8E8F4",
+    "#FFD885",
+    "#FF9999",
+    "#A793D0",
+    "#ACDFD0",
+    "#A4C8EA",
+    "#ECECF8",
+    "#FFDCB3",
+    "#FFB8B8",
+    "#AE9EDA",
+    "#BBE9DE",
+    "#B3D0F0",
+    "#F7F7FD",
+    "#FFE5BF",
+    "#FFC9C9",
+    "#C7B2E4",
+  ],
+};
+
+echarts.registerPreprocessor(function (option) {
+  option.color = eChartsGlobalConfig.color;
+});
+
+function numeroFormatter(params) {
+  var formattedValue = params.value
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  return `<b>${params.name}</b>: ${formattedValue}`;
+}
+
+function numeroRawPercent(params) {
+  var formattedValue = `${params.value}%`;
+  return params.name + ": " + formattedValue;
+}
+
 /* GRÁFICO SITUAÇÃO DOCUMENTOS PF */
 let optionSituacaoDocumentos = {
   tooltip: {
-    trigger: "axis",
-    axisPointer: {
-      type: "line",
-    },
+    trigger: "item",
+    formatter: numeroFormatter,
   },
   legend: {
     orient: "horizontal",
@@ -27,7 +76,7 @@ let optionSituacaoDocumentos = {
   },
   yAxis: {
     type: "category",
-    data: ["Status"],
+    data: ["Situação"],
   },
   series: [
     {
@@ -92,12 +141,14 @@ let graficoSituacaoDocumentoPF = echarts.init(
   },
 );
 graficoSituacaoDocumentoPF.setOption(optionSituacaoDocumentos);
+
 /* FIM GRÁFICO SITUAÇÃO DOCUMENTOS PF */
 
 /* GRAU VÍNCULO PF */
 let optionVinculoFamiliarPF = {
   tooltip: {
     trigger: "item",
+    formatter: numeroFormatter,
   },
   legend: {
     top: "5%",
@@ -160,10 +211,8 @@ graficoGrauVinculoPF.setOption(optionVinculoFamiliarPF);
 /* FLAGS ESTRATÉGICAS DE TELEFONIA */
 const optionFlagsTelefonia = {
   tooltip: {
-    trigger: "axis",
-    axisPointer: {
-      type: "shadow",
-    },
+    trigger: "item",
+    formatter: numeroFormatter,
   },
   grid: {
     top: "5%",
@@ -190,8 +239,46 @@ const optionFlagsTelefonia = {
     {
       name: "",
       type: "bar",
-      data: [350456, 123489, 229034, 104970, 131744, 630230],
-      barWidth: 25,
+      // data: [350456, 123489, 229034, 104970, 131744, 630230],
+      data: [
+        {
+          value: 350456,
+          itemStyle: {
+            color: eChartsGlobalConfig.color[0],
+          },
+        },
+        {
+          value: 123489,
+          itemStyle: {
+            color: eChartsGlobalConfig.color[1],
+          },
+        },
+        {
+          value: 229034,
+          itemStyle: {
+            color: eChartsGlobalConfig.color[2],
+          },
+        },
+        {
+          value: 104970,
+          itemStyle: {
+            color: eChartsGlobalConfig.color[3],
+          },
+        },
+        {
+          value: 131744,
+          itemStyle: {
+            color: eChartsGlobalConfig.color[4],
+          },
+        },
+        {
+          value: 630230,
+          itemStyle: {
+            color: eChartsGlobalConfig.color[5],
+          },
+        },
+      ],
+      barWidth: 35,
       barHeight: 80,
     },
   ],
@@ -208,6 +295,7 @@ graficoFlagsTelefoniaPF.setOption(optionFlagsTelefonia);
 const optionTelefonesRanking = {
   tooltip: {
     trigger: "item",
+    formatter: numeroFormatter,
   },
   legend: {
     orient: "horizontal", // Altere a orientação para horizontal
@@ -260,10 +348,8 @@ graficoTelefonesRanking.setOption(optionTelefonesRanking);
 /* PESSOAS POR ESTADO */
 const optionPessoaPorEstado = {
   tooltip: {
-    trigger: "axis",
-    axisPointer: {
-      type: "shadow",
-    },
+    trigger: "item",
+    formatter: numeroFormatter,
   },
   grid: {
     top: "5%",
@@ -325,10 +411,168 @@ const optionPessoaPorEstado = {
       type: "bar",
       barWidth: "80%",
       data: [
-        601100, 2208680, 2799002, 574804, 10923616, 6352015, 2935056, 3529246,
-        5592545, 4305869, 18755761, 2354464, 2740032, 5485138, 2821651, 7341548,
-        2367264, 10225639, 17916646, 2591392, 1289816, 383877, 11109552,
-        6024825, 1748875, 49655854, 1077129,
+        {
+          value: 601100,
+          itemStyle: {
+            color: "#00D59A",
+          },
+        },
+        {
+          value: 2208680,
+          itemStyle: {
+            color: "#3A7DE8",
+          },
+        },
+        {
+          value: 2799002,
+          itemStyle: {
+            color: "#93a1c1",
+          },
+        },
+        {
+          value: 574804,
+          itemStyle: {
+            color: "#FFAF26",
+          },
+        },
+        {
+          value: 10923616,
+          itemStyle: {
+            color: "#FF6565",
+          },
+        },
+        {
+          value: 6352015,
+          itemStyle: {
+            color: "#6456BB",
+          },
+        },
+        {
+          value: 2935056,
+          itemStyle: {
+            color: "#68C7AC",
+          },
+        },
+        {
+          value: 3529246,
+          itemStyle: {
+            color: "#71A5D5",
+          },
+        },
+        {
+          value: 5592545,
+          itemStyle: {
+            color: "#e2db46",
+          },
+        },
+        {
+          value: 4305869,
+          itemStyle: {
+            color: "#FFC27D",
+          },
+        },
+        {
+          value: 18755761,
+          itemStyle: {
+            color: "#FF8E8E",
+          },
+        },
+        {
+          value: 2354464,
+          itemStyle: {
+            color: "#8E77D4",
+          },
+        },
+        {
+          value: 2740032,
+          itemStyle: {
+            color: "#9BD9C4",
+          },
+        },
+        {
+          value: 5485138,
+          itemStyle: {
+            color: "#8CB3E6",
+          },
+        },
+        {
+          value: 2821651,
+          itemStyle: {
+            color: "#E8E8F4",
+          },
+        },
+        {
+          value: 7341548,
+          itemStyle: {
+            color: "#FFD885",
+          },
+        },
+        {
+          value: 2367264,
+          itemStyle: {
+            color: "#FF9999",
+          },
+        },
+        {
+          value: 10225639,
+          itemStyle: {
+            color: "#A793D0",
+          },
+        },
+        {
+          value: 17916646,
+          itemStyle: {
+            color: "#ACDFD0",
+          },
+        },
+        {
+          value: 2591392,
+          itemStyle: {
+            color: "#A4C8EA",
+          },
+        },
+        {
+          value: 1289816,
+          itemStyle: {
+            color: "#ECECF8",
+          },
+        },
+        {
+          value: 383877,
+          itemStyle: {
+            color: "#FFDCB3",
+          },
+        },
+        {
+          value: 11109552,
+          itemStyle: {
+            color: "#FFB8B8",
+          },
+        },
+        {
+          value: 6024825,
+          itemStyle: {
+            color: "#AE9EDA",
+          },
+        },
+        {
+          value: 1748875,
+          itemStyle: {
+            color: "#BBE9DE",
+          },
+        },
+        {
+          value: 49655854,
+          itemStyle: {
+            color: "#B3D0F0",
+          },
+        },
+        {
+          value: 1077129,
+          itemStyle: {
+            color: "#F7F7FD",
+          },
+        },
       ],
     },
   ],
@@ -347,6 +591,10 @@ graficoPessoasPorEstado.setOption(optionPessoaPorEstado);
 /* PESSOAS POR REGIÃO */
 
 const optionPessoasPorRegiao = {
+  tooltip: {
+    trigger: "item",
+    formatter: numeroFormatter,
+  },
   radar: {
     // shape: 'circle',
     indicator: [
@@ -395,6 +643,7 @@ graficoPessoasPorRegiao.setOption(optionPessoasPorRegiao);
 const optionPessoasPorSexo = {
   tooltip: {
     trigger: "item",
+    formatter: numeroRawPercent,
   },
   legend: {
     top: "5%",
@@ -411,7 +660,7 @@ const optionPessoasPorSexo = {
   },
   series: [
     {
-      name: "Access From",
+      name: "",
       type: "pie",
       radius: ["30%", "100%"],
       center: ["50%", "70%"],
@@ -419,15 +668,12 @@ const optionPessoasPorSexo = {
       startAngle: 180,
       label: {
         show: false, // Define show como false para remover os rótulos de dados
-        formatter(param) {
-          // correct the percentage
-          return param.name + " (" + param.percent * 2 + "%)";
-        },
+        formatter: numeroRawPercent,
       },
       data: [
         { value: 15, name: "Homem" },
         { value: 55, name: "Mulher" },
-        { value: 30, name: "Infefinido" },
+        { value: 30, name: "Indefinido" },
         {
           // make a record to fill the bottom 50%
           value: 15 + 55 + 30,
@@ -502,17 +748,9 @@ graficoPessoasPorGeracao.setOption(optionPessoasPorGeracao);
 const optionPersonaDigital = {
   tooltip: {
     trigger: "item",
-    // formatter: "{a} <br/>{b} : {c}%",
     formatter: "{b} : {c}%",
   },
 
-  // grid: {
-  //   top: "1%",
-  //   left: "1%",
-  //   right: "1%",
-  //   bottom: "1%",
-  //   containLabel: true,
-  // },
   series: [
     {
       name: "",
@@ -571,10 +809,8 @@ graficoPersonaDigital.setOption(optionPersonaDigital);
 /* PERSONA DE CRÉDITO */
 const optionPersonaCredito = {
   tooltip: {
-    trigger: "axis",
-    axisPointer: {
-      type: "line",
-    },
+    trigger: "item",
+    formatter: "{b} : {c}%",
   },
   legend: {
     orient: "horizontal",
@@ -688,11 +924,10 @@ graficoPersonaCredito.setOption(optionPersonaCredito);
 /* POSSÍVEL ESCOLARIDADE */
 
 const optionPossivelEscolaridade = {
-  title: [
-    {
-      text: "",
-    },
-  ],
+  tooltip: {
+    trigger: "item",
+    formatter: numeroFormatter,
+  },
 
   grid: {
     top: "2%",
@@ -730,13 +965,13 @@ const optionPossivelEscolaridade = {
       },
     },
   },
-  tooltip: {},
+
   series: {
     type: "bar",
     data: [
       { value: 1226, name: "Fundamental" },
-      { value: 5903, name: "Médio 2" },
-      { value: 11732, name: "Técnico 3" },
+      { value: 5903, name: "Médio" },
+      { value: 11732, name: "Técnico" },
       { value: 4157, name: "Superior" },
       { value: 10, name: "Pós Graduação" },
       { value: 5, name: "Mestrado" },
@@ -778,199 +1013,206 @@ graficoPossivelEscolaridade.setOption(optionPossivelEscolaridade);
 
 const optionPersonaDemografica = {
   grid: {
-    top: "5%",
-    left: "5%",
-    right: "5%",
-    bottom: "5%",
-    containLabel: true,
-    width: "80%",
+    top: "1%",
+    left: "1%",
+    right: "1%",
+    bottom: "1%",
+
+    width: "100%",
   },
+
+  tooltip: {
+    trigger: "item",
+    formatter: numeroFormatter,
+  },
+
   series: [
     {
       type: "treemap",
+      roam: false,
       data: [
         {
-          name: "ADULTO VIDA MODESTA",
+          name: "Adulto vida modesta",
           value: 36177318,
         },
         {
-          name: "QUERO DESCANSAR",
+          name: "Quero descansar",
           value: 25479843,
         },
         {
-          name: "JOVEM NEM NEM",
+          name: "Jovem nem nem",
           value: 23428368,
         },
         {
-          name: "HOMEM PROVEDOR",
+          name: "Homem provedor",
           value: 15987154,
         },
         {
-          name: "MULHER COM FOCO NO EMPREGO",
+          name: "Mulher com foco no emprego",
           value: 14006947,
         },
         {
-          name: "JOVEM INICIO DE TRABALHO",
+          name: "Jovem inicio de trabalho",
           value: 13443300,
         },
         {
-          name: "JOVEM APRENDIZ",
+          name: "Jovem aprendiz",
           value: 12124606,
         },
         {
-          name: "VETERANO SOBREVIVENTE",
+          name: "Veterano sobrevivente",
           value: 9892046,
         },
         {
-          name: "VETERANA SOLITARIA",
+          name: "Veterana solitária",
           value: 9774377,
         },
         {
-          name: "ADULTO SEM ESTUDO",
+          name: "Adulto sem estudo",
           value: 5915676,
         },
         {
-          name: "VETERANO APOSENTADO",
+          name: "Veterano aposentado",
           value: 4576035,
         },
         {
-          name: "JOVEM BEM ENCAMINHADO",
+          name: "Jovem bem encaminhado",
           value: 4213474,
         },
         {
-          name: "VIDA SOFRIDA",
+          name: "Vida sofrida",
           value: 4002105,
         },
         {
-          name: "JOVEM-CARREIRA-DEFINIDA",
+          name: "Jovem-carreira-definida",
           value: 3513170,
         },
         {
-          name: "DEPENDENTE SOCIAL",
+          name: "Dependente social",
           value: 3438332,
         },
         {
-          name: "HOMEM COM FOCO NO TRABALHO",
+          name: "Homem com foco no trabalho",
           value: 3369746,
         },
         {
-          name: "VIDA DE APOSENTADO",
+          name: "Vida de aposentado",
           value: 3265633,
         },
         {
-          name: "HOMEM COM FOCO NA ESTABILIDADE",
+          name: "Homem com foco na estabilidade",
           value: 3263025,
         },
         {
-          name: "JOVEM CARREIRA DEFINIDA",
+          name: "Jovem carreira definida",
           value: 3071811,
         },
         {
-          name: "QUERO APROVEITAR A VIDA",
+          name: "Quero aproveitar a vida",
           value: 2973879,
         },
         {
-          name: "SENHORA DEPENDENTE",
+          name: "Senhora dependente",
           value: 2839292,
         },
         {
-          name: "MULHER COM FOCO NA FAMÍLIA",
+          name: "Mulher com foco na família",
           value: 2825548,
         },
         {
-          name: "QUERO SOSSEGO",
+          name: "Quero sossego",
           value: 2535965,
         },
         {
-          name: "MULHER COM FOCO NA CARREIRA",
+          name: "Mulher com foco na carreira",
           value: 2469131,
         },
         {
-          name: "VITORIOSA",
+          name: "Vitoriosa",
           value: 2238869,
         },
         {
-          name: "VOVOZINHO",
+          name: "Vovozinho",
           value: 1976772,
         },
         {
-          name: "VOVOZINHA",
+          name: "Vovozinha",
           value: 1452660,
         },
         {
-          name: "APOSENTADO POR IDADE",
+          name: "Aposentado por idade",
           value: 1151298,
         },
         {
-          name: "VETERANO APROVEITANDO A VIDA",
+          name: "Veterano aproveitando a vida",
           value: 1031646,
         },
         {
-          name: "SERVIÇOS GERAIS",
+          name: "Serviços gerais",
           value: 703363,
         },
         {
-          name: "VETERANA APROVEITANDO A VIDA",
+          name: "Veterana aproveitando a vida",
           value: 666014,
         },
         {
-          name: "JOVEM ESPERANÇA",
+          name: "Jovem esperança",
           value: 652149,
         },
         {
-          name: "ADULTO DE SUCESSO",
+          name: "Adulto de sucesso",
           value: 589541,
         },
         {
-          name: "CONQUISTADOR",
+          name: "Conquistador",
           value: 587078,
         },
         {
-          name: "SUBEMPREGADO",
+          name: "Subempregado",
           value: 315693,
         },
         {
-          name: "MULHER DE SUCESSO",
+          name: "Mulher de sucesso",
           value: 298687,
         },
         {
-          name: "DONA DO DESTINO",
+          name: "Dona do destino",
           value: 275651,
         },
         {
-          name: "JOVEM_BOMBANDO",
+          name: "Jovem bombando",
           value: 240376,
         },
         {
-          name: "ESTUDANTE BOA VIDA",
+          name: "Estudante boa vida",
           value: 210667,
         },
         {
-          name: "DONA DE CASA",
+          name: "Dona de casa",
           value: 191224,
         },
         {
-          name: "JOVEM INFLUENTE",
+          name: "Jovem influente",
           value: 139776,
         },
         {
-          name: "NEM TRABALHA NEM É APOSENTADO",
+          name: "Nem trabalha nem é aposentado",
           value: 130689,
         },
         {
-          name: "VETERANO PODEROSO",
+          name: "Veterano poderoso",
           value: 115002,
         },
         {
-          name: "VETERANA CULTA",
+          name: "Veterana culta",
           value: 50499,
         },
         {
-          name: "YOUTUBER",
+          name: "Youtuber",
           value: 3344,
         },
         {
-          name: "BLOGUEIRA",
+          name: "Blogueira",
           value: 2437,
         },
       ],
@@ -1002,31 +1244,36 @@ graficoPersonaDemografica.setOption(optionPersonaDemografica);
 /* FIM PERSONA DEMOGRÁFICA */
 
 /* PROPENSÃO DE PAGAMENTO */
-const colors = ["#5470C6", "#91CC75", "#EE6666"];
+
 const optionPropensaoPagamento = {
-  color: colors,
   tooltip: {
-    trigger: "axis",
-    axisPointer: {
-      type: "cross",
-    },
+    trigger: "item",
+    formatter: numeroFormatter,
   },
 
-  legend: {
-    data: ["Propensão de Pagamento"],
+  grid: {
+    top: "1%",
+    left: "1%",
+    right: "1%",
+    bottom: "1%",
+    containLabel: true,
   },
+
   xAxis: [
     {
       type: "category",
       axisTick: {
         alignWithLabel: true,
       },
-      // prettier-ignore
-      data: ['Muito alta', 'Alta', 'Média', 'Baixa','Muito Baixa', 'Zerada'],
+      data: ["Muito alta", "Alta", "Média", "Baixa", "Muito Baixa", "Zerada"],
+      // axisLabel: {
+      //   rotate: 15,
+      // },
     },
   ],
   yAxis: [
     {
+      show: false,
       type: "value",
       position: "right",
       alignTicks: true,
@@ -1038,6 +1285,7 @@ const optionPropensaoPagamento = {
       },
     },
     {
+      show: false,
       type: "value",
       position: "right",
       alignTicks: true,
@@ -1050,6 +1298,7 @@ const optionPropensaoPagamento = {
       },
     },
     {
+      show: false,
       type: "value",
       position: "left",
       alignTicks: true,
@@ -1065,7 +1314,44 @@ const optionPropensaoPagamento = {
     {
       name: "Quantidade",
       type: "bar",
-      data: [5535, 4525, 3526, 15426, 1541, 1542],
+      data: [
+        {
+          value: 5535,
+          itemStyle: {
+            color: "#00D59A",
+          },
+        },
+        {
+          value: 4525,
+          itemStyle: {
+            color: "#3A7DE8",
+          },
+        },
+        {
+          value: 3526,
+          itemStyle: {
+            color: "#93a1c1",
+          },
+        },
+        {
+          value: 15426,
+          itemStyle: {
+            color: "#FFAF26",
+          },
+        },
+        {
+          value: 1541,
+          itemStyle: {
+            color: "#FF6565",
+          },
+        },
+        {
+          value: 1542,
+          itemStyle: {
+            color: "#6456BB",
+          },
+        },
+      ],
     },
     {
       name: "Percentual",
@@ -1080,7 +1366,7 @@ let graficoPropensaoPagamento = echarts.init(
   document.querySelector("#graficoPropensaoPagamento"),
   null,
   {
-    height: 300,
+    height: 250,
   },
 );
 graficoPropensaoPagamento.setOption(optionPropensaoPagamento);
@@ -1091,17 +1377,33 @@ graficoPropensaoPagamento.setOption(optionPropensaoPagamento);
 const optionCollectionScore = {
   legend: {
     top: "top",
+    show: false,
   },
+  tooltip: {
+    trigger: "item",
+    formatter: numeroFormatter,
+  },
+
+  grid: {
+    top: "1%",
+    left: "1%",
+    right: "1%",
+    bottom: "1%",
+    containLabel: true,
+  },
+
   series: [
     {
       name: "Persona de geração",
       type: "pie",
-      radius: [50, 150],
+      radius: [50, 90],
       center: ["50%", "50%"],
       roseType: "area",
       itemStyle: {
         borderRadius: 8,
       },
+      roseType: "area",
+
       label: {
         show: true, // Ativar a exibição dos rótulos
         formatter: "{b}: {d}%", // Formato dos rótulos (nome da categoria e porcentagem)
@@ -1121,7 +1423,7 @@ let graficoCollectionScore = echarts.init(
   document.querySelector("#graficoCollectionScore"),
   null,
   {
-    height: 300,
+    height: 250,
   },
 );
 graficoCollectionScore.setOption(optionCollectionScore);
@@ -1131,16 +1433,24 @@ graficoCollectionScore.setOption(optionCollectionScore);
 const optionVinculoSocietario = {
   tooltip: {
     trigger: "item",
+    formatter: numeroFormatter,
   },
   legend: {
     orient: "horizontal", // Altere a orientação para horizontal
     top: "top", // Posicione a legenda na parte superior
   },
+  grid: {
+    top: "5%",
+    left: "5%",
+    right: "5%",
+    bottom: "5%",
+    containLabel: true,
+  },
   series: [
     {
       name: "Access From",
       type: "pie",
-      radius: "50%",
+      radius: "70%",
       data: [
         { value: 1048, name: "Grande" },
         { value: 735, name: "Média" },
@@ -1166,7 +1476,7 @@ let graficoVinculoSocietario = echarts.init(
   document.querySelector("#graficoVinculoSocietario"),
   null,
   {
-    height: 300,
+    height: 250,
   },
 );
 graficoVinculoSocietario.setOption(optionVinculoSocietario);
@@ -1177,8 +1487,13 @@ graficoVinculoSocietario.setOption(optionVinculoSocietario);
 const optionDistribuicaoRenda = {
   tooltip: {
     trigger: "item",
-    formatter: "{a} <br/>{b}: {c} ({d}%)",
+    formatter: `
+      <b>{a}</b>: {b}<br/> 
+      <b>Nº total</b>: {c}<br/> 
+      <b>Percentual</b>: {d}%
+    `,
   },
+
   legend: {
     data: ["Classe A", "Classe B", "Classe C", "Classe D", "Classe E"],
   },
@@ -1245,7 +1560,7 @@ let graficoDistribuicaoRenda = echarts.init(
   document.querySelector("#graficoDistribuicaoRenda"),
   null,
   {
-    height: 300,
+    height: 250,
   },
 );
 graficoDistribuicaoRenda.setOption(optionDistribuicaoRenda);
@@ -1255,9 +1570,17 @@ graficoDistribuicaoRenda.setOption(optionDistribuicaoRenda);
 const optionConsultaUltimoAno = {
   tooltip: {
     trigger: "item",
+    formatter: numeroFormatter,
+  },
+  grid: {
+    top: "5%",
+    left: "5%",
+    right: "5%",
+    bottom: "5%",
+    containLabel: true,
   },
   legend: {
-    left: "55%", // Troquei 'top' por 'left'
+    left: "20%", // Troquei 'top' por 'left'
     top: "center", // Troquei 'left' por 'top'
     selectedMode: false,
   },
@@ -1266,7 +1589,7 @@ const optionConsultaUltimoAno = {
       name: "Access From",
       type: "pie",
       radius: ["40%", "70%"],
-      center: ["70%", "50%"], // Troquei as coordenadas do centro
+      center: ["50%", "50%"], // Troquei as coordenadas do centro
       startAngle: 90, // Girei o gráfico em 90 graus
       label: {
         show: false,
@@ -1298,7 +1621,7 @@ let graficoConsultasUltimoAno = echarts.init(
   document.querySelector("#graficoConsultasUltimoAno"),
   null,
   {
-    height: 300,
+    height: 250,
   },
 );
 graficoConsultasUltimoAno.setOption(optionConsultaUltimoAno);

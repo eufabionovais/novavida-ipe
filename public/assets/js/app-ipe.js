@@ -234,6 +234,7 @@ $(function () {
     const swiper = new Swiper(swiperElement, {
       speed: 400,
       spaceBetween: 100,
+      autoHeight: true,
     });
 
     const swiperInstance = swiperElement.swiper;
@@ -251,6 +252,9 @@ $(function () {
     swiperInstance.on("slideChange", function () {
       const currentIndex = swiperInstance.realIndex;
       const totalSlides = swiperInstance.slides.length - 1;
+
+      const slideTitulo = swiperInstance.slides[currentIndex].dataset.titulo;
+      $("#slideTitle").html(slideTitulo);
 
       if (currentIndex === 0) {
         $("[data-slider='prev']").prop("disabled", true);
