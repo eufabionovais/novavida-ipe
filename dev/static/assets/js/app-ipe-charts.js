@@ -44,6 +44,10 @@ function numeroFormatter(params) {
   return `<b>${params.name}</b>: ${formattedValue}`;
 }
 
+function brazilianNumberFormat(number) {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
 function numeroRawPercent(params) {
   var formattedValue = `${params.value}%`;
   return params.name + ": " + formattedValue;
@@ -51,9 +55,22 @@ function numeroRawPercent(params) {
 
 /* GRÁFICO SITUAÇÃO DOCUMENTOS PF */
 let optionSituacaoDocumentos = {
+  label: {
+    show: true,
+    rotate: 90,
+    formatter: function (params) {
+      return `${params.value}%`;
+    },
+  },
+
   tooltip: {
     trigger: "item",
-    formatter: numeroFormatter,
+    formatter: function (params) {
+      const valorTotal =
+        optionSituacaoDocumentosClone[params.componentIndex].valorAbsoluto;
+
+      return `<b>Quantidade</b>: ${brazilianNumberFormat(valorTotal)} `;
+    },
   },
   legend: {
     orient: "horizontal",
@@ -78,53 +95,30 @@ let optionSituacaoDocumentos = {
     type: "category",
     data: ["Situação"],
   },
+
   series: [
     {
       name: "Ativo",
       type: "bar",
       stack: "total",
-      label: {
-        show: true,
-      },
-      emphasis: {
-        focus: "series",
-      },
       data: [9793],
     },
     {
       name: "Cancelado",
       type: "bar",
       stack: "total",
-      label: {
-        show: true,
-      },
-      emphasis: {
-        focus: "series",
-      },
       data: [2210],
     },
     {
       name: "Suspenso",
       type: "bar",
       stack: "total",
-      label: {
-        show: true,
-      },
-      emphasis: {
-        focus: "series",
-      },
       data: [1535],
     },
     {
       name: "Outros",
       type: "bar",
       stack: "total",
-      label: {
-        show: true,
-      },
-      emphasis: {
-        focus: "series",
-      },
       data: [910],
     },
   ],
@@ -133,6 +127,26 @@ let optionSituacaoDocumentos = {
 const elGraficoSituacaoDocumentoPF = document.querySelector(
   "#graficoSituacaoDocumentoPF",
 );
+
+const somaDataSituacaoDocumento = optionSituacaoDocumentos.series.reduce(
+  (acumulador, itemAtual) => {
+    return acumulador + itemAtual.data[0];
+  },
+  0,
+);
+
+const optionSituacaoDocumentosClone = optionSituacaoDocumentos.series.map(
+  (item) => {
+    return {
+      ...item,
+      valorAbsoluto: item.data[0],
+      data: [
+        `${((item.data[0] / somaDataSituacaoDocumento) * 100).toFixed(2)}`,
+      ],
+    };
+  },
+);
+
 let graficoSituacaoDocumentoPF = echarts.init(
   elGraficoSituacaoDocumentoPF,
   null,
@@ -140,6 +154,8 @@ let graficoSituacaoDocumentoPF = echarts.init(
     height: 250,
   },
 );
+optionSituacaoDocumentos.series = optionSituacaoDocumentosClone;
+
 graficoSituacaoDocumentoPF.setOption(optionSituacaoDocumentos);
 
 /* FIM GRÁFICO SITUAÇÃO DOCUMENTOS PF */
@@ -148,7 +164,16 @@ graficoSituacaoDocumentoPF.setOption(optionSituacaoDocumentos);
 let optionVinculoFamiliarPF = {
   tooltip: {
     trigger: "item",
-    formatter: numeroFormatter,
+    formatter: function (params) {
+      return `<b>Quantidade:</b> ${brazilianNumberFormat(params.data.value)}`;
+    },
+  },
+  label: {
+    show: true,
+    position: "inside",
+    formatter: function (params) {
+      return `${params.percent}%`;
+    },
   },
   legend: {
     top: "5%",
@@ -169,31 +194,23 @@ let optionVinculoFamiliarPF = {
       type: "pie",
       radius: ["30%", "100%"],
       center: ["50%", "70%"],
-      // adjust the start angle
       startAngle: 180,
-      label: {
-        show: false, // Define show como false para remover os rótulos de dados
-        formatter(param) {
-          // correct the percentage
-          return param.name + " (" + param.percent * 2 + "%)";
-        },
-      },
+
       data: [
         { value: 1048, name: "Mãe" },
         { value: 735, name: "Pai" },
         { value: 580, name: "Filho" },
         {
           // make a record to fill the bottom 50%
+          label: {
+            show: false,
+          },
           value: 1048 + 735 + 580,
           itemStyle: {
-            // stop the chart from rendering this piece
             color: "none",
             decal: {
               symbol: "none",
             },
-          },
-          label: {
-            show: false,
           },
         },
       ],
@@ -209,10 +226,19 @@ graficoGrauVinculoPF.setOption(optionVinculoFamiliarPF);
 /* FIM GRAU VÍNCULO PF */
 
 /* FLAGS ESTRATÉGICAS DE TELEFONIA */
-const optionFlagsTelefonia = {
+let optionFlagsTelefonia = {
   tooltip: {
     trigger: "item",
-    formatter: numeroFormatter,
+    formatter: function (params) {
+      return `<b>Quantidade:</b> ${brazilianNumberFormat(params.value)}`;
+    },
+  },
+  label: {
+    show: true,
+    formatter: function (params) {
+      const percent = optionFlagsTelefoniaClone[params.dataIndex].value;
+      return `${percent[0]}%`;
+    },
   },
   grid: {
     top: "5%",
@@ -239,7 +265,8 @@ const optionFlagsTelefonia = {
     {
       name: "",
       type: "bar",
-      // data: [350456, 123489, 229034, 104970, 131744, 630230],
+      barWidth: 35,
+      barHeight: 80,
       data: [
         {
           value: 350456,
@@ -278,16 +305,36 @@ const optionFlagsTelefonia = {
           },
         },
       ],
-      barWidth: 35,
-      barHeight: 80,
     },
   ],
 };
 
-const elFlagsTelefoniaPF = document.querySelector("#graficoFlagsTelefoniaPJ");
+const elFlagsTelefoniaPF = document.querySelector("#graficoFlagsTelefoniaPF");
 let graficoFlagsTelefoniaPF = echarts.init(elFlagsTelefoniaPF, null, {
   height: 250,
 });
+
+const somaDataFlagsTelefonia = optionFlagsTelefonia.series[0].data.reduce(
+  (acumulador, itemAtual) => {
+    return acumulador + itemAtual.value;
+  },
+  0,
+);
+
+const optionFlagsTelefoniaClone = optionFlagsTelefonia.series[0].data.map(
+  (item) => {
+    return {
+      ...item,
+      valorAbsoluto: item.value,
+      value: [`${((item.value / somaDataFlagsTelefonia) * 100).toFixed(2)}`],
+    };
+  },
+);
+
+graficoFlagsTelefoniaPF.series = optionFlagsTelefoniaClone;
+
+console.log(graficoFlagsTelefoniaPF.series);
+
 graficoFlagsTelefoniaPF.setOption(optionFlagsTelefonia);
 /* FIM FLAGS ESTRATÉGICAS DE TELEFONIA */
 
@@ -346,20 +393,27 @@ graficoTelefonesRanking.setOption(optionTelefonesRanking);
 /* FIM TELEFONES RANKING */
 
 /* PESSOAS POR ESTADO */
-const optionPessoaPorEstado = {
+let optionPessoaPorEstado = {
   tooltip: {
     trigger: "item",
-    formatter: numeroFormatter,
+    formatter: function (params) {
+      return `<b>Total</b>: ${brazilianNumberFormat(
+        params.data.valorAbsoluto,
+      )} `;
+    },
   },
   grid: {
-    top: "5%",
-    left: "5%",
-    right: "5%",
-    bottom: "5%",
+    top: "10%",
+    left: "3%",
+    right: "3%",
+    bottom: "3%",
     containLabel: true,
   },
   xAxis: [
     {
+      axisLabel: {
+        show: true, // Define esta opção como false para ocultar as informações do eixo Y
+      },
       type: "category",
       data: [
         "AC",
@@ -409,7 +463,19 @@ const optionPessoaPorEstado = {
   series: [
     {
       type: "bar",
-      barWidth: "80%",
+      barWidth: "70%",
+      label: {
+        show: true,
+        position: [15, -40],
+        rotate: -90,
+        textShadowBlur: 0,
+        borderWidth: 0,
+
+        formatter: function (params) {
+          return `${params.value}%`;
+        },
+      },
+
       data: [
         {
           value: 601100,
@@ -578,6 +644,23 @@ const optionPessoaPorEstado = {
   ],
 };
 
+const somaDataPessoaPorEstado = optionPessoaPorEstado.series[0].data.reduce(
+  (acumulador, itemAtual) => {
+    return acumulador + itemAtual.value;
+  },
+  0,
+);
+
+const optionsPessoaPorEstadoClone = optionPessoaPorEstado.series[0].data.map(
+  (item) => {
+    return {
+      ...item,
+      value: `${((item.value / somaDataPessoaPorEstado) * 100).toFixed(2)}`,
+      valorAbsoluto: item.value,
+    };
+  },
+);
+
 let graficoPessoasPorEstado = echarts.init(
   document.querySelector("#graficoPessoasPorEstado"),
   null,
@@ -585,6 +668,8 @@ let graficoPessoasPorEstado = echarts.init(
     height: 250,
   },
 );
+optionPessoaPorEstado.series[0].data = optionsPessoaPorEstadoClone;
+160;
 graficoPessoasPorEstado.setOption(optionPessoaPorEstado);
 /* FIM PESSOAS POR ESTADO */
 

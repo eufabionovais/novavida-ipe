@@ -11982,7 +11982,8 @@ label.error{
  }
  .main-header{
    background:var(--gray-300);
-   padding-block:22px
+   padding-block:22px;
+   min-height: 100px;
  }
  .main-header__logo{
    display:flex;
@@ -15001,4 +15002,9 @@ label.error{
    font-size: 20px;
 }
 
+
+.legendas-manuais {
+   font-size: 14px;
+   margin-top: -40px;
+}
 
