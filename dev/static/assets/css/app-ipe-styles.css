@@ -15004,7 +15004,13 @@ label.error{
 
 
 .legendas-manuais {
-   font-size: 14px;
+   font-size: 12px;
    margin-top: -40px;
+   max-width: 410px;
+   margin-inline: auto;
+}
+
+.legendas-manuais p {
+   margin-bottom: 3px;
 }
 

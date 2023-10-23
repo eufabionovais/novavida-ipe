@@ -147,16 +147,17 @@ const optionSituacaoDocumentosClone = optionSituacaoDocumentos.series.map(
   },
 );
 
-let graficoSituacaoDocumentoPF = echarts.init(
-  elGraficoSituacaoDocumentoPF,
-  null,
-  {
-    height: 250,
-  },
-);
-optionSituacaoDocumentos.series = optionSituacaoDocumentosClone;
-
-graficoSituacaoDocumentoPF.setOption(optionSituacaoDocumentos);
+if (elGraficoSituacaoDocumentoPF) {
+  let graficoSituacaoDocumentoPF = echarts.init(
+    elGraficoSituacaoDocumentoPF,
+    null,
+    {
+      height: 250,
+    },
+  );
+  optionSituacaoDocumentos.series = optionSituacaoDocumentosClone;
+  graficoSituacaoDocumentoPF.setOption(optionSituacaoDocumentos);
+}
 
 /* FIM GRÁFICO SITUAÇÃO DOCUMENTOS PF */
 
@@ -219,10 +220,12 @@ let optionVinculoFamiliarPF = {
 };
 
 const elGrauVinculo = document.querySelector("#graficoGrauVinculoPF");
-let graficoGrauVinculoPF = echarts.init(elGrauVinculo, null, {
-  height: 250,
-});
-graficoGrauVinculoPF.setOption(optionVinculoFamiliarPF);
+if (elGrauVinculo) {
+  let graficoGrauVinculoPF = echarts.init(elGrauVinculo, null, {
+    height: 250,
+  });
+  graficoGrauVinculoPF.setOption(optionVinculoFamiliarPF);
+}
 /* FIM GRAU VÍNCULO PF */
 
 /* FLAGS ESTRATÉGICAS DE TELEFONIA */
@@ -310,9 +313,6 @@ let optionFlagsTelefonia = {
 };
 
 const elFlagsTelefoniaPF = document.querySelector("#graficoFlagsTelefoniaPF");
-let graficoFlagsTelefoniaPF = echarts.init(elFlagsTelefoniaPF, null, {
-  height: 250,
-});
 
 const somaDataFlagsTelefonia = optionFlagsTelefonia.series[0].data.reduce(
   (acumulador, itemAtual) => {
@@ -331,11 +331,14 @@ const optionFlagsTelefoniaClone = optionFlagsTelefonia.series[0].data.map(
   },
 );
 
-graficoFlagsTelefoniaPF.series = optionFlagsTelefoniaClone;
+if (elFlagsTelefoniaPF) {
+  let graficoFlagsTelefoniaPF = echarts.init(elFlagsTelefoniaPF, null, {
+    height: 250,
+  });
 
-console.log(graficoFlagsTelefoniaPF.series);
-
-graficoFlagsTelefoniaPF.setOption(optionFlagsTelefonia);
+  graficoFlagsTelefoniaPF.series = optionFlagsTelefoniaClone;
+  graficoFlagsTelefoniaPF.setOption(optionFlagsTelefonia);
+}
 /* FIM FLAGS ESTRATÉGICAS DE TELEFONIA */
 
 /* TELEFONES RANKING */
@@ -343,6 +346,13 @@ const optionTelefonesRanking = {
   tooltip: {
     trigger: "item",
     formatter: numeroFormatter,
+  },
+  label: {
+    show: true,
+    position: "inside",
+    formatter: function (params) {
+      return `${params.percent}%`;
+    },
   },
   legend: {
     orient: "horizontal", // Altere a orientação para horizontal
@@ -368,9 +378,7 @@ const optionTelefonesRanking = {
         { value: 580, name: "Ranking 3" },
         { value: 484, name: "Ranking 4" },
       ],
-      label: {
-        show: false, // Define show como false para remover o rótulo de dados
-      },
+
       emphasis: {
         itemStyle: {
           shadowBlur: 10,
@@ -382,14 +390,15 @@ const optionTelefonesRanking = {
   ],
 };
 
-let graficoTelefonesRanking = echarts.init(
-  document.querySelector("#graficoTelefonesRanking"),
-  null,
-  {
-    height: 250,
-  },
+const elGraficoTelefonesRanking = document.querySelector(
+  "#graficoTelefonesRanking",
 );
-graficoTelefonesRanking.setOption(optionTelefonesRanking);
+if (elGraficoTelefonesRanking) {
+  let graficoTelefonesRanking = echarts.init(elGraficoTelefonesRanking, null, {
+    height: 250,
+  });
+  graficoTelefonesRanking.setOption(optionTelefonesRanking);
+}
 /* FIM TELEFONES RANKING */
 
 /* PESSOAS POR ESTADO */
@@ -661,24 +670,31 @@ const optionsPessoaPorEstadoClone = optionPessoaPorEstado.series[0].data.map(
   },
 );
 
-let graficoPessoasPorEstado = echarts.init(
-  document.querySelector("#graficoPessoasPorEstado"),
-  null,
-  {
-    height: 250,
-  },
+const elGraficoPessoasPorEstado = document.querySelector(
+  "#graficoPessoasPorEstado",
 );
-optionPessoaPorEstado.series[0].data = optionsPessoaPorEstadoClone;
-160;
-graficoPessoasPorEstado.setOption(optionPessoaPorEstado);
+
+if (elGraficoPessoasPorEstado) {
+  let graficoPessoasPorEstado = echarts.init(elGraficoPessoasPorEstado, null, {
+    height: 250,
+  });
+  optionPessoaPorEstado.series[0].data = optionsPessoaPorEstadoClone;
+  graficoPessoasPorEstado.setOption(optionPessoaPorEstado);
+}
 /* FIM PESSOAS POR ESTADO */
 
 /* PESSOAS POR REGIÃO */
-
 const optionPessoasPorRegiao = {
   tooltip: {
     trigger: "item",
-    formatter: numeroFormatter,
+    formatter: function (params) {
+      const dataIndex = params.dataIndex;
+      const populacaoRegiao =
+        optionPessoasPorRegiao.series[0].data[0].value[dataIndex];
+      const percentualRegiao = percentuaisPopulacaoBrasil[dataIndex];
+
+      return `Região: ${params.name}<br/>População: ${populacaoRegiao} (${percentualRegiao}%)`;
+    },
   },
   radar: {
     // shape: 'circle',
@@ -689,6 +705,11 @@ const optionPessoasPorRegiao = {
       { name: "Oeste", max: 38000 },
       { name: "Sudeste", max: 52000 },
     ],
+
+    axisLabel: {
+      show: false,
+      inside: true,
+    },
 
     splitArea: {
       areaStyle: {
@@ -707,6 +728,7 @@ const optionPessoasPorRegiao = {
 
       data: [
         {
+          name: "Divisão por região",
           value: [4200, 3000, 20000, 35000, 50000, 18000],
         },
       ],
@@ -714,14 +736,27 @@ const optionPessoasPorRegiao = {
   ],
 };
 
-let graficoPessoasPorRegiao = echarts.init(
-  document.querySelector("#graficoPessoasPorRegiao"),
-  null,
-  {
-    height: 250,
-  },
+const elGraficoPessoasPorRegiao = document.querySelector(
+  "#graficoPessoasPorRegiao",
 );
-graficoPessoasPorRegiao.setOption(optionPessoasPorRegiao);
+
+const totalPopulacaoBrasil =
+  optionPessoasPorRegiao.series[0].data[0].value.reduce(
+    (total, pop) => total + pop,
+    0,
+  );
+const percentuaisPopulacaoBrasil =
+  optionPessoasPorRegiao.series[0].data[0].value.map((pop) =>
+    ((pop / totalPopulacaoBrasil) * 100).toFixed(2),
+  );
+
+if (elGraficoPessoasPorRegiao) {
+  let graficoPessoasPorRegiao = echarts.init(elGraficoPessoasPorRegiao, null, {
+    height: 250,
+  });
+
+  graficoPessoasPorRegiao.setOption(optionPessoasPorRegiao);
+}
 /* FIM PESSOAS POR REGIÃO */
 
 /* PESSOAS POR SEXO */
@@ -729,6 +764,13 @@ const optionPessoasPorSexo = {
   tooltip: {
     trigger: "item",
     formatter: numeroRawPercent,
+    show: false,
+  },
+  label: {
+    position: "inside",
+    formatter: function (params) {
+      return `${params.percent}%`;
+    },
   },
   legend: {
     top: "5%",
@@ -737,10 +779,10 @@ const optionPessoasPorSexo = {
     selectedMode: false,
   },
   grid: {
-    top: "5%",
+    top: "10%",
     left: "5%",
     right: "5%",
-    bottom: "5%",
+    bottom: "0%",
     containLabel: true,
   },
   series: [
@@ -749,12 +791,7 @@ const optionPessoasPorSexo = {
       type: "pie",
       radius: ["30%", "100%"],
       center: ["50%", "70%"],
-      // adjust the start angle
       startAngle: 180,
-      label: {
-        show: false, // Define show como false para remover os rótulos de dados
-        formatter: numeroRawPercent,
-      },
       data: [
         { value: 15, name: "Homem" },
         { value: 55, name: "Mulher" },
@@ -777,20 +814,22 @@ const optionPessoasPorSexo = {
     },
   ],
 };
-let graficoPessoasPorSexo = echarts.init(
-  document.querySelector("#graficoPessoasPorSexo"),
-  null,
-  {
+
+const elGraficoPessoaPorSexo = document.querySelector("#graficoPessoasPorSexo");
+if (elGraficoPessoaPorSexo) {
+  let graficoPessoasPorSexo = echarts.init(elGraficoPessoaPorSexo, null, {
     height: 250,
-  },
-);
-graficoPessoasPorSexo.setOption(optionPessoasPorSexo);
+  });
+  graficoPessoasPorSexo.setOption(optionPessoasPorSexo);
+}
 /* FIM PESSOAS POR SEXO */
 
 /* PESSOAS POR GERAÇÃO */
 const optionPessoasPorGeracao = {
-  legend: {
-    top: "top",
+  tooltip: {
+    formatter: function (params) {
+      return `<b>Quantidade:</b> ${params.data.value}`;
+    },
   },
 
   series: [
@@ -805,7 +844,7 @@ const optionPessoasPorGeracao = {
       },
       label: {
         show: true, // Ativar a exibição dos rótulos
-        formatter: "{b}: {d}%", // Formato dos rótulos (nome da categoria e porcentagem)
+        formatter: "{d}%", // Formato dos rótulos (nome da categoria e porcentagem)
       },
       data: [
         { value: 40, name: "Veteranos" },
@@ -818,84 +857,38 @@ const optionPessoasPorGeracao = {
   ],
 };
 
-let graficoPessoasPorGeracao = echarts.init(
-  document.querySelector("#graficoPessoasPorGeracao"),
-  null,
-  {
-    height: 250,
-  },
+const elGraficoPessoasPorGeracao = document.querySelector(
+  "#graficoPessoasPorGeracao",
 );
-graficoPessoasPorGeracao.setOption(optionPessoasPorGeracao);
+let graficoPessoasPorGeracao = echarts.init(elGraficoPessoasPorGeracao, null, {
+  height: 250,
+});
+if (elGraficoPessoasPorGeracao) {
+  graficoPessoasPorGeracao.setOption(optionPessoasPorGeracao);
+}
 /* FIM PESSOAS POR GERAÇÃO */
 
-/* PERSONA DIGITAL */
-
-const optionPersonaDigital = {
-  tooltip: {
-    trigger: "item",
-    formatter: "{b} : {c}%",
-  },
-
-  series: [
-    {
-      name: "",
-      type: "funnel",
-      left: "center",
-      top: 10,
-      bottom: 10,
-      width: "80%",
-      min: 0,
-      max: 100,
-      minSize: "0%",
-      maxSize: "100%",
-      sort: "descending",
-      gap: 2,
-      label: {
-        show: true,
-        position: "inside",
-      },
-      labelLine: {
-        length: 10,
-        lineStyle: {
-          width: 1,
-          type: "solid",
-        },
-      },
-      itemStyle: {
-        borderColor: "#fff",
-        borderWidth: 1,
-      },
-      emphasis: {
-        label: {
-          fontSize: 20,
-        },
-      },
-      data: [
-        { value: 60, name: "Digital--" },
-        { value: 40, name: "Digital-" },
-        { value: 20, name: "Digital+-" },
-        { value: 80, name: "Digital+" },
-        { value: 100, name: "Digital++" },
-      ],
-    },
-  ],
-};
-
-let graficoPersonaDigital = echarts.init(
-  document.querySelector("#graficoPersonaDigital"),
-  null,
-  {
-    height: 250,
-  },
-);
-graficoPersonaDigital.setOption(optionPersonaDigital);
-/* FIM PERSONA DIGITAL */
-
 /* PERSONA DE CRÉDITO */
-const optionPersonaCredito = {
+let optionPersonaCredito = {
+  label: {
+    show: true,
+    rotate: 90,
+    formatter: function (params) {
+      const percentual = `${
+        optionPersonaCreditoClone[params.componentIndex].data[0]
+      }`;
+      return `${percentual}%`;
+    },
+  },
+
   tooltip: {
     trigger: "item",
-    formatter: "{b} : {c}%",
+    formatter: function (params) {
+      const valorTotal =
+        optionPersonaCreditoClone[params.componentIndex].valorAbsoluto;
+
+      return `<b>Quantidade</b>: ${brazilianNumberFormat(valorTotal)} `;
+    },
   },
   legend: {
     orient: "horizontal",
@@ -919,6 +912,7 @@ const optionPersonaCredito = {
   yAxis: {
     type: "category",
     data: ["Quantidade"],
+    show: false,
   },
   series: [
     {
@@ -995,16 +989,96 @@ const optionPersonaCredito = {
     },
   ],
 };
-
-let graficoPersonaCredito = echarts.init(
-  document.querySelector("#graficoPersonaCredito"),
-  null,
-  {
-    height: 250,
-  },
+const elGraficoPersonaCredito = document.querySelector(
+  "#graficoPersonaCredito",
 );
-graficoPersonaCredito.setOption(optionPersonaCredito);
+
+const somaPersonaCredito = optionPersonaCredito.series.reduce(
+  (acumulador, itemAtual) => {
+    return acumulador + itemAtual.data[0];
+  },
+  0,
+);
+
+const optionPersonaCreditoClone = optionPersonaCredito.series.map((item) => {
+  return {
+    ...item,
+    valorAbsoluto: item.data[0],
+    data: [`${((item.data[0] / somaPersonaCredito) * 100).toFixed(2)}`],
+  };
+});
+
+console.log(optionPersonaCreditoClone);
+
+if (elGraficoPersonaCredito) {
+  let graficoPersonaCredito = echarts.init(elGraficoPersonaCredito, null, {
+    height: 250,
+  });
+  graficoPersonaCredito.series = optionPersonaCreditoClone;
+  graficoPersonaCredito.setOption(optionPersonaCredito);
+}
 /* FIM PERSONA DE CRÉDITO */
+
+/* PERSONA DIGITAL */
+const optionPersonaDigital = {
+  tooltip: {
+    trigger: "item",
+    formatter: "{b} : {c}%",
+  },
+
+  series: [
+    {
+      name: "",
+      type: "funnel",
+      left: "center",
+      top: 10,
+      bottom: 10,
+      width: "80%",
+      min: 0,
+      max: 100,
+      minSize: "0%",
+      maxSize: "100%",
+      sort: "descending",
+      gap: 2,
+      label: {
+        show: true,
+        position: "inside",
+      },
+      labelLine: {
+        length: 10,
+        lineStyle: {
+          width: 1,
+          type: "solid",
+        },
+      },
+      itemStyle: {
+        borderColor: "#fff",
+        borderWidth: 1,
+      },
+      emphasis: {
+        label: {
+          fontSize: 20,
+        },
+      },
+      data: [
+        { value: 60, name: "Digital--" },
+        { value: 40, name: "Digital-" },
+        { value: 20, name: "Digital+-" },
+        { value: 80, name: "Digital+" },
+        { value: 100, name: "Digital++" },
+      ],
+    },
+  ],
+};
+
+const elGraficoPessoaDigital = document.querySelector("#graficoPersonaDigital");
+let graficoPersonaDigital = echarts.init(elGraficoPessoaDigital, null, {
+  height: 250,
+});
+if (elGraficoPessoaDigital) {
+  graficoPersonaDigital.setOption(optionPersonaDigital);
+}
+/* FIM PERSONA DIGITAL */
 
 /* POSSÍVEL ESCOLARIDADE */
 
