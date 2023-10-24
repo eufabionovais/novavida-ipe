@@ -33,6 +33,16 @@ const eChartsGlobalConfig = {
   ],
 };
 
+const labelTextConfigs = {
+  color: "#000",
+  textShadowColor: "rgba(0, 0, 0, 0.5)",
+  textShadowBlur: 2,
+  // textBorderWidth: 1,
+  // textBorderStyle: "solid",
+  // textBorderColor: "#000",
+  // backgroundColor: "#fff",
+};
+
 echarts.registerPreprocessor(function (option) {
   option.color = eChartsGlobalConfig.color;
 });
@@ -53,14 +63,16 @@ function numeroRawPercent(params) {
   return params.name + ": " + formattedValue;
 }
 
-/* GRÁFICO SITUAÇÃO DOCUMENTOS PF */
+/* GRÁFICO SITUAÇÃO CPF */
 let optionSituacaoDocumentos = {
   label: {
     show: true,
     rotate: 90,
     formatter: function (params) {
-      return `${params.value}%`;
+      const percentual = Number(params.value);
+      return `${percentual}%`;
     },
+    textStyle: labelTextConfigs,
   },
 
   tooltip: {
@@ -159,7 +171,7 @@ if (elGraficoSituacaoDocumentoPF) {
   graficoSituacaoDocumentoPF.setOption(optionSituacaoDocumentos);
 }
 
-/* FIM GRÁFICO SITUAÇÃO DOCUMENTOS PF */
+/* FIM GRÁFICO SITUAÇÃO CPF */
 
 /* GRAU VÍNCULO PF */
 let optionVinculoFamiliarPF = {
@@ -173,7 +185,7 @@ let optionVinculoFamiliarPF = {
     show: true,
     position: "inside",
     formatter: function (params) {
-      return `${params.percent}%`;
+      return `${params.percent * 2}%`;
     },
   },
   legend: {
@@ -239,13 +251,16 @@ let optionFlagsTelefonia = {
   label: {
     show: true,
     formatter: function (params) {
-      const percent = optionFlagsTelefoniaClone[params.dataIndex].value;
-      return `${percent[0]}%`;
+      const percent = Number(
+        optionFlagsTelefoniaClone[params.dataIndex].value[0],
+      ).toFixed(1);
+      return `${percent}%`;
     },
+    position: ["50%", "40%"],
   },
   grid: {
     top: "5%",
-    left: "5%",
+    left: "1%",
     right: "5%",
     bottom: "5%",
     containLabel: true,
@@ -262,7 +277,7 @@ let optionFlagsTelefonia = {
   },
   yAxis: {
     type: "category",
-    data: ["Badphone", "Assinante", "Hot", "WhatsApp", "Proccon"],
+    data: ["Badphone", "Assinante", "Hot", "WhatsApp", "Proccon", "Outros"],
   },
   series: [
     {
@@ -270,6 +285,9 @@ let optionFlagsTelefonia = {
       type: "bar",
       barWidth: 35,
       barHeight: 80,
+      label: {
+        textStyle: labelTextConfigs,
+      },
       data: [
         {
           value: 350456,
@@ -345,7 +363,10 @@ if (elFlagsTelefoniaPF) {
 const optionTelefonesRanking = {
   tooltip: {
     trigger: "item",
-    formatter: numeroFormatter,
+    formatter: function (params) {
+      console.log(params);
+      return `<b>Quantidade:</b> ${brazilianNumberFormat(params.value)}`;
+    },
   },
   label: {
     show: true,
@@ -406,9 +427,12 @@ let optionPessoaPorEstado = {
   tooltip: {
     trigger: "item",
     formatter: function (params) {
-      return `<b>Total</b>: ${brazilianNumberFormat(
+      return `<b>Quantidade</b>: ${brazilianNumberFormat(
         params.data.valorAbsoluto,
       )} `;
+    },
+    axisPointer: {
+      type: "shadow",
     },
   },
   grid: {
@@ -418,6 +442,17 @@ let optionPessoaPorEstado = {
     bottom: "3%",
     containLabel: true,
   },
+  // dataZoom: [
+  //   // Configuração da barra de rolagem
+  //   {
+  //     type: "slider",
+  //     show: true,
+  //     xAxisIndex: [0],
+  //     start: 0, // Posição inicial da barra de rolagem
+  //     end: 30, // Posição final da barra de rolagem (mostrando 6 colunas)
+  //   },
+  // ],
+
   xAxis: [
     {
       axisLabel: {
@@ -479,6 +514,7 @@ let optionPessoaPorEstado = {
         rotate: -90,
         textShadowBlur: 0,
         borderWidth: 0,
+        textStyle: labelTextConfigs,
 
         formatter: function (params) {
           return `${params.value}%`;
@@ -688,6 +724,8 @@ const optionPessoasPorRegiao = {
   tooltip: {
     trigger: "item",
     formatter: function (params) {
+      console.log(params);
+
       const dataIndex = params.dataIndex;
       const populacaoRegiao =
         optionPessoasPorRegiao.series[0].data[0].value[dataIndex];
@@ -769,7 +807,7 @@ const optionPessoasPorSexo = {
   label: {
     position: "inside",
     formatter: function (params) {
-      return `${params.percent}%`;
+      return `${params.percent * 2}%`;
     },
   },
   legend: {
@@ -831,6 +869,9 @@ const optionPessoasPorGeracao = {
       return `<b>Quantidade:</b> ${params.data.value}`;
     },
   },
+  legend: {
+    show: true,
+  },
 
   series: [
     {
@@ -860,10 +901,14 @@ const optionPessoasPorGeracao = {
 const elGraficoPessoasPorGeracao = document.querySelector(
   "#graficoPessoasPorGeracao",
 );
-let graficoPessoasPorGeracao = echarts.init(elGraficoPessoasPorGeracao, null, {
-  height: 250,
-});
 if (elGraficoPessoasPorGeracao) {
+  let graficoPessoasPorGeracao = echarts.init(
+    elGraficoPessoasPorGeracao,
+    null,
+    {
+      height: 250,
+    },
+  );
   graficoPessoasPorGeracao.setOption(optionPessoasPorGeracao);
 }
 /* FIM PESSOAS POR GERAÇÃO */
@@ -1008,8 +1053,6 @@ const optionPersonaCreditoClone = optionPersonaCredito.series.map((item) => {
   };
 });
 
-console.log(optionPersonaCreditoClone);
-
 if (elGraficoPersonaCredito) {
   let graficoPersonaCredito = echarts.init(elGraficoPersonaCredito, null, {
     height: 250,
@@ -1072,10 +1115,10 @@ const optionPersonaDigital = {
 };
 
 const elGraficoPessoaDigital = document.querySelector("#graficoPersonaDigital");
-let graficoPersonaDigital = echarts.init(elGraficoPessoaDigital, null, {
-  height: 250,
-});
 if (elGraficoPessoaDigital) {
+  let graficoPersonaDigital = echarts.init(elGraficoPessoaDigital, null, {
+    height: 250,
+  });
   graficoPersonaDigital.setOption(optionPersonaDigital);
 }
 /* FIM PERSONA DIGITAL */
@@ -1085,7 +1128,19 @@ if (elGraficoPessoaDigital) {
 const optionPossivelEscolaridade = {
   tooltip: {
     trigger: "item",
-    formatter: numeroFormatter,
+    formatter: function (params) {
+      const label = params.data.name;
+      const valor = params.data.value;
+      const percentual = (
+        (params.data.value / totalDadosEscolaridades) *
+        100
+      ).toFixed(2);
+
+      return `
+        <b>Ensino ${label}</b><br>
+        <b>Quantidade</b>: ${brazilianNumberFormat(valor)} (${percentual}%)
+      `;
+    },
   },
 
   grid: {
@@ -1158,14 +1213,26 @@ const optionPossivelEscolaridade = {
   },
 };
 
-let graficoPossivelEscolaridade = echarts.init(
-  document.querySelector("#graficoPossivelEscolaridade"),
-  null,
-  {
-    height: 250,
-  },
+const elGraficoPossivelEscolaridade = document.querySelector(
+  "#graficoPossivelEscolaridade",
 );
-graficoPossivelEscolaridade.setOption(optionPossivelEscolaridade);
+
+const totalDadosEscolaridades = optionPossivelEscolaridade.series.data.reduce(
+  (acumulador, itemAtual) => {
+    return acumulador + itemAtual.value;
+  },
+  0,
+);
+if (elGraficoPossivelEscolaridade) {
+  let graficoPossivelEscolaridade = echarts.init(
+    elGraficoPossivelEscolaridade,
+    null,
+    {
+      height: 250,
+    },
+  );
+  graficoPossivelEscolaridade.setOption(optionPossivelEscolaridade);
+}
 /* FIM POSSÍVEL ESCOLARIDADE */
 
 /* PERSONA DEMOGRÁFICA */
@@ -1176,19 +1243,41 @@ const optionPersonaDemografica = {
     left: "1%",
     right: "1%",
     bottom: "1%",
-
     width: "100%",
   },
 
   tooltip: {
     trigger: "item",
-    formatter: numeroFormatter,
+    formatter: function (params) {
+      return `<b>${params.data.name}</b><br>
+              <b>Quantidade:</b> ${brazilianNumberFormat(params.data.value)}<br>
+              <b>Percentual:</b> ${(
+                (params.data.value / totalPersonaDemografica) *
+                100
+              ).toFixed(2)}%
+        `;
+    },
+  },
+
+  label: {
+    formatter: function (params) {
+      const label = params.data.name;
+      const valor = params.data.value;
+      const percentual = ((valor / totalPersonaDemografica) * 100).toFixed(2);
+      return `${label}:\n ${percentual}%`;
+    },
+  },
+  levels: {
+    show: false,
   },
 
   series: [
     {
       type: "treemap",
-      roam: false,
+      // roam: false,
+      breadcrumb: {
+        show: true,
+      },
       data: [
         {
           name: "Adulto vida modesta",
@@ -1375,43 +1464,54 @@ const optionPersonaDemografica = {
           value: 2437,
         },
       ],
-      label: {
-        show: true, // Habilita o rótulo de dados visíveis
-        formatter: "{b}: {c}", // Define o formato do rótulo (nome: valor)
-      },
-
-      dataZoom: [
-        {
-          type: "inside",
-          xAxisIndex: [0],
-          yAxisIndex: [0],
-          zoom: false, // Disable zooming
-        },
-      ],
     },
   ],
 };
 
-let graficoPersonaDemografica = echarts.init(
-  document.querySelector("#graficoPersonaDemografica"),
-  null,
-  {
-    height: 250,
-  },
+const elPersonaDemografica = document.querySelector(
+  "#graficoPersonaDemografica",
 );
-graficoPersonaDemografica.setOption(optionPersonaDemografica);
+
+const totalPersonaDemografica = optionPersonaDemografica.series[0].data.reduce(
+  (acumulador, itemAtual) => {
+    return acumulador + itemAtual.value;
+  },
+  0,
+);
+
+if (elPersonaDemografica) {
+  let graficoPersonaDemografica = echarts.init(elPersonaDemografica, null, {
+    height: 250,
+  });
+  graficoPersonaDemografica.setOption(optionPersonaDemografica);
+}
 /* FIM PERSONA DEMOGRÁFICA */
 
 /* PROPENSÃO DE PAGAMENTO */
 
 const optionPropensaoPagamento = {
+  // tooltip: {
+  //   trigger: "item",
+  //   formatter: numeroFormatter,
+  // },
+
   tooltip: {
-    trigger: "item",
-    formatter: numeroFormatter,
+    trigger: "axis",
+    axisPointer: {
+      type: "cross",
+    },
+    formatter: function (params) {
+      console.log(params);
+      return `
+        <b>${params[0].axisValue}</b><br>
+        <b>Quantidade:</b> ${brazilianNumberFormat(params[0].value)}<br>
+        <b>Percentual:</b> ${params[1].value}%
+      `;
+    },
   },
 
   grid: {
-    top: "1%",
+    top: "5%",
     left: "1%",
     right: "1%",
     bottom: "1%",
@@ -1432,16 +1532,21 @@ const optionPropensaoPagamento = {
   ],
   yAxis: [
     {
-      show: false,
+      show: true,
       type: "value",
       position: "right",
       alignTicks: true,
-      axisLine: {
-        show: false, // Oculta a linha do eixo
-      },
       axisLabel: {
-        formatter: "{value}",
+        show: false,
       },
+      axisLine: {
+        show: true, // Oculta a linha do eixo
+      },
+      // axisLabel: {
+      //   formatter: function (params) {
+      //     console.log(params);
+      //   },
+      // },
     },
     {
       show: false,
@@ -1450,7 +1555,7 @@ const optionPropensaoPagamento = {
       alignTicks: true,
       offset: 80,
       axisLine: {
-        show: false, // Oculta a linha do eixo
+        show: false,
       },
       axisLabel: {
         formatter: "{value}",
@@ -1462,7 +1567,7 @@ const optionPropensaoPagamento = {
       position: "left",
       alignTicks: true,
       axisLine: {
-        show: false, // Oculta a linha do eixo
+        show: false,
       },
       axisLabel: {
         formatter: "{value}",
@@ -1521,14 +1626,20 @@ const optionPropensaoPagamento = {
   ],
 };
 
-let graficoPropensaoPagamento = echarts.init(
-  document.querySelector("#graficoPropensaoPagamento"),
-  null,
-  {
-    height: 250,
-  },
+const elGraficoPropensaoPagamento = document.querySelector(
+  "#graficoPropensaoPagamento",
 );
-graficoPropensaoPagamento.setOption(optionPropensaoPagamento);
+
+if (elGraficoPropensaoPagamento) {
+  let graficoPropensaoPagamento = echarts.init(
+    elGraficoPropensaoPagamento,
+    null,
+    {
+      height: 250,
+    },
+  );
+  graficoPropensaoPagamento.setOption(optionPropensaoPagamento);
+}
 /* FIM PROPENSÃO DE PAGAMENTO */
 
 /* COLLECTION STORE */
@@ -1540,7 +1651,9 @@ const optionCollectionScore = {
   },
   tooltip: {
     trigger: "item",
-    formatter: numeroFormatter,
+    formatter: function (params) {
+      return `<b>Quantidade</b>: ${brazilianNumberFormat(params.value)}`;
+    },
   },
 
   grid: {
@@ -1565,7 +1678,7 @@ const optionCollectionScore = {
 
       label: {
         show: true, // Ativar a exibição dos rótulos
-        formatter: "{b}: {d}%", // Formato dos rótulos (nome da categoria e porcentagem)
+        formatter: "{d}%", // Formato dos rótulos (nome da categoria e porcentagem)
       },
       data: [
         { value: 40, name: "Risco muito alto" },
@@ -1578,21 +1691,32 @@ const optionCollectionScore = {
   ],
 };
 
-let graficoCollectionScore = echarts.init(
-  document.querySelector("#graficoCollectionScore"),
-  null,
-  {
-    height: 250,
-  },
+const elGraficoCollectionScore = document.querySelector(
+  "#graficoCollectionScore",
 );
-graficoCollectionScore.setOption(optionCollectionScore);
+if (elGraficoCollectionScore) {
+  let graficoCollectionScore = echarts.init(elGraficoCollectionScore, null, {
+    height: 275,
+  });
+
+  graficoCollectionScore.setOption(optionCollectionScore);
+}
 /* FIM COLLECTION STORE */
 
 /* VÍNCULO SOCIETÁRIO */
 const optionVinculoSocietario = {
   tooltip: {
     trigger: "item",
-    formatter: numeroFormatter,
+    formatter: function (params) {
+      return `<b>Quantidade</b>: ${brazilianNumberFormat(params.data.value)}`;
+    },
+  },
+  label: {
+    show: true,
+    position: "inside",
+    formatter: function (params) {
+      return `${params.percent}%`;
+    },
   },
   legend: {
     orient: "horizontal", // Altere a orientação para horizontal
@@ -1607,7 +1731,6 @@ const optionVinculoSocietario = {
   },
   series: [
     {
-      name: "Access From",
       type: "pie",
       radius: "70%",
       data: [
@@ -1615,11 +1738,9 @@ const optionVinculoSocietario = {
         { value: 735, name: "Média" },
         { value: 580, name: "Pequena" },
         { value: 484, name: "Micro" },
-        { value: 384, name: "Mei" },
+        { value: 384, name: "MEI" },
       ],
-      label: {
-        show: false, // Define show como false para remover o rótulo de dados
-      },
+
       emphasis: {
         itemStyle: {
           shadowBlur: 10,
@@ -1631,14 +1752,19 @@ const optionVinculoSocietario = {
   ],
 };
 
-let graficoVinculoSocietario = echarts.init(
-  document.querySelector("#graficoVinculoSocietario"),
-  null,
-  {
-    height: 250,
-  },
+const elGraficoVinculoSocietario = document.querySelector(
+  "#graficoVinculoSocietario",
 );
-graficoVinculoSocietario.setOption(optionVinculoSocietario);
+if (elGraficoVinculoSocietario) {
+  let graficoVinculoSocietario = echarts.init(
+    elGraficoVinculoSocietario,
+    null,
+    {
+      height: 250,
+    },
+  );
+  graficoVinculoSocietario.setOption(optionVinculoSocietario);
+}
 /* FIM VÍNCULO SOCIETÁRIO */
 
 /* DISTRIBUIÇÃO DE RENDA */
@@ -1653,19 +1779,30 @@ const optionDistribuicaoRenda = {
     `,
   },
 
+  grid: {
+    top: "1%",
+    left: "1%",
+    right: "1%",
+    bottom: "1%",
+    containLabel: true,
+  },
+
   legend: {
     data: ["Classe A", "Classe B", "Classe C", "Classe D", "Classe E"],
   },
+  // label: {
+  //   show: true,
+  //   position: "inner",
+  // },
   series: [
     {
       name: "Classe",
       type: "pie",
       selectedMode: "single",
       radius: [0, "40%"],
+      center: ["50%", "55%"],
       label: {
-        position: "inner",
-        fontSize: 11,
-        show: false, // Oculta os rótulos de dados
+        show: false,
       },
       labelLine: {
         show: false,
@@ -1681,16 +1818,18 @@ const optionDistribuicaoRenda = {
     {
       name: "Renda",
       type: "pie",
-      radius: ["50%", "70%"],
+      radius: ["50%", "55%"],
+      center: ["50%", "55%"],
       labelLine: {
         length: 30,
       },
       label: {
-        formatter: "{c}", // Exibir apenas a quantidade
+        formatter: "{d}%", // Exibir apenas a quantidade
         backgroundColor: "#F6F8FC",
         borderColor: "transparent", // Remove a borda
         borderWidth: 1,
         borderRadius: 4,
+        // position: "left",
         rich: {
           per: {
             color: "#fff",
@@ -1699,7 +1838,7 @@ const optionDistribuicaoRenda = {
             borderRadius: 4,
           },
         },
-        show: false, // Mostrar os rótulos de dados
+        // show: false, // Mostrar os rótulos de dados
       },
       data: [
         { value: 1048, name: "De 1.000 a 2.000" },
@@ -1715,21 +1854,34 @@ const optionDistribuicaoRenda = {
   ],
 };
 
-let graficoDistribuicaoRenda = echarts.init(
-  document.querySelector("#graficoDistribuicaoRenda"),
-  null,
-  {
-    height: 250,
-  },
+const elGraficoDistribuicaoRenda = document.querySelector(
+  "#graficoDistribuicaoRenda",
 );
-graficoDistribuicaoRenda.setOption(optionDistribuicaoRenda);
+
+if (elGraficoDistribuicaoRenda) {
+  let graficoDistribuicaoRenda = echarts.init(
+    elGraficoDistribuicaoRenda,
+    optionDistribuicaoRenda,
+    {
+      height: 250,
+    },
+  );
+  graficoDistribuicaoRenda.setOption(optionDistribuicaoRenda);
+}
 /* FIM DISTRIBUIÇÃO DE RENDA */
 
 /* CONSULTADOS EM 6 E 12 MESES */
 const optionConsultaUltimoAno = {
   tooltip: {
     trigger: "item",
-    formatter: numeroFormatter,
+    formatter: function (params) {
+      return `<b>Quantidade:</b> ${brazilianNumberFormat(params.data.value)}`;
+    },
+  },
+  label: {
+    formatter: function (params) {
+      return `${params.percent * 2}%`;
+    },
   },
   grid: {
     top: "5%",
@@ -1739,23 +1891,19 @@ const optionConsultaUltimoAno = {
     containLabel: true,
   },
   legend: {
-    left: "20%", // Troquei 'top' por 'left'
+    left: "40%", // Troquei 'top' por 'left'
     top: "center", // Troquei 'left' por 'top'
     selectedMode: false,
+    orient: "vertical",
   },
   series: [
     {
-      name: "Access From",
+      name: "",
       type: "pie",
       radius: ["40%", "70%"],
       center: ["50%", "50%"], // Troquei as coordenadas do centro
       startAngle: 90, // Girei o gráfico em 90 graus
-      label: {
-        show: false,
-        formatter(param) {
-          return param.name + " (" + param.percent * 2 + "%)";
-        },
-      },
+
       data: [
         { value: 1048, name: "6 meses" },
         { value: 735, name: "12 Meses" },
@@ -1776,12 +1924,17 @@ const optionConsultaUltimoAno = {
   ],
 };
 
-let graficoConsultasUltimoAno = echarts.init(
-  document.querySelector("#graficoConsultasUltimoAno"),
-  null,
-  {
-    height: 250,
-  },
+const elGraficoConsultasUltimoAno = document.querySelector(
+  "#graficoConsultasUltimoAno",
 );
-graficoConsultasUltimoAno.setOption(optionConsultaUltimoAno);
+if (elGraficoConsultasUltimoAno) {
+  let graficoConsultasUltimoAno = echarts.init(
+    elGraficoConsultasUltimoAno,
+    null,
+    {
+      height: 250,
+    },
+  );
+  graficoConsultasUltimoAno.setOption(optionConsultaUltimoAno);
+}
 /* FIM CONSULTADOS EM 6 E 12 MESES */

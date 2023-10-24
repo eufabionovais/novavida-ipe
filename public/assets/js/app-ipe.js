@@ -235,6 +235,7 @@ $(function () {
       speed: 400,
       spaceBetween: 100,
       autoHeight: true,
+      allowTouchMove: false,
     });
 
     const swiperInstance = swiperElement.swiper;
