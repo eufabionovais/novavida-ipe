@@ -354,7 +354,6 @@ const optionTelefonesRanking = {
   tooltip: {
     trigger: "item",
     formatter: function (params) {
-      console.log(params);
       return `<b>Quantidade:</b> ${brazilianNumberFormat(params.value)}`;
     },
   },
@@ -1090,7 +1089,6 @@ const optionPersonaDigital = {
         show: true,
         position: "inside",
         formatter: function (params) {
-          console.log(params);
           return `${params.name}\n${params.percent.toFixed(1)}%`;
         },
         textStyle: {
@@ -1152,6 +1150,8 @@ const optionPossivelEscolaridade = {
     splitLine: {}, // Define as configurações das linhas de divisão como vazias para remover as linhas
   },
   angleAxis: {
+    max: 25000,
+    startAngle: 180,
     show: false,
   },
   radiusAxis: {
@@ -1192,15 +1192,9 @@ const optionPossivelEscolaridade = {
     // Defina uma paleta de cores para as colunas
     itemStyle: {
       color: function (params) {
-        var colorList = [
-          "#37A2DA",
-          "#67E0E3",
-          "#9FE6B8",
-          "#FFDB5C",
-          "#FF9F7F",
-          "#FB7293",
-        ];
-        return colorList[params.dataIndex];
+        let arrColors = [...eChartsGlobalConfig.color];
+        let colors = arrColors.slice(0, 6);
+        return colors[params.dataIndex];
       },
     },
   },
@@ -1512,7 +1506,6 @@ const optionPropensaoPagamento = {
     formatter: function (params) {
       const valor = params.value;
       const percentual = ((valor / totalPropensaoPagamento) * 100).toFixed(2);
-      console.log(percentual);
       return `${percentual}%`;
     },
   },
