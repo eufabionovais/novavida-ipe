@@ -1,0 +1,734 @@
+@layout(base-layout-bi)
+<!-- prettier-ignore -->
+@section(title, Gráficos | Nova Vida Ipê) 
+@section(main)
+@import(header-bi)
+
+<div class="content-grid__wrapper" data-container="content-grid-wrapper">
+  <div class="content-grid__content">
+    @component(page-header) @slot(page-title)
+
+    <span
+      class="material-icons icon highlight-purple"
+      data-bs-toggle="tooltip"
+      data-bs-placement="bottom"
+      title="Pessoa jurídica"
+      data-bs-custom-class="custom-tooltip"
+    >
+      apartment
+    </span>
+    Mega Brasil
+    <span class="material-icons icon highlight-purple">
+      keyboard_arrow_right
+    </span>
+    <b class="text-semibold" id="slideTitle">Dados cadastrais</b>
+
+    @endslot @slot(page-title-buttons)
+    <div class="page-header__buttons">
+      <a class="btn btn-primary btn-icon" href="bi.html">
+        <span class="material-icons icon highlight-purpe">close</span>
+      </a>
+    </div>
+    @endslot @endcomponent
+
+    <div class="content-line__wrapper">
+      <div class="row">
+        <div class="mb-4 col-12 col-lg-12 mb-lg-0">
+          <div class="charts-wrapper">
+            <div class="swiper">
+              <div class="swiper-wrapper">
+                <!-- SLIDE 1 - PESSOA FÍSICA -->
+                <div class="swiper-slide" data-titulo="Dados cadastrais">
+                  <div class="row">
+                    <div class="col mb-2">
+                      <div
+                        class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                      >
+                        <div class="rounded-icon" color="purple">
+                          <span class="material-symbols-outlined filled"
+                            >featured_play_list</span
+                          >
+                        </div>
+                        <div class="text-item">
+                          <p class="text-item__title">Documentos</p>
+                          <p class="text-item__detail">43.563.526</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col mb-2">
+                      <div
+                        class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                      >
+                        <div class="rounded-icon" color="purple">
+                          <span class="material-symbols-outlined filled"
+                            >tty</span
+                          >
+                        </div>
+                        <div class="text-item">
+                          <p class="text-item__title">Telefones</p>
+                          <p class="text-item__detail">384.605.747</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col mb-2">
+                      <div
+                        class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                      >
+                        <div class="rounded-icon" color="purple">
+                          <span class="material-symbols-outlined filled"
+                            >location_on</span
+                          >
+                        </div>
+                        <div class="text-item">
+                          <p class="text-item__title">Endereços</p>
+                          <p class="text-item__detail">183.713.015</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col mb-2">
+                      <div
+                        class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                      >
+                        <div class="rounded-icon" color="purple">
+                          <span class="material-symbols-outlined filled"
+                            >stacked_email</span
+                          >
+                        </div>
+                        <div class="text-item">
+                          <p class="text-item__title">E-mails</p>
+                          <p class="text-item__detail">44.151.254</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col mb-2">
+                      <div
+                        class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                      >
+                        <div class="rounded-icon" color="purple">
+                          <span class="material-symbols-outlined filled"
+                            >dangerous</span
+                          >
+                        </div>
+                        <div class="text-item">
+                          <p class="text-item__title">Área de risco</p>
+                          <p class="text-item__detail">2.069.119</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6 mb-3">
+                      <div class="chart-wrapper">
+                        <h2 class="chart-title">Situação do CPF</h2>
+                        <div
+                          id="graficoSituacaoDocumentoPF"
+                          class="chart-item"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <div class="chart-wrapper">
+                        <h2 class="chart-title">Vínculo familiar</h2>
+                        <div id="graficoGrauVinculoPF" class="chart-item"></div>
+                        <div class="legendas-manuais row">
+                          <div class="col-6">
+                            <p><b>Até 1 vínculo: </b> 535.63.452</p>
+                          </div>
+                          <div class="col-6">
+                            <p><b>Até 2 vínculos: </b> 535.63.452</p>
+                          </div>
+                          <div class="col-6">
+                            <p><b>Até 3 vínculos: </b> 535.63.452</p>
+                          </div>
+                          <div class="col-6">
+                            <p><b>Demais vínculos: </b> 535.63.452</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <div class="chart-wrapper">
+                        <h2 class="chart-title">Flags de telefonia</h2>
+                        <div
+                          id="graficoFlagsTelefoniaPF"
+                          class="chart-item"
+                        ></div>
+                      </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <div class="chart-wrapper">
+                        <h2 class="chart-title">Telefone por ranking</h2>
+                        <div
+                          id="graficoTelefonesRanking"
+                          class="chart-item"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div class="col-6 mb-3">
+                      <div class="chart-wrapper">
+                        <h2 class="chart-title">Pessoas por estado</h2>
+                        <div
+                          id="graficoPessoasPorEstado"
+                          class="chart-item"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div class="col-6 mb-3">
+                      <div class="chart-wrapper">
+                        <h2 class="chart-title">Pessoas por região</h2>
+                        <div
+                          id="graficoPessoasPorRegiao"
+                          class="chart-item"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- FIM SLIDE 1 - PESSOA FÍSICA -->
+
+                <!-- SLIDE 2 - PESSOA FÍSICA -->
+                <div class="swiper-slide" data-titulo="Personas">
+                  <div class="row">
+                    <div class="col-6 mb-3">
+                      <div class="chart-wrapper">
+                        <h2 class="chart-title">Pessoas por sexo</h2>
+                        <div
+                          id="graficoPessoasPorSexo"
+                          class="chart-item"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div class="col-6 mb-3">
+                      <div class="chart-wrapper">
+                        <h2 class="chart-title">Pessoas por geração</h2>
+                        <div
+                          id="graficoPessoasPorGeracao"
+                          class="chart-item"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 mb-3">
+                      <div class="chart-wrapper">
+                        <h2 class="chart-title">Persona de crédito</h2>
+                        <div
+                          id="graficoPersonaCredito"
+                          class="chart-item"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div class="col-6 mb-3">
+                      <div class="chart-wrapper">
+                        <h2 class="chart-title">Persona digital</h2>
+                        <div
+                          id="graficoPersonaDigital"
+                          class="chart-item"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div class="col-6 mb-3">
+                      <div class="chart-wrapper">
+                        <h2 class="chart-title">Possível escolaridade</h2>
+                        <div
+                          id="graficoPossivelEscolaridade"
+                          class="chart-item"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 mb-3">
+                      <div class="chart-wrapper">
+                        <h2 class="chart-title">Persona demográfica</h2>
+                        <div
+                          id="graficoPersonaDemografica"
+                          class="chart-item"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- FIM SLIDE 2 - PESSOA FÍSICA -->
+
+                <!-- SLIDE 3 PESSOA FÍSICA-->
+                <div class="swiper-slide" data-titulo="Crédito e risco">
+                  <div class="row">
+                    <div class="col-12 mb-3">
+                      <div class="row">
+                        <div class="col-12 col-md-4 col-lg-3 mb-2">
+                          <div
+                            class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                          >
+                            <div class="rounded-icon" color="purple">
+                              <span class="material-symbols-outlined filled"
+                                >deceased</span
+                              >
+                            </div>
+                            <div class="text-item">
+                              <p class="text-item__title">Óbito</p>
+                              <p class="text-item__detail">31.258.011</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-12 col-md-4 col-lg-3 mb-2">
+                          <div
+                            class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                          >
+                            <div class="rounded-icon" color="purple">
+                              <span class="material-symbols-outlined filled"
+                                >family_restroom</span
+                              >
+                            </div>
+                            <div class="text-item">
+                              <p class="text-item__title">Bolsa família</p>
+                              <p class="text-item__detail">16.838.846</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-12 col-md-4 col-lg-3 mb-2">
+                          <div
+                            class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                          >
+                            <div class="rounded-icon" color="purple">
+                              <span class="material-symbols-outlined filled"
+                                >relax</span
+                              >
+                            </div>
+                            <div class="text-item">
+                              <p class="text-item__title">Aposentados</p>
+                              <p class="text-item__detail">36.780.774</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-12 col-md-4 col-lg-3 mb-2">
+                          <div
+                            class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                          >
+                            <div class="rounded-icon" color="purple">
+                              <span class="material-symbols-outlined filled"
+                                >credit_card_off</span
+                              >
+                            </div>
+                            <div class="text-item">
+                              <p class="text-item__title">
+                                Possível negativação
+                              </p>
+                              <p class="text-item__detail">68.073.312</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 mb-3">
+                      <div class="chart-wrapper">
+                        <h2 class="chart-title">Propensão de pagamento</h2>
+                        <div
+                          id="graficoPropensaoPagamento"
+                          class="chart-item"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="row">
+                        <div class="col-12 col-md-4 col-lg-3 mb-2">
+                          <div
+                            class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                          >
+                            <div class="rounded-icon" color="purple">
+                              <span class="material-symbols-outlined filled"
+                                >check_box</span
+                              >
+                            </div>
+                            <div class="text-item">
+                              <p class="text-item__title">Flag de FGTS</p>
+                              <p class="text-item__detail">36.780.774</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-12 col-md-4 col-lg-3 mb-2">
+                          <div
+                            class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                          >
+                            <div class="rounded-icon" color="purple">
+                              <span class="material-symbols-outlined filled"
+                                >request_quote</span
+                              >
+                            </div>
+                            <div class="text-item">
+                              <p class="text-item__title">Valor presumido</p>
+                              <p class="text-item__detail">R$152.502</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-12 col-md-4 col-lg-3 mb-2">
+                          <div
+                            class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                          >
+                            <div class="rounded-icon" color="purple">
+                              <span class="material-symbols-outlined filled"
+                                >monetization_on</span
+                              >
+                            </div>
+                            <div class="text-item">
+                              <p class="text-item__title">Renda média</p>
+                              <p class="text-item__detail">R$3.352</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-12 col-md-4 col-lg-3 mb-2">
+                          <div
+                            class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                          >
+                            <div class="rounded-icon" color="purple">
+                              <span class="material-symbols-outlined filled"
+                                >payments</span
+                              >
+                            </div>
+                            <div class="text-item">
+                              <p class="text-item__title">Renda familiar</p>
+                              <p class="text-item__detail">203.925.633</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-6 mb-3">
+                      <div class="chart-wrapper">
+                        <h2 class="chart-title">Collection score</h2>
+                        <div
+                          id="graficoCollectionScore"
+                          class="chart-item"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div class="col-6 mb-3">
+                      <div class="chart-wrapper">
+                        <h2 class="chart-title">Vínculo societário</h2>
+                        <div
+                          id="graficoVinculoSocietario"
+                          class="chart-item"
+                        ></div>
+                        <div class="row legendas-manuais mt-1">
+                          <div class="col-8 mx-auto text-center">
+                            <p><b>Sem Vínculo:</b> 15.452 – 53%</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="row">
+                        <div class="col-12 col-md-4 col-lg-3 mb-2">
+                          <div
+                            class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                          >
+                            <div class="rounded-icon" color="purple">
+                              <span class="material-symbols-outlined filled"
+                                >price_change</span
+                              >
+                            </div>
+                            <div class="text-item">
+                              <p class="text-item__title">Fonte de renda</p>
+                              <p class="text-item__detail">203.080.810</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-12 col-md-4 col-lg-3 mb-2">
+                          <div
+                            class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                          >
+                            <div class="rounded-icon" color="purple">
+                              <span class="material-symbols-outlined filled"
+                                >verified_user</span
+                              >
+                            </div>
+                            <div class="text-item">
+                              <p class="text-item__title">
+                                Vínculo empregatício
+                              </p>
+                              <p class="text-item__detail">36.880.784</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-12 col-md-4 col-lg-3 mb-2">
+                          <div
+                            class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                          >
+                            <div class="rounded-icon" color="purple">
+                              <span class="material-symbols-outlined filled"
+                                >savings</span
+                              >
+                            </div>
+                            <div class="text-item">
+                              <p class="text-item__title">Seguro desemprego</p>
+                              <p class="text-item__detail">36.880.784</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-12 col-md-4 col-lg-3 mb-2">
+                          <div
+                            class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                          >
+                            <div class="rounded-icon" color="purple">
+                              <span class="material-symbols-outlined filled"
+                                >work</span
+                              >
+                            </div>
+                            <div class="text-item">
+                              <p class="text-item__title">Possível profissão</p>
+                              <p class="text-item__detail">36.880.784</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-6 mb-3">
+                      <div class="chart-wrapper">
+                        <h2 class="chart-title">Classe social e renda</h2>
+                        <div
+                          id="graficoDistribuicaoRenda"
+                          class="chart-item"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div class="col-6 mb-3">
+                      <div class="chart-wrapper">
+                        <h2 class="chart-title">Consultados em 6 e 12 meses</h2>
+                        <div
+                          id="graficoConsultasUltimoAno"
+                          class="chart-item"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- FIM SLIDE 3 PESSOA FÍSICA-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / Row -->
+  </div>
+
+  @component(sidebar-detalhes) @slot(sidebar-detalhes-item)
+  <!-- Sidebar Enriquecimento -->
+  <div class="content-grid__sidebar">
+    <header class="content-grid__sidebar-header">
+      <h4 class="content-grid__sidebar-title">Detalhes do estudo</h4>
+      <button class="btn btn-link px-0" data-toggle="grid-sidebar">
+        <span class="material-symbols-outlined"> close </span>
+      </button>
+    </header>
+    <hr class="h-divider" />
+    <div class="content-grid__sidebar-body">
+      <div class="d-flex align-content-center justify-content-between">
+        <p class="mb-0 text-semibold">Nova Vida</p>
+        <p class="mb-0"><span class="highlight-primary">123456</span></p>
+      </div>
+      <hr class="h-divider" />
+      <div class="list-container">
+        <div class="list-key">Usuário</div>
+        <div class="list-value"><b class="text-semibold">Jorge Bartz</b></div>
+        <div class="list-key">Entrada</div>
+        <div class="list-value"><b>41.744</b></div>
+        <div class="list-key">Saída</div>
+        <div class="list-value"><b>1.318</b></div>
+        <div class="list-key">Data</div>
+        <div class="list-value"><b>18/07</b> às <b>9:33</b></div>
+      </div>
+    </div>
+    <footer
+      class="content-grid__sidebar-footer d-flex justify-content-center gap-4 mt-auto"
+    >
+      <button class="btn btn-primary btn-icon">
+        <span class="material-icons"> bar_chart </span>
+      </button>
+      <button class="btn btn-secondary text-primary btn-icon">
+        <span class="material-icons"> download </span>
+      </button>
+    </footer>
+  </div>
+  <!-- / Sidebar Enriquecimento -->
+  @endslot @endcomponent
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Novo enriquecimento
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="row d-flex">
+            <div class="col-6 mb-4">
+              <label for="cliente" class="form-label visually-hidden"
+                >Cliente</label
+              >
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                id="cliente"
+                placeholder="Cliente"
+              />
+            </div>
+            <div class="col-6 mb-4">
+              <label for="usuario" class="form-label visually-hidden"
+                >Usuário</label
+              >
+              <input
+                type="text"
+                id="usuario"
+                class="form-control form-control-lg"
+                placeholder="Usuário"
+              />
+            </div>
+            <div class="col-3 mb-4">
+              <label for="Campanha" class="form-label visually-hidden"
+                >Campanha</label
+              >
+              <select class="form-select" aria-label="Campanha" id="Campanha">
+                <option selected>Campanha</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+            <div class="col-3 mb-4">
+              <label for="subcampanha" class="form-label visually-hidden"
+                >Subcampanha</label
+              >
+              <select
+                class="form-select"
+                aria-label="subcampanha"
+                id="subcampanha"
+              >
+                <option selected>Subcampanha</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+            <div class="col-6 mb-4">
+              <label for="processo" class="form-label visually-hidden"
+                >Processo</label
+              >
+              <select class="form-select" aria-label="processo" id="processo">
+                <option selected>Processo</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+            <div class="col-6 d-flex flex-row gap-2">
+              <label for="layoutEntrada" class="form-label visually-hidden"
+                >Layout de entrada</label
+              >
+              <select
+                class="form-select"
+                aria-label="layoutEntrada"
+                id="layoutEntrada"
+              >
+                <option selected>Layout de entrada</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+              <button
+                class="btn btn-primary d-flex align-items-center btn-icon"
+              >
+                <span class="material-icons icon"> open_in_new </span>
+              </button>
+            </div>
+            <div class="col-6 d-flex flex-row gap-2">
+              <label for="layoutSaida" class="form-label visually-hidden"
+                >Layout de saída</label
+              >
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                id="layoutSaida"
+              >
+                <option selected>Layout de saída</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+              <button
+                class="btn btn-primary d-flex align-items-center btn-icon"
+              >
+                <span class="material-icons icon"> open_in_new </span>
+              </button>
+            </div>
+            <div class="col-12 mx-auto mt-3">
+              <div class="upload-file__wrapper">
+                <div class="upload-file__dropzone"></div>
+                <div class="upload-file__content">
+                  <p class="upload-file__text">
+                    Escolha ou arraste um arquivo aqui
+                  </p>
+                  <img
+                    class="upload-file__image"
+                    src="/assets/img/upload-file.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer d-flex gap-3">
+          <button type="button" class="btn btn-primary">Iniciar job</button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  @endsection
+</div>
