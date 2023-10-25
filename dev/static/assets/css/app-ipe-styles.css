@@ -11553,14 +11553,25 @@ body{
 }
 .table td{
    transition:0.4s;
-   font-size:14px
+   font-size:14px;
+   border-bottom-color: #F0F0F0;
 }
 .table th{
    font-weight:500;
    font-size:15px;
    line-height:18px;
-   color:#636467
+   color:#636467;
+   border-bottom: solid 1px #f0f0f0;
 }
+
+.table>:not(:last-child)>:last-child>* {
+   border-bottom: solid 1px #f0f0f0;
+}
+
+table.dataTable.no-footer {
+   border-bottom: transparent;
+}
+
 .table th,.table td{
    vertical-align:middle;
    transition:0.3s
@@ -12645,7 +12656,7 @@ label.error{
    background-color:#fff;
    position:relative;
    box-shadow:1px 0 7px 0 rgba(0,0,0,0.1);
-   z-index:2;
+   z-index:3;
    min-height: 100vh;
    
  }

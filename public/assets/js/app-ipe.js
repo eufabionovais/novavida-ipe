@@ -66,13 +66,15 @@ $(function () {
   // Exibição do botão para mostrar/ocultar senha
 
   // Habilitar máscara para CPF/CNPJ simultâneamente.
-  $("[data-mask='cpf-cnpj']").mask("000.000.000-00", {
-    onKeyPress: function (cpfcnpj, e, field, options) {
-      const masks = ["000.000.000-000", "00.000.000/0000-00"];
-      const mask = cpfcnpj.length > 14 ? masks[1] : masks[0];
-      $("[data-mask='cpf-cnpj']").mask(mask, options);
-    },
-  });
+  if ($("[data-mask='cpf-cnpj']").length) {
+    $("[data-mask='cpf-cnpj']").mask("000.000.000-00", {
+      onKeyPress: function (cpfcnpj, e, field, options) {
+        const masks = ["000.000.000-000", "00.000.000/0000-00"];
+        const mask = cpfcnpj.length > 14 ? masks[1] : masks[0];
+        $("[data-mask='cpf-cnpj']").mask(mask, options);
+      },
+    });
+  }
   // Habilitar máscara para CPF/CNPJ simultâneamente.
 
   if ($("#enriquecimentosTbl").length) {
@@ -90,6 +92,10 @@ $(function () {
         { orderable: false, width: "150px", className: "text--center" },
       ],
     });
+
+    $("#enriquecimentosTbl").on("click", "a", function () {
+      contentGridContainer.addClass("opened");
+    });
   }
 
   if ($("#estudosTbl").length) {
@@ -106,6 +112,10 @@ $(function () {
         { orderable: false },
         { orderable: false, width: "150px", className: "text--center" },
       ],
+    });
+
+    $("#estudosTbl").on("click", "a:not(.btn-chart)", function () {
+      contentGridContainer.addClass("opened");
     });
   }
 
@@ -157,14 +167,6 @@ $(function () {
   $(gridSidebartoggle).on("click", function (e) {
     e.preventDefault();
     contentGridContainer.removeClass("opened");
-  });
-
-  $("#enriquecimentosTbl").on("click", "a", function () {
-    contentGridContainer.addClass("opened");
-  });
-
-  $("#estudosTbl").on("click", "a", function () {
-    contentGridContainer.addClass("opened");
   });
 
   const filtrosAvancados = $("#filtrosAvancados");
@@ -267,6 +269,10 @@ $(function () {
       } else {
         $("[data-slider='next']").prop("disabled", false);
       }
+    });
+
+    swiperInstance.on("slideChangeTransitionEnd", function () {
+      $("body, html").scrollTop(0);
     });
   }
 });

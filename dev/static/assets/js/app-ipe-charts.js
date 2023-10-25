@@ -153,7 +153,7 @@ const optionSituacaoDocumentosClone = optionSituacaoDocumentos.series.map(
       ...item,
       valorAbsoluto: item.data[0],
       data: [
-        `${((item.data[0] / somaDataSituacaoDocumento) * 100).toFixed(2)}`,
+        `${((item.data[0] / somaDataSituacaoDocumento) * 100).toFixed(1)}`,
       ],
     };
   },
@@ -185,7 +185,7 @@ let optionVinculoFamiliarPF = {
     show: true,
     position: "inside",
     formatter: function (params) {
-      return `${params.percent * 2}%`;
+      return `${(params.percent * 2).toFixed(1)}%`;
     },
   },
   legend: {
@@ -277,7 +277,7 @@ let optionFlagsTelefonia = {
   },
   yAxis: {
     type: "category",
-    data: ["Badphone", "Assinante", "Hot", "WhatsApp", "Proccon", "Outros"],
+    data: ["Badphone", "Assinante", "Hot", "WhatsApp", "Proccon"],
   },
   series: [
     {
@@ -319,12 +319,6 @@ let optionFlagsTelefonia = {
             color: eChartsGlobalConfig.color[4],
           },
         },
-        {
-          value: 630230,
-          itemStyle: {
-            color: eChartsGlobalConfig.color[5],
-          },
-        },
       ],
     },
   ],
@@ -344,7 +338,7 @@ const optionFlagsTelefoniaClone = optionFlagsTelefonia.series[0].data.map(
     return {
       ...item,
       valorAbsoluto: item.value,
-      value: [`${((item.value / somaDataFlagsTelefonia) * 100).toFixed(2)}`],
+      value: [`${((item.value / somaDataFlagsTelefonia) * 100).toFixed(1)}`],
     };
   },
 );
@@ -372,7 +366,7 @@ const optionTelefonesRanking = {
     show: true,
     position: "inside",
     formatter: function (params) {
-      return `${params.percent}%`;
+      return `${params.percent.toFixed(1)}%`;
     },
   },
   legend: {
@@ -435,23 +429,26 @@ let optionPessoaPorEstado = {
       type: "shadow",
     },
   },
+
   grid: {
-    top: "10%",
-    left: "3%",
-    right: "3%",
-    bottom: "3%",
+    top: "20%",
+    left: "5%",
+    right: "5%",
+    bottom: "15%",
     containLabel: true,
   },
-  // dataZoom: [
-  //   // Configuração da barra de rolagem
-  //   {
-  //     type: "slider",
-  //     show: true,
-  //     xAxisIndex: [0],
-  //     start: 0, // Posição inicial da barra de rolagem
-  //     end: 30, // Posição final da barra de rolagem (mostrando 6 colunas)
-  //   },
-  // ],
+  dataZoom: [
+    // Configuração da barra de rolagem
+    {
+      type: "slider",
+      show: true,
+      xAxisIndex: [0],
+      start: 0, // Posição inicial da barra de rolagem
+      end: 20, // Posição final da barra de rolagem (mostrando 6 colunas)
+      bottom: 10,
+      height: 20,
+    },
+  ],
 
   xAxis: [
     {
@@ -497,10 +494,10 @@ let optionPessoaPorEstado = {
     {
       type: "value",
       axisLabel: {
-        show: false, // Define esta opção como false para ocultar as informações do eixo Y
+        show: true, // Define esta opção como false para ocultar as informações do eixo Y
       },
       splitLine: {
-        show: false, // Define esta opção como false para remover as linhas horizontais
+        show: true, // Define esta opção como false para remover as linhas horizontais
       },
     },
   ],
@@ -700,7 +697,7 @@ const optionsPessoaPorEstadoClone = optionPessoaPorEstado.series[0].data.map(
   (item) => {
     return {
       ...item,
-      value: `${((item.value / somaDataPessoaPorEstado) * 100).toFixed(2)}`,
+      value: `${((item.value / somaDataPessoaPorEstado) * 100).toFixed(1)}`,
       valorAbsoluto: item.value,
     };
   },
@@ -724,50 +721,91 @@ const optionPessoasPorRegiao = {
   tooltip: {
     trigger: "item",
     formatter: function (params) {
-      console.log(params);
-
-      const dataIndex = params.dataIndex;
-      const populacaoRegiao =
-        optionPessoasPorRegiao.series[0].data[0].value[dataIndex];
-      const percentualRegiao = percentuaisPopulacaoBrasil[dataIndex];
-
-      return `Região: ${params.name}<br/>População: ${populacaoRegiao} (${percentualRegiao}%)`;
+      return `<b>${params.data.name}</b><br>
+              <b>Quantidade:</b> ${brazilianNumberFormat(params.data.value)}<br>
+              <b>Percentual:</b> ${(
+                (params.data.value / totalPopulacaoBrasil) *
+                100
+              ).toFixed(1)}%
+        `;
     },
   },
-  radar: {
-    // shape: 'circle',
-    indicator: [
-      { name: "Norte", max: 6500 },
-      { name: "Nordeste", max: 16000 },
-      { name: "Centro-Oeste", max: 30000 },
-      { name: "Oeste", max: 38000 },
-      { name: "Sudeste", max: 52000 },
-    ],
-
-    axisLabel: {
-      show: false,
-      inside: true,
-    },
-
-    splitArea: {
-      areaStyle: {
-        color: ["#efefef", "#f4f4f4"],
-      },
-    },
-    splitLine: {
-      lineStyle: {
-        color: "rgba(198, 198, 198, 0.4)", // Color of the grid lines
-      },
+  label: {
+    formatter: function (params) {
+      const label = params.data.name;
+      const valor = params.data.value;
+      const percentual = ((valor / totalPopulacaoBrasil) * 100).toFixed(1);
+      return `${label}:\n ${percentual}%`;
     },
   },
+
+  // tooltip: {
+  //   trigger: "item",
+  //   formatter: function (params) {
+  //     const dataIndex = params.dataIndex;
+  //     const populacaoRegiao =
+  //       optionPessoasPorRegiao.series[0].data[0].value[dataIndex];
+  //     const percentualRegiao = percentuaisPopulacaoBrasil[dataIndex];
+
+  //     return `Região: ${params.name}<br/>População: ${populacaoRegiao} (${percentualRegiao}%)`;
+  //   },
+  // },
+  // radar: {
+
+  //   indicator: [
+  //     { name: "Norte", max: 6500 },
+  //     { name: "Nordeste", max: 16000 },
+  //     { name: "Centro-Oeste", max: 30000 },
+  //     { name: "Oeste", max: 38000 },
+  //     { name: "Sudeste", max: 52000 },
+  //   ],
+
+  //   axisLabel: {
+  //     show: false,
+  //     inside: true,
+  //   },
+
+  //   splitArea: {
+  //     areaStyle: {
+  //       color: ["#efefef", "#f4f4f4"],
+  //     },
+  //   },
+  //   splitLine: {
+  //     lineStyle: {
+  //       color: "rgba(198, 198, 198, 0.4)",
+  //     },
+  //   },
+  // },
   series: [
     {
-      type: "radar",
+      type: "treemap",
 
+      // data: [
+      //   {
+      //     name: "Divisão por região",
+      //     value: [4200, 3000, 20000, 35000, 50000, 18000],
+      //   },
+      // ],
       data: [
         {
-          name: "Divisão por região",
-          value: [4200, 3000, 20000, 35000, 50000, 18000],
+          name: "Norte",
+          value: 7500,
+        },
+        {
+          name: "Nordeste",
+          value: 40000,
+        },
+        {
+          name: "Sul",
+          value: 15000,
+        },
+        {
+          name: "Sudeste",
+          value: 60000,
+        },
+        {
+          name: "Centro-oeste",
+          value: 4000,
         },
       ],
     },
@@ -778,15 +816,13 @@ const elGraficoPessoasPorRegiao = document.querySelector(
   "#graficoPessoasPorRegiao",
 );
 
-const totalPopulacaoBrasil =
-  optionPessoasPorRegiao.series[0].data[0].value.reduce(
-    (total, pop) => total + pop,
-    0,
-  );
-const percentuaisPopulacaoBrasil =
-  optionPessoasPorRegiao.series[0].data[0].value.map((pop) =>
-    ((pop / totalPopulacaoBrasil) * 100).toFixed(2),
-  );
+const totalPopulacaoBrasil = optionPessoasPorRegiao.series[0].data.reduce(
+  (total, regiao) => total + regiao.value,
+  0,
+);
+const percentuaisPopulacaoBrasil = optionPessoasPorRegiao.series[0].data.map(
+  (regiao) => ((regiao.value / totalPopulacaoBrasil) * 100).toFixed(1),
+);
 
 if (elGraficoPessoasPorRegiao) {
   let graficoPessoasPorRegiao = echarts.init(elGraficoPessoasPorRegiao, null, {
@@ -801,13 +837,16 @@ if (elGraficoPessoasPorRegiao) {
 const optionPessoasPorSexo = {
   tooltip: {
     trigger: "item",
-    formatter: numeroRawPercent,
-    show: false,
+    formatter: function (params) {
+      return `<b>Quantidade:</b> ${brazilianNumberFormat(params.value)}`;
+    },
   },
   label: {
     position: "inside",
     formatter: function (params) {
-      return `${params.percent * 2}%`;
+      const total = totalPessoasPorSexo / 2;
+      const percentual = (params.value / total) * 100;
+      return `${percentual.toFixed(1)}%`;
     },
   },
   legend: {
@@ -828,15 +867,15 @@ const optionPessoasPorSexo = {
       name: "",
       type: "pie",
       radius: ["30%", "100%"],
-      center: ["50%", "70%"],
+      center: ["50%", "75%"],
       startAngle: 180,
       data: [
-        { value: 15, name: "Homem" },
-        { value: 55, name: "Mulher" },
-        { value: 30, name: "Indefinido" },
+        { value: 35644, name: "Homem" },
+        { value: 55323, name: "Mulher" },
+        { value: 15542, name: "Indefinido" },
         {
           // make a record to fill the bottom 50%
-          value: 15 + 55 + 30,
+          value: 35644 + 55323 + 15542,
           itemStyle: {
             // stop the chart from rendering this piece
             color: "none",
@@ -854,6 +893,13 @@ const optionPessoasPorSexo = {
 };
 
 const elGraficoPessoaPorSexo = document.querySelector("#graficoPessoasPorSexo");
+const totalPessoasPorSexo = optionPessoasPorSexo.series[0].data.reduce(
+  (acumulador, itemAtual) => {
+    return acumulador + itemAtual.value;
+  },
+  0,
+);
+
 if (elGraficoPessoaPorSexo) {
   let graficoPessoasPorSexo = echarts.init(elGraficoPessoaPorSexo, null, {
     height: 250,
@@ -866,7 +912,7 @@ if (elGraficoPessoaPorSexo) {
 const optionPessoasPorGeracao = {
   tooltip: {
     formatter: function (params) {
-      return `<b>Quantidade:</b> ${params.data.value}`;
+      return `<b>Quantidade:</b> ${brazilianNumberFormat(params.data.value)}`;
     },
   },
   legend: {
@@ -888,11 +934,11 @@ const optionPessoasPorGeracao = {
         formatter: "{d}%", // Formato dos rótulos (nome da categoria e porcentagem)
       },
       data: [
-        { value: 40, name: "Veteranos" },
-        { value: 38, name: "Baby Boomer" },
-        { value: 32, name: "Gen X" },
-        { value: 30, name: "Gen Y" },
-        { value: 28, name: "Gen Z" },
+        { value: 1355, name: "Veteranos" },
+        { value: 5644, name: "Baby Boomer" },
+        { value: 1234, name: "Gen X" },
+        { value: 4578, name: "Gen Y" },
+        { value: 5566, name: "Gen Z" },
       ],
     },
   ],
@@ -1049,7 +1095,7 @@ const optionPersonaCreditoClone = optionPersonaCredito.series.map((item) => {
   return {
     ...item,
     valorAbsoluto: item.data[0],
-    data: [`${((item.data[0] / somaPersonaCredito) * 100).toFixed(2)}`],
+    data: [`${((item.data[0] / somaPersonaCredito) * 100).toFixed(1)}`],
   };
 });
 
@@ -1066,7 +1112,9 @@ if (elGraficoPersonaCredito) {
 const optionPersonaDigital = {
   tooltip: {
     trigger: "item",
-    formatter: "{b} : {c}%",
+    formatter: function (params) {
+      return `<b>Quantidade:</b> ${brazilianNumberFormat(params.value)}`;
+    },
   },
 
   series: [
@@ -1077,38 +1125,32 @@ const optionPersonaDigital = {
       top: 10,
       bottom: 10,
       width: "80%",
-      min: 0,
-      max: 100,
+      min: 1789,
+      max: 17568,
       minSize: "0%",
       maxSize: "100%",
       sort: "descending",
       gap: 2,
+
       label: {
         show: true,
         position: "inside",
-      },
-      labelLine: {
-        length: 10,
-        lineStyle: {
-          width: 1,
-          type: "solid",
+        formatter: function (params) {
+          console.log(params);
+          return `${params.name}\n${params.percent.toFixed(1)}%`;
         },
-      },
-      itemStyle: {
-        borderColor: "#fff",
-        borderWidth: 1,
-      },
-      emphasis: {
-        label: {
-          fontSize: 20,
+        textStyle: {
+          textShadow: "none",
+          textShadowBlur: "none",
+          borderWidth: 0,
         },
       },
       data: [
-        { value: 60, name: "Digital--" },
-        { value: 40, name: "Digital-" },
-        { value: 20, name: "Digital+-" },
-        { value: 80, name: "Digital+" },
-        { value: 100, name: "Digital++" },
+        { value: 15544, name: "Digital--" },
+        { value: 11243, name: "Digital-" },
+        { value: 17568, name: "Digital+-" },
+        { value: 3568, name: "Digital+" },
+        { value: 5633, name: "Digital++" },
       ],
     },
   ],
@@ -1134,7 +1176,7 @@ const optionPossivelEscolaridade = {
       const percentual = (
         (params.data.value / totalDadosEscolaridades) *
         100
-      ).toFixed(2);
+      ).toFixed(1);
 
       return `
         <b>Ensino ${label}</b><br>
@@ -1254,7 +1296,7 @@ const optionPersonaDemografica = {
               <b>Percentual:</b> ${(
                 (params.data.value / totalPersonaDemografica) *
                 100
-              ).toFixed(2)}%
+              ).toFixed(1)}%
         `;
     },
   },
@@ -1263,7 +1305,7 @@ const optionPersonaDemografica = {
     formatter: function (params) {
       const label = params.data.name;
       const valor = params.data.value;
-      const percentual = ((valor / totalPersonaDemografica) * 100).toFixed(2);
+      const percentual = ((valor / totalPersonaDemografica) * 100).toFixed(1);
       return `${label}:\n ${percentual}%`;
     },
   },
@@ -1490,22 +1532,17 @@ if (elPersonaDemografica) {
 /* PROPENSÃO DE PAGAMENTO */
 
 const optionPropensaoPagamento = {
-  // tooltip: {
-  //   trigger: "item",
-  //   formatter: numeroFormatter,
-  // },
-
   tooltip: {
     trigger: "axis",
     axisPointer: {
       type: "cross",
+      label: {
+        show: false,
+      },
     },
     formatter: function (params) {
-      console.log(params);
       return `
-        <b>${params[0].axisValue}</b><br>
         <b>Quantidade:</b> ${brazilianNumberFormat(params[0].value)}<br>
-        <b>Percentual:</b> ${params[1].value}%
       `;
     },
   },
@@ -1518,6 +1555,23 @@ const optionPropensaoPagamento = {
     containLabel: true,
   },
 
+  label: {
+    show: true,
+    position: "inside",
+    formatter: function (params) {
+      const valor = params.value;
+      const percentual = ((valor / totalPropensaoPagamento) * 100).toFixed(2);
+      console.log(percentual);
+      return `${percentual}%`;
+    },
+  },
+
+  axisPointer: {
+    label: {
+      show: false,
+    },
+  },
+
   xAxis: [
     {
       type: "category",
@@ -1525,9 +1579,6 @@ const optionPropensaoPagamento = {
         alignWithLabel: true,
       },
       data: ["Muito alta", "Alta", "Média", "Baixa", "Muito Baixa", "Zerada"],
-      // axisLabel: {
-      //   rotate: 15,
-      // },
     },
   ],
   yAxis: [
@@ -1540,39 +1591,35 @@ const optionPropensaoPagamento = {
         show: false,
       },
       axisLine: {
-        show: true, // Oculta a linha do eixo
-      },
-      // axisLabel: {
-      //   formatter: function (params) {
-      //     console.log(params);
-      //   },
-      // },
-    },
-    {
-      show: false,
-      type: "value",
-      position: "right",
-      alignTicks: true,
-      offset: 80,
-      axisLine: {
-        show: false,
-      },
-      axisLabel: {
-        formatter: "{value}",
+        show: true,
       },
     },
-    {
-      show: false,
-      type: "value",
-      position: "left",
-      alignTicks: true,
-      axisLine: {
-        show: false,
-      },
-      axisLabel: {
-        formatter: "{value}",
-      },
-    },
+    // {
+    //   show: false,
+    //   type: "value",
+    //   position: "right",
+    //   alignTicks: true,
+    //   offset: 80,
+    //   axisLine: {
+    //     show: false,
+    //   },
+    //   axisLabel: {
+    //     show: false,
+    //     formatter: "{value}",
+    //   },
+    // },
+    // {
+    //   show: false,
+    //   type: "value",
+    //   position: "left",
+    //   alignTicks: true,
+    //   axisLine: {
+    //     show: false,
+    //   },
+    //   axisLabel: {
+    //     formatter: "{value}",
+    //   },
+    // },
   ],
   series: [
     {
@@ -1617,17 +1664,24 @@ const optionPropensaoPagamento = {
         },
       ],
     },
-    {
-      name: "Percentual",
-      type: "line",
-      yAxisIndex: 2,
-      data: [2.0, 2.2, 3.3, 4.5, 6.3, 10.2],
-    },
+    // {
+    //   name: "Percentual",
+    //   type: "line",
+    //   yAxisIndex: 2,
+    //   data: [2.0, 2.2, 3.3, 4.5, 6.3, 10.2],
+    // },
   ],
 };
 
 const elGraficoPropensaoPagamento = document.querySelector(
   "#graficoPropensaoPagamento",
+);
+
+const totalPropensaoPagamento = optionPropensaoPagamento.series[0].data.reduce(
+  (acumulador, itemAtual) => {
+    return acumulador + itemAtual.value;
+  },
+  0,
 );
 
 if (elGraficoPropensaoPagamento) {
@@ -1646,8 +1700,11 @@ if (elGraficoPropensaoPagamento) {
 
 const optionCollectionScore = {
   legend: {
+    orient: "horizontal",
     top: "top",
-    show: false,
+    left: 0,
+    width: "600px",
+    itemGap: 4,
   },
   tooltip: {
     trigger: "item",
@@ -1715,7 +1772,7 @@ const optionVinculoSocietario = {
     show: true,
     position: "inside",
     formatter: function (params) {
-      return `${params.percent}%`;
+      return `${params.percent.toFixed(1)}%`;
     },
   },
   legend: {
@@ -1880,7 +1937,7 @@ const optionConsultaUltimoAno = {
   },
   label: {
     formatter: function (params) {
-      return `${params.percent * 2}%`;
+      return `${(params.percent * 2).toFixed(1)}%`;
     },
   },
   grid: {
