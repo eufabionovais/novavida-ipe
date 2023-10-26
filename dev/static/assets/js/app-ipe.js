@@ -1,24 +1,24 @@
 $(function () {
   // Gerencia Status de visibilidade do menu principal
-  $(".main__wrapper").attr("data-collapse", false);
+  $("body").attr("data-collapse", false);
   $("[data-toggle-menu]").on("click", function () {
-    if ($(".main__wrapper").data("collapse") == false) {
-      $(".main__wrapper").data("collapse", true);
-      $(".main__wrapper").attr("data-collapse", true);
+    if ($("body").data("collapse") == false) {
+      $("body").data("collapse", true);
+      $("body").attr("data-collapse", true);
     } else {
-      $(".main__wrapper").data("collapse", false);
-      $(".main__wrapper").attr("data-collapse", false);
+      $("body").data("collapse", false);
+      $("body").attr("data-collapse", false);
     }
   });
 
   $(window).on("resize", function () {
     let windowSize = $(this).width();
     if (windowSize <= 1200) {
-      $(".main__wrapper").data("collapse", true);
-      $(".main__wrapper").attr("data-collapse", true);
+      $("body").data("collapse", true);
+      $("body").attr("data-collapse", true);
     } else {
-      $(".main__wrapper").data("collapse", false);
-      $(".main__wrapper").attr("data-collapse", false);
+      $("body").data("collapse", false);
+      $("body").attr("data-collapse", false);
     }
   });
 
