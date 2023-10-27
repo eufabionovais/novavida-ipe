@@ -43,20 +43,10 @@ echarts.registerPreprocessor(function (option) {
   option.color = eChartsGlobalConfig.color;
 });
 
-function numeroFormatter(params) {
-  var formattedValue = params.value
-    .toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  return `<b>${params.name}</b>: ${formattedValue}`;
-}
+const colecaoConfiguracoesGraficosPf = [];
 
-function brazilianNumberFormat(number) {
+function formatarNumeroMilharesCentenas(number) {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-}
-
-function numeroRawPercent(params) {
-  var formattedValue = `${params.value}%`;
-  return params.name + ": " + formattedValue;
 }
 
 /* GRÁFICO SITUAÇÃO CPF */
@@ -77,7 +67,9 @@ let optionSituacaoDocumentos = {
       const valorTotal =
         optionSituacaoDocumentosClone[params.componentIndex].valorAbsoluto;
 
-      return `<b>Quantidade</b>: ${brazilianNumberFormat(valorTotal)} `;
+      return `<b>Quantidade</b>: ${formatarNumeroMilharesCentenas(
+        valorTotal,
+      )} `;
     },
   },
   legend: {
@@ -166,6 +158,7 @@ if (elGraficoSituacaoDocumentoPF) {
   optionSituacaoDocumentos.series = optionSituacaoDocumentosClone;
   graficoSituacaoDocumentoPF.setOption(optionSituacaoDocumentos);
 }
+colecaoConfiguracoesGraficosPf.push(optionSituacaoDocumentos);
 
 /* FIM GRÁFICO SITUAÇÃO CPF */
 
@@ -174,7 +167,9 @@ let optionVinculoFamiliarPF = {
   tooltip: {
     trigger: "item",
     formatter: function (params) {
-      return `<b>Quantidade:</b> ${brazilianNumberFormat(params.data.value)}`;
+      return `<b>Quantidade:</b> ${formatarNumeroMilharesCentenas(
+        params.data.value,
+      )}`;
     },
   },
   label: {
@@ -234,6 +229,7 @@ if (elGrauVinculo) {
   });
   graficoGrauVinculoPF.setOption(optionVinculoFamiliarPF);
 }
+colecaoConfiguracoesGraficosPf.push(optionVinculoFamiliarPF);
 /* FIM GRAU VÍNCULO PF */
 
 /* FLAGS ESTRATÉGICAS DE TELEFONIA */
@@ -241,7 +237,9 @@ let optionFlagsTelefonia = {
   tooltip: {
     trigger: "item",
     formatter: function (params) {
-      return `<b>Quantidade:</b> ${brazilianNumberFormat(params.value)}`;
+      return `<b>Quantidade:</b> ${formatarNumeroMilharesCentenas(
+        params.value,
+      )}`;
     },
   },
   label: {
@@ -347,6 +345,7 @@ if (elFlagsTelefoniaPF) {
   graficoFlagsTelefoniaPF.series = optionFlagsTelefoniaClone;
   graficoFlagsTelefoniaPF.setOption(optionFlagsTelefonia);
 }
+colecaoConfiguracoesGraficosPf.push(optionFlagsTelefonia);
 /* FIM FLAGS ESTRATÉGICAS DE TELEFONIA */
 
 /* TELEFONES RANKING */
@@ -354,7 +353,9 @@ const optionTelefonesRanking = {
   tooltip: {
     trigger: "item",
     formatter: function (params) {
-      return `<b>Quantidade:</b> ${brazilianNumberFormat(params.value)}`;
+      return `<b>Quantidade:</b> ${formatarNumeroMilharesCentenas(
+        params.value,
+      )}`;
     },
   },
   label: {
@@ -409,6 +410,7 @@ if (elGraficoTelefonesRanking) {
   });
   graficoTelefonesRanking.setOption(optionTelefonesRanking);
 }
+colecaoConfiguracoesGraficosPf.push(optionTelefonesRanking);
 /* FIM TELEFONES RANKING */
 
 /* PESSOAS POR ESTADO */
@@ -416,7 +418,7 @@ let optionPessoaPorEstado = {
   tooltip: {
     trigger: "item",
     formatter: function (params) {
-      return `<b>Quantidade</b>: ${brazilianNumberFormat(
+      return `<b>Quantidade</b>: ${formatarNumeroMilharesCentenas(
         params.data.valorAbsoluto,
       )} `;
     },
@@ -437,8 +439,8 @@ let optionPessoaPorEstado = {
       type: "slider",
       show: true,
       xAxisIndex: [0],
-      start: 0,
-      end: 20,
+      start: 10,
+      end: 30,
       bottom: 10,
       height: 20,
     },
@@ -501,7 +503,7 @@ let optionPessoaPorEstado = {
       barWidth: "70%",
       label: {
         show: true,
-        position: [15, -40],
+        position: ["50%", -40],
         rotate: -90,
         textShadowBlur: 0,
         borderWidth: 0,
@@ -708,6 +710,7 @@ if (elGraficoPessoasPorEstado) {
   optionPessoaPorEstado.series[0].data = optionsPessoaPorEstadoClone;
   graficoPessoasPorEstado.setOption(optionPessoaPorEstado);
 }
+colecaoConfiguracoesGraficosPf.push(optionPessoaPorEstado);
 /* FIM PESSOAS POR ESTADO */
 
 /* PESSOAS POR REGIÃO */
@@ -716,7 +719,9 @@ const optionPessoasPorRegiao = {
     trigger: "item",
     formatter: function (params) {
       return `<b>${params.data.name}</b><br>
-              <b>Quantidade:</b> ${brazilianNumberFormat(params.data.value)}<br>
+              <b>Quantidade:</b> ${formatarNumeroMilharesCentenas(
+                params.data.value,
+              )}<br>
               <b>Percentual:</b> ${(
                 (params.data.value / totalPopulacaoBrasil) *
                 100
@@ -786,6 +791,7 @@ if (elGraficoPessoasPorRegiao) {
 
   graficoPessoasPorRegiao.setOption(optionPessoasPorRegiao);
 }
+colecaoConfiguracoesGraficosPf.push(optionPessoasPorRegiao);
 /* FIM PESSOAS POR REGIÃO */
 
 /* PESSOAS POR SEXO */
@@ -793,7 +799,9 @@ const optionPessoasPorSexo = {
   tooltip: {
     trigger: "item",
     formatter: function (params) {
-      return `<b>Quantidade:</b> ${brazilianNumberFormat(params.value)}`;
+      return `<b>Quantidade:</b> ${formatarNumeroMilharesCentenas(
+        params.value,
+      )}`;
     },
   },
   label: {
@@ -859,13 +867,16 @@ if (elGraficoPessoaPorSexo) {
   });
   graficoPessoasPorSexo.setOption(optionPessoasPorSexo);
 }
+colecaoConfiguracoesGraficosPf.push(optionPessoasPorSexo);
 /* FIM PESSOAS POR SEXO */
 
 /* PESSOAS POR GERAÇÃO */
 const optionPessoasPorGeracao = {
   tooltip: {
     formatter: function (params) {
-      return `<b>Quantidade:</b> ${brazilianNumberFormat(params.data.value)}`;
+      return `<b>Quantidade:</b> ${formatarNumeroMilharesCentenas(
+        params.data.value,
+      )}`;
     },
   },
   legend: {
@@ -910,6 +921,7 @@ if (elGraficoPessoasPorGeracao) {
   );
   graficoPessoasPorGeracao.setOption(optionPessoasPorGeracao);
 }
+colecaoConfiguracoesGraficosPf.push(optionPessoasPorGeracao);
 /* FIM PESSOAS POR GERAÇÃO */
 
 /* PERSONA DE CRÉDITO */
@@ -931,7 +943,9 @@ let optionPersonaCredito = {
       const valorTotal =
         optionPersonaCreditoClone[params.componentIndex].valorAbsoluto;
 
-      return `<b>Quantidade</b>: ${brazilianNumberFormat(valorTotal)} `;
+      return `<b>Quantidade</b>: ${formatarNumeroMilharesCentenas(
+        valorTotal,
+      )} `;
     },
   },
   legend: {
@@ -1059,6 +1073,7 @@ if (elGraficoPersonaCredito) {
   graficoPersonaCredito.series = optionPersonaCreditoClone;
   graficoPersonaCredito.setOption(optionPersonaCredito);
 }
+colecaoConfiguracoesGraficosPf.push(optionPersonaCredito);
 /* FIM PERSONA DE CRÉDITO */
 
 /* PERSONA DIGITAL */
@@ -1066,7 +1081,9 @@ const optionPersonaDigital = {
   tooltip: {
     trigger: "item",
     formatter: function (params) {
-      return `<b>Quantidade:</b> ${brazilianNumberFormat(params.value)}`;
+      return `<b>Quantidade:</b> ${formatarNumeroMilharesCentenas(
+        params.value,
+      )}`;
     },
   },
 
@@ -1115,10 +1132,10 @@ if (elGraficoPessoaDigital) {
   });
   graficoPersonaDigital.setOption(optionPersonaDigital);
 }
+colecaoConfiguracoesGraficosPf.push(optionPersonaDigital);
 /* FIM PERSONA DIGITAL */
 
 /* POSSÍVEL ESCOLARIDADE */
-
 const optionPossivelEscolaridade = {
   tooltip: {
     trigger: "item",
@@ -1132,7 +1149,9 @@ const optionPossivelEscolaridade = {
 
       return `
         <b>Ensino ${label}</b><br>
-        <b>Quantidade</b>: ${brazilianNumberFormat(valor)} (${percentual}%)
+        <b>Quantidade</b>: ${formatarNumeroMilharesCentenas(
+          valor,
+        )} (${percentual}%)
       `;
     },
   },
@@ -1220,6 +1239,8 @@ if (elGraficoPossivelEscolaridade) {
   );
   graficoPossivelEscolaridade.setOption(optionPossivelEscolaridade);
 }
+
+colecaoConfiguracoesGraficosPf.push(optionPossivelEscolaridade);
 /* FIM POSSÍVEL ESCOLARIDADE */
 
 /* PERSONA DEMOGRÁFICA */
@@ -1237,7 +1258,9 @@ const optionPersonaDemografica = {
     trigger: "item",
     formatter: function (params) {
       return `<b>${params.data.name}</b><br>
-              <b>Quantidade:</b> ${brazilianNumberFormat(params.data.value)}<br>
+              <b>Quantidade:</b> ${formatarNumeroMilharesCentenas(
+                params.data.value,
+              )}<br>
               <b>Percentual:</b> ${(
                 (params.data.value / totalPersonaDemografica) *
                 100
@@ -1473,6 +1496,7 @@ if (elPersonaDemografica) {
   });
   graficoPersonaDemografica.setOption(optionPersonaDemografica);
 }
+colecaoConfiguracoesGraficosPf.push(optionPersonaDemografica);
 /* FIM PERSONA DEMOGRÁFICA */
 
 /* PROPENSÃO DE PAGAMENTO */
@@ -1487,7 +1511,9 @@ const optionPropensaoPagamento = {
     },
     formatter: function (params) {
       return `
-        <b>Quantidade:</b> ${brazilianNumberFormat(params[0].value)}<br>
+        <b>Quantidade:</b> ${formatarNumeroMilharesCentenas(
+          params[0].value,
+        )}<br>
       `;
     },
   },
@@ -1606,6 +1632,7 @@ if (elGraficoPropensaoPagamento) {
   );
   graficoPropensaoPagamento.setOption(optionPropensaoPagamento);
 }
+colecaoConfiguracoesGraficosPf.push(optionPropensaoPagamento);
 /* FIM PROPENSÃO DE PAGAMENTO */
 
 /* COLLECTION STORE */
@@ -1620,7 +1647,9 @@ const optionCollectionScore = {
   tooltip: {
     trigger: "item",
     formatter: function (params) {
-      return `<b>Quantidade</b>: ${brazilianNumberFormat(params.value)}`;
+      return `<b>Quantidade</b>: ${formatarNumeroMilharesCentenas(
+        params.value,
+      )}`;
     },
   },
 
@@ -1669,6 +1698,7 @@ if (elGraficoCollectionScore) {
 
   graficoCollectionScore.setOption(optionCollectionScore);
 }
+colecaoConfiguracoesGraficosPf.push(optionCollectionScore);
 /* FIM COLLECTION STORE */
 
 /* VÍNCULO SOCIETÁRIO */
@@ -1676,7 +1706,9 @@ const optionVinculoSocietario = {
   tooltip: {
     trigger: "item",
     formatter: function (params) {
-      return `<b>Quantidade</b>: ${brazilianNumberFormat(params.data.value)}`;
+      return `<b>Quantidade</b>: ${formatarNumeroMilharesCentenas(
+        params.data.value,
+      )}`;
     },
   },
   label: {
@@ -1733,6 +1765,7 @@ if (elGraficoVinculoSocietario) {
   );
   graficoVinculoSocietario.setOption(optionVinculoSocietario);
 }
+colecaoConfiguracoesGraficosPf.push(optionVinculoSocietario);
 /* FIM VÍNCULO SOCIETÁRIO */
 
 /* DISTRIBUIÇÃO DE RENDA */
@@ -1831,6 +1864,7 @@ if (elGraficoDistribuicaoRenda) {
   );
   graficoDistribuicaoRenda.setOption(optionDistribuicaoRenda);
 }
+colecaoConfiguracoesGraficosPf.push(optionDistribuicaoRenda);
 /* FIM DISTRIBUIÇÃO DE RENDA */
 
 /* CONSULTADOS EM 6 E 12 MESES */
@@ -1838,7 +1872,9 @@ const optionConsultaUltimoAno = {
   tooltip: {
     trigger: "item",
     formatter: function (params) {
-      return `<b>Quantidade:</b> ${brazilianNumberFormat(params.data.value)}`;
+      return `<b>Quantidade:</b> ${formatarNumeroMilharesCentenas(
+        params.data.value,
+      )}`;
     },
   },
   label: {
@@ -1900,4 +1936,30 @@ if (elGraficoConsultasUltimoAno) {
   );
   graficoConsultasUltimoAno.setOption(optionConsultaUltimoAno);
 }
+colecaoConfiguracoesGraficosPf.push(optionConsultaUltimoAno);
 /* FIM CONSULTADOS EM 6 E 12 MESES */
+
+// setTimeout(function () {
+//   animateCharts();
+// }, 1000);
+
+// function animateCharts() {
+//   const waypoints = $(".chart-item").waypoint({
+//     handler: function (direction) {
+//       if (direction === "down") {
+//         if (!this.element.classList.contains("animated")) {
+//           const elementoIndex = $(".chart-item").index(this.element);
+//           const chartElement = document.querySelector("#" + this.element.id);
+//           console.log(chartElement);
+//           const chartInstance = echarts.getInstanceByDom(chartElement);
+//           chartInstance.clear();
+//           chartInstance.setOption(
+//             colecaoConfiguracoesGraficosPf[elementoIndex],
+//           );
+
+//           this.element.classList.add("animated");
+//         }
+//       }
+//     },
+//   });
+// }
