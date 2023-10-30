@@ -274,7 +274,7 @@ $(function () {
     swiperInstance.on("slideChangeTransitionEnd", function () {
       // $("body, html").scrollTop(0);
       window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-      animateCharts();
+      // animateCharts();
     });
   }
 });

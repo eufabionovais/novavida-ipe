@@ -15103,4 +15103,12 @@ label.error{
 .tbl-chart th,
 .tbl-chart td{
    padding: 4px;
+
+}
+
+.tbl-chart td:first-child .legend {
+   display: inline-block;
+   width: 10px;
+   height: 10px;
+   margin-right: 5px;
 }
