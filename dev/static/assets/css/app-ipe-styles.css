@@ -3306,13 +3306,7 @@ textarea.form-control-lg{
 .dropstart .dropdown-toggle::before{
    vertical-align:0
 }
-.dropdown-divider{
-   height:0;
-   margin:var(--bs-dropdown-divider-margin-y) 0;
-   overflow:hidden;
-   border-top:1px solid var(--bs-dropdown-divider-bg);
-   opacity:1
-}
+
 .dropdown-item{
    display:block;
    width:100%;
@@ -10691,12 +10685,21 @@ button:focus,button:active{
 .dropdown-toggle:after{
    content:"\e5cf";
    display:inline-block;
-   font-family:"Material Symbols Outlined";
+   font-family:"Material Icons";
    font-size:20px;
    font-weight:bold;
    border:none;
    color:var(--blue-300)
 }
+.dropdown-divider {
+   height: 0;
+   margin: var(--bs-dropdown-divider-margin-y) 0;
+   overflow: hidden;
+   border-top: solid 1px #E2E8FC;
+   opacity: 0.4;
+   box-shadow: 0;
+ }
+
 .icon-small{
    font-size:20px
 }
@@ -15111,4 +15114,11 @@ label.error{
    width: 10px;
    height: 10px;
    margin-right: 5px;
+}
+
+.form-select-secao option {
+   font-size: 16px;
+}
+.form-select-secao option:first-child {
+   color: #000;
 }

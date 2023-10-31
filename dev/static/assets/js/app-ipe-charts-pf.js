@@ -503,8 +503,8 @@ let optionPessoaPorEstado = {
       barWidth: "70%",
       label: {
         show: true,
-        position: ["50%", -40],
-        rotate: -90,
+        position: ["50%", -10],
+        rotate: 90,
         textShadowBlur: 0,
         borderWidth: 0,
         textStyle: labelTextConfigs,
@@ -895,7 +895,9 @@ const optionPessoasPorGeracao = {
       },
       label: {
         show: true,
-        formatter: "{d}%",
+        formatter: function (params) {
+          return `${params.percent.toFixed(1)}%`;
+        },
       },
       data: [
         { value: 1355, name: "Veteranos" },
@@ -1675,7 +1677,9 @@ const optionCollectionScore = {
 
       label: {
         show: true,
-        formatter: "{d}%",
+        formatter: function (params) {
+          return `${params.percent.toFixed(1)}%`;
+        },
       },
       data: [
         { value: 40, name: "Risco muito alto" },

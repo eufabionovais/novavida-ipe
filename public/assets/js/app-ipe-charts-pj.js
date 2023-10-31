@@ -48,7 +48,7 @@ let optionSituacaoCadastralPJ = {
   },
   yAxis: {
     type: "category",
-    data: ["Situação"],
+    data: [""],
   },
 
   series: [
@@ -261,7 +261,9 @@ const optionQuantidadeSocios = {
       },
       label: {
         show: true,
-        formatter: "{d}%",
+        formatter: function (params) {
+          return `${params.percent.toFixed(1)}%`;
+        },
       },
       data: [
         { value: 1048, name: "1 Sócio" },
@@ -434,8 +436,8 @@ let optionNaturezaJuridica = {
       barWidth: "70%",
       label: {
         show: true,
-        position: ["50%", -40],
-        rotate: -90,
+        position: ["50%", -10],
+        rotate: 90,
         textShadowBlur: 0,
         borderWidth: 0,
         textStyle: labelTextConfigs,
@@ -708,7 +710,7 @@ let optionAnalisePotencialRegiaoPJ = {
   },
   yAxis: {
     type: "category",
-    data: ["Situação"],
+    data: [""],
   },
 
   series: [
@@ -820,7 +822,7 @@ const configuracaoPersonasPj = {
     containLabel: true,
   },
   legend: {
-    left: "50%",
+    left: "60%",
     top: "center",
     selectedMode: false,
     orient: "vertical",
@@ -830,7 +832,7 @@ const configuracaoPersonasPj = {
       name: "",
       type: "pie",
       radius: ["40%", "70%"],
-      center: ["20%", "50%"],
+      center: ["30%", "50%"],
       startAngle: 90,
 
       data: [
@@ -844,18 +846,18 @@ const configuracaoPersonasPj = {
         { value: 805, name: "Médias/Grandes estável" },
         { value: 1110, name: "Médias/Grandes novo" },
 
-        {
-          value: 533 + 1657 + 103 + 165 + 530 + 151 + 735 + 805 + 1110,
-          itemStyle: {
-            color: "none",
-            decal: {
-              symbol: "none",
-            },
-          },
-          label: {
-            show: false,
-          },
-        },
+        // {
+        //   value: 533 + 1657 + 103 + 165 + 530 + 151 + 735 + 805 + 1110,
+        //   itemStyle: {
+        //     color: "none",
+        //     decal: {
+        //       symbol: "none",
+        //     },
+        //   },
+        //   label: {
+        //     show: false,
+        //   },
+        // },
       ],
     },
   ],
@@ -1086,8 +1088,8 @@ let configuracoesMcc = {
       barWidth: "70%",
       label: {
         show: true,
-        position: ["50%", -40],
-        rotate: -90,
+        position: ["50%", -10],
+        rotate: 90,
         textShadowBlur: 0,
         borderWidth: 0,
         textStyle: labelTextConfigs,
@@ -1166,6 +1168,448 @@ if (elGraficoMcc) {
 colecaoConfiguracoesGraficosPJ.push(configuracoesMcc);
 /* FIM MCC */
 
+/* SELEÇÃO DE SEÇÃO */
+
+const secoesCNAE = {
+  "secao-a": [
+    {
+      value: 5,
+      name: "Atividades de apoio à agricultura não especificadas anteriormente",
+    },
+    {
+      value: 15,
+      name: "Atividades de apoio à produção florestal",
+    },
+    {
+      value: 22,
+      name: "Atividades de pós-colheita",
+    },
+    {
+      value: 64,
+      name: "Criação de frangos para corte",
+    },
+    {
+      value: 33,
+      name: "Cultivo de eucalipto",
+    },
+    {
+      value: 2,
+      name: "Serviço de preparação de terreno, cultivo e colheita",
+    },
+  ],
+  "secao-b": [
+    {
+      value: 63,
+      name: "Atividades de apoio à extração de minerais não metálicos",
+    },
+    { value: 122, name: "Extração de ardósia e beneficiamento associado" },
+    {
+      value: 36,
+      name: "Extração de areia, cascalho ou pedregulho e beneficiamento associado",
+    },
+    { value: 173, name: "Extração de granito e beneficiamento associado" },
+    {
+      value: 90,
+      name: "Extração de outros minerais não metálicos não especificados anteriormente",
+    },
+    { value: 119, name: "Refino e outros tratamentos do sal" },
+  ],
+  "secao-c": [
+    {
+      value: 64,
+      name: "Aparelhamento de placas e execução de trabalhos em mármore, granito, ardósia e outras pedras",
+    },
+    { value: 87, name: "Beneficiamento de arroz" },
+    {
+      value: 120,
+      name: "Confecção de peças do vestuário, exceto roupas íntimas e as confeccionadas sob medida",
+    },
+    { value: 36, name: "Confecção de roupas íntimas" },
+    {
+      value: 111,
+      name: "Confecção, sob medida, de peças do vestuário, exceto roupas íntimas",
+    },
+    {
+      value: 68,
+      name: "Fabricação de acessórios do vestuário, exceto para segurança e proteção",
+    },
+    { value: 165, name: "Fabricação de alimentos e pratos prontos" },
+    {
+      value: 55,
+      name: "Fabricação de artefatos de cerâmica e barro cozido para uso na construção, exceto azulejos e pisos",
+    },
+    {
+      value: 189,
+      name: "Fabricação de artefatos diversos de madeira, exceto móveis",
+    },
+    { value: 50, name: "Fabricação de artefatos têxteis para uso doméstico" },
+    {
+      value: 105,
+      name: "Fabricação de artigos de serralheria, exceto esquadrias",
+    },
+    {
+      value: 57,
+      name: "Fabricação de artigos para viagem, bolsas e semelhantes de qualquer material",
+    },
+    { value: 84, name: "Fabricação de bijuterias e artefatos semelhantes" },
+    { value: 40, name: "Fabricação de calçados de couro" },
+    {
+      value: 39,
+      name: "Fabricação de equipamentos e acessórios para segurança pessoal e profissional",
+    },
+    {
+      value: 27,
+      name: "Fabricação de especiarias, molhos, temperos e condimentos",
+    },
+    {
+      value: 92,
+      name: "Fabricação de esquadrias de madeira e de peças de madeira para instalações industriais e comerciais",
+    },
+    { value: 168, name: "Fabricação de esquadrias de metal" },
+    { value: 41, name: "Fabricação de estruturas metálicas" },
+    {
+      value: 188,
+      name: "Fabricação de estruturas pré-moldadas de concreto armado, em série e sob encomenda",
+    },
+    { value: 77, name: "Fabricação de laticínios" },
+    {
+      value: 146,
+      name: "Fabricação de luminárias e outros equipamentos de iluminação",
+    },
+    {
+      value: 58,
+      name: "Fabricação de máquinas e equipamentos para as indústrias de alimentos, bebidas e fumo, peças e acessórios",
+    },
+    {
+      value: 179,
+      name: "Fabricação de máquinas e equipamentos para uso industrial específico não especificados anteriormente, peças e acessórios",
+    },
+    {
+      value: 139,
+      name: "Fabricação de máquinas-ferramenta, peças e acessórios",
+    },
+    { value: 148, name: "Fabricação de massas alimentícias" },
+    {
+      value: 66,
+      name: "Fabricação de medicamentos alopáticos para uso humano",
+    },
+    {
+      value: 183,
+      name: "Fabricação de mesas de bilhar, de sinuca e acessórios associada à locação",
+    },
+    { value: 81, name: "Fabricação de móveis com predominância de madeira" },
+    { value: 42, name: "Fabricação de obras de caldeiraria pesada" },
+    {
+      value: 70,
+      name: "Fabricação de óleos vegetais em bruto, exceto óleo de milho",
+    },
+    {
+      value: 125,
+      name: "Fabricação de outras máquinas e equipamentos de uso geral não especificados anteriormente, peças e acessórios",
+    },
+    {
+      value: 37,
+      name: "Fabricação de outros artigos de carpintaria para construção",
+    },
+    {
+      value: 78,
+      name: "Fabricação de outros produtos de metal não especificados anteriormente",
+    },
+    {
+      value: 190,
+      name: "Fabricação de produtos de padaria e confeitaria com predominância de produção própria",
+    },
+    { value: 158, name: "Fabricação de produtos de panificação industrial" },
+    {
+      value: 108,
+      name: "Fabricação de produtos de pastas celulósicas, papel, cartolina, papel-cartão e papelão ondulado não especificados anteriormente",
+    },
+    {
+      value: 160,
+      name: "Fabricação de produtos de trefilados de metal padronizados",
+    },
+    {
+      value: 172,
+      name: "Fabricação de produtos diversos não especificados anteriormente",
+    },
+    {
+      value: 144,
+      name: "Fabricação de sucos de frutas, hortaliças e legumes, exceto concentrados",
+    },
+    { value: 31, name: "Fabricação de tintas, vernizes, esmaltes e lacas" },
+    {
+      value: 165,
+      name: "Fabricação de transformadores, indutores, conversores, sincronizadores e semelhantes, peças e acessórios",
+    },
+    { value: 27, name: "Facção de peças do vestuário, exceto roupas íntimas" },
+    { value: 112, name: "Impressão de material para outros usos" },
+    { value: 37, name: "Impressão de material para uso publicitário" },
+    {
+      value: 109,
+      name: "Manutenção e reparação de máquinas e aparelhos de refrigeração e ventilação para uso industrial e comercial",
+    },
+    {
+      value: 125,
+      name: "Metalurgia de outros metais não ferrosos e suas ligas não especificados anteriormente",
+    },
+    {
+      value: 140,
+      name: "Outros serviços de acabamento em fios, tecidos, artefatos têxteis e peças do vestuário",
+    },
+    { value: 88, name: "Preparação de subprodutos do abate" },
+    { value: 42, name: "Reforma de pneumáticos usados" },
+    { value: 115, name: "Serrarias com desdobramento de madeira em bruto" },
+    {
+      value: 53,
+      name: "Serviços de acabamentos gráficos, exceto encadernação e plastificação",
+    },
+    { value: 66, name: "Serviços de encadernação e plastificação" },
+    { value: 127, name: "Serviços de montagem de móveis de qualquer material" },
+    { value: 60, name: "Serviços de usinagem, torneiria e solda" },
+  ],
+};
+
+/* FIM SELEÇÃO DE SEÇÃO */
+
+/* EMPRESAS POR CNAE */
+let configuracoesEmpresasPorCnae = {
+  tooltip: {
+    trigger: "item",
+    formatter: function (params) {
+      return `
+        <b>Categoria:</b> ${params.name}<br>
+        <b>Quantidade</b>: ${formatarNumeroMilharesCentenas(
+          params.data.valorAbsoluto,
+        )}<br>
+        <b>Percentual:</b> ${params.value}%
+        
+        `;
+    },
+    axisPointer: {
+      type: "shadow",
+    },
+  },
+
+  grid: {
+    top: "20%",
+    left: "5%",
+    right: "5%",
+    bottom: "15%",
+    containLabel: true,
+  },
+  dataZoom: [
+    {
+      type: "slider",
+      show: true,
+      xAxisIndex: [0],
+      start: 0,
+      end: 60,
+      bottom: 10,
+      height: 20,
+    },
+  ],
+
+  xAxis: [
+    {
+      axisLabel: {
+        show: true,
+      },
+      type: "category",
+      data: [
+        "MCC",
+        "Agrotudo",
+        "Artigos eletrônicos",
+        "Atacadista",
+        "Beleza",
+        "Casa",
+        "Cultura",
+        "Direto do fabricante",
+        "Educação",
+        "Fármacias",
+        "Hoteis",
+        "Informatica",
+        "Joalheria",
+        "Linhas aéreas",
+        "Locação",
+        "Lojas de Departamento",
+        "Materiais de construção",
+        "Moveis",
+        "Oficinas de Manutenção",
+        "Outros",
+        "Petshop",
+        "Postos de gasolina",
+        "Restaurante",
+        "Serviços de Construção",
+        "Serviços em geral",
+        "Serviços Financeiros",
+        "Serviços Médico Hospitalar",
+        "Supermercado",
+        "Telemarketing",
+        "Transporte de carga",
+        "Transporte de passageiro",
+        "Turismo",
+        "Utilidade pública",
+        "Varejo",
+        "Veículos",
+        "Recolher",
+      ],
+      axisTick: {
+        alignWithLabel: true,
+      },
+    },
+  ],
+  yAxis: [
+    {
+      type: "value",
+      axisLabel: {
+        show: true,
+      },
+      splitLine: {
+        show: true,
+      },
+    },
+  ],
+  series: [
+    {
+      type: "bar",
+      barWidth: "70%",
+      label: {
+        show: true,
+        position: ["50%", -10],
+        rotate: 90,
+        textShadowBlur: 0,
+        borderWidth: 0,
+        textStyle: labelTextConfigs,
+
+        formatter: function (params) {
+          return `${params.value}%`;
+        },
+      },
+      data: [
+        { value: 818697, itemStyle: { color: "#A793D0" } },
+        { value: 198412, itemStyle: { color: "#FFC27D" } },
+        { value: 815455, itemStyle: { color: "#FFDCB3" } },
+        { value: 341671, itemStyle: { color: "#93a1c1" } },
+        { value: 625692, itemStyle: { color: "#68C7AC" } },
+        { value: 224332, itemStyle: { color: "#ECECF8" } },
+        { value: 365080, itemStyle: { color: "#FFD885" } },
+        { value: 581320, itemStyle: { color: "#ACDFD0" } },
+        { value: 734693, itemStyle: { color: "#FFC27D" } },
+        { value: 832255, itemStyle: { color: "#BBE9DE" } },
+        { value: 284906, itemStyle: { color: "#93a1c1" } },
+        { value: 796540, itemStyle: { color: "#FFD885" } },
+        { value: 792075, itemStyle: { color: "#A4C8EA" } },
+        { value: 577476, itemStyle: { color: "#FFDCB3" } },
+        { value: 431613, itemStyle: { color: "#8E77D4" } },
+        { value: 228489, itemStyle: { color: "#FF6565" } },
+        { value: 472360, itemStyle: { color: "#8CB3E6" } },
+        { value: 381457, itemStyle: { color: "#FFC9C9" } },
+        { value: 899290, itemStyle: { color: "#A793D0" } },
+        { value: 684660, itemStyle: { color: "#FF6565" } },
+        { value: 361738, itemStyle: { color: "#FFDCB3" } },
+        { value: 707116, itemStyle: { color: "#3A7DE8" } },
+        { value: 565628, itemStyle: { color: "#C7B2E4" } },
+        { value: 714101, itemStyle: { color: "#FF9999" } },
+        { value: 936111, itemStyle: { color: "#68C7AC" } },
+        { value: 763230, itemStyle: { color: "#9BD9C4" } },
+        { value: 447209, itemStyle: { color: "#A4C8EA" } },
+        { value: 804048, itemStyle: { color: "#FFC27D" } },
+        { value: 515917, itemStyle: { color: "#FF6565" } },
+        { value: 475983, itemStyle: { color: "#FF8E8E" } },
+        { value: 433666, itemStyle: { color: "#FF8E8E" } },
+        { value: 687839, itemStyle: { color: "#6456BB" } },
+        { value: 308763, itemStyle: { color: "#FFAF26" } },
+        { value: 781136, itemStyle: { color: "#E2DB46" } },
+        { value: 761029, itemStyle: { color: "#71A5D5" } },
+        { value: 835442, itemStyle: { color: "#FF8E8E" } },
+        { value: 913042, itemStyle: { color: "#8CB3E6" } },
+      ],
+    },
+  ],
+};
+
+const totalEmpresasPorCnae = configuracoesEmpresasPorCnae.series[0].data.reduce(
+  (acumulador, itemAtual) => {
+    return acumulador + itemAtual.value;
+  },
+  0,
+);
+
+const configuracoesEmpresasPorCnaeClone =
+  configuracoesEmpresasPorCnae.series[0].data.map((item) => {
+    return {
+      ...item,
+      value: `${((item.value / totalEmpresasPorCnae) * 100).toFixed(1)}`,
+      valorAbsoluto: item.value,
+    };
+  });
+
+const elEmpresasPorCnae = document.querySelector("#graficoEmpresasPorCnae");
+
+if (elEmpresasPorCnae) {
+  let graficoEmpresasPorCnae = echarts.init(elEmpresasPorCnae, null, {
+    height: 250,
+  });
+  configuracoesEmpresasPorCnae.series[0].data =
+    configuracoesEmpresasPorCnaeClone;
+  graficoEmpresasPorCnae.setOption(configuracoesEmpresasPorCnae);
+}
+colecaoConfiguracoesGraficosPJ.push(configuracoesEmpresasPorCnae);
+
+$("#selecionarSecao").on("change", function () {
+  const value = $(this).val();
+
+  let secao = null;
+
+  if (value === "todos") {
+    secao = [];
+    for (let item in secoesCNAE) {
+      secao.push(...secoesCNAE[item]);
+    }
+  } else {
+    secao = secoesCNAE[value];
+  }
+
+  const labelSecoes = secao.map((item) => {
+    return item.name;
+  });
+
+  const totalPorCnae = secao.reduce((acumulador, itemAtual) => {
+    return acumulador + itemAtual.value;
+  }, 0);
+
+  const valores = secao.map((item, index) => {
+    return {
+      ...item,
+      value: `${((item.value / totalPorCnae) * 100).toFixed(1)}`,
+      valorAbsoluto: item.value,
+      itemStyle: {
+        color: getChartColors(index),
+      },
+    };
+  });
+
+  configuracoesEmpresasPorCnae.xAxis[0].data = labelSecoes;
+  configuracoesEmpresasPorCnae.series[0].data = valores;
+
+  const chartInstance = echarts.getInstanceByDom(
+    document.querySelector("#graficoEmpresasPorCnae"),
+  );
+
+  chartInstance.clear();
+  chartInstance.setOption(configuracoesEmpresasPorCnae);
+});
+
+$("#selecionarSecao").trigger("change");
+
+function getChartColors(index) {
+  const color =
+    eChartsGlobalConfig.color[index % eChartsGlobalConfig.color.length];
+  return color;
+}
+
+/* FIM EMPRESAS POR CNAE */
+
 /* SAÚDE TRIBUTÁRIA PESSOAS JURÍDICA */
 const configuracoesSaudeTributariaPJ = {
   legend: {
@@ -1205,7 +1649,9 @@ const configuracoesSaudeTributariaPJ = {
 
       label: {
         show: true,
-        formatter: "{d}%",
+        formatter: function (params) {
+          return `${params.percent.toFixed(1)}%`;
+        },
       },
       data: [
         { value: 40, name: "De 1  a 2 Dívidas" },
@@ -1258,10 +1704,11 @@ const configuracoesEmpresasPorFaturamento = {
   label: {
     show: true,
     position: "inside",
+    offset: [0, -15],
     formatter: function (params) {
       const valor = params.value;
       const percentual = ((valor / totalEmpresasPorFaturamento) * 100).toFixed(
-        2,
+        1,
       );
       return `${percentual}%`;
     },
@@ -1409,10 +1856,11 @@ const configuracoesQuantidadeFuncionarios = {
   label: {
     show: true,
     position: "inside",
+    offset: [0, -15],
     formatter: function (params) {
       const valor = params.value;
       const percentual = ((valor / totalQuantidadeFuncionarios) * 100).toFixed(
-        2,
+        1,
       );
       return `${percentual}%`;
     },
@@ -1572,7 +2020,9 @@ const configuracaoCollectionScorePJ = {
 
       label: {
         show: true,
-        formatter: "{d}%",
+        formatter: function (params) {
+          return `${params.percent.toFixed(1)}%`;
+        },
       },
       data: [
         { value: 40, name: "Risco muito alto" },
