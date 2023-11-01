@@ -1942,28 +1942,3 @@ if (elGraficoConsultasUltimoAno) {
 }
 colecaoConfiguracoesGraficosPf.push(optionConsultaUltimoAno);
 /* FIM CONSULTADOS EM 6 E 12 MESES */
-
-// setTimeout(function () {
-//   animateCharts();
-// }, 1000);
-
-// function animateCharts() {
-//   const waypoints = $(".chart-item").waypoint({
-//     handler: function (direction) {
-//       if (direction === "down") {
-//         if (!this.element.classList.contains("animated")) {
-//           const elementoIndex = $(".chart-item").index(this.element);
-//           const chartElement = document.querySelector("#" + this.element.id);
-//           console.log(chartElement);
-//           const chartInstance = echarts.getInstanceByDom(chartElement);
-//           chartInstance.clear();
-//           chartInstance.setOption(
-//             colecaoConfiguracoesGraficosPf[elementoIndex],
-//           );
-
-//           this.element.classList.add("animated");
-//         }
-//       }
-//     },
-//   });
-// }

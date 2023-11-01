@@ -15122,3 +15122,7 @@ label.error{
 .form-select-secao option:first-child {
    color: #000;
 }
+
+.filtros-avancados {
+   display: none;
+}

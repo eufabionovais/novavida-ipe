@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollTrigger);
+
 $(function () {
   // Gerencia Status de visibilidade do menu principal
   $("body").attr("data-collapse", false);
@@ -238,43 +240,81 @@ $(function () {
       spaceBetween: 100,
       autoHeight: true,
       allowTouchMove: false,
+      prevEl: ".btn-swiper-prev",
+      nextEl: ".btn-swiper-next",
+      on: {
+        init: function () {
+          checkBlockSliderButtons(this);
+          hideAllCharts();
+          animateCharts();
+        },
+
+        slideChange: function () {
+          hideAllCharts();
+
+          window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+
+          const currentIndex = this.realIndex;
+          const slideTitulo = this.slides[currentIndex].dataset.titulo;
+          $("#slideTitle").html(slideTitulo);
+          animateCharts();
+        },
+
+        slideChangeTransitionEnd: function () {
+          hideAllCharts();
+          animateCharts();
+          checkBlockSliderButtons(this);
+        },
+      },
     });
+
+    function checkBlockSliderButtons(target) {
+      if (target.isBeginning) {
+        $(".btn-swiper-prev").attr("disabled", "disabled");
+        $(".btn-swiper-next").removeAttr("disabled");
+      } else if (target.isEnd) {
+        $(".btn-swiper-next").attr("disabled", "disabled");
+        $(".btn-swiper-prev").removeAttr("disabled");
+      } else {
+        $(".btn-swiper-prev, .btn-swiper-next").removeAttr("disabled");
+      }
+    }
 
     const swiperInstance = swiperElement.swiper;
 
-    $("[data-slider='prev']").prop("disabled", true);
+    swiperInstance.on("slideChangeTransitionEnd", function () {});
 
-    $("[data-slider='prev']").on("click", function () {
+    $(".btn-swiper-prev").on("click", function () {
+      if (swiperInstance.isBeginning) {
+        return;
+      }
       swiperInstance.slidePrev();
     });
 
-    $("[data-slider='next']").on("click", function () {
+    $(".btn-swiper-next").on("click", function () {
+      if (swiperInstance.isEnd) {
+        return;
+      }
       swiperInstance.slideNext();
-    });
-
-    swiperInstance.on("slideChange", function () {
-      const currentIndex = swiperInstance.realIndex;
-      const totalSlides = swiperInstance.slides.length - 1;
-
-      const slideTitulo = swiperInstance.slides[currentIndex].dataset.titulo;
-      $("#slideTitle").html(slideTitulo);
-
-      if (currentIndex === 0) {
-        $("[data-slider='prev']").prop("disabled", true);
-      } else {
-        $("[data-slider='prev']").prop("disabled", false);
-      }
-      if (currentIndex >= totalSlides) {
-        $("[data-slider='next']").prop("disabled", true);
-      } else {
-        $("[data-slider='next']").prop("disabled", false);
-      }
-    });
-
-    swiperInstance.on("slideChangeTransitionEnd", function () {
-      // $("body, html").scrollTop(0);
-      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-      // animateCharts();
     });
   }
 });
+
+function animateCharts() {
+  const boxes = document.querySelectorAll(".chart-item");
+  const boxesTimeline = boxes.forEach((box) => {
+    boxTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: box,
+        start: "top 80%",
+      },
+    });
+
+    boxTimeline.to(box, { opacity: 1, y: 0, duration: 0.8 });
+  });
+}
+
+function hideAllCharts() {
+  const boxes = document.querySelectorAll(".chart-item");
+  gsap.set(boxes, { opacity: 0, y: 50 });
+}
