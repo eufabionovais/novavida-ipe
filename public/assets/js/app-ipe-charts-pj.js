@@ -362,7 +362,9 @@ let optionNaturezaJuridica = {
   tooltip: {
     trigger: "item",
     formatter: function (params) {
-      return `<b>Quantidade</b>: ${formatarNumeroMilharesCentenas(
+      return `
+      <b>${params.name}</b><br>
+      <b>Quantidade</b>: ${formatarNumeroMilharesCentenas(
         params.data.valorAbsoluto,
       )} `;
     },
@@ -393,7 +395,7 @@ let optionNaturezaJuridica = {
   xAxis: [
     {
       axisLabel: {
-        show: true,
+        show: false,
       },
       type: "category",
       data: [
@@ -804,9 +806,9 @@ const configuracaoPersonasPj = {
   tooltip: {
     trigger: "item",
     formatter: function (params) {
-      return `<b>Quantidade:</b> ${formatarNumeroMilharesCentenas(
-        params.data.value,
-      )}`;
+      return `
+      <b>${params.name}</b><br>
+      <b>Quantidade:</b> ${formatarNumeroMilharesCentenas(params.data.value)}`;
     },
   },
   label: {
@@ -822,6 +824,7 @@ const configuracaoPersonasPj = {
     containLabel: true,
   },
   legend: {
+    show: false,
     left: "60%",
     top: "center",
     selectedMode: false,
@@ -832,7 +835,7 @@ const configuracaoPersonasPj = {
       name: "",
       type: "pie",
       radius: ["40%", "70%"],
-      center: ["30%", "50%"],
+      center: ["50%", "50%"],
       startAngle: 90,
 
       data: [
@@ -845,19 +848,6 @@ const configuracaoPersonasPj = {
         { value: 735, name: "Médias/Grandes Em formação" },
         { value: 805, name: "Médias/Grandes estável" },
         { value: 1110, name: "Médias/Grandes novo" },
-
-        // {
-        //   value: 533 + 1657 + 103 + 165 + 530 + 151 + 735 + 805 + 1110,
-        //   itemStyle: {
-        //     color: "none",
-        //     decal: {
-        //       symbol: "none",
-        //     },
-        //   },
-        //   label: {
-        //     show: false,
-        //   },
-        // },
       ],
     },
   ],
@@ -877,13 +867,16 @@ colecaoConfiguracoesGraficosPJ.push(configuracaoPersonasPj);
 let configuracaoDealerPJ = {
   label: {
     show: true,
-    // rotate: 90,
-    position: ["50%", "20%"],
+    position: ["50%", "50%"],
     formatter: function (params) {
       const percentual = Number(params.value);
       return `${percentual}%`;
     },
     align: "center",
+    textStyle: labelTextConfigs,
+
+    color: "#000",
+    fontSize: 12,
   },
 
   tooltip: {
@@ -898,23 +891,33 @@ let configuracaoDealerPJ = {
     },
   },
   legend: {
-    orient: "horizontal",
-    left: "center",
-    right: "auto",
-    top: 210,
+    orient: "vertical",
+    left: "50%",
+    top: 70,
+    show: true,
   },
 
   grid: {
     top: "5%",
-    left: "5%",
-    right: "5%",
-    bottom: "25%",
-    containLabel: true,
+    left: "25%",
+    right: "25%",
+    bottom: "5%",
   },
 
   xAxis: {
     type: "category",
-    data: [],
+    data: ["Big", "Good", "Master"],
+    axisLabel: {
+      show: false,
+    },
+    axisTick: {
+      show: false,
+    },
+    axisLine: {
+      onZero: true,
+    },
+
+    barWidth: "150%",
   },
   yAxis: {
     type: "value",
@@ -926,36 +929,18 @@ let configuracaoDealerPJ = {
       name: "Big",
       type: "bar",
       stack: "total",
-      label: {
-        show: true,
-      },
-      emphasis: {
-        focus: "series",
-      },
       data: [2210],
     },
     {
       name: "Good",
       type: "bar",
       stack: "total",
-      label: {
-        show: true,
-      },
-      emphasis: {
-        focus: "series",
-      },
       data: [1535],
     },
     {
       name: "Master",
       type: "bar",
       stack: "total",
-      label: {
-        show: true,
-      },
-      emphasis: {
-        focus: "series",
-      },
       data: [910],
     },
   ],
@@ -994,7 +979,9 @@ let configuracoesMcc = {
   tooltip: {
     trigger: "item",
     formatter: function (params) {
-      return `<b>Quantidade</b>: ${formatarNumeroMilharesCentenas(
+      return `
+      <b>${params.name}</b><br>
+      <b>Quantidade</b>: ${formatarNumeroMilharesCentenas(
         params.data.valorAbsoluto,
       )} `;
     },
@@ -1025,7 +1012,7 @@ let configuracoesMcc = {
   xAxis: [
     {
       axisLabel: {
-        show: true,
+        show: false,
       },
       type: "category",
       data: [
@@ -1412,7 +1399,7 @@ let configuracoesEmpresasPorCnae = {
   xAxis: [
     {
       axisLabel: {
-        show: true,
+        show: false,
       },
       type: "category",
       data: [
@@ -1617,13 +1604,14 @@ const configuracoesSaudeTributariaPJ = {
     top: "top",
     left: "center",
     itemGap: 4,
+    show: false,
   },
   tooltip: {
     trigger: "item",
     formatter: function (params) {
-      return `<b>Quantidade</b>: ${formatarNumeroMilharesCentenas(
-        params.value,
-      )}`;
+      return `
+      <b>${params.name}</b><br>
+      <b>Quantidade</b>: ${formatarNumeroMilharesCentenas(params.value)}`;
     },
   },
 
@@ -1685,7 +1673,9 @@ const configuracoesEmpresasPorFaturamento = {
       },
     },
     formatter: function (params) {
+      console.log(params);
       return `
+        <b>${params[0].name}</b><br>
         <b>Quantidade:</b> ${formatarNumeroMilharesCentenas(
           params[0].value,
         )}<br>
@@ -1988,13 +1978,14 @@ const configuracaoCollectionScorePJ = {
     left: 0,
     width: "600px",
     itemGap: 4,
+    show: false,
   },
   tooltip: {
     trigger: "item",
     formatter: function (params) {
-      return `<b>Quantidade</b>: ${formatarNumeroMilharesCentenas(
-        params.value,
-      )}`;
+      return `
+        <b>${params.name}</b><br>
+        <b>Quantidade</b>: ${formatarNumeroMilharesCentenas(params.value)}`;
     },
   },
 

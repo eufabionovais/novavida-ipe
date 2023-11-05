@@ -99,12 +99,12 @@
    font-family: 'Material Icons';
    font-style: normal;
    font-weight: 400;
-   src: url(/assets/fonts/MaterialIconsOutlined-Regular.eot); /* For IE6-8 */
+   src: url(../fonts/MaterialIconsOutlined-Regular.eot); /* For IE6-8 */
    src: local('Material Icons'),
      local('MaterialIconsOutlined-Regular'),
-     url(/assets/fonts/MaterialIconsOutlined-Regular.woff2) format('woff2'),
-     url(/assets/fonts/MaterialIconsOutlined-Regular.woff) format('woff'),
-     url(/assets/fonts/MaterialIconsOutlined-Regular.ttf) format('truetype');
+     url(../fonts/MaterialIconsOutlined-Regular.woff2) format('woff2'),
+     url(../fonts/MaterialIconsOutlined-Regular.woff) format('woff'),
+     url(../fonts/MaterialIconsOutlined-Regular.ttf) format('truetype');
  }
 
 
@@ -15076,13 +15076,15 @@ label.error{
    padding: 16px;
    border-radius: 16px;
    box-shadow: 0 0 8px rgba(0,0,0,0.05);
-   margin: 5px 0 0 -5px;
+   /* margin: 5px 0 0 -5px; */
+   height: 100%;
 }
 
 .chart-wrapper .chart-item {
    height: 100%;
    display: flex;
    justify-content: center;
+   align-items: flex-start;
 }
 
 .chart-wrapper .chart-title {
@@ -15093,9 +15095,10 @@ label.error{
 
 .legendas-manuais {
    font-size: 12px;
-   margin-top: -40px;
+   /* margin-top: -40px; */
    max-width: 410px;
    margin-inline: auto;
+   margin-top: -3.5rem;
 }
 
 .legendas-manuais p {
