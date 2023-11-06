@@ -35,8 +35,8 @@ const eChartsGlobalConfig = {
 
 const labelTextConfigs = {
   color: "#000",
-  textShadowColor: "rgba(0, 0, 0, 0.5)",
-  textShadowBlur: 2,
+  // textShadowColor: "rgba(0, 0, 0, 0.5)",
+  // textShadowBlur: 2,
 };
 
 echarts.registerPreprocessor(function (option) {
@@ -503,8 +503,8 @@ let optionPessoaPorEstado = {
       barWidth: "70%",
       label: {
         show: true,
-        position: ["50%", -10],
-        rotate: 90,
+        position: "top",
+        // rotate: 90,
         textShadowBlur: 0,
         borderWidth: 0,
         textStyle: labelTextConfigs,
@@ -1530,7 +1530,7 @@ const optionPropensaoPagamento = {
 
   label: {
     show: true,
-    position: "inside",
+    position: "top",
     formatter: function (params) {
       const valor = params.value;
       const percentual = ((valor / totalPropensaoPagamento) * 100).toFixed(2);
@@ -1603,7 +1603,7 @@ const optionPropensaoPagamento = {
           },
         },
         {
-          value: 1542,
+          value: 1,
           itemStyle: {
             color: "#6456BB",
           },

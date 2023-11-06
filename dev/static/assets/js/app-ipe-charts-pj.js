@@ -438,8 +438,8 @@ let optionNaturezaJuridica = {
       barWidth: "70%",
       label: {
         show: true,
-        position: ["50%", -10],
-        rotate: 90,
+        position: "top",
+        // rotate: 90,
         textShadowBlur: 0,
         borderWidth: 0,
         textStyle: labelTextConfigs,
@@ -1075,8 +1075,8 @@ let configuracoesMcc = {
       barWidth: "70%",
       label: {
         show: true,
-        position: ["50%", -10],
-        rotate: 90,
+        position: "top",
+        // rotate: 90,
         textShadowBlur: 0,
         borderWidth: 0,
         textStyle: labelTextConfigs,
@@ -1390,7 +1390,7 @@ let configuracoesEmpresasPorCnae = {
       show: true,
       xAxisIndex: [0],
       start: 0,
-      end: 60,
+      end: 20,
       bottom: 10,
       height: 20,
     },
@@ -1460,10 +1460,11 @@ let configuracoesEmpresasPorCnae = {
     {
       type: "bar",
       barWidth: "70%",
+      barCategoryGap: "100%",
       label: {
         show: true,
-        position: ["50%", -10],
-        rotate: 90,
+        position: "top",
+        // rotate: 90,
         textShadowBlur: 0,
         borderWidth: 0,
         textStyle: labelTextConfigs,
@@ -1693,8 +1694,9 @@ const configuracoesEmpresasPorFaturamento = {
 
   label: {
     show: true,
-    position: "inside",
-    offset: [0, -15],
+    position: "top",
+    // offset: [0, -15],
+    textStyle: labelTextConfigs,
     formatter: function (params) {
       const valor = params.value;
       const percentual = ((valor / totalEmpresasPorFaturamento) * 100).toFixed(
@@ -1845,8 +1847,9 @@ const configuracoesQuantidadeFuncionarios = {
 
   label: {
     show: true,
-    position: "inside",
-    offset: [0, -15],
+    position: "top",
+    // offset: [0, -15],
+    textStyle: labelTextConfigs,
     formatter: function (params) {
       const valor = params.value;
       const percentual = ((valor / totalQuantidadeFuncionarios) * 100).toFixed(
