@@ -26,7 +26,7 @@
 <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css" />
 <link rel="stylesheet" href="assets/css/app-ipe-styles.css" />
 
-			<title>Nova Vida Ipê</title>
+			<title>Indicadores | Nova Vida Ipê</title>
 		</head>
 		<body>
 			<!-- Sidebar -->
@@ -52,13 +52,13 @@
     <nav class="main-nav">
       <ul class="main-nav__list">
         <li class="main-nav__item">
-          <a class="main-nav__link" href="#">
+          <a class="main-nav__link" href="index.html">
             <span class="material-icons filled"> bar_chart </span>
             <span class="main-nav__link-text">Indicadores gerais</span>
           </a>
         </li>
         <li class="main-nav__item">
-          <a class="main-nav__link" href="index.html">
+          <a class="main-nav__link" href="enriquecimentos.html">
             <span class="material-icons filled"> list </span>
             <span class="main-nav__link-text">Enriquecimentos</span>
           </a>
@@ -94,8 +94,7 @@
 
 				<main class="main__content">
 
-					
-
+					 
 <!-- Header -->
 <header class="main-header main-header--inner-page">
   <div class="main-header__inner container-fluid d-flex justify-content-between">
@@ -266,36 +265,30 @@
 
 
 <div class="content-grid__wrapper" data-container="content-grid-wrapper">
-  
   <div class="content-grid__content">
-    
     <div class="page-header">
     <h1 class="page-header__title">
       
-    Enriquecimentos recentes 
+
+    <select name="" id="" class="form-select">
+      <option value="30">Útimos 30 dias</option>
+      <option value="60">Útimos 60 dias</option>
+      <option value="90">Útimos 90 dias</option>
+    </select>
+
     
     </h1>
     
-    <div class="page-header__buttons">
-      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Adicionar</button>
-      <button class="btn btn-link d-flex align-items-center text-decoration-none px-1">
-        <span class="material-icons icon">
-          more_vert
-        </span> 
-      </button>
-    </div>
+    <div class="page-header__buttons"></div>
     
 </div>
-    
-    
+
     <div class="content-line__wrapper">
-      
-      <div class="row">
-        
-        <div class="mb-4 col-12 col-lg-12 mb-lg-0">
-          
-          <!-- Filtros Avançados -->
-          <div class="mb-4 filtros-avancados" id="filtrosAvancados">
+      <div class="container">
+        <div class="row">
+          <div class="mb-4 col-12 col-lg-12 mb-lg-0">
+            <!-- Filtros Avançados -->
+            <div class="mb-4 filtros-avancados" id="filtrosAvancados">
   <div class="row d-flex">
     <div class="col-12">
       <div class="row">
@@ -390,542 +383,135 @@
   </div>
 </div>
 
-          <!-- / Filtros Avançados -->
-          
-          <div class="content-card">
-            
-            <div class="content-card__body">
-              <div class="table__wrapper">
-                <table class="table" id="enriquecimentosTbl">
-                  <thead>
-                    
-                    <tr>
-                      <th>ID</th>
-                      <th>Cliente</th>
-                      <th>Entrada</th>
-                      <th>Saída</th>
-                      <th>Data</th>
-                      <th>&nbsp;</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    
-                    <tr data-loading="true">
-                      <td>
-                        <a href="#">123456</a>
-                      </td>
-                      <td>
-                        
-                        <div class="text-item">
-                          <p class="text-item__title">Nova Vida 
-                          </p>
-                          <span class="text-item__detail">
-                            Gabriel Nogueira
-                          </span>
-                        </div>
-                      </td>
-                      <td>
-                        <img src="assets/img/arrow-left.png" alt="">
-                        7,2mil</td>
-                        <td>
-                          
-                          <img src="assets/img/arrow-right.png" alt="">
-                          1,4mil
-                          
-                          
-                        </td>
-                        <td>
-                          <div class="position-relative ">
-                            Há 2 horas
-                            
-                            <div class="table__tooltip">
-                              <dl>
-                                <div class="definition__item">
-                                  <dt>Arquivo</dt>
-                                  <dd>NV_Import_202307817123.csv</dd>
-                                </div>
-                                <div class="definition__item">
-                                  <dt>Entrada</dt>
-                                  <dd><b>41.744</b> em 18/07 às 9:32</dd>
-                                </div>                          
-                                <div class="definition__item">
-                                  <dt>Saída</dt>
-                                  <dd><b>1.318</b> em 18/07 às 9:33</dd>
-                                </div>                             
-                                <div class="definition__item">
-                                  <dt>Tempo</dt>
-                                  <dd>Enriquecido em <b>< 1 min</b></dd>
-                                </div>                                                                              
-                              </dl>
-                              
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          
-                          <div class="progress-loader">
-                            <div></div>
-                          </div>
-                          
-                          <button class="btn btn-link btn-hidden">
-                            <span class="material-icons">
-                              download
-                            </span>
-                          </button>
-                          
-                          <button class="btn btn-link btn-hidden">
-                            <span class="material-icons">
-                              more_vert
-                            </span>
-                          </button>
-                        </td>
-                        <td>
-                          <span class="custom-pill" data-type="processing">
-                            <span class="material-icons icon">
-                              hourglass_top
-                            </span>
-                            Processando
-                          </span>
-                        </td>
-                      </tr>
-                      
-                      <tr >
-                        <td>
-                          <a href="#">123456</a>
-                        </td>
-                        <td>
-                          
-                          <div class="text-item">
-                            <p class="text-item__title">Nova Vida 
-                            </p>
-                            <span class="text-item__detail">
-                              Gabriel Nogueira
-                            </span>
-                          </div>
-                        </td>
-                        <td>
-                          <img src="assets/img/arrow-left.png" alt="">
-                          7,2mil</td>
-                          <td>
-                            
-                            <img src="assets/img/arrow-right.png" alt="">
-                            1,4mil
-                            
-                            
-                          </td>
-                          <td>
-                            <div class="position-relative ">
-                              Há 2 horas
-                              
-                              <div class="table__tooltip">
-                                <dl>
-                                  <div class="definition__item">
-                                    <dt>Arquivo</dt>
-                                    <dd>NV_Import_202307817123.csv</dd>
-                                  </div>
-                                  <div class="definition__item">
-                                    <dt>Entrada</dt>
-                                    <dd><b>41.744</b> em 18/07 às 9:32</dd>
-                                  </div>                          
-                                  <div class="definition__item">
-                                    <dt>Saída</dt>
-                                    <dd><b>1.318</b> em 18/07 às 9:33</dd>
-                                  </div>                             
-                                  <div class="definition__item">
-                                    <dt>Tempo</dt>
-                                    <dd>Enriquecido em <b>< 1 min</b></dd>
-                                  </div>                                                                              
-                                </dl>
-                                
-                              </div>
-                            </div>
-                          </td>
-                          <td>
-                            <div class="progress-loader">
-                              <div></div>
-                            </div>
-                            <button class="btn btn-link btn-hidden">
-                              <span class="material-icons">
-                                download
-                              </span>
-                            </button>
-                            
-                            <button class="btn btn-link btn-hidden">
-                              <span class="material-icons">
-                                more_vert
-                              </span>
-                            </button>
-                          </td>
-                          <td>
-                            <span class="custom-pill" data-type="fail">
-                              <span class="material-icons icon">
-                                close
-                              </span>
-                              Com falha
-                            </span>
-                          </td>
-                        </tr>
-                        
-                        <tr >
-                          <td>
-                            <a href="#">123457</a>
-                          </td>
-                          <td>
-                            
-                            <div class="text-item">
-                              <p class="text-item__title">Nova Vida 
-                              </p>
-                              <span class="text-item__detail">
-                                Gabriel Nogueira
-                              </span>
-                            </div>
-                          </td>
-                          <td>
-                            <img src="assets/img/arrow-left.png" alt="">
-                            7,2mil</td>
-                            <td>
-                              
-                              <img src="assets/img/arrow-right.png" alt="">
-                              1,4mil
-                              
-                              
-                            </td>
-                            <td>
-                              <div class="position-relative">
-                                Há 2 horas
-                                <div class="table__tooltip">
-                                  <dl>
-                                    <div class="definition__item">
-                                      <dt>Arquivo</dt>
-                                      <dd>NV_Import_202307817123.csv</dd>
-                                    </div>
-                                    <div class="definition__item">
-                                      <dt>Entrada</dt>
-                                      <dd><b>41.744</b> em 18/07 às 9:32</dd>
-                                    </div>                          
-                                    <div class="definition__item">
-                                      <dt>Saída</dt>
-                                      <dd><b>1.318</b> em 18/07 às 9:33</dd>
-                                    </div>                             
-                                    <div class="definition__item">
-                                      <dt>Tempo</dt>
-                                      <dd>Enriquecido em <b>< 1 min</b></dd>
-                                    </div>                                                                              
-                                  </dl>
-                                </div>
-                                
-                              </div>
-                              
-                            </td>
-                            <td>
-                              <div class="progress-loader">
-                                <div></div>
-                              </div>
-                              <button class="btn btn-link btn-hidden">
-                                <span class="material-icons">
-                                  download
-                                </span>
-                              </button>
-                              
-                              <button class="btn btn-link btn-hidden">
-                                <span class="material-icons">
-                                  more_vert
-                                </span>
-                              </button>
-                            </td>
-                            <td>
-                              <span class="custom-pill" data-type="removed">
-                                <span class="material-icons icon">
-                                  close
-                                </span>
-                                Removido
-                              </span>
-                            </td>
-                          </tr>
-                          
-                          <tr>
-                            <td>
-                              <a href="#">123458</a>
-                            </td>
-                            <td>
-                              
-                              <div class="text-item">
-                                <p class="text-item__title">Nova Vida 
-                                </p>
-                                <span class="text-item__detail">
-                                  Gabriel Nogueira
-                                </span>
-                              </div>
-                            </td>
-                            <td>
-                              <img src="assets/img/arrow-left.png" alt="">
-                              7,2mil</td>
-                              <td>
-                                
-                                <img src="assets/img/arrow-right.png" alt="">
-                                1,4mil
-                                
-                                
-                              </td>
-                              <td>
-                                <div class="position-relative">Há 2 horas
-                                  
-                                  <div class="table__tooltip">
-                                    <dl>
-                                      <div class="definition__item">
-                                        <dt>Arquivo</dt>
-                                        <dd>NV_Import_202307817123.csv</dd>
-                                      </div>
-                                      <div class="definition__item">
-                                        <dt>Entrada</dt>
-                                        <dd><b>41.744</b> em 18/07 às 9:32</dd>
-                                      </div>                          
-                                      <div class="definition__item">
-                                        <dt>Saída</dt>
-                                        <dd><b>1.318</b> em 18/07 às 9:33</dd>
-                                      </div>                             
-                                      <div class="definition__item">
-                                        <dt>Tempo</dt>
-                                        <dd>Enriquecido em <b>< 1 min</b></dd>
-                                      </div>                                                                              
-                                    </dl>
-                                  </div>
-                                  
-                                </div> 
-                              </td>
-                              <td>
-                                <div class="progress-loader">
-                                  <div></div>
-                                </div>
-                                <button class="btn btn-link btn-hidden">
-                                  <span class="material-icons">
-                                    download
-                                  </span>
-                                </button>
-                                
-                                <button class="btn btn-link btn-hidden">
-                                  <span class="material-icons">
-                                    more_vert
-                                  </span>
-                                </button>
-                              </td>
-                              <td>
-                                <span class="custom-pill" data-type="exported">
-                                  <span class="material-icons icon">
-                                    done
-                                  </span>
-                                  Exportado
-                                </span>
-                              </td>
-                            </tr>
-                            
-                            <tr>
-                              <td>
-                                <a href="#">123459</a>
-                              </td>
-                              <td>
-                                
-                                <div class="text-item">
-                                  <p class="text-item__title">Nova Vida 
-                                  </p>
-                                  <span class="text-item__detail">
-                                    Gabriel Nogueira
-                                  </span>
-                                </div>
-                              </td>
-                              <td>
-                                <img src="assets/img/arrow-left.png" alt="">
-                                7,2mil</td>
-                                <td>
-                                  
-                                  <img src="assets/img/arrow-right.png" alt="">
-                                  1,4mil
-                                  
-                                  
-                                </td>
-                                <td>
-                                  <div class="position-relative">
-                                    Há 2 horas
-                                    
-                                    <div class="table__tooltip">
-                                      <dl>
-                                        <div class="definition__item">
-                                          <dt>Arquivo</dt>
-                                          <dd>NV_Import_202307817123.csv</dd>
-                                        </div>
-                                        <div class="definition__item">
-                                          <dt>Entrada</dt>
-                                          <dd><b>41.744</b> em 18/07 às 9:32</dd>
-                                        </div>                          
-                                        <div class="definition__item">
-                                          <dt>Saída</dt>
-                                          <dd><b>1.318</b> em 18/07 às 9:33</dd>
-                                        </div>                             
-                                        <div class="definition__item">
-                                          <dt>Tempo</dt>
-                                          <dd>Enriquecido em <b>< 1 min</b></dd>
-                                        </div>                                                                              
-                                      </dl>
-                                    </div>
-                                    
-                                  </div>
-                                </td>
-                                <td>
-                                  <div class="progress-loader">
-                                    <div></div>
-                                  </div>
-                                  <button class="btn btn-link btn-hidden">
-                                    <span class="material-icons">
-                                      download
-                                    </span>
-                                  </button>
-                                  
-                                  <button class="btn btn-link btn-hidden">
-                                    <span class="material-icons">
-                                      more_vert
-                                    </span>
-                                  </button>
-                                </td>
-                                <td>
-                                  <span class="custom-pill" data-type="processed">
-                                    <span class="material-icons icon">done</span>
-                                    Processado
-                                    
-                                    
-                                  </span>
-                                </td>
-                              </tr>
-                            </tbody>
-                            
-                            
-                          </table>
-                          
-                        </div>
-                        
-                      </div>
+            <!-- / Filtros Avançados -->
+
+            <div class="row mb-4">
+              <div class="col-12 col-md-4">
+                <div
+                  class="content-card data-highlight"
+                  data-bs-custom-class="data-popover"
+                  data-bs-trigger="hover"
+                  data-bs-toggle="popover"
+                  data-bs-placement="bottom"
+                  data-bs-content="<b>2.272.770</b> registros enriquecidos. <br> <b>2.7% a mais</b> em relação ao período anterior."
+                >
+                  <h3 class="data-highlight__title">Enriquecimentos</h3>
+                  <div class="data-highlight__content">
+                    <span class="data-highlight__text">2,27mi</span>
+                    <div class="rounded-icon" data-type="up">
+                      <span class="material-icons icon"> arrow_upward </span>
                     </div>
                   </div>
-                  
-                  
                 </div>
-                
               </div>
-              <!-- / Row -->
-              
-            </div>
-
-
-            
-                <!-- Sidebar Enriquecimento -->
-                <div class="content-grid__sidebar">
-                  <header class="content-grid__sidebar-header">
-                      <h4 class="content-grid__sidebar-title">
-                        Detalhes do enriquecimento
-                      </h4>
-                      <button class="btn btn-link px-0"  data-toggle="grid-sidebar">
-                        <span class="material-symbols-outlined">
-                          close
-                          </span>
-                      </button>
-                  </header>
-                  <hr class="h-divider">
-                  <div class="content-grid__sidebar-body">
-                    <div class="d-flex align-content-center justify-content-between">
-                      <p class="mb-0 text-semibold">Nova Vida</p>
-                      <p class="mb-0"><span class="highlight-primary">123456</span></p>
+              <div class="col-12 col-md-4">
+                <div
+                  class="content-card data-highlight"
+                  data-bs-custom-class="data-popover"
+                  data-bs-trigger="hover"
+                  data-bs-toggle="popover"
+                  data-bs-placement="bottom"
+                  data-bs-content="Aproximadamente <b>2:06h</b> de atividades realizadas."
+                >
+                  <h3 class="data-highlight__title">Atividades (horas)</h3>
+                  <div class="data-highlight__content">
+                    <span class="data-highlight__text">2:06</span>
+                    <div class="rounded-icon" data-type="neutral">
+                      <span class="material-icons icon"> ≈ </span>
                     </div>
-                    <hr class="h-divider">
-                    <div class="list-container">
-                        <div class="list-key">Usuário</div>
-                        <div class="list-value"><b class="text-semibold">Jorge Bartz</b></div>
-                        <div class="list-key">Entrada</div>
-                        <div class="list-value"><b>41.744</b></div>
-                        <div class="list-key">Saída</div>
-                        <div class="list-value"><b>1.318</b></div>
-                        <div class="list-key">Data</div>
-                        <div class="list-value"><b>18/07</b> às <b>9:33</b></div>
-                    </div>
-                    <hr class="h-divider">
-                    <div class="accordion accordion-flush accordion-sidebar__details" id="accordionDetails">
-                      <div class="accordion-item">
-                        <h2 class="accordion-header" id="accordionDetailsTitle">
-                          <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            informações da campanha
-                          </button>
-                        </h2>
-                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="accordionDetailsTitle" data-bs-parent="#accordionDetails">
-                          <div class="accordion-body px-0">
-
-                            <div class="list-container gap-3 lista__detalhes-campanha">
-                              <div class="list-key">Campanha</div>
-                              <div class="list-value"><b class="text-semibold">Central de Marketing</b>
-                                <button class="btn btn-link btn-sm">
-                                <span class="material-symbols-outlined icon">
-                                  edit
-                                  </span>
-                                </div>
-                              </button>
-                              <div class="list-key">Processo</div>
-                              <div class="list-value"><b class="text-semibold">ENRIQ (2-FIXO 4-MÓVEIS)</b></div>
-                              <div class="list-key">Layout entrada</div>
-                              <div class="list-value"><b class="text-semibold" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="Padrão Nova Vida">Padrão Nova Vida</b>
-                                <button class="btn btn-link btn-sm">
-                                <span class="material-symbols-outlined icon">
-                                  open_in_new
-                                  </span>
-                                </button>
-                              </div>
-                              <div class="list-key">Layout saída</div>
-                              <div class="list-value"><b class="text-semibold" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="Layout 4 celulares e 2 fixos">Layout 4 celulares e 2 fixos</b>
-                                <button class="btn btn-link btn-sm">
-                                  <span class="material-symbols-outlined icon">
-                                    open_in_new
-                                    </span>
-                                  </button>
-                              </div>
-                          </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <hr class="h-divider">
                   </div>
-                  <footer class="content-grid__sidebar-footer d-flex justify-content-center gap-4 mt-auto">
-                    <button class="btn btn-primary btn-icon">
-                      <span class="material-icons">
-                        download
-                      </span>
-                    </button>
-                    <button class="btn btn-secondary text-primary btn-icon">
-                      <span class="material-icons">
-                        refresh
-                      </span>
-                    </button>        
-                    <button class="btn btn-secondary  text-primary  btn-icon">
-                      <span class="material-icons">
-                        delete
-                      </span>
-                    </button>
-                  </footer>
                 </div>
-                <!-- / Sidebar Enriquecimento -->
-              
-            
-            
-            
-          <!-- Modal novo enriquecimento -->
+              </div>
+              <div class="col-12 col-md-4">
+                <div
+                  class="content-card data-highlight"
+                  data-bs-custom-class="data-popover"
+                  data-bs-trigger="hover"
+                  data-bs-toggle="popover"
+                  data-bs-placement="bottom"
+                  data-bs-content="Mais de <b>70%</b> de eficiência."
+                >
+                  <h3 class="data-highlight__title">Eficiência</h3>
+                  <div class="data-highlight__content">
+                    <span class="data-highlight__text">73%</span>
+                    <div class="rounded-icon" data-type="up">
+                      <span class="material-icons icon"> arrow_upward </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-card">
+            <div class="content-card__body">
+              <div class="row">
+                <div class="col-12">
+                  <div id="graficoIndicadoresGerais"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / Row -->
+  </div>
+
+  
+  <!-- Sidebar Enriquecimento -->
+  <div class="content-grid__sidebar">
+    <header class="content-grid__sidebar-header">
+      <h4 class="content-grid__sidebar-title">Detalhes do estudo</h4>
+      <button class="btn btn-link px-0" data-toggle="grid-sidebar">
+        <span class="material-symbols-outlined"> close </span>
+      </button>
+    </header>
+    <hr class="h-divider" />
+    <div class="content-grid__sidebar-body">
+      <div class="d-flex align-content-center justify-content-between">
+        <p class="mb-0 text-semibold">Nova Vida</p>
+        <p class="mb-0"><span class="highlight-primary">123456</span></p>
+      </div>
+      <hr class="h-divider" />
+      <div class="list-container">
+        <div class="list-key">Usuário</div>
+        <div class="list-value"><b class="text-semibold">Jorge Bartz</b></div>
+        <div class="list-key">Entrada</div>
+        <div class="list-value"><b>41.744</b></div>
+        <div class="list-key">Saída</div>
+        <div class="list-value"><b>1.318</b></div>
+        <div class="list-key">Data</div>
+        <div class="list-value"><b>18/07</b> às <b>9:33</b></div>
+      </div>
+    </div>
+    <footer
+      class="content-grid__sidebar-footer d-flex justify-content-center gap-4 mt-auto"
+    >
+      <button class="btn btn-primary btn-icon">
+        <span class="material-icons"> bar_chart </span>
+      </button>
+      <button class="btn btn-secondary text-primary btn-icon">
+        <span class="material-icons"> download </span>
+      </button>
+    </footer>
+  </div>
+  <!-- / Sidebar Enriquecimento -->
+  
+
+  <!-- prettier-ignore -->
+  <!-- Modal novo enriquecimento -->
 <div
   class="modal fade"
-  id="exampleModal"
+  id="modalNovaCampanha"
   tabindex="-1"
-  aria-labelledby="exampleModalLabel"
+  aria-labelledby="modalNovaCampanhaLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog modal-dialog-centered modal-xl">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Novo enriquecimento</h5>
+        <h5 class="modal-title" id="modalNovaCampanhaLabel">Nova campanha</h5>
         <button
           type="button"
           class="btn-close"
@@ -935,135 +521,19 @@
       </div>
       <div class="modal-body">
         <div class="row d-flex">
-          <div class="col-6 mb-4">
-            <label for="cliente" class="form-label visually-hidden"
-              >Cliente</label
-            >
+          <div class="col-12">
+            <label for="cliente" class="form-label visually-hidden">Nome</label>
             <input
               type="text"
               class="form-control form-control-lg"
               id="cliente"
-              placeholder="Cliente"
+              placeholder="Nome da campanha"
             />
-          </div>
-          <div class="col-6 mb-4">
-            <label for="usuario" class="form-label visually-hidden"
-              >Usuário</label
-            >
-            <input
-              type="text"
-              id="usuario"
-              class="form-control form-control-lg"
-              placeholder="Usuário"
-            />
-          </div>
-          <div class="col-3 mb-4">
-            <label for="Campanha" class="form-label visually-hidden"
-              >Campanha</label
-            >
-            <select
-              required
-              class="form-select"
-              aria-label="Campanha"
-              id="Campanha"
-            >
-              <option value="" selected disabled hidden>Campanha</option>
-              <option value="1">Campanha 1</option>
-              <option value="2">Campanha 2</option>
-              <option value="3">Campanha 3</option>
-            </select>
-          </div>
-          <div class="col-3 mb-4">
-            <label for="subcampanha" class="form-label visually-hidden"
-              >Subcampanha</label
-            >
-            <select
-              required
-              class="form-select"
-              aria-label="subcampanha"
-              id="subcampanha"
-            >
-              <option value="" selected disabled hidden>Subcampanha</option>
-              <option value="1">Subcampanha 1</option>
-              <option value="2">Subcampanha 2</option>
-              <option value="3">Subcampanha 3</option>
-            </select>
-          </div>
-          <div class="col-6 mb-4">
-            <label for="processo" class="form-label visually-hidden"
-              >Processo</label
-            >
-            <select
-              required
-              class="form-select"
-              aria-label="processo"
-              id="processo"
-            >
-              <option value="" selected disabled hidden>Processo</option>
-              <option value="1">Processo 1</option>
-              <option value="2">Processo 2</option>
-              <option value="3">Processo 3</option>
-            </select>
-          </div>
-          <div class="col-6 d-flex flex-row gap-2">
-            <label for="layoutEntrada" class="form-label visually-hidden"
-              >Layout de entrada</label
-            >
-            <select
-              required
-              class="form-select"
-              aria-label="layoutEntrada"
-              id="layoutEntrada"
-            >
-              <option value="" selected disabled hidden>
-                Layout de entrada
-              </option>
-              <option value="1">Layout 1</option>
-              <option value="2">Layout 2</option>
-              <option value="3">Layout 3</option>
-            </select>
-            <button class="btn btn-primary d-flex align-items-center btn-icon">
-              <span class="material-icons icon"> open_in_new </span>
-            </button>
-          </div>
-          <div class="col-6 d-flex flex-row gap-2">
-            <label for="layoutSaida" class="form-label visually-hidden"
-              >Layout de saída</label
-            >
-            <select
-              required
-              class="form-select"
-              aria-label="Default select example"
-              id="layoutSaida"
-            >
-              <option value="" selected disabled hidden>Layout de saída</option>
-              <option value="1">Layout 1</option>
-              <option value="2">Layout 2</option>
-              <option value="3">Layout 3</option>
-            </select>
-            <button class="btn btn-primary d-flex align-items-center btn-icon">
-              <span class="material-icons icon"> open_in_new </span>
-            </button>
-          </div>
-          <div class="col-12 mx-auto mt-3">
-            <div class="upload-file__wrapper">
-              <div class="upload-file__dropzone"></div>
-              <div class="upload-file__content">
-                <p class="upload-file__text">
-                  Escolha ou arraste um arquivo aqui
-                </p>
-                <img
-                  class="upload-file__image"
-                  src="assets/img/upload-file.png"
-                  alt=""
-                />
-              </div>
-            </div>
           </div>
         </div>
       </div>
       <div class="modal-footer d-flex gap-3">
-        <button type="button" class="btn btn-primary">Iniciar job</button>
+        <button type="button" class="btn btn-primary">Ok</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           Cancelar
         </button>
@@ -1073,9 +543,8 @@
 </div>
 <!-- / Modal Novo enriquecimento -->
 
-            
-            
-            
+
+  
 
 					
 										
@@ -1154,7 +623,6 @@
 
 <!-- prettier-ignore -->
 <script src="assets/vendor/jquery/jquery-3.6.4.min.js"></script>
-<script src="assets/vendor/popper/popper.min.js"></script>
 <script src="assets/vendor/bootstrap-5.0.2/js/bootstrap.bundle.min.js"></script>
 <script src="assets/vendor/jquery.mask/jquery.mask.min.js"></script>
 <script src="assets/vendor/jquery.validate/jquery.validate.min.js"></script>
@@ -1162,13 +630,20 @@
 <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="assets/vendor/DataTables/datatables.min.js"></script>
 <script src="assets/vendor/dropzone/dropzone.min.js"></script>
-<script src="assets/vendor/waypoints/jquery.waypoints.js"></script>
-<script src="assets/vendor/eCharts/echarts.min.js"></script>
-<script src="assets/js/app-ipe-charts-pf.js"></script>
-<script src="assets/js/app-ipe-charts-pj.js"></script>
 <script src="assets/vendor/gsap/gsap.min.js"></script>
 <script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
+<script src="assets/vendor/eCharts/echarts.min.js"></script>
+<script src="assets/vendor/dayjs/dayjs.min.js"></script>
+<script src="assets/js/utils.js"></script>
+<script src="assets/js/app-ipe-charts-pf.js"></script>
+<script src="assets/js/app-ipe-charts-pj.js"></script>
+
 <script src="assets/js/app-ipe.js"></script>
 
 	</body>
 </html>
+
+<!-- prettier-ignore -->
+ 
+
+</div>

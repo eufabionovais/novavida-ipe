@@ -15095,7 +15095,6 @@ label.error{
 
 .legendas-manuais {
    font-size: 12px;
-   /* margin-top: -40px; */
    max-width: 410px;
    margin-inline: auto;
    margin-top: -3.5rem;
@@ -15128,4 +15127,20 @@ label.error{
 
 .filtros-avancados {
    display: none;
+}
+
+.data-highlight { text-align: center; box-shadow: 0 0 5px 5px rgba(0,0,0,0.05);}
+.data-highlight__title {font-size: 18px;}
+.data-highlight__content {font-size: 42px; font-weight: 600; text-transform: uppercase; display: flex; align-items: center; justify-content: center; gap: 16px;}
+.data-highlight .rounded-icon {background: red; display: flex; align-items: center; justify-content: center; }
+.data-highlight .rounded-icon[data-type=up] {color: #fff; background: #00CB88;}
+.data-highlight .rounded-icon[data-type=neutral] {color: #fff; background:#9493D9; padding-bottom: 10px; font-weight: bold;}
+.data-highlight .rounded-icon[data-type=neutral] .icon {font-weight: bold;}
+.data-highlight .rounded-icon[data-type=down] {color: #fff; background: #dc3545;}
+.data-highlight .icon {font-size: 42px; }
+
+.popover.data-popover b,
+.popover.data-popover strong {
+  
+   color: var(--bs-link-color);
 }

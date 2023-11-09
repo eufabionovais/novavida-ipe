@@ -49,6 +49,12 @@ function formatarNumeroMilharesCentenas(number) {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
+function getChartColors(index) {
+  const color =
+    eChartsGlobalConfig.color[index % eChartsGlobalConfig.color.length];
+  return color;
+}
+
 /* GRÁFICO SITUAÇÃO CPF */
 let optionSituacaoDocumentos = {
   label: {
@@ -1942,3 +1948,148 @@ if (elGraficoConsultasUltimoAno) {
 }
 colecaoConfiguracoesGraficosPf.push(optionConsultaUltimoAno);
 /* FIM CONSULTADOS EM 6 E 12 MESES */
+
+// Valores das colunas
+const colunaValoresIndicadoresGerais = [
+  25, 15, 12, 19, 15, 10, 15, 12, 19, 15, 10, 15, 12, 19, 15, 10, 15, 12, 19,
+  15, 10, 15, 12, 19, 15, 10, 15, 12, 19, 15,
+];
+
+// Calcula os valores acumulados
+const valoresAcumuladosIndicadoresGerais = colunaValoresIndicadoresGerais.map(
+  (value, index, array) =>
+    array.slice(0, index + 1).reduce((acc, curr) => acc + curr),
+);
+
+const totalAcumuladoIndicadoresGerais = colunaValoresIndicadoresGerais.reduce(
+  (acumulador, itemAtual) => {
+    return acumulador + itemAtual;
+  },
+  0,
+);
+
+const valoresIndicadoresGerais = colunaValoresIndicadoresGerais.map(
+  (item, index) => {
+    return {
+      ...item,
+      value: item,
+      percent: `${((item / totalAcumuladoIndicadoresGerais) * 100).toFixed(1)}`,
+      itemStyle: {
+        color: getChartColors(index),
+      },
+    };
+  },
+);
+
+const arrUltimos30Dias = [];
+const hoje = dayjs();
+for (let dia = 0; dia < 30; dia++) {
+  const data = hoje.subtract(dia, "day");
+  arrUltimos30Dias.push(data);
+}
+
+const ultimos30DiasOrdenados = arrUltimos30Dias.sort((a, b) =>
+  dayjs(a).isAfter(dayjs(b)) ? 1 : -1,
+);
+
+const ultimos30DiasFormatados = ultimos30DiasOrdenados.map((dia) => {
+  return dia.format("DD/MM/YYYY");
+});
+
+const ultimos30DiasFormatadosDiaMes = ultimos30DiasOrdenados.map((dia) => {
+  return dia.format("DD/MM");
+});
+
+const configuracaoIndicadoresGerais = {
+  grid: {
+    left: "5%",
+    right: "5%",
+  },
+  tooltip: {
+    formatter: function (params) {
+      const index = params.dataIndex;
+      const dia = ultimos30DiasFormatados[index];
+      const diasTexto = index < 1 ? "dia" : "dias";
+
+      const arrayAcumulados = colunaValoresIndicadoresGerais.slice(
+        0,
+        params.dataIndex + 1,
+      );
+      const totalAcumulado = arrayAcumulados.reduce((acumulador, itemAtual) => {
+        return acumulador + itemAtual;
+      }, 0);
+
+      return `
+          <b>Dia:</b> ${dia} (${index + 1} ${diasTexto})<br>
+          <b>${params.value}</b> enriquecidos<br>
+          <b>${totalAcumulado}</b> acumulados
+        `;
+    },
+  },
+
+  xAxis: {
+    type: "category",
+    boundaryGap: false,
+    data: ultimos30DiasFormatadosDiaMes,
+    axisLabel: {
+      formatter: function (data) {
+        return `${data}`;
+      },
+      textStyle: {
+        fontSize: 10,
+      },
+    },
+  },
+  yAxis: [
+    {
+      type: "value",
+      axisLabel: {
+        show: false,
+      },
+    },
+    {
+      type: "value", // Eixo secundário
+      axisLabel: {
+        show: false,
+      },
+    },
+  ],
+  series: [
+    {
+      data: valoresIndicadoresGerais,
+      type: "bar",
+      label: {
+        show: false,
+        position: "top",
+      },
+      z: 2,
+    },
+    {
+      data: valoresAcumuladosIndicadoresGerais,
+      type: "line",
+      areaStyle: {
+        color: "#578BEE",
+        opacity: 0.2,
+      },
+      yAxisIndex: 1,
+      z: 1,
+    },
+  ],
+};
+
+const elGraficoIndicadoresGerais = document.querySelector(
+  "#graficoIndicadoresGerais",
+);
+
+if (elGraficoIndicadoresGerais) {
+  if (elGraficoIndicadoresGerais) {
+    let graficoIndicadoresGerais = echarts.init(
+      elGraficoIndicadoresGerais,
+      null,
+      {
+        height: 400,
+      },
+    );
+    graficoIndicadoresGerais.setOption(configuracaoIndicadoresGerais);
+  }
+}

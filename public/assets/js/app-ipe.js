@@ -28,6 +28,16 @@ $(function () {
 
   // Gerencia Status de visibilidade do menu principal
 
+  //Popover
+
+  var popoverTriggerList = [].slice.call(
+    document.querySelectorAll('[data-bs-toggle="popover"]'),
+  );
+  var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl, { html: true });
+  });
+  //Popover
+
   // Exibição de Menu na versão mobile
   $(".main-nav__link")
     .on("mouseover", function () {
@@ -299,22 +309,3 @@ $(function () {
     });
   }
 });
-
-function animateCharts() {
-  const boxes = document.querySelectorAll(".chart-item");
-  const boxesTimeline = boxes.forEach((box) => {
-    boxTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: box,
-        start: "top 80%",
-      },
-    });
-
-    boxTimeline.to(box, { opacity: 1, y: 0, duration: 0.8 });
-  });
-}
-
-function hideAllCharts() {
-  const boxes = document.querySelectorAll(".chart-item");
-  gsap.set(boxes, { opacity: 0, y: 50 });
-}
