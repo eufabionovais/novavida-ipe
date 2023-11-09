@@ -1951,7 +1951,7 @@ colecaoConfiguracoesGraficosPf.push(optionConsultaUltimoAno);
 
 // Valores das colunas
 const colunaValoresIndicadoresGerais = [
-  25, 15, 12, 19, 15, 10, 15, 12, 19, 15, 10, 15, 12, 19, 15, 10, 15, 12, 19,
+  18, 15, 12, 19, 15, 10, 15, 12, 19, 15, 10, 15, 12, 19, 15, 10, 15, 12, 19,
   15, 10, 15, 12, 19, 15, 10, 15, 12, 19, 15,
 ];
 
