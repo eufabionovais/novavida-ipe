@@ -20,3 +20,9 @@ function hideAllCharts() {
 function totalDiasDoMes(mes, ano) {
   return new Date(ano, mes, 0).getDate();
 }
+
+function resizeGraficos() {
+  setTimeout(() => {
+    graficoIndicadoresGerais.resize();
+  }, 300);
+}

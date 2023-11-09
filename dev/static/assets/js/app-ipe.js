@@ -11,6 +11,7 @@ $(function () {
       $("body").data("collapse", false);
       $("body").attr("data-collapse", false);
     }
+    resizeGraficos();
   });
 
   $(window).on("resize", function () {
@@ -22,6 +23,7 @@ $(function () {
       $("body").data("collapse", false);
       $("body").attr("data-collapse", false);
     }
+    resizeGraficos();
   });
 
   $(window).trigger("resize");

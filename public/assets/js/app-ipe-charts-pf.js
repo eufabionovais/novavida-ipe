@@ -2081,15 +2081,13 @@ const elGraficoIndicadoresGerais = document.querySelector(
   "#graficoIndicadoresGerais",
 );
 
+let graficoIndicadoresGerais;
+
 if (elGraficoIndicadoresGerais) {
   if (elGraficoIndicadoresGerais) {
-    let graficoIndicadoresGerais = echarts.init(
-      elGraficoIndicadoresGerais,
-      null,
-      {
-        height: 400,
-      },
-    );
+    graficoIndicadoresGerais = echarts.init(elGraficoIndicadoresGerais, null, {
+      height: 300,
+    });
     graficoIndicadoresGerais.setOption(configuracaoIndicadoresGerais);
   }
 }
