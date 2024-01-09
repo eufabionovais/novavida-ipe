@@ -1,0 +1,203 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AppHeaderInternas from "../components/AppHeaderInternas.astro";
+import PageHeader from "../components/PageHeader.astro";
+import FiltrosAvancados from "../components/FiltrosAvancados.astro";
+import ModalNovoLayout from "../components/ModalNovoLayout.astro";
+---
+
+<Layout title="Layouts | Nova Vida Ipe">
+  <!--Page header -->
+  <AppHeaderInternas />
+  <!-- / Page header -->
+
+  <div class="content-grid__wrapper" data-container="content-grid-wrapper">
+    <div class="content-grid__content">
+      <PageHeader title="Mensagens predefinidas">
+        <div class="page-header__buttons" slot="page-header-buttons">
+          <div class="btn-group" role="group">
+            <button
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#modalNovaCampanha"
+            >
+              Novo modelo
+            </button>
+          </div>
+
+          <button
+            class="btn btn-link d-flex align-items-center text-decoration-none px-1"
+          >
+            <span class="material-icons icon"> more_vert</span>
+          </button>
+        </div>
+      </PageHeader>
+
+      <div class="content-line__wrapper">
+        <div class="row">
+          <div class="mb-4 col-12 col-lg-12 mb-lg-0">
+            <!-- Filtros Avançados -->
+            <FiltrosAvancados />
+            <!-- / Filtros Avançados -->
+
+            <div class="content-card">
+              <div class="content-card__body">
+                <div class="table__wrapper">
+                  <table class="table" id="prefefinidasTbl">
+                    <thead>
+                      <tr>
+                        <th>Nome do modelo</th>
+                        <th>Assunto</th>
+                        <th>Data</th>
+                        <th class="text--center">&nbsp;</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="text-item">
+                            <p class="text-item__title text-primary">
+                              0209 1148 - Teste
+                            </p>
+                          </div>
+                        </td>
+                        <td> Teste de e-mail com caracteres</td>
+                        <td>
+                          <div class="position-relative">05/01/2023</div>
+                        </td>
+                        <td>
+                          <button
+                            class="btn btn-link btn-hidden"
+                            data-bs-toggle="tooltip"
+                            data-bs-custom-class="custom-tooltip"
+                            data-bs-title="Editar mensagem"
+                          >
+                            <span class="material-icons">edit</span>
+                          </button>
+
+                          <button class="btn btn-link btn-hidden">
+                            <span class="material-icons"> more_vert</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="text-item">
+                            <p class="text-item__title text-primary">
+                              0209 1148 - Teste
+                            </p>
+                          </div>
+                        </td>
+                        <td> Teste de e-mail com caracteres</td>
+                        <td>
+                          <div class="position-relative">05/01/2023</div>
+                        </td>
+                        <td>
+                          <button
+                            class="btn btn-link btn-hidden"
+                            data-bs-toggle="tooltip"
+                            data-bs-custom-class="custom-tooltip"
+                            data-bs-title="Editar mensagem"
+                          >
+                            <span class="material-icons">edit</span>
+                          </button>
+
+                          <button class="btn btn-link btn-hidden">
+                            <span class="material-icons"> more_vert</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="text-item">
+                            <p class="text-item__title text-primary">
+                              Teste mensagem pré-definida
+                            </p>
+                          </div>
+                        </td>
+                        <td> Teste de e-mail com caracteres</td>
+                        <td>
+                          <div class="position-relative">05/01/2023</div>
+                        </td>
+                        <td>
+                          <button
+                            class="btn btn-link btn-hidden"
+                            data-bs-toggle="tooltip"
+                            data-bs-custom-class="custom-tooltip"
+                            data-bs-title="Editar mensagem"
+                          >
+                            <span class="material-icons">edit</span>
+                          </button>
+
+                          <button class="btn btn-link btn-hidden">
+                            <span class="material-icons"> more_vert</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="text-item">
+                            <p class="text-item__title text-primary">
+                              0209 1148 - Teste
+                            </p>
+                          </div>
+                        </td>
+                        <td> Teste de e-mail com caracteres</td>
+                        <td>
+                          <div class="position-relative">05/01/2023</div>
+                        </td>
+                        <td>
+                          <button
+                            class="btn btn-link btn-hidden"
+                            data-bs-toggle="tooltip"
+                            data-bs-custom-class="custom-tooltip"
+                            data-bs-title="Editar mensagem"
+                          >
+                            <span class="material-icons">edit</span>
+                          </button>
+
+                          <button class="btn btn-link btn-hidden">
+                            <span class="material-icons"> more_vert</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="text-item">
+                            <p class="text-item__title text-primary">
+                              Apresentação Contato NV - Ana
+                            </p>
+                          </div>
+                        </td>
+                        <td> Teste de e-mail com caracteres</td>
+                        <td>
+                          <div class="position-relative">05/01/2023</div>
+                        </td>
+                        <td>
+                          <button
+                            class="btn btn-link btn-hidden"
+                            data-bs-toggle="tooltip"
+                            data-bs-custom-class="custom-tooltip"
+                            data-bs-title="Editar mensagem"
+                          >
+                            <span class="material-icons">edit</span>
+                          </button>
+
+                          <button class="btn btn-link btn-hidden">
+                            <span class="material-icons"> more_vert</span>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ModalNovoLayout />
+  </div>
+</Layout>

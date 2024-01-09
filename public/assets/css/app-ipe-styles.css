@@ -10635,6 +10635,17 @@ button:focus,button:active{
 .btn-outline-primary.active{
    color:#fff !important
 }
+
+
+.btn-neutral{
+   background: var(--white);
+}
+.btn-neutral:hover,.btn-neutral:active{
+   background: var(--white);
+   color: var(--bs-primary);
+}
+
+
 .btn-check:checked+.btn,:not(.btn-check)+.btn:active,.btn:first-child:active,.btn.active,.btn.show{
    color:#fff !important
 }

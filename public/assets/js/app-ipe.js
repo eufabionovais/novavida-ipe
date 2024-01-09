@@ -179,6 +179,44 @@ $(function () {
     });
   }
 
+  if ($("#blackListsTbl").length) {
+    let table = new DataTable("#blackListsTbl", {
+      paging: false,
+      searching: false,
+      info: false,
+      columns: [
+        { orderable: true },
+        { orderable: false },
+        { orderable: false, className: "text--center" },
+        { orderable: false, className: "text--left" },
+        { orderable: false, className: "text--center" },
+      ],
+    });
+  }
+
+  if ($("#prefefinidasTbl").length) {
+    let table = new DataTable("#prefefinidasTbl", {
+      paging: false,
+      searching: false,
+      info: false,
+      columns: [
+        { orderable: true },
+        { orderable: false },
+        { orderable: false },
+        { orderable: false, className: "text--center" },
+      ],
+    });
+  }
+
+  if ($("#contatosTbl").length) {
+    let table = new DataTable("#contatosTbl", {
+      paging: false,
+      searching: false,
+      info: false,
+      columns: [{ orderable: true, width: "80%" }, { orderable: false }],
+    });
+  }
+
   if ($(".upload-file__dropzone").length) {
     $(".upload-file__dropzone").dropzone({ url: "/file/post" });
   }
