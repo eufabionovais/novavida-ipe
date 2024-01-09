@@ -10605,7 +10605,7 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 input[type="date"]:before{
    background:none;
    display:block;
-   font-family:'Material Symbols Outlined';
+   font-family:'Material Icons';
    content:'\ebcc';
    position:absolute;
    top:50%;
@@ -10769,7 +10769,7 @@ hr{
    color:#7EA1F3
 }
 .has--icon:before,.has--icon:after{
-   font-family:"Material Symbols Outlined"
+   font-family:"Material Icons"
 }
 .btn{
    --bs-btn-padding-x: 16px;
@@ -11317,10 +11317,33 @@ body[data-collapse=true] .logo-collapsed{
    -webkit-transform:scaleX(-1);
    transform:scaleX(-1)
 }
+
+.main-nav__item {
+   position: relative;
+}
+
+.main-nav__item .submenu {
+   background: #fff;
+   position: fixed;
+   z-index: 99;
+   border-radius: 4px;
+   box-shadow: 0 0 8px rgba(0,0,0,0.2);
+   min-width: 200px;
+   opacity: 0;
+   visibility: hidden;
+   transition: 0.3s;
+}
+
+.main-nav__item:hover .submenu{
+   opacity: 1;
+   visibility: visible;
+}
+
 .main-nav__item+.main-nav__item{
    margin-top:5px
 }
-.main-nav__link{
+.main-nav__link,
+.main-nav__submenu_link{
    font-weight:400;
    font-size:13px;
    line-height:20px;
@@ -11341,7 +11364,8 @@ body[data-collapse=true] .logo-collapsed{
    transition:inherit;
    margin-right:5px
 }
-.main-nav__link .main-nav__link-text{
+.main-nav__link .main-nav__link-text,
+.main-nav__submenu_link-text{
    transition:0.3s;
    white-space:nowrap;
    border-radius:0 4px 4px 0;
@@ -11352,7 +11376,8 @@ body[data-collapse=true] .logo-collapsed{
 [data-collapse=true] .main-nav__link .main-nav__link-text{
    display:none
 }
-.main-nav__link:hover,.main-nav__link.active,.main-nav__link.active:hover{
+.main-nav__link:hover,.main-nav__link.active,.main-nav__link.active:hover,
+.main-nav__submenu_link:hover{
    background-color:#ECECF8;
    color:#3A7DE8
 }
@@ -11776,7 +11801,7 @@ table.dataTable.no-footer {
 }
 .bullet-list li:before{
    content:"\e5cc";
-   font-family:"Material Symbols Outlined";
+   font-family:"Material Icons";
    font-size:22px;
    font-weight:bold
 }
@@ -12877,7 +12902,7 @@ label.error{
  .service__card__more:after{
    content:"\e89e";
    display:inline-block;
-   font-family:"Material Symbols Outlined";
+   font-family:"Material Icons";
    margin-left:10px;
    font-size:20px;
    font-weight:bold
@@ -12970,7 +12995,7 @@ label.error{
    margin-bottom:0
  }
  .slick-prev:before,.slick-next:before{
-   font-family:"Material Symbols Outlined";
+   font-family:"Material Icons";
    color:#7EA1F3;
    font-size:26px;
    opacity:1
@@ -13678,7 +13703,7 @@ label.error{
  }
  .bullet-list li:before{
    content:"\e5cc";
-   font-family:"Material Symbols Outlined";
+   font-family:"Material Icons";
    font-size:22px;
    font-weight:bold
  }
@@ -14835,21 +14860,7 @@ label.error{
    font-size: 18px;
  }
  
- /* .custom-tooltip {
-   --bs-tooltip-bg: #ECECF8;
-   --bs-tooltip-opacity: 1;
-   --bs-tooltip-color: #404040;
-   --bs-tooltip-padding-x: 12px;
-   --bs-tooltip-padding-y: 16px;
-   --bs-tooltip-max-width: 250px;
-   font-weight: 500;
-   
- } */
- 
- /* .custom-tooltip {
-   background: red;
- } */
- 
+
  
  .custom-tooltip  {
    opacity: 1;
@@ -14884,8 +14895,8 @@ label.error{
  
  .accordion-sidebar__details .accordion-button::after {
    content: "\e5c7";
-   font-family: "Material Symbols Outlined";
-   font-size: 40px;
+   font-family: "Material Icons";
+   font-size: 30px;
    background: transparent;
    line-height: 0.6;
    transform: none;
@@ -15139,8 +15150,17 @@ label.error{
 .data-highlight .rounded-icon[data-type=down] {color: #fff; background: #dc3545;}
 .data-highlight .icon {font-size: 28px; }
 
+.popover.data-popover {
+   background: #ECECF8;
+   border: none;
+   box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}
 .popover.data-popover b,
-.popover.data-popover strong {
-  
-   color: var(--bs-link-color);
+.popover.data-popover strong { 
+
+   color: #585858;
+}
+
+.popover .popover-arrow::after {
+   border-bottom-color: #ECECF8;
 }

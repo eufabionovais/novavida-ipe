@@ -1,0 +1,317 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AppHeaderInternas from "../components/AppHeaderInternas.astro";
+import PageHeader from "../components/PageHeader.astro";
+import FiltrosAvancados from "../components/FiltrosAvancados.astro";
+import ModalNovaCampanha from "../components/ModalNovaCampanha.astro";
+import ModalNovoEnriquecimento from "../components/ModalNovoEnriquecimento.astro";
+import SidebarDetalhesEstudo from "../components/SidebarDetalhesEstudo.astro";
+---
+
+<Layout title="B.I. | Nova Vida Ipe">
+  <!--Page header -->
+  <AppHeaderInternas />
+  <!-- / Page header -->
+
+  <div class="content-grid__wrapper" data-container="content-grid-wrapper">
+    <div class="content-grid__content">
+      <PageHeader title="Estudos recentes">
+        <div class="page-header__buttons" slot="page-header-buttons">
+          <button
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Adicionar
+          </button>
+          <button
+            class="btn btn-link d-flex align-items-center text-decoration-none px-1"
+          >
+            <span class="material-icons icon"> more_vert</span>
+          </button>
+        </div>
+      </PageHeader>
+
+      <div class="content-line__wrapper">
+        <div class="row">
+          <div class="mb-4 col-12 col-lg-12 mb-lg-0">
+            <!-- Filtros Avançados -->
+            <FiltrosAvancados />
+            <!-- / Filtros Avançados -->
+
+            <div class="content-card">
+              <div class="content-card__body">
+                <div class="table__wrapper">
+                  <table class="table" id="estudosTbl">
+                    <thead>
+                      <tr>
+                        <th>Tipo</th>
+                        <th>Nº</th>
+                        <th>Nome</th>
+                        <th>Entrada</th>
+                        <th>Data</th>
+                        <th>&nbsp;</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <span class="material-icons text-purple">
+                            person
+                          </span>
+                        </td>
+                        <td>
+                          <a href="#">123456</a>
+                        </td>
+                        <td>
+                          <div class="text-item">
+                            <p class="text-item__title">Nova Vida</p>
+                            <span class="text-item__detail">
+                              Gabriel Nogueira
+                            </span>
+                          </div>
+                        </td>
+                        <td>
+                          <img src="assets/img/arrow-left.png" alt="" />
+                           1,4mil
+                        </td>
+                        <td>
+                          <div class="position-relative">Há 2 horas</div>
+                        </td>
+                        <td>
+                          <div class="progress-loader">
+                            <div></div>
+                          </div>
+
+                          <a
+                            class="btn btn-link btn-hidden btn-chart"
+                            href="bi-dados-pf.html"
+                          >
+                            <span class="material-icons"> bar_chart</span>
+                          </a>
+
+                          <button class="btn btn-link btn-hidden">
+                            <span class="material-icons"> more_vert</span>
+                          </button>
+                        </td>
+                        <td>
+                          <span class="custom-pill" data-type="processed">
+                            <span class="material-icons icon"> done</span>
+                             Processado
+                          </span>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <span class="material-icons text-purple">
+                            person
+                          </span>
+                        </td>
+                        <td>
+                          <a href="#">123456</a>
+                        </td>
+                        <td>
+                          <div class="text-item">
+                            <p class="text-item__title">Nova Vida</p>
+                            <span class="text-item__detail">
+                              Gabriel Nogueira
+                            </span>
+                          </div>
+                        </td>
+
+                        <td>
+                          <img src="assets/img/arrow-left.png" alt="" />
+                           1,4mil
+                        </td>
+                        <td>
+                          <div class="position-relative">Há 2 horas</div>
+                        </td>
+                        <td>
+                          <div class="progress-loader">
+                            <div></div>
+                          </div>
+                          <a
+                            class="btn btn-link btn-hidden btn-chart"
+                            href="bi-dados-pf.html"
+                          >
+                            <span class="material-icons"> bar_chart</span>
+                          </a>
+
+                          <button class="btn btn-link btn-hidden">
+                            <span class="material-icons"> more_vert</span>
+                          </button>
+                        </td>
+                        <td>
+                          <span class="custom-pill" data-type="fail">
+                            <span class="material-icons icon"> close</span>
+                             Com falha
+                          </span>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <span class="material-icons text-purple">
+                            apartment
+                          </span>
+                        </td>
+                        <td>
+                          <a href="#">123457</a>
+                        </td>
+                        <td>
+                          <div class="text-item">
+                            <p class="text-item__title">Nova Vida</p>
+                            <span class="text-item__detail">
+                              Gabriel Nogueira
+                            </span>
+                          </div>
+                        </td>
+
+                        <td>
+                          <img src="assets/img/arrow-left.png" alt="" />
+                           1,4mil
+                        </td>
+                        <td>
+                          <div class="position-relative">Há 2 horas</div>
+                        </td>
+                        <td>
+                          <div class="progress-loader">
+                            <div></div>
+                          </div>
+                          <a
+                            class="btn btn-link btn-hidden btn-chart"
+                            href="bi-dados-pj.html"
+                          >
+                            <span class="material-icons"> bar_chart</span>
+                          </a>
+
+                          <button class="btn btn-link btn-hidden">
+                            <span class="material-icons"> more_vert</span>
+                          </button>
+                        </td>
+                        <td>
+                          <span class="custom-pill" data-type="processed">
+                            <span class="material-icons icon"> done</span>
+                             Processado
+                          </span>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <span class="material-icons text-purple">
+                            apartment
+                          </span>
+                        </td>
+                        <td>
+                          <a href="#">123458</a>
+                        </td>
+                        <td>
+                          <div class="text-item">
+                            <p class="text-item__title">Nova Vida</p>
+                            <span class="text-item__detail">
+                              Gabriel Nogueira
+                            </span>
+                          </div>
+                        </td>
+
+                        <td>
+                          <img src="assets/img/arrow-left.png" alt="" />
+                           1,4mil
+                        </td>
+                        <td>
+                          <div class="position-relative">Há 2 horas</div>
+                        </td>
+                        <td>
+                          <div class="progress-loader">
+                            <div></div>
+                          </div>
+                          <a
+                            class="btn btn-link btn-hidden btn-chart"
+                            href="bi-dados-pj.html"
+                          >
+                            <span class="material-icons"> bar_chart</span>
+                          </a>
+
+                          <button class="btn btn-link btn-hidden">
+                            <span class="material-icons"> more_vert</span>
+                          </button>
+                        </td>
+                        <td>
+                          <span class="custom-pill" data-type="processed">
+                            <span class="material-icons icon"> done</span>
+                             Processado
+                          </span>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <span class="material-icons text-purple">
+                            apartment
+                          </span>
+                        </td>
+                        <td>
+                          <a href="#">123459</a>
+                        </td>
+                        <td>
+                          <div class="text-item">
+                            <p class="text-item__title">Nova Vida</p>
+                            <span class="text-item__detail">
+                              Gabriel Nogueira
+                            </span>
+                          </div>
+                        </td>
+
+                        <td>
+                          <img src="assets/img/arrow-left.png" alt="" />
+                           1,4mil
+                        </td>
+                        <td>
+                          <div class="position-relative">Há 2 horas</div>
+                        </td>
+                        <td>
+                          <div class="progress-loader">
+                            <div></div>
+                          </div>
+                          <a
+                            class="btn btn-link btn-hidden btn-chart"
+                            href="bi-dados-pj.html"
+                          >
+                            <span class="material-icons"> bar_chart</span>
+                          </a>
+
+                          <button class="btn btn-link btn-hidden">
+                            <span class="material-icons"> more_vert</span>
+                          </button>
+                        </td>
+                        <td>
+                          <span class="custom-pill" data-type="processed">
+                            <span class="material-icons icon">done</span>
+                             Processado
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar Detalhes Estudo -->
+    <SidebarDetalhesEstudo />
+    <!-- / Sidebar Detalhes Estudo -->
+
+    <!-- Modal Nova campanha -->
+    <ModalNovaCampanha />
+    <!-- / Modal Nova campanha -->
+
+    <ModalNovoEnriquecimento />
+  </div>
+</Layout>

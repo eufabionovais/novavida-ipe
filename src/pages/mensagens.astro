@@ -1,0 +1,365 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AppHeaderInternas from "../components/AppHeaderInternas.astro";
+import PageHeader from "../components/PageHeader.astro";
+import FiltrosAvancados from "../components/FiltrosAvancados.astro";
+---
+
+<Layout title="Layouts | Nova Vida Ipe">
+  <!--Page header -->
+  <AppHeaderInternas />
+  <!-- / Page header -->
+
+  <div class="content-grid__wrapper" data-container="content-grid-wrapper">
+    <div class="content-grid__content">
+      <PageHeader title="Envios">
+        <div class="page-header__buttons" slot="page-header-buttons">
+          <button
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#modalNovaCampanha"
+          >
+            Novo envio
+          </button>
+          <button
+            class="btn btn-link d-flex align-items-center text-decoration-none px-1"
+          >
+            <span class="material-icons icon"> more_vert</span>
+          </button>
+        </div>
+      </PageHeader>
+
+      <div class="content-line__wrapper">
+        <div class="row">
+          <div class="mb-4 col-12 col-lg-12 mb-lg-0">
+            <!-- Filtros Avançados -->
+            <FiltrosAvancados />
+            <!-- / Filtros Avançados -->
+
+            <div class="content-card">
+              <div class="content-card__body">
+                <div class="table__wrapper">
+                  <table class="table" id="enviosTbl">
+                    <thead>
+                      <tr>
+                        <th>Nome das campanhas</th>
+                        <th>Progresso</th>
+                        <th>&nbsp;</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="text-item">
+                            <p class="text-item__title">
+                              <b class="text-semibold highlight-primary"
+                                >Teste nome campanha</b
+                              >
+                            </p>
+                            <span class="text-item__detail">
+                              Disparo máquina
+                            </span>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="d-flex gap-4">
+                            <div
+                              class="text-item d-flex flex-column align-items-center"
+                            >
+                              <p class="text-item__title">
+                                <b class="text-semibold highlight-purple">0%</b>
+                              </p>
+                              <span class="text-item__detail"> Enviado</span>
+                            </div>
+                            <div
+                              class="text-item d-flex flex-column align-items-center"
+                            >
+                              <p class="text-item__title">
+                                <b class="text-semibold highlight-purple">0</b>
+                              </p>
+                              <span class="text-item__detail">Contatos</span>
+                            </div>
+                            <div
+                              class="text-item d-flex flex-column align-items-center"
+                            >
+                              <p class="text-item__title">
+                                <b class="text-semibold highlight-purple">0</b>
+                              </p>
+                              <span class="text-item__detail">Enviados</span>
+                            </div>
+                            <div
+                              class="text-item d-flex flex-column align-items-center"
+                            >
+                              <p class="text-item__title">
+                                <b class="text-semibold highlight-purple">0</b>
+                              </p>
+                              <span class="text-item__detail">Interações</span>
+                            </div>
+                            <div
+                              class="text-item d-flex flex-column align-items-center"
+                            >
+                              <p class="text-item__title">
+                                <b class="text-semibold highlight-purple">0</b>
+                              </p>
+                              <span class="text-item__detail">Não-enviados</span
+                              >
+                            </div>
+                          </div>
+                        </td>
+
+                        <td>
+                          <a class="btn btn-link btn-hidden p-2" href="#">
+                            <span class="material-icons"> download</span>
+                          </a>
+
+                          <button class="btn btn-link btn-hidden p-2">
+                            <span class="material-icons"> more_vert</span>
+                          </button>
+                        </td>
+
+                        <td>
+                          <span class="custom-pill" data-type="processing">
+                            <span class="material-icons icon">
+                              hourglass_top
+                            </span>
+                            Processando
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="text-item">
+                            <p class="text-item__title">
+                              <b class="text-semibold highlight-primary"
+                                >Teste nome campanha</b
+                              >
+                            </p>
+                            <span class="text-item__detail">
+                              Disparo máquina
+                            </span>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="d-flex gap-4">
+                            <div
+                              class="text-item d-flex flex-column align-items-center"
+                            >
+                              <p class="text-item__title">
+                                <b class="text-semibold highlight-purple">0%</b>
+                              </p>
+                              <span class="text-item__detail"> Enviado</span>
+                            </div>
+                            <div
+                              class="text-item d-flex flex-column align-items-center"
+                            >
+                              <p class="text-item__title">
+                                <b class="text-semibold highlight-purple">0</b>
+                              </p>
+                              <span class="text-item__detail">Contatos</span>
+                            </div>
+                            <div
+                              class="text-item d-flex flex-column align-items-center"
+                            >
+                              <p class="text-item__title">
+                                <b class="text-semibold highlight-purple">0</b>
+                              </p>
+                              <span class="text-item__detail">Enviados</span>
+                            </div>
+                            <div
+                              class="text-item d-flex flex-column align-items-center"
+                            >
+                              <p class="text-item__title">
+                                <b class="text-semibold highlight-purple">0</b>
+                              </p>
+                              <span class="text-item__detail">Interações</span>
+                            </div>
+                            <div
+                              class="text-item d-flex flex-column align-items-center"
+                            >
+                              <p class="text-item__title">
+                                <b class="text-semibold highlight-purple">0</b>
+                              </p>
+                              <span class="text-item__detail">Não-enviados</span
+                              >
+                            </div>
+                          </div>
+                        </td>
+
+                        <td>
+                          <a class="btn btn-link btn-hidden p-2" href="#">
+                            <span class="material-icons"> download</span>
+                          </a>
+
+                          <button class="btn btn-link btn-hidden p-2">
+                            <span class="material-icons"> more_vert</span>
+                          </button>
+                        </td>
+                        <td>
+                          <span class="custom-pill" data-type="fail">
+                            <span class="material-icons icon"> close</span>
+                            Com falha
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="text-item">
+                            <p class="text-item__title">
+                              <b class="text-semibold highlight-primary"
+                                >Teste nome campanha</b
+                              >
+                            </p>
+                            <span class="text-item__detail">
+                              Disparo máquina
+                            </span>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="d-flex gap-4">
+                            <div
+                              class="text-item d-flex flex-column align-items-center"
+                            >
+                              <p class="text-item__title">
+                                <b class="text-semibold highlight-purple">0%</b>
+                              </p>
+                              <span class="text-item__detail"> Enviado</span>
+                            </div>
+                            <div
+                              class="text-item d-flex flex-column align-items-center"
+                            >
+                              <p class="text-item__title">
+                                <b class="text-semibold highlight-purple">0</b>
+                              </p>
+                              <span class="text-item__detail">Contatos</span>
+                            </div>
+                            <div
+                              class="text-item d-flex flex-column align-items-center"
+                            >
+                              <p class="text-item__title">
+                                <b class="text-semibold highlight-purple">0</b>
+                              </p>
+                              <span class="text-item__detail">Enviados</span>
+                            </div>
+                            <div
+                              class="text-item d-flex flex-column align-items-center"
+                            >
+                              <p class="text-item__title">
+                                <b class="text-semibold highlight-purple">0</b>
+                              </p>
+                              <span class="text-item__detail">Interações</span>
+                            </div>
+                            <div
+                              class="text-item d-flex flex-column align-items-center"
+                            >
+                              <p class="text-item__title">
+                                <b class="text-semibold highlight-purple">0</b>
+                              </p>
+                              <span class="text-item__detail">Não-enviados</span
+                              >
+                            </div>
+                          </div>
+                        </td>
+
+                        <td>
+                          <a class="btn btn-link btn-hidden p-2" href="#">
+                            <span class="material-icons"> download</span>
+                          </a>
+
+                          <button class="btn btn-link btn-hidden p-2">
+                            <span class="material-icons"> more_vert</span>
+                          </button>
+                        </td>
+                        <td>
+                          <span class="custom-pill" data-type="removed">
+                            <span class="material-icons icon"> close</span>
+                            Removido
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="text-item">
+                            <p class="text-item__title">
+                              <b class="text-semibold highlight-primary"
+                                >Teste nome campanha</b
+                              >
+                            </p>
+                            <span class="text-item__detail">
+                              Disparo máquina
+                            </span>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="d-flex gap-4">
+                            <div
+                              class="text-item d-flex flex-column align-items-center"
+                            >
+                              <p class="text-item__title">
+                                <b class="text-semibold highlight-purple">0%</b>
+                              </p>
+                              <span class="text-item__detail"> Enviado</span>
+                            </div>
+                            <div
+                              class="text-item d-flex flex-column align-items-center"
+                            >
+                              <p class="text-item__title">
+                                <b class="text-semibold highlight-purple">0</b>
+                              </p>
+                              <span class="text-item__detail">Contatos</span>
+                            </div>
+                            <div
+                              class="text-item d-flex flex-column align-items-center"
+                            >
+                              <p class="text-item__title">
+                                <b class="text-semibold highlight-purple">0</b>
+                              </p>
+                              <span class="text-item__detail">Enviados</span>
+                            </div>
+                            <div
+                              class="text-item d-flex flex-column align-items-center"
+                            >
+                              <p class="text-item__title">
+                                <b class="text-semibold highlight-purple">0</b>
+                              </p>
+                              <span class="text-item__detail">Interações</span>
+                            </div>
+                            <div
+                              class="text-item d-flex flex-column align-items-center"
+                            >
+                              <p class="text-item__title">
+                                <b class="text-semibold highlight-purple">0</b>
+                              </p>
+                              <span class="text-item__detail">Não-enviados</span
+                              >
+                            </div>
+                          </div>
+                        </td>
+
+                        <td>
+                          <a class="btn btn-link btn-hidden p-2" href="#">
+                            <span class="material-icons"> download</span>
+                          </a>
+
+                          <button class="btn btn-link btn-hidden p-2">
+                            <span class="material-icons"> more_vert</span>
+                          </button>
+                        </td>
+                        <td>
+                          <span class="custom-pill" data-type="processed">
+                            <span class="material-icons icon">done</span>
+                            Processado
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

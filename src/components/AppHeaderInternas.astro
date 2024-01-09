@@ -1,0 +1,26 @@
+---
+import Notificacoes from "./Notificacoes.astro";
+import MenuUsuario from "./MenuUsuario.astro";
+import MenuAplicativos from "./MenuAplicativos.astro";
+import Busca from "./Busca.astro";
+---
+
+<header class="main-header main-header--inner-page">
+  <div
+    class="main-header__inner container-fluid d-flex justify-content-between"
+  >
+    <a href="index.html" class="logo">
+      <img src="assets/img/logo-nova-vida.png" alt="Nova Vida TI" />
+    </a>
+
+    <div class="search__wrapper--inner-page">
+      <Busca />
+    </div>
+
+    <ul class="gap-2 d-flex align-items-center">
+      <li><Notificacoes /></li>
+      <li><MenuUsuario /></li>
+      <li><MenuAplicativos /></li>
+    </ul>
+  </div>
+</header>

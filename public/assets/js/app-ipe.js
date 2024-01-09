@@ -12,6 +12,7 @@ $(function () {
       $("body").attr("data-collapse", false);
     }
     resizeGraficos();
+    posicionaSubmenus();
   });
 
   $(window).on("resize", function () {
@@ -33,7 +34,7 @@ $(function () {
   //Popover
 
   var popoverTriggerList = [].slice.call(
-    document.querySelectorAll('[data-bs-toggle="popover"]'),
+    document.querySelectorAll('[data-bs-toggle="popover"]')
   );
   var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
     return new bootstrap.Popover(popoverTriggerEl, { html: true });
@@ -63,7 +64,7 @@ $(function () {
     $(this)
       .parents(".password-wrapper")
       .append(
-        "<button class='toggle-password'><span class='material-symbols-outlined'>visibility</span ></button>",
+        "<button class='toggle-password'><span class='material-symbols-outlined'>visibility</span ></button>"
       );
   });
 
@@ -164,15 +165,29 @@ $(function () {
     });
   }
 
+  if ($("#enviosTbl").length) {
+    let table = new DataTable("#enviosTbl", {
+      paging: false,
+      searching: false,
+      info: false,
+      columns: [
+        { orderable: true, width: "30%" },
+        { orderable: false },
+        { orderable: false, className: "text--center" },
+        { orderable: false, className: "text--center" },
+      ],
+    });
+  }
+
   if ($(".upload-file__dropzone").length) {
     $(".upload-file__dropzone").dropzone({ url: "/file/post" });
   }
 
   const tooltipTriggerList = document.querySelectorAll(
-    '[data-bs-toggle="tooltip"]',
+    '[data-bs-toggle="tooltip"]'
   );
   const tooltipList = [...tooltipTriggerList].map(
-    (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl),
+    (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
   );
 
   const contentGridContainer = $("[data-container='content-grid-wrapper']");
@@ -310,4 +325,31 @@ $(function () {
       swiperInstance.slideNext();
     });
   }
+
+  posicionaSubmenus();
+
+  function posicionaSubmenus() {
+    $(".main-nav__item").each(function () {
+      const submenu = $(this).children(".submenu");
+      if (submenu.length) {
+        const width = $(this)[0].offsetWidth;
+        const top = $(this)[0].offsetTop;
+        const left = $(this)[0].offsetLeft;
+        submenu.css({
+          top: top,
+          left: width + left,
+        });
+      }
+    });
+  }
+
+  // $(".main-nav__item").hover(
+  //   function () {
+  //     const submenu = $(this).children(".submenu");
+
+  //   },
+  //   function () {
+  //     console.log("entrou");
+  //   }
+  // );
 });

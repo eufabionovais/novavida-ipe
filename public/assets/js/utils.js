@@ -23,6 +23,8 @@ function totalDiasDoMes(mes, ano) {
 
 function resizeGraficos() {
   setTimeout(() => {
-    graficoIndicadoresGerais.resize();
+    if (graficoIndicadoresGerais) {
+      graficoIndicadoresGerais.resize();
+    }
   }, 300);
 }

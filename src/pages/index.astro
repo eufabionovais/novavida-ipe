@@ -1,0 +1,116 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AppHeaderInternas from "../components/AppHeaderInternas.astro";
+import PageHeader from "../components/PageHeader.astro";
+import FiltrosAvancados from "../components/FiltrosAvancados.astro";
+import SidebarEnriquecimentos from "../components/SidebarEnriquecimentos.astro";
+import ModalNovaCampanha from "../components/ModalNovaCampanha.astro";
+---
+
+<Layout title="Indicadores gerais | Nova Vida Ipe">
+  <!--Page header -->
+  <AppHeaderInternas />
+  <!-- / Page header -->
+
+  <div class="content-grid__wrapper" data-container="content-grid-wrapper">
+    <div class="content-grid__content">
+      <PageHeader>
+        <select name="" id="" class="form-select">
+          <option value="30">Útimos 30 dias</option>
+          <option value="60">Útimos 60 dias</option>
+          <option value="90">Útimos 90 dias</option>
+        </select>
+      </PageHeader>
+
+      <div class="content-line__wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="mb-4 col-12 col-lg-12 mb-lg-0">
+              <!-- Filtros Avançados -->
+              <FiltrosAvancados />
+              <!-- / Filtros Avançados -->
+            </div>
+
+            <div class="col-12">
+              <div class="row mb-4">
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <div
+                    class="content-card data-highlight"
+                    data-bs-custom-class="data-popover"
+                    data-bs-trigger="hover"
+                    data-bs-toggle="popover"
+                    data-bs-placement="bottom"
+                    data-bs-content="<b>2.272.770</b> registros enriquecidos. <br> <b>2.7% a mais</b> em relação ao período anterior."
+                  >
+                    <h3 class="data-highlight__title">Enriquecimentos</h3>
+                    <div class="data-highlight__content">
+                      <span class="data-highlight__text">2,27mi</span>
+                      <div class="rounded-icon" data-type="up">
+                        <span class="material-icons icon"> arrow_upward</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <div
+                    class="content-card data-highlight"
+                    data-bs-custom-class="data-popover"
+                    data-bs-trigger="hover"
+                    data-bs-toggle="popover"
+                    data-bs-placement="bottom"
+                    data-bs-content="Aproximadamente <b>2:06h</b> de atividades realizadas."
+                  >
+                    <h3 class="data-highlight__title">Atividades (horas)</h3>
+                    <div class="data-highlight__content">
+                      <span class="data-highlight__text">2:06</span>
+                      <div class="rounded-icon" data-type="neutral">
+                        <span class="material-icons icon"> ≈</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <div
+                    class="content-card data-highlight"
+                    data-bs-custom-class="data-popover"
+                    data-bs-trigger="hover"
+                    data-bs-toggle="popover"
+                    data-bs-placement="bottom"
+                    data-bs-content="Mais de <b>70%</b> de eficiência."
+                  >
+                    <h3 class="data-highlight__title">Eficiência</h3>
+                    <div class="data-highlight__content">
+                      <span class="data-highlight__text">73%</span>
+                      <div class="rounded-icon" data-type="up">
+                        <span class="material-icons icon"> arrow_upward</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="content-card">
+              <div class="content-card__body">
+                <div class="row">
+                  <div class="col-12">
+                    <div id="graficoIndicadoresGerais"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- / Row -->
+    </div>
+
+    <!-- Sidebar Enriquecimento -->
+    <SidebarEnriquecimentos />
+    <!-- / Sidebar Enriquecimento -->
+
+    <!-- Modal Nova campanha -->
+    <ModalNovaCampanha />
+    <!-- / Modal Nova campanha -->
+  </div>
+</Layout>
