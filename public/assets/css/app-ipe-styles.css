@@ -14598,7 +14598,7 @@ label.error{
    transition: 0.3s;
  }
  
- table.dataTable>tbody>tr:hover,
+ table:not(.simple-table).dataTable>tbody>tr:hover,
  tbody tr:hover {
    background: #F0F0F0;
  }
@@ -15174,4 +15174,41 @@ label.error{
 
 .popover .popover-arrow::after {
    border-bottom-color: #ECECF8;
+}
+
+/* ENVIOS */
+.simple-table__wrapper {
+   border: solid 1px #F0F0F0;
+   padding: 8px 0;
+}
+
+textarea {
+   resize: none;
+   font-family: "Work Sans", sans-serif !important;
+}
+
+.message-counter {
+   font-variant-numeric: tabular-nums;
+   text-align: right;
+   display: block;
+   font-size: 14px;
+   margin-top: 5px;
+}
+
+.message-variables {
+   display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.message-variable-pill {
+   background: var(--purple-300);
+   padding: 3px 12px;
+   border-radius: 16px;
+   display: inline-flex;
+   font-size: 12px;
+   min-width: 70px;
+   text-align: center;
+   justify-content: center;
+   cursor: pointer;
 }

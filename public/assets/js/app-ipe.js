@@ -381,6 +381,51 @@ $(function () {
     });
   }
 
+  // Envios
+
+  if ($("[name='tipoListaContatos']").length) {
+    $("[name='tipoListaContatos']").on("change", function () {
+      const tipoListaSelecionada = $(this).val();
+      $(".tipo-lista").attr("hidden", "hidden");
+      $("#" + tipoListaSelecionada).removeAttr("hidden");
+    });
+  }
+
+  if ($("[name='tipoMensagem']").length) {
+    $("[name='tipoMensagem']").on("change", function () {
+      const tipoMensagemSelecionada = $(this).val();
+      $(".tipo-mensagem").attr("hidden", "hidden");
+      $("#" + tipoMensagemSelecionada).removeAttr("hidden");
+    });
+  }
+
+  if ($("textarea.form-control").length) {
+    $("textarea.form-control").each(function () {
+      const _this = $(this);
+      const counter = _this.next(".message-counter");
+      const maxLength = _this.attr("maxlength");
+      counter.html(`0 / ${maxLength}`);
+
+      _this.keyup(function () {
+        const inputLength = _this.val().length;
+        counter.html(`${inputLength} / ${maxLength}`);
+      });
+    });
+  }
+
+  if ($(".message-variable-pill").length) {
+    $(".message-variable-pill").on("click", function () {
+      const campoMensagem = $("#textoMensagem");
+      const mensagem = campoMensagem.val();
+      const nomeVariavel = $(this).data("nome-variavel");
+      campoMensagem.val(mensagem + nomeVariavel);
+    });
+  }
+
+  if ($("#modalNovoEnvio").length) {
+    $("#modalNovoEnvio").modal("show");
+  }
+
   // $(".main-nav__item").hover(
   //   function () {
   //     const submenu = $(this).children(".submenu");

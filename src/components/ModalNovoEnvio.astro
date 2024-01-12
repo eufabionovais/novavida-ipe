@@ -1,0 +1,575 @@
+<!-- Modal novo layout -->
+<div
+  class="modal fade show"
+  id="modalNovoEnvio"
+  tabindex="-1"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl"
+  >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Novo envio</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link "
+              id="home-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-campanha"
+              type="button"
+              role="tab"
+              aria-controls="tab-campanha"
+              aria-selected="true">Campanha</button
+            >
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link "
+              id="profile-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-contatos"
+              type="button"
+              role="tab"
+              aria-controls="tab-contatos"
+              aria-selected="false">Contatos</button
+            >
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="contact-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-mensagem"
+              type="button"
+              role="tab"
+              aria-controls="tab-mensagem"
+              aria-selected="false">Mensagem</button
+            >
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="contact-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-verificacao"
+              type="button"
+              role="tab"
+              aria-controls="tab-verificacao"
+              aria-selected="false">Verificação</button
+            >
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="disabled-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#tab-envio"
+              type="button"
+              role="tab"
+              aria-controls="tab-envio"
+              aria-selected="false">Envio</button
+            >
+          </li>
+        </ul>
+        <div class="tab-content" >
+          <div
+            class="tab-pane fade "
+            id="tab-campanha"
+            role="tabpanel"
+            aria-labelledby="home-tab"
+            tabindex="0"
+          >
+
+            <div class="row d-flex align-items-center">
+              <div class="col-12">
+                <p>Nome e informações da campanha</p>
+              </div>
+              <div class="col-12 mb-4">
+                <label for="cliente" class="form-label visually-hidden"
+                  >Nome do envio</label
+                >
+                <input
+                  type="text"
+                  class="form-control form-control-lg"
+                  id="cliente"
+                  placeholder="Nome do envio"
+                />
+              </div>
+              <div class="col-12 mb-4">
+                <label for="TipoEntidade" class="form-label visually-hidden"
+                  >Centro de custo</label
+                >
+                <select
+                  class="form-select"
+                  aria-label="TipoEntidade"
+                  id="TipoEntidade"
+                >
+                  <option selected>Centro de custo</option>
+                  <option value="1">Pessoa física</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <div class="checkboxes__group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" />
+                    <label class="form-check-label">Enviar pelo histórico</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" />
+                    <label class="form-check-label">Remover duplicados</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" />
+                    <label class="form-check-label"
+                      >Apenas telefones com Whatsapp</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" />
+                    <label class="form-check-label"
+                      >Ignorar verificação de blacklist</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+ 
+
+          </div>
+          <div
+            class="tab-pane fade"
+            id="tab-contatos"
+            role="tabpanel"
+            aria-labelledby="profile-tab"
+            tabindex="0"
+          >
+
+            <div class="row">
+              <div class="col-12">
+                <p>Qual lista de contatos você vai usar?</p>
+              </div>
+              <div class="col-12">
+                            
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="tipoListaContatos"
+                    id="listaExitente"
+                    value="conteudoListaExistente"
+                  />
+                  <label class="form-check-label" for="listaExitente"
+                    >Existente</label
+                  >
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="tipoListaContatos"
+                    id="listaNova"
+                    value="conteudoListaNova"
+                  />
+                  <label class="form-check-label" for="listaNova">Nova</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="tipoListaContatos"
+                    id="listaManual"
+                    value="conteudoListaManual"
+                  />
+                  <label class="form-check-label" for="listaManual"
+                    >Inserir manualmente</label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div id="conteudoListaExistente" class="tipo-lista" hidden>
+
+                <div class="input-group mb-3">
+                  <label for="buscarAtributo" class="form-label visually-hidden"
+                    >Digite o nome de uma lista</label
+                  >
+                  <input
+                    type="text"
+                    id="buscarAtributo"
+                    class="form-control form-control"
+                    placeholder="(Digite o nome de uma lista)"
+                    data-input-group="true"
+                  />
+                  <span class="input-group-text p-0">
+                    <button class="btn btn-link p-0" disabled>
+                      <span class="material-icons icon"> more_horiz</span>
+                    </button>
+                  </span>
+                </div>
+
+                <div class="simple-table__wrapper">
+
+                <table class="table simple-table">
+                  <tr>
+                    <td>                      
+                                     <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" />
+                      
+                    </div>
+                    </td>
+                    <td>
+                      Lista2023-09-04-11-53-00-743
+                    </td>
+                    <td>04/09/2023</td>
+                    <td>1.875 contatos</td>
+                  </tr>
+                  <tr>
+                    <td>                      
+                                     <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" />
+                      
+                    </div>
+                    </td>
+                    <td>
+                      Lista2023-09-04-11-53-00-743
+                    </td>
+                    <td>04/09/2023</td>
+                    <td>1.875 contatos</td>
+                  </tr>
+                  <tr>
+                    <td>                      
+                                     <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" />
+                      
+                    </div>
+                    </td>
+                    <td>
+                      Lista2023-09-04-11-53-00-743
+                    </td>
+                    <td>04/09/2023</td>
+                    <td>1.875 contatos</td>
+                  </tr>
+                  <tr>
+                    <td>                      
+                                     <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" />
+                      
+                    </div>
+                    </td>
+                    <td>
+                      Lista2023-09-04-11-53-00-743
+                    </td>
+                    <td>04/09/2023</td>
+                    <td>1.875 contatos</td>
+                  </tr>
+                  <tr>
+                    <td>                      
+                                     <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" />
+                      
+                    </div>
+                    </td>
+                    <td>
+                      Lista2023-09-04-11-53-00-743
+                    </td>
+                    <td>04/09/2023</td>
+                    <td>1.875 contatos</td>
+                  </tr>
+                </table>
+              </div>
+
+
+
+              </div>
+              <div id="conteudoListaNova"  class="tipo-lista" hidden>
+                <div class="upload-file__wrapper w-100">
+                  <div class="upload-file__dropzone"></div>
+                  <div class="upload-file__content">
+                    <p class="upload-file__text">
+                      Escolha ou arraste um arquivo aqui
+                    </p>
+                    <img
+                      class="upload-file__image"
+                      src="assets/img/upload-file.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div id="conteudoListaManual"  class="tipo-lista" hidden>
+                <p>Preencha a lista abaixo com um número em casa linha ou separado por vírgula(,), pipe (|) ou ponto-e-vírgula (;) </p>
+                <p>Você pode utilizar espaços, parênteses ou hífen, se desejar.</p>
+                <textarea class="form-control"  rows="6"></textarea>
+              </div>
+            </div>
+
+          </div>
+          <div
+            class="tab-pane fade show active"
+            id="tab-mensagem"
+            role="tabpanel"
+            aria-labelledby="contact-tab"
+            tabindex="0"
+          >
+
+
+          <div class="row">
+            <div class="col-12">
+              <p>Que mensagem você vai usar?</p>
+            </div>
+            <div class="col-12">
+                          
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="tipoMensagem"
+                  id="mensagemExitente"
+                  value="conteudoMensagemExistente"
+                />
+                <label class="form-check-label" for="mensagemExitente"
+                  >Existente</label
+                >
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="tipoMensagem"
+                  id="mensagemNova"
+                  value="conteudoMensagemNova"
+                />
+                <label class="form-check-label" for="mensagemNova">Nova</label>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div id="conteudoMensagemExistente" class="tipo-mensagem" hidden>
+
+              <div class="input-group mb-3">
+                <label for="buscarAtributo" class="form-label visually-hidden"
+                  >Digite o texto a ser pesquisado</label
+                >
+                <input
+                  type="text"
+                  id="buscarAtributo"
+                  class="form-control form-control"
+                  placeholder="(Digite o texto a ser pesquisado)"
+                  data-input-group="true"
+                />
+                <span class="input-group-text p-0">
+                  <button class="btn btn-link p-0" disabled>
+                    <span class="material-icons icon"> more_horiz</span>
+                  </button>
+                </span>
+              </div>
+
+              <div class="simple-table__wrapper">
+
+                <table class="table simple-table">
+                  <tr>
+                    <td>                      
+                                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="escolherMensagem" value="" />
+                      
+                    </div>
+                    </td>
+                    <td>
+                      A Nova Vida tem a maior base com Flag de Whatsapp do mercado. Higienize seu banco de dados! Solicite um TESTE GRATUITO agora mesmo nvti.io/97577ddtdd5
+                    </td>
+
+                  </tr>
+                  <tr>
+                    <td>                      
+                                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="escolherMensagem" value="" />
+                      
+                    </div>
+                    </td>
+                    <td>
+                      A Nova Vida tem a maior base de TELEFONES mais atualizada do mercado. Higienize seu banco de dados! Solicite um DEMONSTRAÇÃO agora mesmo nvti.io/97577ddtdd5
+                    </td>
+
+                  </tr>
+                  <tr>
+                    <td>                      
+                                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="escolherMensagem" value="" />
+                      
+                    </div>
+                    </td>
+                    <td>
+                      A Nova Vida tem a maior base com Flag de Whatsapp do mercado. Higienize seu banco de dados! Solicite um TESTE GRATUITO agora mesmo nvti.io/97577ddtdd5
+                    </td>
+
+                  </tr>
+                  <tr>
+                    <td>                      
+                                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="escolherMensagem" value="" />
+                      
+                    </div>
+                    </td>
+                    <td>
+                      A Nova Vida tem a maior base de TELEFONES mais atualizada do mercado. Higienize seu banco de dados! Solicite um DEMONSTRAÇÃO agora mesmo nvti.io/97577ddtdd5
+                    </td>
+
+                  </tr>
+                  <tr>
+                    <td>                      
+                                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="escolherMensagem" value="" />
+                      
+                    </div>
+                    </td>
+                    <td>
+                      A Nova Vida tem a maior base com Flag de Whatsapp do mercado. Higienize seu banco de dados! Solicite um TESTE GRATUITO agora mesmo nvti.io/97577ddtdd5
+                    </td>
+
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id="conteudoMensagemNova"  class="tipo-mensagem" hidden>
+              
+              <textarea class="form-control"  rows="6" maxlength="160" id="textoMensagem"></textarea>
+              <span class="message-counter"></span>
+
+              <div class="message-variables mb-3 mt-3">
+                <span class="message-variable-pill" data-nome-variavel="$PRIMEIRONOME$">Primeiro nome</span>
+                <span class="message-variable-pill" data-nome-variavel="$NOMECOMPLETO$">Nome completo</span>
+                <span class="message-variable-pill" data-nome-variavel="$LINK$">Link</span>
+                <span class="message-variable-pill" data-nome-variavel="$VALOR$">Código</span>
+                <span class="message-variable-pill" data-nome-variavel="$LINHADIGITAVEL$">Linha digitável</span>
+                <span class="message-variable-pill" data-nome-variavel="$VALORPARCELA$">Valor da parcela</span>
+                <span class="message-variable-pill" data-nome-variavel="$VENCIMENTOPARCELA$">Vemc. da parcela</span>
+              </div>
+              <p>Clique em um campo acima para inserí-lo na mensagem.</p>
+
+            </div>
+          </div>
+
+
+          </div>
+          <div
+            class="tab-pane fade"
+            id="tab-verificacao"
+            role="tabpanel"
+            aria-labelledby="contact-tab"
+            tabindex="0"
+          >
+            <h1>Verificação</h1>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="tab-envio"
+            role="tabpanel"
+            aria-labelledby="disabled-tab"
+            tabindex="0"
+          >
+            <h1>Envios</h1>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer d-flex gap-3">
+        <button type="button" class="btn btn-secondary" disabled>
+          Anterior
+        </button>
+        <button type="button" class="btn btn-primary" id="btnConfirmarLayout">
+          Próximo
+        </button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- / Modal novo layout-->
+
+<!-- Modal confirmar layout -->
+<div
+  class="modal fade show"
+  id="confirmarLayoutDialog"
+  tabindex="-1"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-md"
+  >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmar o layout <b>Teste 3</b></h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="checkboxes__list checkboxes--entries border-0">
+          <label class="checkboxes__label mb-3">Delimitador: vírgula (,)</label>
+          <h3 class="checkboxes__title mb-4">Atributos de entrada</h3>
+
+          <div class="checkboxes__group mb-2">
+            <div class="form-check">
+              <span class="form-check-label"> CNPJ</span>
+            </div>
+          </div>
+          <div class="checkboxes__group mb-2">
+            <div class="form-check">
+              <span class="form-check-label"> Razão social</span>
+            </div>
+          </div>
+          <div class="checkboxes__group mb-2">
+            <div class="form-check">
+              <span class="form-check-label"> Telefone</span>
+            </div>
+          </div>
+          <div class="checkboxes__group mb-2">
+            <div class="form-check">
+              <span class="form-check-label"> Matriz</span>
+            </div>
+          </div>
+          <div class="checkboxes__group mb-2">
+            <div class="form-check">
+              <span class="form-check-label"> CNAE</span>
+            </div>
+          </div>
+          <div class="checkboxes__group">
+            <div class="form-check">
+              <span class="form-check-label"> Descrição CNAE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer d-flex gap-3">
+        <button type="button" class="btn btn-primary">Confirmar</button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          id="btnVoltarNovoLayout"
+        >
+          Voltar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- / Modal novo layout-->
