@@ -1,13 +1,15 @@
-<!-- Modal novo layout -->
+<!-- Modal novo Envio -->
 <div
   class="modal fade show"
   id="modalNovoEnvio"
   tabindex="-1"
   aria-hidden="true"
 >
+<form  id="formularioEnvios" method="post">
   <div
     class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl"
   >
+  
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Novo envio</h5>
@@ -17,104 +19,128 @@
           data-bs-dismiss="modal"
           aria-label="Close"></button>
       </div>
+
+      <ul class="nav nav-tabs nav-tabs-envios" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="home-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#tab-campanha"
+            type="button"
+            role="tab"
+            aria-controls="tab-campanha"
+            aria-selected="true">
+            <span class="rounded-icon" color="purple">
+            <span class="material-icons icon">campaign</span>
+          </span>
+            Campanha</button
+          >
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="profile-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#tab-contatos"
+            type="button"
+            role="tab"
+            aria-controls="tab-contatos"
+            aria-selected="false" disabled>
+            <span class="rounded-icon" color="purple">
+            <span class="material-icons icon">person</span>
+          </span>
+            Contatos</button
+          >
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link "
+            id="contact-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#tab-mensagem"
+            type="button"
+            role="tab"
+            aria-controls="tab-mensagem"
+            aria-selected="false"  disabled>
+            <span class="rounded-icon" color="purple">
+            <span class="material-icons icon">edit</span>
+            </span>
+            Mensagem</button
+          >
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="contact-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#tab-verificacao"
+            type="button"
+            role="tab"
+            aria-controls="tab-verificacao"
+            aria-selected="false"  disabled>
+            <span class="rounded-icon" color="purple">
+              <span class="material-icons icon">check</span>
+            </span> Verificação</button
+          >
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="disabled-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#tab-envio"
+            type="button"
+            role="tab"
+            aria-controls="tab-envio"
+            aria-selected="false"  disabled>
+            <span class="rounded-icon" color="purple">
+            <span class="material-icons icon">send</span>
+            </span>
+            Envio</button
+          >
+        </li>
+      </ul>
+
       <div class="modal-body">
-        <ul class="nav nav-tabs" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link "
-              id="home-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#tab-campanha"
-              type="button"
-              role="tab"
-              aria-controls="tab-campanha"
-              aria-selected="true">Campanha</button
-            >
-          </li>
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link "
-              id="profile-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#tab-contatos"
-              type="button"
-              role="tab"
-              aria-controls="tab-contatos"
-              aria-selected="false">Contatos</button
-            >
-          </li>
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link active"
-              id="contact-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#tab-mensagem"
-              type="button"
-              role="tab"
-              aria-controls="tab-mensagem"
-              aria-selected="false">Mensagem</button
-            >
-          </li>
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link"
-              id="contact-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#tab-verificacao"
-              type="button"
-              role="tab"
-              aria-controls="tab-verificacao"
-              aria-selected="false">Verificação</button
-            >
-          </li>
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link"
-              id="disabled-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#tab-envio"
-              type="button"
-              role="tab"
-              aria-controls="tab-envio"
-              aria-selected="false">Envio</button
-            >
-          </li>
-        </ul>
-        <div class="tab-content" >
+        <div class="tab-content tabs-envios">
+
+          <!-- Tab Campanhas -->
           <div
-            class="tab-pane fade "
+            class="tab-pane fade show active"
             id="tab-campanha"
             role="tabpanel"
-            aria-labelledby="home-tab"
-            tabindex="0"
-          >
+            tabindex="0">
 
             <div class="row d-flex align-items-center">
               <div class="col-12">
-                <p>Nome e informações da campanha</p>
+                <p class="font-weight-500">Nome e informações da campanha</p>
               </div>
               <div class="col-12 mb-4">
-                <label for="cliente" class="form-label visually-hidden"
+                <label for="nomeCampanha" class="form-label visually-hidden"
                   >Nome do envio</label
                 >
                 <input
                   type="text"
                   class="form-control form-control-lg"
-                  id="cliente"
+                  id="nomeCampanha"
+                  name="nomeCampanha"
                   placeholder="Nome do envio"
                 />
               </div>
               <div class="col-12 mb-4">
-                <label for="TipoEntidade" class="form-label visually-hidden"
+                <label for="centroCusto" class="form-label visually-hidden"
                   >Centro de custo</label
                 >
                 <select
                   class="form-select"
-                  aria-label="TipoEntidade"
-                  id="TipoEntidade"
+                  id="centroCusto"
+                  name="centroCusto"
                 >
-                  <option selected>Centro de custo</option>
-                  <option value="1">Pessoa física</option>
+                  <option disabled selected value="">Centro de custo</option>
+                  <option value="1">001</option>
+                  <option value="2">002</option>
+                  <option value="3">003</option>
                 </select>
               </div>
               <div class="col-12">
@@ -143,23 +169,20 @@
                 </div>
               </div>
             </div>
-
-
-
- 
-
           </div>
+          <!-- / Tab Campanhas -->
+
+          <!-- Tab Contatos -->
           <div
             class="tab-pane fade"
             id="tab-contatos"
             role="tabpanel"
             aria-labelledby="profile-tab"
-            tabindex="0"
-          >
+            tabindex="0">
 
             <div class="row">
               <div class="col-12">
-                <p>Qual lista de contatos você vai usar?</p>
+                <p class="font-weight-500">Qual lista de contatos você vai usar?</p>
               </div>
               <div class="col-12">
                             
@@ -201,7 +224,7 @@
             </div>
 
             <div class="row">
-              <div id="conteudoListaExistente" class="tipo-lista" hidden>
+              <div id="conteudoListaExistente" class="tipo-lista mt-3" hidden>
 
                 <div class="input-group mb-3">
                   <label for="buscarAtributo" class="form-label visually-hidden"
@@ -295,7 +318,7 @@
 
 
               </div>
-              <div id="conteudoListaNova"  class="tipo-lista" hidden>
+              <div id="conteudoListaNova"  class="tipo-lista mt-3" hidden>
                 <div class="upload-file__wrapper w-100">
                   <div class="upload-file__dropzone"></div>
                   <div class="upload-file__content">
@@ -309,189 +332,313 @@
                     />
                   </div>
                 </div>
+
+                <ul class="list-group mt-3">
+                  <li class="list-group-item">
+                    <div class="row">
+                      <div class="col-12 col-md-6">
+                        <a href="Documentos\Nova_Lista_2023_01_15.csv" class="text-decoration-none">Documentos\Nova_Lista_2023_01_15.csv</a>
+                      </div>
+                      <div class="col-12 col-md-6">
+                        Layout: NV
+                      </div>
+                    </div>
+                    
+                  </li>
+                </ul>
+
               </div>
-              <div id="conteudoListaManual"  class="tipo-lista" hidden>
-                <p>Preencha a lista abaixo com um número em casa linha ou separado por vírgula(,), pipe (|) ou ponto-e-vírgula (;) </p>
-                <p>Você pode utilizar espaços, parênteses ou hífen, se desejar.</p>
+              <div id="conteudoListaManual"  class="tipo-lista mt-3" hidden>
+                <p class="text-purple-500 mb-0">Preencha a lista abaixo com um número em casa linha ou separado por vírgula(,), pipe (|) ou ponto-e-vírgula (;) </p>
+                <p class="text-purple-500">Você pode utilizar espaços, parênteses ou hífen, se desejar.</p>
                 <textarea class="form-control"  rows="6"></textarea>
               </div>
             </div>
 
           </div>
+          <!-- / Tab Contatos -->
+
+          <!-- Tab Mensagens -->
           <div
-            class="tab-pane fade show active"
+            class="tab-pane fade"
             id="tab-mensagem"
             role="tabpanel"
             aria-labelledby="contact-tab"
-            tabindex="0"
-          >
-
-
-          <div class="row">
-            <div class="col-12">
-              <p>Que mensagem você vai usar?</p>
-            </div>
-            <div class="col-12">
-                          
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="tipoMensagem"
-                  id="mensagemExitente"
-                  value="conteudoMensagemExistente"
-                />
-                <label class="form-check-label" for="mensagemExitente"
-                  >Existente</label
-                >
+            tabindex="0">
+            <div class="row">
+              <div class="col-12">
+                <p class="font-weight-500">Que mensagem você vai usar?</p>
               </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="tipoMensagem"
-                  id="mensagemNova"
-                  value="conteudoMensagemNova"
-                />
-                <label class="form-check-label" for="mensagemNova">Nova</label>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="row">
-            <div id="conteudoMensagemExistente" class="tipo-mensagem" hidden>
-
-              <div class="input-group mb-3">
-                <label for="buscarAtributo" class="form-label visually-hidden"
-                  >Digite o texto a ser pesquisado</label
-                >
-                <input
-                  type="text"
-                  id="buscarAtributo"
-                  class="form-control form-control"
-                  placeholder="(Digite o texto a ser pesquisado)"
-                  data-input-group="true"
-                />
-                <span class="input-group-text p-0">
-                  <button class="btn btn-link p-0" disabled>
-                    <span class="material-icons icon"> more_horiz</span>
-                  </button>
-                </span>
-              </div>
-
-              <div class="simple-table__wrapper">
-
-                <table class="table simple-table">
-                  <tr>
-                    <td>                      
-                                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="escolherMensagem" value="" />
-                      
-                    </div>
-                    </td>
-                    <td>
-                      A Nova Vida tem a maior base com Flag de Whatsapp do mercado. Higienize seu banco de dados! Solicite um TESTE GRATUITO agora mesmo nvti.io/97577ddtdd5
-                    </td>
-
-                  </tr>
-                  <tr>
-                    <td>                      
-                                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="escolherMensagem" value="" />
-                      
-                    </div>
-                    </td>
-                    <td>
-                      A Nova Vida tem a maior base de TELEFONES mais atualizada do mercado. Higienize seu banco de dados! Solicite um DEMONSTRAÇÃO agora mesmo nvti.io/97577ddtdd5
-                    </td>
-
-                  </tr>
-                  <tr>
-                    <td>                      
-                                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="escolherMensagem" value="" />
-                      
-                    </div>
-                    </td>
-                    <td>
-                      A Nova Vida tem a maior base com Flag de Whatsapp do mercado. Higienize seu banco de dados! Solicite um TESTE GRATUITO agora mesmo nvti.io/97577ddtdd5
-                    </td>
-
-                  </tr>
-                  <tr>
-                    <td>                      
-                                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="escolherMensagem" value="" />
-                      
-                    </div>
-                    </td>
-                    <td>
-                      A Nova Vida tem a maior base de TELEFONES mais atualizada do mercado. Higienize seu banco de dados! Solicite um DEMONSTRAÇÃO agora mesmo nvti.io/97577ddtdd5
-                    </td>
-
-                  </tr>
-                  <tr>
-                    <td>                      
-                                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="escolherMensagem" value="" />
-                      
-                    </div>
-                    </td>
-                    <td>
-                      A Nova Vida tem a maior base com Flag de Whatsapp do mercado. Higienize seu banco de dados! Solicite um TESTE GRATUITO agora mesmo nvti.io/97577ddtdd5
-                    </td>
-
-                  </tr>
-                </table>
-              </div>
-            </div>
-            <div id="conteudoMensagemNova"  class="tipo-mensagem" hidden>
+              <div class="col-12">
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="tipoMensagem"
+                    id="mensagemExitente"
+                    value="conteudoMensagemExistente"
+                  />
+                  <label class="form-check-label" for="mensagemExitente">Existente</label>
+                </div>
               
-              <textarea class="form-control"  rows="6" maxlength="160" id="textoMensagem"></textarea>
-              <span class="message-counter"></span>
-
-              <div class="message-variables mb-3 mt-3">
-                <span class="message-variable-pill" data-nome-variavel="$PRIMEIRONOME$">Primeiro nome</span>
-                <span class="message-variable-pill" data-nome-variavel="$NOMECOMPLETO$">Nome completo</span>
-                <span class="message-variable-pill" data-nome-variavel="$LINK$">Link</span>
-                <span class="message-variable-pill" data-nome-variavel="$VALOR$">Código</span>
-                <span class="message-variable-pill" data-nome-variavel="$LINHADIGITAVEL$">Linha digitável</span>
-                <span class="message-variable-pill" data-nome-variavel="$VALORPARCELA$">Valor da parcela</span>
-                <span class="message-variable-pill" data-nome-variavel="$VENCIMENTOPARCELA$">Vemc. da parcela</span>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="tipoMensagem"
+                    id="mensagemNova"
+                    value="conteudoMensagemNova"
+                  />
+                  <label class="form-check-label" for="mensagemNova">Nova</label>
+                </div>
               </div>
-              <p>Clique em um campo acima para inserí-lo na mensagem.</p>
+            </div>
+            <div class="row">
+              <div id="conteudoMensagemExistente" class="tipo-mensagem mt-3" hidden>
 
+                <div class="input-group mb-3">
+                  <label for="buscarAtributo" class="form-label visually-hidden"
+                    >Digite o texto a ser pesquisado</label
+                  >
+                  <input
+                    type="text"
+                    id="buscarAtributo"
+                    class="form-control form-control"
+                    placeholder="(Digite o texto a ser pesquisado)"
+                    data-input-group="true"
+                  />
+                  <span class="input-group-text p-0">
+                    <button class="btn btn-link p-0" disabled>
+                      <span class="material-icons icon"> more_horiz</span>
+                    </button>
+                  </span>
+                </div>
+
+                <div class="simple-table__wrapper">
+
+                  <table class="table simple-table">
+                    <tr>
+                      <td>                      
+                                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="escolherMensagem" value="" />
+                        
+                      </div>
+                      </td>
+                      <td>
+                        A Nova Vida tem a maior base com Flag de Whatsapp do mercado. Higienize seu banco de dados! Solicite um TESTE GRATUITO agora mesmo nvti.io/97577ddtdd5
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td>                      
+                                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="escolherMensagem" value="" />
+                        
+                      </div>
+                      </td>
+                      <td>
+                        A Nova Vida tem a maior base de TELEFONES mais atualizada do mercado. Higienize seu banco de dados! Solicite um DEMONSTRAÇÃO agora mesmo nvti.io/97577ddtdd5
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td>                      
+                                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="escolherMensagem" value="" />
+                        
+                      </div>
+                      </td>
+                      <td>
+                        A Nova Vida tem a maior base com Flag de Whatsapp do mercado. Higienize seu banco de dados! Solicite um TESTE GRATUITO agora mesmo nvti.io/97577ddtdd5
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td>                      
+                                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="escolherMensagem" value="" />
+                        
+                      </div>
+                      </td>
+                      <td>
+                        A Nova Vida tem a maior base de TELEFONES mais atualizada do mercado. Higienize seu banco de dados! Solicite um DEMONSTRAÇÃO agora mesmo nvti.io/97577ddtdd5
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td>                      
+                                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="escolherMensagem" value="" />
+                        
+                      </div>
+                      </td>
+                      <td>
+                        A Nova Vida tem a maior base com Flag de Whatsapp do mercado. Higienize seu banco de dados! Solicite um TESTE GRATUITO agora mesmo nvti.io/97577ddtdd5
+                      </td>
+
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div id="conteudoMensagemNova"  class="tipo-mensagem mt-3" hidden>
+                
+                <textarea class="form-control"  rows="6" maxlength="160" id="textoMensagem"></textarea>
+                <span class="message-counter"></span>
+
+                <div class="message-variables mb-3 mt-3">
+                  <span class="message-variable-pill" data-nome-variavel="$PRIMEIRONOME$">Primeiro nome</span>
+                  <span class="message-variable-pill" data-nome-variavel="$NOMECOMPLETO$">Nome completo</span>
+                  <span class="message-variable-pill" data-nome-variavel="$LINK$">Link</span>
+                  <span class="message-variable-pill" data-nome-variavel="$VALOR$">Código</span>
+                  <span class="message-variable-pill" data-nome-variavel="$LINHADIGITAVEL$">Linha digitável</span>
+                  <span class="message-variable-pill" data-nome-variavel="$VALORPARCELA$">Valor da parcela</span>
+                  <span class="message-variable-pill" data-nome-variavel="$VENCIMENTOPARCELA$">Vemc. da parcela</span>
+                </div>
+                <p class="text-purple-500 mb-0">Clique em um campo acima para inserí-lo na mensagem.</p>
+
+              </div>
             </div>
           </div>
+          <!-- / Tab Mensagens -->
 
-
-          </div>
+          <!-- Tab Verificação -->
           <div
             class="tab-pane fade"
             id="tab-verificacao"
             role="tabpanel"
             aria-labelledby="contact-tab"
-            tabindex="0"
-          >
-            <h1>Verificação</h1>
+            tabindex="0">
+          
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <p class="font-weight-500">As informações abaixo estão corretas?</p>
+                <p class="text-purple-500">Para corrigir, pressione o botão "Anterior".</p>
+
+                <div class="list-container lista-confirmacao-dados-envio">
+                  <div class="list-key">Campanha</div>
+                  <div class="list-value font-weight-500">Disparo dados</div>
+                  <div class="list-key">Cadastrado em</div>
+                  <div class="list-value font-weight-500">06/10/2023</div>
+                  <div class="list-key">Status</div>
+                  <div class="list-value font-weight-500">Novo</div>
+                  <div class="list-key">Envio</div>
+                  <div class="list-value font-weight-500">2121</div>
+                  <div class="list-key">Listas selecionadas</div>
+                  <div class="list-value d-flex align-items-center gap-2 font-weight-500">2 <a href="#" target="_blank" class="d-flex text-decoration-none"><span class="material-icons icon">open_in_new</span></a></div>
+                  <div class="list-key">Total de contatos</div>
+                  <div class="list-value font-weight-500">3.736</div>
+                </div>
+
+              </div>
+              <div class="col-12 col-md-6">
+                  <div class="visualizacao-mensagem__wrapper">
+                    <p>João, conheça a base de telefones mais atualizada do mercado! Solicite uma demonstração ou teste agora mesmo:</p>
+                    <p><a href="#">nvti.io/9c411abTBT3K</a></p>
+
+                  </div>
+              </div>
+            </div>
+
           </div>
+
+          <!-- Tab envio -->
           <div
             class="tab-pane fade"
             id="tab-envio"
             role="tabpanel"
             aria-labelledby="disabled-tab"
-            tabindex="0"
-          >
-            <h1>Envios</h1>
+            tabindex="0">
+            <div class="row">
+              <div class="col-12">
+                <p class="font-weight-500">Quando você deseja enviar?</p>
+              </div>
+              <div class="col-12">
+                            
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="tipoEnvio"
+                    id="envioImediato"
+                    value="conteudoEnvioImediato"
+                  />
+                  <label class="form-check-label" for="envioImediato"
+                    >Imediatamente</label
+                  >
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="tipoEnvio"
+                    id="envioAgendado"
+                    value="conteudoEnvioAgendado"
+                  />
+                  <label class="form-check-label" for="envioAgendado">Agendar</label>
+                </div>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div id="conteudoEnvioAgendado" class="tipo-envio mt-3" hidden>
+                  <div class="row">
+                    <div class="col-12 col-md-3">
+                      <input type="datetime-local" class="form-control form-control-lg" name="inicioEnvioAgendado" />
+                    </div>
+                    <div class="col-12 col-md-3">
+                      <input type="datetime-local"  class="form-control form-control-lg" name="fimEnvioAgendado" />
+                    </div>
+                    <div class="col-12 col-md-6 d-flex justify-content-end">
+                      <button class="btn btn-primary d-flex align-items-center btn-icon">
+                        <span class="material-icons icon"> add</span>
+                      </button>
+                    </div>
+
+                    <div class="col-12">
+
+                      <div class="simple-table__wrapper mt-3">
+
+                        <table class="table simple-table tbl-envios-agendados">
+                          <tr>
+                            <td>                      
+                                17/10/2023 às 16h
+                            </td>
+                            <td>1.875 envios</td>
+                          </tr>
+                          <tr>
+                            <td>                      
+                                17/10/2023 às 16h
+                            </td>
+                            <td>1.875 envios</td>
+                          </tr>
+                          <tr>
+                            <td>                      
+                                17/10/2023 às 16h
+                            </td>
+                            <td>1.875 envios</td>
+                          </tr>
+                        </table>
+                        
+                      </div>
+                      <div class="total-envios">
+                        3.750 envios
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+          <!-- / Tab envio -->
         </div>
       </div>
       <div class="modal-footer d-flex gap-3">
-        <button type="button" class="btn btn-secondary" disabled>
+        <button type="button" class="btn btn-secondary" disabled id="btnPassoAnteriorEnvio">
           Anterior
         </button>
-        <button type="button" class="btn btn-primary" id="btnConfirmarLayout">
+        <button type="button" class="btn btn-primary" id="btnProximoPassoEnvio" >
           Próximo
         </button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
@@ -499,77 +646,9 @@
         </button>
       </div>
     </div>
+  
   </div>
+</form>
 </div>
-<!-- / Modal novo layout-->
+<!-- / Modal novo envio -->
 
-<!-- Modal confirmar layout -->
-<div
-  class="modal fade show"
-  id="confirmarLayoutDialog"
-  tabindex="-1"
-  aria-hidden="true"
->
-  <div
-    class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-md"
-  >
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Confirmar o layout <b>Teste 3</b></h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="checkboxes__list checkboxes--entries border-0">
-          <label class="checkboxes__label mb-3">Delimitador: vírgula (,)</label>
-          <h3 class="checkboxes__title mb-4">Atributos de entrada</h3>
-
-          <div class="checkboxes__group mb-2">
-            <div class="form-check">
-              <span class="form-check-label"> CNPJ</span>
-            </div>
-          </div>
-          <div class="checkboxes__group mb-2">
-            <div class="form-check">
-              <span class="form-check-label"> Razão social</span>
-            </div>
-          </div>
-          <div class="checkboxes__group mb-2">
-            <div class="form-check">
-              <span class="form-check-label"> Telefone</span>
-            </div>
-          </div>
-          <div class="checkboxes__group mb-2">
-            <div class="form-check">
-              <span class="form-check-label"> Matriz</span>
-            </div>
-          </div>
-          <div class="checkboxes__group mb-2">
-            <div class="form-check">
-              <span class="form-check-label"> CNAE</span>
-            </div>
-          </div>
-          <div class="checkboxes__group">
-            <div class="form-check">
-              <span class="form-check-label"> Descrição CNAE</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer d-flex gap-3">
-        <button type="button" class="btn btn-primary">Confirmar</button>
-        <button
-          type="button"
-          class="btn btn-secondary"
-          id="btnVoltarNovoLayout"
-        >
-          Voltar
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- / Modal novo layout-->

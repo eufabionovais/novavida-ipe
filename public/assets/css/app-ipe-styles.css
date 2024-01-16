@@ -1686,7 +1686,8 @@ progress{
    margin-bottom:1rem;
    color:var(--bs-table-color);
    vertical-align:top;
-   border-color:var(--bs-table-border-color)
+   border-color:var(--bs-table-border-color);
+   margin-bottom: 0;
 }
 .table>:not(caption)>*>*{
    padding:.5rem .5rem;
@@ -14845,6 +14846,10 @@ label.error{
  .text-purple {
    color: #D0D0EF;
  }
+
+ .text-purple-500 {
+   color: #472E8C; 
+ }
  
  .lista__detalhes-campanha {
    font-size: 14px;
@@ -14954,6 +14959,11 @@ label.error{
  
  .form-check .form-check-input {
    border: solid 1px #B3B3F0;
+ }
+
+ .form-check .form-check-input:checked {
+
+   accent-color: red;
  }
  
  .filter__status {row-gap: 4px;}
@@ -15180,7 +15190,22 @@ label.error{
 .simple-table__wrapper {
    border: solid 1px #F0F0F0;
    padding: 8px 0;
+   border-radius: 8px;
 }
+
+.simple-table__wrapper .table {
+   background: red;
+}
+
+.simple-table__wrapper .table tr:first-child td {
+   border-top: 0;
+}
+
+
+.simple-table__wrapper .table tr:last-child td {
+   border-bottom: 0;
+}
+
 
 textarea {
    resize: none;
@@ -15211,4 +15236,64 @@ textarea {
    text-align: center;
    justify-content: center;
    cursor: pointer;
+}
+
+.lista-confirmacao-dados-envio .icon {
+   font-size: 18px;
+}
+
+.visualizacao-mensagem__wrapper {
+   height: 300px;
+   max-width: 440px;
+   margin-inline: auto;
+   background: url(/assets/img/telefone.png) no-repeat center 0;
+   background-size: cover;
+   font-size: 20px;
+   padding: 90px 40px 0;
+}
+
+.nav-tabs-envios {
+   background: var(--purple-500);
+   display: flex;
+   justify-content: space-around;
+}
+
+.nav-tabs-envios .nav-item {
+   flex: 1;
+   display: flex;
+   justify-content: center;
+}
+
+.nav-tabs-envios .nav-link {
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   width: 100%;
+   color: #fff;
+   border-radius: 0;
+   border: none;
+}
+
+.nav-tabs-envios .nav-link:disabled {
+   color: #fff;
+   cursor: not-allowed;
+}
+
+.tbl-envios-agendados td:last-child {
+   text-align: right;
+}
+
+.total-envios {
+   text-align: right;
+   font-size: 14px;
+   font-weight: 500;
+   padding-right: 26px;
+}
+
+.tabs-envios {
+   padding-block: 24px;
+}
+
+.font-weight-500 {
+   font-weight: 500;
 }

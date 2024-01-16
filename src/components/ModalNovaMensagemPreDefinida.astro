@@ -1,0 +1,47 @@
+<div
+  class="modal fade show"
+  id="modalNovaMensagemPreDefinida"
+  tabindex="-1"
+  aria-hidden="true"
+>
+
+<div
+class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl"
+>
+
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title">Novo modelo de mensagem</h5>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="modal"
+      aria-label="Close"></button>
+  </div>
+
+
+  <div  class="modal-body">
+                
+    <textarea class="form-control"  rows="6" maxlength="160" id="textoMensagem"></textarea>
+    <span class="message-counter"></span>
+  
+    <div class="message-variables mb-3 mt-3">
+      <span class="message-variable-pill" data-nome-variavel="$PRIMEIRONOME$">Primeiro nome</span>
+      <span class="message-variable-pill" data-nome-variavel="$NOMECOMPLETO$">Nome completo</span>
+      <span class="message-variable-pill" data-nome-variavel="$LINK$">Link</span>
+      <span class="message-variable-pill" data-nome-variavel="$VALOR$">Código</span>
+      <span class="message-variable-pill" data-nome-variavel="$LINHADIGITAVEL$">Linha digitável</span>
+      <span class="message-variable-pill" data-nome-variavel="$VALORPARCELA$">Valor da parcela</span>
+      <span class="message-variable-pill" data-nome-variavel="$VENCIMENTOPARCELA$">Vemc. da parcela</span>
+    </div>
+    <p class="text-purple-500 mb-0">Clique em um campo acima para inserí-lo na mensagem.</p>
+  
+  </div>
+
+
+</div>
+
+
+
+</div>
+

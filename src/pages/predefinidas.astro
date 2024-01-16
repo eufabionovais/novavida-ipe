@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import AppHeaderInternas from "../components/AppHeaderInternas.astro";
 import PageHeader from "../components/PageHeader.astro";
 import FiltrosAvancados from "../components/FiltrosAvancados.astro";
-import ModalNovoLayout from "../components/ModalNovoLayout.astro";
+import ModalNovaMensagemPreDefinida from "../components/ModalNovaMensagemPreDefinida.astro";
 ---
 
 <Layout title="Layouts | Nova Vida Ipe">
@@ -19,7 +19,7 @@ import ModalNovoLayout from "../components/ModalNovoLayout.astro";
             <button
               class="btn btn-primary"
               data-bs-toggle="modal"
-              data-bs-target="#modalNovaCampanha"
+              data-bs-target="#modalNovaMensagemPreDefinida"
             >
               Novo modelo
             </button>
@@ -198,6 +198,8 @@ import ModalNovoLayout from "../components/ModalNovoLayout.astro";
       </div>
     </div>
 
-    <ModalNovoLayout />
+    <ModalNovaMensagemPreDefinida />
+    
   </div>
 </Layout>
+

@@ -399,6 +399,21 @@ $(function () {
     });
   }
 
+  if ($("[name='tipoEnvio']").length) {
+    $("[name='tipoEnvio']").on("change", function () {
+      const tipoEnvio = $(this).val();
+
+      console.log(tipoEnvio);
+
+      if (tipoEnvio === "conteudoEnvioAgendado") {
+        $(".tipo-envio").attr("hidden", "hidden");
+        $("#" + tipoEnvio).removeAttr("hidden");
+      } else {
+        $(".tipo-envio").attr("hidden", "hidden");
+      }
+    });
+  }
+
   if ($("textarea.form-control").length) {
     $("textarea.form-control").each(function () {
       const _this = $(this);
@@ -406,7 +421,7 @@ $(function () {
       const maxLength = _this.attr("maxlength");
       counter.html(`0 / ${maxLength}`);
 
-      _this.keyup(function () {
+      _this.on("keyup focus", function () {
         const inputLength = _this.val().length;
         counter.html(`${inputLength} / ${maxLength}`);
       });
@@ -419,20 +434,41 @@ $(function () {
       const mensagem = campoMensagem.val();
       const nomeVariavel = $(this).data("nome-variavel");
       campoMensagem.val(mensagem + nomeVariavel);
+      campoMensagem.focus();
     });
   }
 
-  if ($("#modalNovoEnvio").length) {
-    $("#modalNovoEnvio").modal("show");
+  // if ($("#modalNovoEnvio").length) {
+  //   $("#modalNovoEnvio").modal("show");
+  // }
+
+  let tabEnviosAtivaIndex = 0;
+  $("#btnProximoPassoEnvio").on("click", function () {
+    tabEnviosAtivaIndex++;
+
+    navegarParaAbaEnvioAtual(tabEnviosAtivaIndex);
+
+    if (tabEnviosAtivaIndex > 0) {
+      $("#btnPassoAnteriorEnvio").removeAttr("disabled");
+    }
+  });
+
+  $("#btnPassoAnteriorEnvio").on("click", function () {
+    tabEnviosAtivaIndex--;
+
+    navegarParaAbaEnvioAtual(tabEnviosAtivaIndex);
+  });
+
+  function navegarParaAbaEnvioAtual(tabEnviosAtivaIndex) {
+    $(".nav-tabs-envios").find(".nav-link").removeClass("active");
+    $(".nav-tabs-envios")
+      .find(".nav-link:eq(" + tabEnviosAtivaIndex + ")")
+      .addClass("active")
+      .removeAttr("disabled");
+
+    $(".tabs-envios").find(".tab-pane.active").removeClass("active show");
+    $(".tabs-envios")
+      .find(".tab-pane:eq(" + tabEnviosAtivaIndex + ")")
+      .addClass("active show");
   }
-
-  // $(".main-nav__item").hover(
-  //   function () {
-  //     const submenu = $(this).children(".submenu");
-
-  //   },
-  //   function () {
-  //     console.log("entrou");
-  //   }
-  // );
 });
