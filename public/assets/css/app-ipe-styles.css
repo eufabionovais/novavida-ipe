@@ -15246,7 +15246,7 @@ textarea {
    height: 300px;
    max-width: 440px;
    margin-inline: auto;
-   background: url("/assets/img/telefone.png") no-repeat center 0;
+   background: url("../img/telefone.png") no-repeat center 0;
    background-size: cover;
    font-size: 20px;
    padding: 90px 40px 0;
