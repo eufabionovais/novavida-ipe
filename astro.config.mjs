@@ -9,7 +9,9 @@ export default defineConfig({
   output: "static",
   build: {
     format: "file",
-    assets: "assets/css",
+    assets: "/homologacao/novavida/ipe",
     inlineStylesheets: "never",
   },
+  site: "https://www.fabionovais.com.br/homologacao/novavida/ipe",
+  base: "/homologacao/novavida/ipe/",
 });
