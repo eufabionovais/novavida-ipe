@@ -15112,6 +15112,21 @@ label.error{
    height: 100%;
 }
 
+.chart-wrapper.chart-campanha{
+   height: 400px;
+}
+
+.chart-wrapper.chart-geolocalizacao{
+   padding-bottom: 40px;
+}
+.chart-geolocalizacao .charts-container{
+   height: 100%;
+}
+.chart-geolocalizacao .charts-container .row,
+.chart-geolocalizacao .charts-container .col-12{
+   height: 100%;
+}
+
 .chart-wrapper .chart-item {
    height: 100%;
    display: flex;
