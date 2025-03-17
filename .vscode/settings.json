@@ -1,0 +1,6 @@
+{
+  "nuxt.isNuxtApp": false,
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  }
+}
