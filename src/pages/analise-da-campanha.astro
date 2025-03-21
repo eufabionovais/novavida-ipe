@@ -159,7 +159,8 @@ import PageHeader from "../components/PageHeader.astro";
                 <div class="col-12 mb-4">
                   <div class="chart-wrapper chart-campanha chart-geolocalizacao">
                     <h2 class="chart-title">Geolocalização</h2>
-                    <div class="charts-container">
+                    <div id="loader" class="loader"></div>
+                    <div class="charts-container" id="chartsContent">
                       <div class="row">
                         <div class="col-12 col-md-5">
                           <div id="mapChart" class="chart-item"></div>
