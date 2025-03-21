@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Astro description">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.ico">
+    <meta name="generator" content="Astro v3.2.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200&display=swap">
+    <link rel="stylesheet" href="assets/vendor/bootstrap-5.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/vendor/DataTables/datatables.min.css">
+    <link rel="stylesheet" href="assets/vendor/dropzone/dropzone.min.css" type="text/css">
+
+    <link rel="stylesheet" href="assets/vendor/animatecss/animate.min.css">
+    <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/app-ipe-styles.css">
+
+    <title>Indicadores gerais | Nova Vida Ipe</title>
+  </head>
+  <body>
+    <!-- Sidebar --><aside class="sidebar">
+  <header class="sidebar__header">
+    <a href="index.html">
+      <img src="assets/img/logo-nova-vida.png" alt="Nova Vida - Congonhas" class="logo-open">
+      <img src="assets/img/logo-nova-vida-mini.png" alt="Nova Vida - Congonhas" class="logo-collapsed">
+    </a>
+    <button class="btn btn-link menu__toggle" data-toggle-menu="true">
+      <span class="material-icons"> menu_open</span>
+    </button>
+  </header>
+  <div class="sidebar__content">
+    <nav class="main-nav">
+      <ul class="main-nav__list">
+        <li class="main-nav__item">
+          <a class="main-nav__link" href="index.html">
+            <span class="material-icons filled"> bar_chart</span>
+            <span class="main-nav__link-text">Indicadores gerais</span>
+          </a>
+        </li>
+        <li class="main-nav__item">
+          <a class="main-nav__link" href="enriquecimentos.html">
+            <span class="material-icons filled"> list</span>
+            <span class="main-nav__link-text">Enriquecimentos</span>
+          </a>
+        </li>
+        <li class="main-nav__item">
+          <a class="main-nav__link" href="bi.html">
+            <span class="material-icons filled"> area_chart</span>
+            <span class="main-nav__link-text">B.I.</span>
+          </a>
+        </li>
+        <li>
+          <div class="h-divider"></div>
+        </li>
+        <li class="main-nav__item">
+          <a class="main-nav__link" href="layouts.html">
+            <span class="material-icons filled"> brush</span>
+            <span class="main-nav__link-text">Layouts</span>
+          </a>
+        </li>
+        <li class="main-nav__item">
+          <a class="main-nav__link" href="#">
+            <span class="material-icons filled"> message</span>
+            <span class="main-nav__link-text">Mensagens</span>
+          </a>
+          <div class="submenu">
+            <ul>
+              <li>
+                <a href="campanhas.html" class="main-nav__submenu_link">Campanhas</a>
+              </li>
+              <li>
+                <a href="envios.html" class="main-nav__submenu_link">Envios</a>
+              </li>
+              <li>
+                <a href="blacklists.html" class="main-nav__submenu_link">Blacklists</a>
+              </li>
+              <li>
+                <a href="predefinidas.html" class="main-nav__submenu_link">Predefinidas</a>
+              </li>
+              <li>
+                <a href="contatos.html" class="main-nav__submenu_link">Contatos</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- // Sidebar -->
+</aside>
+
+    <div class="main__wrapper">
+      <main class="main__content">
+        
+  
+  <header class="main-header main-header--inner-page">
+  <div class="main-header__inner container-fluid d-flex justify-content-between">
+    <a href="index.html" class="logo">
+      <img src="assets/img/logo-nova-vida.png" alt="Nova Vida TI">
+    </a>
+
+    <div class="search__wrapper--inner-page">
+      <!-- Busca --><form>
+  <div class="search__fields">
+    <input type="text" class="form-control search__field" placeholder="(Digite um número, cliente ou usuário)">
+
+    <button type="button" class="btn btn-secondary btn-toggle-advanced-search" id="toggleAdvancedSearch">
+      <span class="material-icons text-primary icon"> filter_list</span>
+
+      <div class="custom__tooltip">
+        <div class="list-container filter__status">
+          <div class="list-key">Cliente</div>
+          <div class="list-value"><b>Nova Vida</b></div>
+          <div class="list-key">Status</div>
+          <div class="list-value"><b>Exportando</b></div>
+          <div class="list-key">Datas</div>
+          <div class="list-value">Últimos <b>30</b> dias</div>
+        </div>
+      </div>
+    </button>
+    <button class="btn btn-secondary" type="submit">
+      <span class="material-icons text-primary"> search</span>
+    </button>
+  </div>
+</form>
+<!-- // Busca -->
+    </div>
+
+    <ul class="gap-2 d-flex align-items-center">
+      <li><!-- Notificações --><div class="btn-group">
+  <button type="button" class="btn btn--notifications" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="material-icons filled"> notifications</span>
+    <span class="notification__alert"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end notifications-list">
+    <li>Notificação 1</li>
+    <li>Notificação 2</li>
+    <li>Notificação 3</li>
+    <li>Notificação 4</li>
+  </ul>
+</div>
+<!-- // Notificações --></li>
+      <li><!-- User menu --><div class="btn-group">
+  <button type="button" class="btn user__wrapper">
+    <span class="user__avatar">
+      <img src="assets/img/usuarios/usuario-avatar.png" alt="Nome do Usuário">
+    </span>
+    <span class="user__info">
+      <span class="user__name">Alexandre Novais</span>
+      <!-- <span class="user__score">Pré: 500 de 1.000</span> -->
+    </span>
+  </button>
+  <button type="button" class="btn dropdown-toggle dropdown-toggle-split d-flex" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="visually-hidden">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end user-dropdown-menu">
+    <li>
+      <a class="dropdown-item" href="meus-dados.html">
+        <span class="material-icons icon"> badge</span>
+         Meus dados
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="relatorios.html">
+        <span class="material-icons icon"> bar_chart</span>
+         Relatórios
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="recarga.html">
+        <span class="material-icons icon"> youtube_searched_for</span>
+         Recarga
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="mapa-dados.html">
+        <span class="material-icons icon"> analytics</span>
+         Mapa de Dados
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="usuarios.html">
+        <span class="material-icons icon"> group</span>
+         Usuários
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="index.html">
+        <span class="material-icons icon"> logout</span>
+         Sair
+      </a>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li>
+      <div class="text-item">
+        <div class="text-item__label">Meu IP:</div>
+        <div class="text-item__content">192.168.0.1</div>
+      </div>
+    </li>
+  </ul>
+</div>
+<!-- // User menu --></li>
+      <li><!-- Menu de aplicativos --><button type="button" class="btn btn-primary btn--apps" data-bs-toggle="dropdown" aria-expanded="false">
+  <span class="material-icons"> apps</span>
+</button>
+
+<ul class="dropdown-menu dropdown-menu-end apps-dropdown-menu">
+  <li>
+    <a class="dropdown-item" href="#">
+      <div class="text-item">
+        <div class="text-item__title">Ipê</div>
+        <div class="text-item__detail">Enriquecimento em Lote</div>
+      </div>
+    </a>
+  </li>
+  <li><hr class="dropdown-divider"></li>
+  <li>
+    <a class="dropdown-item" href="docs.html">
+      <div class="text-item">
+        <div class="text-item__title">NVCheck</div>
+        <div class="text-item__detail">API de Consultas</div>
+      </div>
+    </a>
+  </li>
+</ul>
+<!-- // Menu de aplicativos --></li>
+    </ul>
+  </div>
+</header>
+  
+
+  <div class="content-grid__wrapper" data-container="content-grid-wrapper">
+    <div class="content-grid__content">
+      <div class="page-header">
+  
+  
+        <select name="" id="" class="form-select">
+          <option value="30">Útimos 30 dias</option>
+          <option value="60">Útimos 60 dias</option>
+          <option value="90">Útimos 90 dias</option>
+        </select>
+      
+
+  
+</div>
+
+      <div class="content-line__wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="mb-4 col-12 col-lg-12 mb-lg-0">
+              <!-- Filtros Avançados -->
+              <div class="mb-4 filtros-avancados" id="filtrosAvancados">
+  <div class="row d-flex">
+    <div class="col-12">
+      <div class="row">
+        <div class="col mb-4">
+          <label for="Campanha" class="form-label visually-hidden">Campanha</label>
+          <select class="form-select" aria-label="Campanha" id="Campanha">
+            <option selected>(Todos os clientes)</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="col mb-4">
+          <label for="Campanha" class="form-label visually-hidden">Campanha</label>
+          <select class="form-select" aria-label="Campanha" id="Campanha">
+            <option selected>(Todos os usuários)</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="col mb-4">
+          <label for="Campanha" class="form-label visually-hidden">Campanha</label>
+          <select class="form-select" aria-label="Campanha" id="Campanha">
+            <option selected>(Todos os status)</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <label for="Campanha" class="form-label visually-hidden">Campanha</label>
+      <select class="form-select" aria-label="Campanha" id="Campanha">
+        <option selected>Processo</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+    <div class="col-2">
+      <label for="Campanha" class="form-label visually-hidden">Campanha</label>
+      <select class="form-select" aria-label="Campanha" id="Campanha">
+        <option selected>Últimos 30 dias</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+    <div class="col-2">
+      <label for="Campanha" class="form-label visually-hidden">Campanha</label>
+      <select class="form-select" aria-label="Campanha" id="Campanha">
+        <option selected>Dê</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+    <div class="col-2">
+      <label for="Campanha" class="form-label visually-hidden">Campanha</label>
+      <select class="form-select" aria-label="Campanha" id="Campanha">
+        <option selected>Até</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+    <div class="col d-flex flex-grow-1 align-items-center justify-content-between">
+      <button class="btn btn-primary btn-icon" id="saveFilteredData">
+        <span class="material-icons"> done</span>
+      </button>
+      <button class="btn btn-icon btn-link text-decoration-none" id="resetFilters">
+        <span class="material-icons text-primary"> close</span>
+      </button>
+      <button class="btn btn-icon btn-link text-decoration-none">
+        <span class="material-icons text-primary"> more_vert</span>
+      </button>
+    </div>
+  </div>
+</div>
+              <!-- / Filtros Avançados -->
+            </div>
+
+            <div class="col-12">
+              <div class="row mb-4">
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <div class="content-card data-highlight" data-bs-custom-class="data-popover" data-bs-trigger="hover" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="<b>2.272.770</b> registros enriquecidos. <br> <b>2.7% a mais</b> em relação ao período anterior.">
+                    <h3 class="data-highlight__title">Enriquecimentos</h3>
+                    <div class="data-highlight__content">
+                      <span class="data-highlight__text">2,27mi</span>
+                      <div class="rounded-icon" data-type="up">
+                        <span class="material-icons icon"> arrow_upward</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <div class="content-card data-highlight" data-bs-custom-class="data-popover" data-bs-trigger="hover" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Aproximadamente <b>2:06h</b> de atividades realizadas.">
+                    <h3 class="data-highlight__title">Atividades (horas)</h3>
+                    <div class="data-highlight__content">
+                      <span class="data-highlight__text">2:06</span>
+                      <div class="rounded-icon" data-type="neutral">
+                        <span class="material-icons icon"> ≈</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4 mb-3 mb-md-0">
+                  <div class="content-card data-highlight" data-bs-custom-class="data-popover" data-bs-trigger="hover" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Mais de <b>70%</b> de eficiência.">
+                    <h3 class="data-highlight__title">Eficiência</h3>
+                    <div class="data-highlight__content">
+                      <span class="data-highlight__text">73%</span>
+                      <div class="rounded-icon" data-type="up">
+                        <span class="material-icons icon"> arrow_upward</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="content-card">
+              <div class="content-card__body">
+                <div class="row">
+                  <div class="col-12">
+                    <div id="graficoIndicadoresGerais"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- / Row -->
+    </div>
+
+    <!-- Sidebar Enriquecimento -->
+    <!-- Sidebar Enriquecimento --><div class="content-grid__sidebar">
+  <header class="content-grid__sidebar-header">
+    <h4 class="content-grid__sidebar-title">Detalhes do enriquecimento</h4>
+    <button class="btn btn-link px-0" data-toggle="grid-sidebar">
+      <span class="material-icons"> close</span>
+    </button>
+  </header>
+  <hr class="h-divider">
+  <div class="content-grid__sidebar-body">
+    <div class="d-flex align-content-center justify-content-between">
+      <p class="mb-0 text-semibold">Nova Vida</p>
+      <p class="mb-0"><span class="highlight-primary">123456</span></p>
+    </div>
+    <hr class="h-divider">
+    <div class="list-container">
+      <div class="list-key">Usuário</div>
+      <div class="list-value"><b class="text-semibold">Jorge Bartz</b></div>
+      <div class="list-key">Entrada</div>
+      <div class="list-value"><b>41.744</b></div>
+      <div class="list-key">Saída</div>
+      <div class="list-value"><b>1.318</b></div>
+      <div class="list-key">Data</div>
+      <div class="list-value"><b>18/07</b> às <b>9:33</b></div>
+    </div>
+    <hr class="h-divider">
+    <div class="accordion accordion-flush accordion-sidebar__details" id="accordionDetails">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="accordionDetailsTitle">
+          <button class="accordion-button collapsed px-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            informações da campanha
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="accordionDetailsTitle" data-bs-parent="#accordionDetails">
+          <div class="accordion-body px-0">
+            <div class="list-container gap-3 lista__detalhes-campanha">
+              <div class="list-key">Campanha</div>
+              <div class="list-value">
+                <b class="text-semibold">Central de Marketing</b>
+                <button class="btn btn-link btn-sm">
+                  <span class="material-icons icon"> edit</span>
+                </button>
+              </div>
+              <div class="list-key">Processo</div>
+              <div class="list-value">
+                <b class="text-semibold">ENRIQ (2-FIXO 4-MÓVEIS)</b>
+              </div>
+              <div class="list-key">Layout entrada</div>
+              <div class="list-value">
+                <b class="text-semibold" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="Padrão Nova Vida">Padrão Nova Vida</b>
+                <button class="btn btn-link btn-sm">
+                  <span class="material-icons icon"> open_in_new</span>
+                </button>
+              </div>
+              <div class="list-key">Layout saída</div>
+              <div class="list-value">
+                <b class="text-semibold" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-title="Layout 4 celulares e 2 fixos">Layout 4 celulares e 2 fixos</b>
+                <button class="btn btn-link btn-sm">
+                  <span class="material-icons icon"> open_in_new</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="h-divider">
+  </div>
+  <footer class="content-grid__sidebar-footer d-flex justify-content-center gap-4 mt-auto">
+    <button class="btn btn-primary btn-icon">
+      <span class="material-icons"> download</span>
+    </button>
+    <button class="btn btn-secondary text-primary btn-icon">
+      <span class="material-icons"> refresh</span>
+    </button>
+    <button class="btn btn-secondary text-primary btn-icon">
+      <span class="material-icons"> delete</span>
+    </button>
+  </footer>
+</div>
+<!-- / Sidebar Enriquecimento -->
+    <!-- / Sidebar Enriquecimento -->
+
+    <!-- Modal Nova campanha -->
+    <!-- Modal novo enriquecimento --><div class="modal fade" id="modalNovaCampanha" tabindex="-1" aria-labelledby="modalNovaCampanhaLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalNovaCampanhaLabel">Nova campanha</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row d-flex">
+          <div class="col-12">
+            <label for="cliente" class="form-label visually-hidden">Nome</label>
+            <input type="text" class="form-control form-control-lg" id="cliente" placeholder="Nome da campanha">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer d-flex gap-3">
+        <button type="button" class="btn btn-primary">Ok</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- / Modal Novo enriquecimento -->
+    <!-- / Modal Nova campanha -->
+  </div>
+
+
+        
+      </main>
+    </div>
+  <script src="assets/vendor/jquery/jquery-3.6.4.min.js"></script>
+<script src="assets/vendor/bootstrap-5.0.2/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/jquery.mask/jquery.mask.min.js"></script>
+<script src="assets/vendor/jquery.validate/jquery.validate.min.js"></script>
+<script src="assets/vendor/jquery.validate/additional-methods.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/DataTables/datatables.min.js"></script>
+<script src="assets/vendor/dropzone/dropzone.min.js"></script>
+<script src="assets/vendor/gsap/gsap.min.js"></script>
+<script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
+<script src="assets/vendor/eCharts/echarts.min.js"></script>
+<script src="assets/vendor/dayjs/dayjs.min.js"></script>
+<script src="assets/js/utils.js"></script>
+<script src="assets/js/app-ipe-charts-pf.js"></script>
+<script src="assets/js/app-ipe-charts-pj.js"></script>
+<script src="assets/js/app-ipe-charts-sms.js"></script>
+<script src="assets/js/app-ipe.js"></script></body></html>
