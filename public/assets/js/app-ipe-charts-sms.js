@@ -128,9 +128,15 @@ const chart = echarts.init(document.getElementById('mapChart'));
 const barChart = echarts.init(document.getElementById('barContainer'));
 const mapChartBar = echarts.init(document.getElementById('mapChartBar'));
 
+const loader = document.getElementById('loader');
+const chartsContent = document.getElementById('chartsContent');
+
 fetch("assets/js/br.json")
     .then(response => response.json())
     .then(data => {
+        loader.style.display = 'none';
+        chartsContent.style.visibility = 'visible';
+
         const geoJson = data;
         echarts.registerMap('Brazil', geoJson);
         
@@ -166,13 +172,12 @@ fetch("assets/js/br.json")
 
         const totalValue = stateData.reduce((sum, state) => sum + state.value, 0);
 
-        
         const option = {
             tooltip: { 
                 trigger: 'item',
                 formatter: function (params) {
                     if (params.data) {
-                        const percentage = ((params.data.value / totalValue) * 100).toFixed(2); // Calcula o percentual
+                        const percentage = ((params.data.value / totalValue) * 100).toFixed(2);
                         return `${params.name}: ${percentage}%`;
                     }
                     return `${params.name}: 0% do total`;
@@ -197,10 +202,9 @@ fetch("assets/js/br.json")
                 }
             ]
         };
-    
+
         const sortedStateData = stateData
-        .filter(item => item.value > 0)
-        // .sort((a, b) => a.value - b.value);
+        .filter(item => item.value > 0);
 
         const barChartOption = {
             tooltip: {
@@ -208,8 +212,8 @@ fetch("assets/js/br.json")
                 axisPointer: { type: 'shadow' }
             },
             grid: {
-                left: '5%',
-                right: '5%',
+                left: '2%',
+                right: '2%',
                 bottom: '5%',
                 containLabel: true
             },
@@ -239,7 +243,6 @@ fetch("assets/js/br.json")
         };
 
         mapChartBar.setOption(barChartOption);
-        
         chart.setOption(option);
        
         chart.on('mouseover', function (params) {
@@ -251,12 +254,15 @@ fetch("assets/js/br.json")
                 });
             }
         });
-        
-        chart.on('mouseout', function (params) {
+
+        chart.on('mouseout', function () {
             barChart.dispatchAction({
                 type: 'downplay',
                 seriesIndex: 0
             });
         });
+    })
+    .catch(error => {
+        loader.innerText = "Erro ao carregar os dados.";
+        console.error("Erro ao carregar JSON:", error);
     });
-// FIM GRÁFICO GEOLOCALIZAÇÃO
