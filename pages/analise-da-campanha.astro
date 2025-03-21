@@ -1,0 +1,189 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AppHeaderBi from "../components/AppHeaderBi.astro";
+import PageHeader from "../components/PageHeader.astro";
+---
+
+<Layout title="B.I. Pessoa física | Nova Vida Ipe">
+  <!--Page header -->
+  <AppHeaderBi />
+  <!-- / Page header -->
+
+  <div class="content-grid__wrapper" data-container="content-grid-wrapper">
+    <div class="content-grid__content">
+      <PageHeader>
+        <div class="page-header__title">
+          <span
+            class="material-icons icon highlight-purple"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom"
+            title="Pessoa jurídica"
+            data-bs-custom-class="custom-tooltip"
+          >
+            apartment
+          </span>
+           Análise da campanha: <strong><span id="nameAnalysis">"Teste de SMS"</span> | ID<span id="idAnalysis">2785</span> |</strong> <span id="statusAnalysis">100</span>% Concluída
+        </div>
+
+        <div class="page-header__buttons" slot="page-header-buttons">
+          <div class="page-header__buttons">
+            <a class="btn btn-primary btn-icon" href="bi.html">
+              <span class="material-icons icon highlight-purpe">close</span>
+            </a>
+          </div>
+        </div>
+      </PageHeader>
+
+      <div class="content-line__wrapper">
+        <div class="row">
+          <div class="mb-4 col-12 col-lg-12 mb-lg-0">
+            <div class="charts-wrapper">
+              <div class="row mb-3">
+                <div class="col-12 col-md-6 col-lg mb-2">
+                  <div
+                    class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                  >
+                    <div class="rounded-icon" color="purple">
+                      <span class="material-icons icon">chat</span>
+                    </div>
+                    <div class="text-item">
+                      <p class="text-item__title">Mensagens</p>
+                      <p class="text-item__detail">50.535 - 100%</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg mb-2">
+                  <div
+                    class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                  >
+                    <div class="rounded-icon" color="purple">
+                      <span class="material-icons icon">tty</span>
+                    </div>
+                    <div class="text-item">
+                      <p class="text-item__title">Whatsapp</p>
+                      <p class="text-item__detail">47.423 - 97%</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg mb-2">
+                  <div
+                    class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                  >
+                    <div class="rounded-icon" color="purple">
+                      <span class="material-icons filled"
+                        >local_fire_department</span
+                      >
+                    </div>
+                    <div class="text-item">
+                      <p class="text-item__title">Fone Hot</p>
+                      <p class="text-item__detail">27.423 - 53%</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg mb-2">
+                  <div
+                    class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                  >
+                    <div class="rounded-icon" color="purple">
+                      <span class="material-icons filled">app_blocking</span>
+                    </div>
+                    <div class="text-item">
+                      <p class="text-item__title">Procon</p>
+                      <p class="text-item__detail">7.423 - 13%</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md col-lg mb-2">
+                  <div
+                    class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                  >
+                    <div class="rounded-icon" color="purple">
+                      <span class="material-icons filled">mail</span>
+                    </div>
+                    <div class="text-item">
+                      <p class="text-item__title">Respostas</p>
+                      <p class="text-item__detail">2.135 - 15%</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md col-lg mb-2">
+                  <div
+                    class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                  >
+                    <div class="rounded-icon" color="purple">
+                      <span class="material-icons filled">link</span>
+                    </div>
+                    <div class="text-item">
+                      <p class="text-item__title">Cliques no link</p>
+                      <p class="text-item__detail">47.423 - 97%</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div
+                    class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                  >
+                    <div class="rounded-icon" color="purple">
+                      <span class="material-icons filled">sms</span>
+                    </div>
+                    <div class="text-item">
+                      <p class="text-item__detail">Mensagem: Lançamento NVTI: #NOME#, Chega de mensagens ignoradas! O Opera chegou para revolucionar seu disparo de SMS. Acesse agora: <a href="http://nvti.io/293e4433XQWV" target="_blank">http://nvti.io/293e4433XQWV</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12 mb-4">
+                  <div class="chart-wrapper chart-campanha">
+                    <h2 class="chart-title">Disparos por Hora</h2>
+                    <div id="chartDisparos" class="chart-item"></div>
+                  </div>
+                </div>
+                <div class="col-12 mb-4">
+                  <div class="chart-wrapper chart-campanha">
+                    <h2 class="chart-title">Vínculo Familiar</h2>
+                    <div id="chartLeituras" class="chart-item"></div>
+                  </div>
+                </div>
+                <div class="col-12 mb-4">
+                  <div class="chart-wrapper chart-campanha">
+                    <div id="chartStatusBarras" class="chart-item"></div>
+                  </div>
+                </div>
+
+                <div class="col-12 mb-4">
+                  <div class="chart-wrapper chart-campanha chart-geolocalizacao">
+                    <h2 class="chart-title">Geolocalização</h2>
+                    <div id="loader" class="loader"></div>
+                    <div class="charts-container" id="chartsContent">
+                      <div class="row">
+                        <div class="col-12 col-md-5">
+                          <div id="mapChart" class="chart-item"></div>
+                          <div id="barContainer" class="chart-item"></div>
+                        </div>
+                        <div class="col-12 col-md-7">
+                          <div id="mapChartBar" class="chart-item"></div>
+                        </div>
+                      </div>
+                  	</div>
+                  </div>
+                </div>
+
+              </div>
+            
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fim Content Line -->
+    </div>
+  </div>
+</Layout>

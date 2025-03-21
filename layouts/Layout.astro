@@ -1,0 +1,76 @@
+---
+import Sidebar from "../components/Sidebar.astro";
+import SidebarDetalhes from "../components/SidebarDetalhes.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/vendor/bootstrap-5.0.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="assets/vendor/DataTables/datatables.min.css" />
+    <link
+      rel="stylesheet"
+      href="assets/vendor/dropzone/dropzone.min.css"
+      type="text/css"
+    />
+
+    <link rel="stylesheet" href="assets/vendor/animatecss/animate.min.css" />
+    <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/app-ipe-styles.css" />
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <Sidebar />
+
+    <div class="main__wrapper">
+      <main class="main__content">
+        <slot />
+
+        <SidebarDetalhes />
+      </main>
+    </div>
+  </body>
+</html>
+
+<script is:inline src="assets/vendor/jquery/jquery-3.6.4.min.js"></script>
+<script is:inline src="assets/vendor/bootstrap-5.0.2/js/bootstrap.bundle.min.js"
+></script>
+<script is:inline src="assets/vendor/jquery.mask/jquery.mask.min.js"></script>
+<script is:inline src="assets/vendor/jquery.validate/jquery.validate.min.js"
+></script>
+<script is:inline src="assets/vendor/jquery.validate/additional-methods.min.js"
+></script>
+<script is:inline src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script is:inline src="assets/vendor/DataTables/datatables.min.js"></script>
+<script is:inline src="assets/vendor/dropzone/dropzone.min.js"></script>
+<script is:inline src="assets/vendor/gsap/gsap.min.js"></script>
+<script is:inline src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
+<script is:inline src="assets/vendor/eCharts/echarts.min.js"></script>
+<script is:inline src="assets/vendor/dayjs/dayjs.min.js"></script>
+<script is:inline src="assets/js/utils.js"></script>
+<script is:inline src="assets/js/app-ipe-charts-pf.js"></script>
+<script is:inline src="assets/js/app-ipe-charts-pj.js"></script>
+<script is:inline src="assets/js/app-ipe-charts-sms.js"></script>
+<script is:inline src="assets/js/app-ipe.js"></script>

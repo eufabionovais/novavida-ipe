@@ -1,0 +1,528 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AppHeaderBi from "../components/AppHeaderBi.astro";
+import PageHeader from "../components/PageHeader.astro";
+---
+
+<Layout title="B.I. Pessoa física | Nova Vida Ipe">
+  <!--Page header -->
+  <AppHeaderBi />
+  <!-- / Page header -->
+
+  <div class="content-grid__wrapper" data-container="content-grid-wrapper">
+    <div class="content-grid__content">
+      <PageHeader>
+        <div class="page-header__title">
+          <span
+            class="material-icons icon highlight-purple"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom"
+            title="Pessoa jurídica"
+            data-bs-custom-class="custom-tooltip"
+          >
+            apartment
+          </span>
+           Mega Brasil
+          <span class="material-icons icon highlight-purple">
+            keyboard_arrow_right
+          </span>
+          <b class="text-semibold" id="slideTitle">Dados cadastrais</b>
+        </div>
+
+        <div class="page-header__buttons" slot="page-header-buttons">
+          <div class="page-header__buttons">
+            <a class="btn btn-primary btn-icon" href="bi.html">
+              <span class="material-icons icon highlight-purpe">close</span>
+            </a>
+          </div>
+        </div>
+      </PageHeader>
+
+      <div class="content-line__wrapper">
+        <div class="row">
+          <div class="mb-4 col-12 col-lg-12 mb-lg-0">
+            <div class="charts-wrapper">
+              <div class="swiper">
+                <div class="swiper-wrapper">
+                  <!-- SLIDE 1 - PESSOA FÍSICA -->
+                  <div class="swiper-slide" data-titulo="Dados cadastrais">
+                    <div class="row mb-3">
+                      <div class="col-12 col-md-6 col-lg mb-2">
+                        <div
+                          class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                        >
+                          <div class="rounded-icon" color="purple">
+                            <span class="material-icons filled"
+                              >featured_play_list</span
+                            >
+                          </div>
+                          <div class="text-item">
+                            <p class="text-item__title">Documentos</p>
+                            <p class="text-item__detail">43.563.526</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-md-6 col-lg mb-2">
+                        <div
+                          class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                        >
+                          <div class="rounded-icon" color="purple">
+                            <span class="material-icons filled">tty</span>
+                          </div>
+                          <div class="text-item">
+                            <p class="text-item__title">Telefones</p>
+                            <p class="text-item__detail">384.605.747</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-md-6 col-lg mb-2">
+                        <div
+                          class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                        >
+                          <div class="rounded-icon" color="purple">
+                            <span class="material-icons filled"
+                              >location_on</span
+                            >
+                          </div>
+                          <div class="text-item">
+                            <p class="text-item__title">Endereços</p>
+                            <p class="text-item__detail">183.713.015</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-md-6 col-lg mb-2">
+                        <div
+                          class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                        >
+                          <div class="rounded-icon" color="purple">
+                            <span class="material-icons filled">email</span>
+                          </div>
+                          <div class="text-item">
+                            <p class="text-item__title">E-mails</p>
+                            <p class="text-item__detail">44.151.254</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-md col-lg mb-2">
+                        <div
+                          class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                        >
+                          <div class="rounded-icon" color="purple">
+                            <span class="material-icons filled">dangerous</span>
+                          </div>
+                          <div class="text-item">
+                            <p class="text-item__title">Área de risco</p>
+                            <p class="text-item__detail">2.069.119</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12 col-lg-6 mb-4">
+                        <div class="chart-wrapper">
+                          <h2 class="chart-title">Situação do CPF</h2>
+                          <div
+                            id="graficoSituacaoDocumentoPF"
+                            class="chart-item"
+                          >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-lg-6 mb-4">
+                        <div class="chart-wrapper">
+                          <h2 class="chart-title">Vínculo Familiar</h2>
+                          <div id="graficoGrauVinculoPF" class="chart-item">
+                          </div>
+                        </div>
+                        <div class="legendas-manuais row">
+                          <div class="col-6">
+                            <p><b>Até 1 vínculo:</b> 535.63.452</p>
+                          </div>
+                          <div class="col-6">
+                            <p><b>Até 2 vínculos:</b> 535.63.452</p>
+                          </div>
+                          <div class="col-6">
+                            <p><b>Até 3 vínculos:</b> 535.63.452</p>
+                          </div>
+                          <div class="col-6">
+                            <p><b>Demais vínculos:</b> 535.63.452</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-lg-6 mb-4">
+                        <div class="chart-wrapper">
+                          <h2 class="chart-title">Flags de Telefonia</h2>
+                          <div id="graficoFlagsTelefoniaPF" class="chart-item">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-lg-6 mb-4">
+                        <div class="chart-wrapper">
+                          <h2 class="chart-title">Telefone por Ranking</h2>
+                          <div id="graficoTelefonesRanking" class="chart-item">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-lg-6">
+                        <div class="chart-wrapper">
+                          <h2 class="chart-title">Pessoas por Estado</h2>
+                          <div id="graficoPessoasPorEstado" class="chart-item">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-lg-6">
+                        <div class="chart-wrapper">
+                          <h2 class="chart-title">Pessoas por Região</h2>
+                          <div id="graficoPessoasPorRegiao" class="chart-item">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- FIM SLIDE 1 - PESSOA FÍSICA -->
+
+                  <!-- SLIDE 2 - PESSOA FÍSICA -->
+                  <div class="swiper-slide" data-titulo="Personas">
+                    <div class="row">
+                      <div class="col-12 col-lg-6 mb-4">
+                        <div class="chart-wrapper">
+                          <h2 class="chart-title">Pessoas por Sexo</h2>
+                          <div id="graficoPessoasPorSexo" class="chart-item">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-lg-6 mb-4">
+                        <div class="chart-wrapper">
+                          <h2 class="chart-title">Pessoas por Geração</h2>
+                          <div id="graficoPessoasPorGeracao" class="chart-item">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12 mb-4">
+                        <div class="chart-wrapper">
+                          <h2 class="chart-title">Persona de Crédito</h2>
+                          <div id="graficoPersonaCredito" class="chart-item">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-lg-6 mb-4">
+                        <div class="chart-wrapper">
+                          <h2 class="chart-title">Persona Digital</h2>
+                          <div id="graficoPersonaDigital" class="chart-item">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-lg-6 mb-4">
+                        <div class="chart-wrapper">
+                          <h2 class="chart-title">Possível Escolaridade</h2>
+                          <div
+                            id="graficoPossivelEscolaridade"
+                            class="chart-item"
+                          >
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="chart-wrapper">
+                          <h2 class="chart-title">Persona Demográfica</h2>
+                          <div
+                            id="graficoPersonaDemografica"
+                            class="chart-item"
+                          >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- FIM SLIDE 2 - PESSOA FÍSICA -->
+
+                  <!-- SLIDE 3 PESSOA FÍSICA-->
+                  <div class="swiper-slide" data-titulo="Crédito e risco">
+                    <div class="row mb-3">
+                      <div class="col-12 mb-3">
+                        <div class="row">
+                          <div class="col-12 col-md-4 col-lg-3 mb-2">
+                            <div
+                              class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                            >
+                              <div class="rounded-icon" color="purple">
+                                <span class="material-icons filled"
+                                  >health_and_safety</span
+                                >
+                              </div>
+                              <div class="text-item">
+                                <p class="text-item__title">Óbito</p>
+                                <p class="text-item__detail">31.258.011</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-12 col-md-4 col-lg-3 mb-2">
+                            <div
+                              class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                            >
+                              <div class="rounded-icon" color="purple">
+                                <span class="material-icons filled"
+                                  >family_restroom</span
+                                >
+                              </div>
+                              <div class="text-item">
+                                <p class="text-item__title">Bolsa Família</p>
+                                <p class="text-item__detail">16.838.846</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-12 col-md-4 col-lg-3 mb-2">
+                            <div
+                              class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                            >
+                              <div class="rounded-icon" color="purple">
+                                <span class="material-icons filled">deck</span>
+                              </div>
+                              <div class="text-item">
+                                <p class="text-item__title">Aposentados</p>
+                                <p class="text-item__detail">36.780.774</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-12 col-md-4 col-lg-3 mb-2">
+                            <div
+                              class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                            >
+                              <div class="rounded-icon" color="purple">
+                                <span class="material-icons filled"
+                                  >credit_card_off</span
+                                >
+                              </div>
+                              <div class="text-item">
+                                <p class="text-item__title">
+                                  Possível Negativação
+                                </p>
+                                <p class="text-item__detail">68.073.312</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12 mb-3">
+                        <div class="chart-wrapper">
+                          <h2 class="chart-title">Propensão de Pagamento</h2>
+                          <div
+                            id="graficoPropensaoPagamento"
+                            class="chart-item"
+                          >
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="row mb-4 mt-2">
+                          <div class="col-12 col-md-4 col-lg-3">
+                            <div
+                              class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                            >
+                              <div class="rounded-icon" color="purple">
+                                <span class="material-icons filled"
+                                  >check_box</span
+                                >
+                              </div>
+                              <div class="text-item">
+                                <p class="text-item__title">Flag de FGTS</p>
+                                <p class="text-item__detail">36.780.774</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-12 col-md-4 col-lg-3">
+                            <div
+                              class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                            >
+                              <div class="rounded-icon" color="purple">
+                                <span class="material-icons filled"
+                                  >request_quote</span
+                                >
+                              </div>
+                              <div class="text-item">
+                                <p class="text-item__title">Valor Presumido</p>
+                                <p class="text-item__detail">R$152.502</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-12 col-md-4 col-lg-3">
+                            <div
+                              class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                            >
+                              <div class="rounded-icon" color="purple">
+                                <span class="material-icons filled"
+                                  >monetization_on</span
+                                >
+                              </div>
+                              <div class="text-item">
+                                <p class="text-item__title">Renda Média</p>
+                                <p class="text-item__detail">R$3.352</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-12 col-md-4 col-lg-3">
+                            <div
+                              class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                            >
+                              <div class="rounded-icon" color="purple">
+                                <span class="material-icons filled"
+                                  >payments</span
+                                >
+                              </div>
+                              <div class="text-item">
+                                <p class="text-item__title">Renda Familiar</p>
+                                <p class="text-item__detail">203.925.633</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-lg-6 mb-3">
+                        <div class="chart-wrapper">
+                          <h2 class="chart-title">Collection Score</h2>
+                          <div id="graficoCollectionScore" class="chart-item">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-lg-6 mb-3">
+                        <div class="chart-wrapper">
+                          <h2 class="chart-title">Vínculo Societário</h2>
+                          <div id="graficoVinculoSocietario" class="chart-item">
+                          </div>
+                          <div class="row legendas-manuais">
+                            <div class="col-8 mx-auto text-center">
+                              <p><b>Sem Vínculo:</b> 15.452 – 53%</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="row mb-4 mt-2">
+                          <div class="col-12 col-md-4 col-lg-3">
+                            <div
+                              class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                            >
+                              <div class="rounded-icon" color="purple">
+                                <span class="material-icons filled"
+                                  >price_change</span
+                                >
+                              </div>
+                              <div class="text-item">
+                                <p class="text-item__title">Fonte de Renda</p>
+                                <p class="text-item__detail">203.080.810</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-12 col-md-4 col-lg-3">
+                            <div
+                              class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                            >
+                              <div class="rounded-icon" color="purple">
+                                <span class="material-icons filled"
+                                  >verified_user</span
+                                >
+                              </div>
+                              <div class="text-item">
+                                <p class="text-item__title">
+                                  Vínculo Empregatício
+                                </p>
+                                <p class="text-item__detail">36.880.784</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-12 col-md-4 col-lg-3">
+                            <div
+                              class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                            >
+                              <div class="rounded-icon" color="purple">
+                                <span class="material-icons filled"
+                                  >savings</span
+                                >
+                              </div>
+                              <div class="text-item">
+                                <p class="text-item__title">
+                                  Seguro Desemprego
+                                </p>
+                                <p class="text-item__detail">36.880.784</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-12 col-md-4 col-lg-3">
+                            <div
+                              class="content-card d-flex align-items-center gap-2 h-100 data-card small-spacing"
+                            >
+                              <div class="rounded-icon" color="purple">
+                                <span class="material-icons filled"
+                                  >work_outline</span
+                                >
+                              </div>
+                              <div class="text-item">
+                                <p class="text-item__title">
+                                  Possível Profissão
+                                </p>
+                                <p class="text-item__detail">36.880.784</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-lg-6">
+                        <div class="chart-wrapper">
+                          <h2 class="chart-title">Classe Social e Renda</h2>
+                          <div id="graficoDistribuicaoRenda" class="chart-item">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-lg-6">
+                        <div class="chart-wrapper">
+                          <h2 class="chart-title">
+                            Consultados em 6 e 12 Meses
+                          </h2>
+                          <div
+                            id="graficoConsultasUltimoAno"
+                            class="chart-item"
+                          >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- FIM SLIDE 3 PESSOA FÍSICA-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fim Content Line -->
+    </div>
+  </div>
+</Layout>
