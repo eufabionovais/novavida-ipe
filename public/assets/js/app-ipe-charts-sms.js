@@ -312,7 +312,7 @@ let optionGeolocalizacao = {
       show: true,
       xAxisIndex: [0],
       start: 10,
-      end: 70,
+      end: 50,
       bottom: 10,
       height: 20,
     },
