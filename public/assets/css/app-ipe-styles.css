@@ -15120,14 +15120,15 @@ label.error{
 
 .chart-wrapper.chart-geolocalizacao{
    padding-bottom: 40px;
+   height: 100%;
 
-   @media screen and (max-width: 768px) {
+   /* @media screen and (max-width: 768px) {
       height: 800px;
 
       .charts-container .col-12{
          height: 50%;
       }
-   }
+   } */
 }
 .chart-geolocalizacao .charts-container{
    height: 100%;

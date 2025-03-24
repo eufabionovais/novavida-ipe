@@ -22,7 +22,12 @@ import PageHeader from "../components/PageHeader.astro";
           >
             apartment
           </span>
-           Análise da campanha: <strong><span id="nameAnalysis">"Teste de SMS"</span> | ID<span id="idAnalysis">2785</span> |</strong> <span id="statusAnalysis">100</span>% Concluída
+          Análise da campanha: <strong
+            ><span id="nameAnalysis">"Teste de SMS"</span> | ID<span
+              id="idAnalysis">2785</span
+            > |</strong
+          >
+          <span id="statusAnalysis">100</span>% Concluída
         </div>
 
         <div class="page-header__buttons" slot="page-header-buttons">
@@ -131,35 +136,46 @@ import PageHeader from "../components/PageHeader.astro";
                       <span class="material-icons filled">sms</span>
                     </div>
                     <div class="text-item">
-                      <p class="text-item__detail">Mensagem: Lançamento NVTI: #NOME#, Chega de mensagens ignoradas! O Opera chegou para revolucionar seu disparo de SMS. Acesse agora: <a href="http://nvti.io/293e4433XQWV" target="_blank">http://nvti.io/293e4433XQWV</a></p>
+                      <p class="text-item__detail">
+                        Mensagem: Lançamento NVTI: #NOME#, Chega de mensagens
+                        ignoradas! O Opera chegou para revolucionar seu disparo
+                        de SMS. Acesse agora: <a
+                          href="http://nvti.io/293e4433XQWV"
+                          target="_blank">http://nvti.io/293e4433XQWV</a
+                        >
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div class="row">
-                <div class="col-12 mb-4">
+                <div class="col-md-6 col-12 mb-4">
                   <div class="chart-wrapper chart-campanha">
                     <h2 class="chart-title">Disparos por Hora</h2>
                     <div id="chartDisparos" class="chart-item"></div>
                   </div>
                 </div>
-                <div class="col-12 mb-4">
+                <div class="col-md-6 col-12 mb-4">
                   <div class="chart-wrapper chart-campanha">
-                    <h2 class="chart-title">Vínculo Familiar</h2>
+                    <h2 class="chart-title">Leituras identificadas</h2>
                     <div id="chartLeituras" class="chart-item"></div>
                   </div>
                 </div>
-                <div class="col-12 mb-4">
+                <div class="col-md-6 col-12 mb-4">
                   <div class="chart-wrapper chart-campanha">
+                    <h2 class="chart-title">Entregas</h2>
                     <div id="chartStatusBarras" class="chart-item"></div>
                   </div>
                 </div>
 
-                <div class="col-12 mb-4">
-                  <div class="chart-wrapper chart-campanha chart-geolocalizacao">
+                <div class="col-md-6 col-12 mb-4">
+                  <div
+                    class="chart-wrapper chart-campanha chart-geolocalizacao"
+                  >
                     <h2 class="chart-title">Geolocalização</h2>
-                    <div id="loader" class="loader"></div>
+                    <div id="graficoGeolocalizacao" class="chart-item"></div>
+                    <!-- <div id="loader" class="loader"></div>
                     <div class="charts-container" id="chartsContent">
                       <div class="row">
                         <div class="col-12 col-md-5">
@@ -170,15 +186,10 @@ import PageHeader from "../components/PageHeader.astro";
                           <div id="mapChartBar" class="chart-item"></div>
                         </div>
                       </div>
-                  	</div>
+                    </div> -->
                   </div>
                 </div>
-
               </div>
-            
-
-
-
             </div>
           </div>
         </div>
